@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-12",
-  "status_note": "H4 UI blocked by automatic approval review: explicit browser resumption required; non-browser readiness complete",
+  "status_note": "Browser testing explicitly authorized; H4 UI blocked by CUA runtime startup/configuration failure after one reset retry",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -394,7 +394,7 @@
         "本阶段 NOT_RUN：用户批准移至集中验收阶段；完成前不宣称 v1.0 通过"
       ],
       "evidence": [
-        "reports/H4-ui-authorization.md"
+        "reports/H4-ui-environment.md"
       ]
     },
     {
@@ -411,7 +411,7 @@
         "本阶段 NOT_RUN：用户批准移至集中验收阶段"
       ],
       "evidence": [
-        "reports/H4-ui-authorization.md"
+        "reports/H4-ui-environment.md"
       ]
     },
     {

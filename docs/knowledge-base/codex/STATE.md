@@ -1,19 +1,15 @@
 # 当前检查点
 
-2026-09-12，patricklfdm/knowledge-base，v5。本回合连续交付两批五篇教材：F11集成4ea13cde8291b7cf935b8cf201c4b12599bf7d70、F12/F13测试/迁移/运行7e76fca18cfde49422ec2a406aeafbc459cd4f5a，均普通推送、同SHA CI/Pages与HTTP文本冒烟成功。最新内容运行34681267525，部署2026-09-12T07:40:05Z。工程批25e73408143c12079c8f809af454c405ce762928新增H4恢复夹具、门禁与手册，已普通推送；同SHA运行34681756899 CI/Pages成功，部署2026-09-12T07:51:47Z，HTTP文本冒烟PASS。随后补记50e2465b3bbc1991d3002a1e15476988f764c238已推送，同SHA运行34681850068 CI/Pages成功，HTTP文本冒烟通过。
+2026-09-12，patricklfdm/knowledge-base，v5。本轮基线365b2890c32018f79f7d07e640be99427ddf095e，接手工作区干净；该提交已普通推送，同SHA运行34682061138 CI/Pages及HTTP文本通过。H3路线与H4-001A非浏览器准备已完成，H4整体/v1.0未完成；BACKLOG为唯一台账。
 
-H3-GATE非浏览器验收PASS，H4-001A准备完成，v1.0未完成。BACKLOG是唯一台账。报告：[路线验收](../../../reports/H3-route-gate.md)、[测试与运行](../../../reports/H3-tests-delivery.md)、[H4恢复准备](../../../reports/H4-release-readiness.md)；当前计划[H4-001A](plans/H4-001A-release-readiness.md)。
+## 当前授权与阻塞
 
-## 持续授权与下一项
+用户最新明确“恢复浏览器测试”，此前暂停及自动审批授权阻塞已解除。允许按[三目标](../UI_ACCEPTANCE.md)集中测试和必要局部修复，有限重试、不重建平台；每批适用验证后自动普通push origin/v5及同SHA跟踪仍有效，不需重复询问。PR/tag/强推/其他项目/生产数据不在范围。
 
-用户要求当前回合自动往后推进，不逐项停下来。每批适用验证后自动普通push origin/v5并跟踪同SHA，无需再询问发布；不授权PR/tag/强推/其他仓库/平台迁移。网站表现层仍冻结。浏览器仍暂停，不连接/安装/截图，G7与真实应用DOM/键盘/辅助技术NOT_RUN。已准备[三项目标](../UI_ACCEPTANCE.md)。2026-09-12通用“继续”后的首次打开浏览器操作被自动审批拒绝：此前暂停未明确解除。浏览器未打开，未绕过，详见[授权检查点](../../../reports/H4-ui-authorization.md)。H4-UI-SITE/H4-UI-APP记blocked，需用户明确允许恢复浏览器测试。
+当前阻塞是电脑控制工具环境：getState报Sky Computer Use native pipe startup failed；重置一次后getBrowser报CUA_REPL_ENABLED_SURFACES is required。本轮重试额度用尽，未取得可用页面状态/截图/交互结果。UI仍NOT_RUN，不能当站点FAIL或改写PASS。未启动本轮教学服务，未改用户全局配置。
 
-下一项引用H4-UI-SITE/H4-UI-APP及H4-001剩余验收；非浏览器准备已完成，本批只补记真实授权阻塞；H5依H4-001，不把未测UI标完成。先检查本工程提交同SHA Actions及工作区；如果已成功不要重复构建/提交。用户允许恢复后按清单有限执行；否则保存本检查点，不承诺回合结束后离线继续。
+## 恢复入口
 
-## 验证与恢复
+计划[H4集中UI](plans/H4-UI-concentrated.md)，报告[环境故障](../../../reports/H4-ui-environment.md)。运行环境恢复电脑控制能力后继续H4-UI-SITE/H4-UI-APP三目标，无需重新授权浏览器；先确认Git与本工程记录提交同SHA部署。H4-001剩余浏览器测试接入与搜索复核待真实证据，H5依赖保持。
 
-Node24.21.0/npm11.19.0命令级PATH，默认Node20；SQLite3.53.4、既有TS5.9.3。未新增依赖，复用本会话干净安装隔离副本，受控同步后kb:verify/npm test通过：27 notes、34检查器、259 tests/45 suites、52 HTML/155产物、禁发负面PASS；原锁不变。新增kb:recovery-test已纳入kb:verify，临时Git夹具“通过→故意失败→普通revert→恢复通过”实跑，清理且无remote；不是本项目或生产回退。
-
-F11与备注练习含空格路径独立安装/test/demo/exercise、真实HTTP与新进程数据保留、边界拒绝/SQL约束/事务回滚、故意破坏检出均有报告。真实DOM、生产迁移与恢复、并发、磁盘故障仍未验证。全部本轮服务关闭，只使用合成数据。历史搜索/字体/Excalidraw/上游格式问题保留。
-
-隔离指针/tmp/kb-h3b-path.txt与/tmp/kb-evolution-path.txt；最新日志/tmp/h4a-verify.log、/tmp/h4a-tests.log。临时材料失效按锁和仓库维护命令重建，勿访问用户或其他项目数据库。
+本批只有工程记录/授权说明，27篇内容检查、台账证据/依赖与diff检查通过，无运行代码/教材/依赖变化。此前完整隔离门禁259 tests、34检查器、52 HTML/155产物及禁发负面通过，原锁不变。Node24.21.0/npm11.19.0命令级PATH，默认Node20；隔离指针/tmp/kb-h3b-path.txt，日志/tmp/h4a-verify.log与/tmp/h4a-tests.log。失效按锁和受控源码重建，不访问用户数据库。不承诺回合结束后离线运行。
