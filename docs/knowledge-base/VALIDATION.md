@@ -6,10 +6,11 @@
 | ----------------------- | ---------------------------------------------------------------------------------------- |
 | npm run kb:check        | content 元数据、唯一 ID/URL/别名、先修 DAG、Markdown 内部链接/标题锚点、发布状态         |
 | npm run kb:test         | 临时正常/失败 fixtures；CLI 返回码；产物检测器；CI 依赖保护                              |
+| npm run kb:examples     | 明确运行 examples/foundations 的 5 组示例测试                                            |
 | npm run kb:build        | `npm run quartz -- build`，现有 Quartz CLI，默认 content/public                          |
 | npm run kb:output       | 对 public 的实际 HTML DOM 检查本站 base path、链接、资源与锚点                           |
 | npm run kb:publish-test | 临时正文与产物，真实构建正面对照和 3 种禁发 marker，扫描全部产物，再注入泄漏证明检测有效 |
-| npm run kb:verify       | 顺序执行 check/test/tsc/build/output/publish-test；任何非零即停止                        |
+| npm run kb:verify       | 顺序执行 check/test/examples/tsc/build/output/publish-test；任何非零即停止               |
 
 `npm test` 保留为上游及自有回归测试，在 CI 必需运行。`npm run check` 包含全仓 Prettier，H0 存在 8 个既有格式差异；本站门禁单独保留 tsc，不把既有格式噪声伪装成通过，也不整体格式化上游。自有改动在提交前做针对性格式检查。
 
@@ -17,7 +18,7 @@ H0 的 npx 包装启动曾在 Quartz banner 前 OOM，故 kb:build 直接调用 
 
 ## H1 支持范围
 
-普通 Markdown inline/reference 链接、GFM 表格中的链接、相对路径与省略 .md、中文/百分号编码、重复标题锚点、代码块/行内代码中的伪链接。目标使用已安装 Quartz `shortest` resolver；检测源文件大小写和 URL 冲突，发布页不能链接到未发布页。别名作为同目录重定向路径检查冲突，不作为任意标题搜索的替代。
+普通 Markdown inline/reference 链接、GFM 表格中的链接、相对路径与省略 .md、中文/百分号编码、重复标题锚点、代码块/行内代码中的伪链接。目标使用已安装 Quartz `relative` resolver（H2 为普通相对 Markdown 链接校准配置）；检测源文件大小写和 URL 冲突，发布页不能链接到未发布页。别名作为同目录重定向路径检查冲突，不作为任意标题搜索的替代。
 
 H1 尚不支持 Obsidian wiki/block、脚注、原始 HTML、内部 query、绝对站内路径、content 附件和 srcset；遇到这些语法会明确失败，需扩展解析和构建互证后使用。正文请使用普通 Markdown。H4 将增加附件允许清单/大小/引用检查；当前所有非 Markdown content 文件（排除配置忽略目录）均拒绝，避免宽松放行。
 

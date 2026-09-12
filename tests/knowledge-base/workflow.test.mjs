@@ -62,3 +62,19 @@ test("校验器假设与配置保持一致，过滤与主题保护不变", () =>
     fs.readFileSync(".nvmrc", "utf8").trim(),
   )
 })
+
+test("教学示例单独登记，Quartz 类型范围不包含示例", () => {
+  const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"))
+  assert.equal(pkg.scripts["kb:examples"], "npm test --prefix examples/foundations")
+  assert.ok(pkg.scripts["kb:verify"].includes("npm run kb:examples"))
+  const tsconfig = JSON.parse(fs.readFileSync("tsconfig.json", "utf8"))
+  assert.deepEqual(tsconfig.include, [
+    "quartz/**/*.ts",
+    "quartz/**/*.tsx",
+    "*.ts",
+    "*.tsx",
+    "./package.json",
+  ])
+  const examples = JSON.parse(fs.readFileSync("examples/foundations/package.json", "utf8"))
+  assert.equal(examples.scripts.test, "node --test foundations.test.mjs")
+})

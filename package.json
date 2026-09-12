@@ -25,7 +25,8 @@
     "kb:build": "npm run quartz -- build",
     "kb:output": "node scripts/knowledge-base/check-output.mjs",
     "kb:publish-test": "node scripts/knowledge-base/verify-publish.mjs",
-    "kb:verify": "npm run kb:check && npm run kb:test && tsc --noEmit && npm run kb:build && npm run kb:output && npm run kb:publish-test"
+    "kb:verify": "npm run kb:check && npm run kb:test && npm run kb:examples && tsc --noEmit && npm run kb:build && npm run kb:output && npm run kb:publish-test",
+    "kb:examples": "npm test --prefix examples/foundations"
   },
   "engines": {
     "npm": ">=10.9.2",
