@@ -124,6 +124,6 @@ console.log(acceptsDays("三天"))
 
 2026-09-11 在 Node 24.21.0/macOS arm64 实测；完整文件位于 [本知识库仓库](https://github.com/patricklfdm/knowledge-base) 的 `examples/foundations/`。测试验证正常、边界、类型错误和真值反例；不声明任何浏览器表单或后端接口已经完成。
 
-现在你能解释每条拒绝路径，并复用同一规则。后续计划学习对象和数组，表示包含多个字段的行程；该篇尚未完成。本批到这里可以先做上面的范围迁移练习。
+现在你能解释每条拒绝路径，并复用同一规则。下一篇学习[对象和数组](objects-and-arrays.md)，表示包含多个字段的行程。可以先完成上面的范围迁移练习再继续。
 
 [返回全栈基础路线](../../roadmaps/fullstack-foundations.md)

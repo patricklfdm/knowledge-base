@@ -21,3 +21,14 @@ article pre[data-language]::before {
     overflow: hidden;
   }
 }
+
+// The mobile explorer is viewport-wide; anchor it to the viewport, not the
+// sidebar's 1rem inset, and keep its text padding inside that width.
+@media (max-width: 800px) {
+  .explorer .explorer-content {
+    position: fixed;
+    left: 0;
+    padding-inline: 1rem;
+    box-sizing: border-box;
+  }
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-11",
-  "status_note": "H3-001A in progress; current batch publication authorized, remote validation pending",
+  "status_note": "H3-001A locally accepted; authorized batch release pending",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -173,7 +173,7 @@
       "id": "H3-001A",
       "phase": "H3",
       "title": "F03/F04 对象数组与模块错误边界",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H2-GATE"
       ],
@@ -182,7 +182,9 @@
         "成功、缺失、共享引用、异常及导入失败实测",
         "干净构建与390/1440阅读验证"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H3-objects-modules.md"
+      ]
     },
     {
       "id": "H3-002",

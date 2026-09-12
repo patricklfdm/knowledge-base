@@ -48,3 +48,59 @@ test("F02 真值反例与演示输出与正文一致", () => {
     "通过\n天数必须在 1 到 30 之间\n通过\n天数必须在 1 到 30 之间\n天数必须是整数\n天数必须是整数\n",
   )
 })
+
+test("F03 创建、查找与两种更新的演示", () => {
+  const result = run("trips-demo.mjs")
+  assert.equal(result.status, 0)
+  assert.equal(result.stdout, "3\n4\n5\n5 7\n")
+})
+test("F03 查找返回首个匹配，空列表/缺失/类型不符不会命中", () => {
+  const trips = [
+    { id: "t1", days: 3 },
+    { id: "t1", days: 5 },
+  ]
+  function matches(trip) {
+    return trip.id === "t1"
+  }
+  assert.equal(trips.find(matches), trips[0])
+  assert.equal([].find(matches), undefined)
+  assert.equal([{ id: 1 }].find(matches), undefined)
+  assert.equal([{ id: "t2" }].find(matches), undefined)
+  const bad = run("failures/missing-trip.mjs")
+  assert.notEqual(bad.status, 0)
+  assert.match(bad.stderr, /TypeError: Cannot read properties of undefined/)
+})
+test("F03 浅复制反例与改变嵌套字段的练习修复", () => {
+  const bad = run("failures/shallow-copy.mjs")
+  assert.equal(bad.status, 0)
+  assert.equal(bad.stdout, "山顶\n")
+  const trip = { days: 3, stop: { name: "山脚" } }
+  const fixed = { ...trip, stop: { ...trip.stop, name: "山顶" } }
+  assert.notEqual(fixed.stop, trip.stop)
+  assert.equal(trip.stop.name, "山脚")
+  assert.equal(fixed.stop.name, "山顶")
+})
+
+import { createTrip } from "./trips.mjs"
+test("F04 模块创建返回独立对象，复用天数边界并传播原因", () => {
+  for (const days of [1, 3, 30]) {
+    assert.deepEqual(createTrip("山城", days), { destination: "山城", days })
+  }
+  assert.notEqual(createTrip("山城", 3), createTrip("山城", 3))
+  for (const days of [0, 31, -1, 2.5, "3", null, undefined, NaN, Infinity]) {
+    assert.throws(() => createTrip("山城", days), { name: "Error", message: validateDays(days) })
+  }
+})
+test("F04 捕获、未捕获和导入失败是不同执行路径", () => {
+  const caught = run("modules-demo.mjs")
+  assert.equal(caught.status, 0)
+  assert.equal(caught.stdout, "山城 3\n创建失败：天数必须在 1 到 30 之间\n入口结束\n")
+  const uncaught = run("failures/uncaught.mjs")
+  assert.notEqual(uncaught.status, 0)
+  assert.equal(uncaught.stdout, "")
+  assert.match(uncaught.stderr, /Error: 天数必须在 1 到 30 之间/)
+  const wrong = run("failures/wrong-export.mjs")
+  assert.notEqual(wrong.status, 0)
+  assert.equal(wrong.stdout, "")
+  assert.match(wrong.stderr, /does not provide an export named 'createTrips'/)
+})

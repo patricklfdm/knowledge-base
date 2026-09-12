@@ -10,6 +10,8 @@
     "test": "node --test foundations.test.mjs",
     "f00": "node hello.mjs",
     "f01": "node values.mjs",
-    "f02": "node rules-demo.mjs"
+    "f02": "node rules-demo.mjs",
+    "f03": "node trips-demo.mjs",
+    "f04": "node modules-demo.mjs"
   }
 }
