@@ -27,7 +27,7 @@ examples/http-trips独立无npm依赖，内置Node HTTP/fetch，随机本机端�
 | 迁移练习 | PASS：inspect副本view=summary输出200/山城/undefined；view=unknown输出400/错误JSON，无状态检查时仍能解析 |
 | 故障检出能力 | PASS：独立副本临时去掉getJson状态判断，npm test确实非零失败；恢复后逐字节匹配正式源 |
 | G7及应用浏览器 | NOT_RUN：用户批准移至集中验收阶段；无浏览器工具调用 |
-| G8远端部署 | pending：普通push后跟踪同SHA CI/Pages和HTTP文本冒烟 |
+| G8远端部署 | PASS：d27cabd同SHA CI/Pages及HTTP文本冒烟成功，见下方发布记录 |
 
 整批执行 `npm run kb:verify` 与 `npm test`。第二次编辑复核只补正文状态表/说明/官方来源和工程说明，未改代码；随后对最终内容再执行kb:check、kb:build、kb:output、kb:publish-test，不重复未变回归。日志在/tmp/kb-h3b-path.txt指向目录的h3d-verify.log、h3d-tests.log、h3d-final-content.log；独立包指针/tmp/kb-http-path.txt。临时日志失效时依据维护的测试和锁重建，不把临时文件当永久唯一证据。
 
@@ -54,3 +54,13 @@ MDN的HTTP概览/消息/URL/状态码/Accept/Content-Type/JSON/Response/Fetch和
 H3-001D内容与非浏览器测试done；H3-001前半路线由H3-001A/B/C/D的报告共同验收done，表示先修教材齐备，不表示完整应用或v1.0完成。H3-002A/F09为下一项：真正的创建接口、请求JSON/运行时校验、成功/非法/超限路径；H3-002父阶段保留API/SQL/持久化整体范围。
 
 未测DNS/TLS、浏览器CORS/页面加载反馈、超时/重试、真实数据库或生产环境。演示服务器仅用于固定场景，不是经过加固的通用API；静态站与动态服务边界保持清晰。历史搜索摘要问题、字体网络和未使用Excalidraw警告仍见旧报告；未声称上游全仓格式检查通过。所有本轮测试/演示进程已自行关闭临时服务。
+
+## 发布实证
+
+按持续授权普通快进推送origin/v5：9b98765 → d27cabdb70473e5c82b8f65667f1d6656cd02123。暂存差异与公开合成数据范围已人工审阅，有限常见凭证模式扫描无匹配（不声称覆盖所有秘密形式）；没有PR/tag/强推。
+
+[Publish Knowledge Base 34674487904](https://github.com/patricklfdm/knowledge-base/actions/runs/34674487904) 对上述同SHA完成：quality/verify job103501777809、build103501843226、deploy103501899310全部success。部署结束2026-09-12 05:02:04 UTC，即本地9月11日22:02:04。CI再次从锁安装、执行原门禁，未用本地结果代替远端检查。
+
+发布后HTTP文本冒烟：主页、路线、F07B及F08A/F08B五页200并含预期内容；从实际HTML取得的30个本站CSS/JS URL全部200；索引含F07B/F08A/F08B路径；不存在地址404。没有浏览器执行，G7/应用交互保持NOT_RUN。
+
+此事后记录只更新报告、计划与STATE，并继续按授权普通推送。代码/正文证据锚定d27cabd；后续文档提交的实际SHA和对应工作流由Git/Actions核对，不为把文件自身SHA写进自身而循环修改。

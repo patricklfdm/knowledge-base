@@ -1,10 +1,10 @@
 # 当前检查点
 
-2026-09-11 America/Los_Angeles。目标patricklfdm/knowledge-base，工作分支v5；本批基线9b987650a8e714466ec7c29bc237fb0482622f39，接手时origin/v5相同、工作区干净。当前HEAD/远端以Git核对为准。
+2026-09-11 America/Los_Angeles。目标patricklfdm/knowledge-base，工作分支v5；本批基线9b987650a8e714466ec7c29bc237fb0482622f39，接手时origin/v5相同、工作区干净。内容提交d27cabdb70473e5c82b8f65667f1d6656cd02123已普通推送，运行34674487904的必需CI、Pages和发布后HTTP文本冒烟成功。事后文档也按授权自动推送；实际最新HEAD/远端和对应工作流以Git/Actions核对，不反复把文件自身SHA写入自身。
 
-H3-001D/F08两篇内容与非浏览器验收已完成；H3-001前半路线先修齐备，下一项 **H3-002A/F09 创建接口与请求校验**。状态唯一台账BACKLOG.json；完整应用、H3-GATE和v1.0未完成。本批正在按持续授权准备普通push与同SHA部署。
+H3-001D/F08两篇内容与非浏览器验收已完成；H3-001前半路线先修齐备，下一项 **H3-002A/F09 创建接口与请求校验**。状态唯一台账BACKLOG.json；完整应用、H3-GATE和v1.0未完成。本批内容已发布，浏览器验收继续延期。
 
-最新计划：[HTTP](plans/H3-001D-http.md)。最新报告：[H3-001D](../../../reports/H3-http.md)。上一批9b98765已部署，本批新内容不能仅凭本地测试称为已上线。
+最新计划：[HTTP](plans/H3-001D-http.md)。最新报告：[H3-001D](../../../reports/H3-http.md)。本批同SHA发布实证已写入H3-001D报告。
 
 ## 用户覆盖与恢复
 
