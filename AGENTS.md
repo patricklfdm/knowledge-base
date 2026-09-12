@@ -36,3 +36,5 @@
 ## State and completion
 
 `BACKLOG.json` 是任务状态唯一台账；`STATE.md` 只记录当前检查点与下一项引用。每批更新执行计划、报告、相关 backlog 状态。DONE 必须关联可读验收报告。会话结束前保存恢复指令，不能声称离线持续执行。中文汇报完成项、验证结果、风险、Git 状态、下一项，以及是否尚未发布。
+
+当前用户覆盖（2026-09-11）：内容优先，暂不进行浏览器测试；每轮完成适用验证后自动普通 push 既有 v5，直到用户另行说明。优先于旧 prompt 默认值；具体范围与 UI 延期见 `docs/knowledge-base/codex/OPERATING_MODEL.md`。

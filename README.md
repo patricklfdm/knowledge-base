@@ -11,7 +11,7 @@ npm run quartz -- plugin install --from-config
 npm run kb:verify
 ```
 
-本地预览：`npm run quartz -- build --serve`。默认 `review-before-push`，本地检查通过不代表已发布。
+本地预览：`npm run quartz -- build --serve`。当前用户要求验证后自动推送既有 v5，直到另行说明；浏览器验收暂缓，具体范围见 [执行规则](docs/knowledge-base/codex/OPERATING_MODEL.md)。本地检查通过不代表同 SHA 部署成功。
 
 ---
 

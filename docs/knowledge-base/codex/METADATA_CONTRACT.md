@@ -44,3 +44,5 @@
 先扫描 content，输出兼容性报告；仅修正实际不符合的自有文件。旧导航字段豁免和起步 seed 状态必须有明确规则。docs/knowledge-base/codex 下的模板和规划不是 content 正文，不受公开笔记 schema 强制要求。
 
 避免“同时改所有 ID/路径/字段/布局”的大迁移。需要路径迁移时建立映射和重定向并测试外链兼容。FIELD 变更必须带 schema 版本、迁移和负面用例。
+
+H3 内容优先阶段：reviewed/verified_on 表示已执行的内容、来源与非浏览器示例复核，不能解读为页面或教学应用 UI 已验收。受当前用户授权延期的 UI 在正文核验段和报告明确 NOT_RUN，详见 QUALITY_GATES；tested_with 不填写未经实际测试的浏览器。
