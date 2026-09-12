@@ -1,5 +1,6 @@
 import test, { describe } from "node:test"
 import assert from "node:assert"
+import { runInNewContext } from "node:vm"
 import { renderTranscludes, pageResources } from "./renderPage"
 import { Root, Element } from "hast"
 import { FullSlug } from "../util/path"
@@ -305,6 +306,22 @@ describe("pageResources", () => {
         )
       }
     }
+  })
+
+  test("index requests revalidate a stable URL after a new deployment", async () => {
+    const result = pageResources("/knowledge-base" as FullSlug, emptyResources)
+    const script = result.js.find((j) => j.contentType === "inline" && "script" in j)
+    assert.ok(script && "script" in script)
+    const requests: Request[] = []
+    await runInNewContext(`${script.script}; fetchData`, {
+      fetch: async (url: string, options?: RequestInit) => {
+        requests.push(new Request(new URL(url, "https://example.test"), options))
+        return { json: async () => ({}) }
+      },
+    })
+    assert.equal(requests.length, 1)
+    assert.equal(requests[0].url, "https://example.test/knowledge-base/static/contentIndex.json")
+    assert.equal(requests[0].cache, "no-cache", "a fresh browser cache must still be revalidated")
   })
 
   test("contentIndex path reflects baseDir", () => {

@@ -10,4 +10,4 @@
 
 使用已安装 Node 24.21.0 的命令级 PATH；默认 shell Node 20。实际门禁 npm run kb:verify / npm test。使用 npm run quartz -- build（npx 入口曾 OOM）；字体需要网络，缺 Excalidraw 插件仍有既有警告。
 
-当前部署 pending，远端本批验证 NOT_RUN。本地最终 kb:verify PASS，npm test 207 PASS，两份锁无漂移。完成后更新 reports/H3-objects-modules.md 与 reports/RELEASE-2026-09-11.md，下一项为 F05/F06。无离线持续执行承诺。
+bccf231 已推送，同 SHA run 34669410444 的检查/构建/部署成功。线上搜索发现浏览器旧索引缓存，已补局部请求重验证修复及红绿回归；修复版 kb:verify PASS、npm test 208 PASS，待普通推送并复核线上搜索。两份锁无漂移。完成后更新 reports/H3-objects-modules.md 与 reports/RELEASE-2026-09-11.md，下一项为 F05/F06。无离线持续执行承诺。

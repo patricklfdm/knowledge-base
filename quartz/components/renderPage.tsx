@@ -72,7 +72,9 @@ export function pageResources(
   })
 
   const contentIndexPath = joinSegments(baseDir, "static/contentIndex.json")
-  const contentIndexScript = `const fetchData = fetch("${contentIndexPath}").then(data => data.json())`
+  // The index keeps a stable URL across deployments; revalidate browser caches
+  // so a freshly loaded article does not search an older content inventory.
+  const contentIndexScript = `const fetchData = fetch("${contentIndexPath}", { cache: "no-cache" }).then(data => data.json())`
 
   const resources: StaticResources = {
     css: [
