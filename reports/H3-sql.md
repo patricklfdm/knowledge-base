@@ -25,7 +25,7 @@ Node24.21.0/npm11.19.0/macOS arm64；实际SELECT sqlite_version()为3.53.4。�
 | 练习 | PASS：阈值4查询返回空数组、列表仍2；新表14通过/15拒绝、旧表执行新CREATE后15仍通过 |
 | 故意失败检出 | PASS：副本CHECK上限改300，npm test退出1、4组失败；已恢复 |
 | G7/应用浏览器 | NOT_RUN：用户批准移至集中验收阶段；无浏览器工具调用 |
-| G8发布 | 待本批提交后同SHA CI/Pages与HTTP文本检查 |
+| G8发布 | PASS：f7d0079同SHA CI/Pages和HTTP文本冒烟，见发布实证 |
 
 整批npm run kb:verify、npm test均退出0；第二遍阅读修正UI延期与F11未实现的区分，并恢复package描述原Unicode形式（无语义变化），随后重跑kb:check/build/output/publish-test，全部通过。日志/tmp/h3f-verify.log、/tmp/h3f-tests.log、/tmp/h3f-final-content.log；故意失败/tmp/kb-sql-mutant.log。副本指针/tmp/kb-h3b-path.txt和/tmp/kb-sql-path.txt，失效时按README和锁重建，不把临时日志作为唯一长期证据。
 
@@ -55,4 +55,10 @@ H3-002B内容与非浏览器验收完成；H3-002父阶段仍in_progress，下�
 
 ## 发布实证
 
-用户持续授权验证后自动普通push既有origin/v5；本批待提交后记录同SHA结果，不把本地PASS冒充已部署。
+按用户持续授权普通快进推送origin/v5：e4b6670 → f7d00798403925eb38fd71cbb456f1f3a21fec4e。23个变更文件暂存范围已审阅，有限常见凭证模式无匹配；未提交实验数据库，不声称扫描覆盖所有秘密形式。没有PR/tag/强推。
+
+[Publish Knowledge Base运行34677904313](https://github.com/patricklfdm/knowledge-base/actions/runs/34677904313) 的head_sha与内容提交一致，结果success。quality / verify任务103510970788、Build website任务103511052748、Deploy website任务103511106611均success，部署完成2026-09-12 06:22:41 UTC（本地2026-09-11 23:22:41 PDT）。继承的预览/Build and Test/Docker按原限定条件skipped，未算作质量检查通过。
+
+发布后/tmp/kb-h3f-online-smoke.py退出0：主页含十五篇、路线含F10B、F09B指向F10、两篇SQL正文均200且含预期内容；从五页解析出的30个本站CSS/JS URL均200；contentIndex.json含F09B/F10A/F10B；不存在路径404。只验证文本、可达性与资源，不冒称搜索或浏览器交互已测。
+
+本节与计划/STATE/BACKLOG为部署后补记，也按持续授权自动推送并跟踪最新SHA；不反复把文档自身SHA写回自身。恢复以实际Git HEAD、origin/v5和同SHA Actions为准。

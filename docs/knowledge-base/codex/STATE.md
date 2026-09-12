@@ -1,10 +1,10 @@
 # 当前检查点
 
-2026-09-11 America/Los_Angeles。目标patricklfdm/knowledge-base，分支v5；本批基线e4b667066e06c29f309c02e2b38e230978bbed96，接手时origin/v5相同、工作区干净。F10两篇及独立SQL示例已完成本地门禁，待提交/普通推送和同SHA CI/Pages跟踪，尚不称已发布。
+2026-09-11 America/Los_Angeles。目标patricklfdm/knowledge-base，分支v5；本批基线e4b667066e06c29f309c02e2b38e230978bbed96，接手时origin/v5相同、工作区干净。F10内容提交f7d00798403925eb38fd71cbb456f1f3a21fec4e已普通推送，同SHA运行34677904313的必需CI/Pages与HTTP文本冒烟成功。本批已发布；事后文档也按授权自动推送，以实际最新Git/Actions核对，不将文件自身SHA反复写回自身。
 
 下一内容任务 **H3-002C/F11页面、API与数据库整合**。BACKLOG.json为唯一台账；H3-002父阶段仍in_progress，完整应用、H3-GATE和v1.0未完成。
 
-最新计划：[SQL](plans/H3-002B-sql.md)。最新报告：[H3-002B](../../../reports/H3-sql.md)。发布实证待补。
+最新计划：[SQL](plans/H3-002B-sql.md)。最新报告：[H3-002B](../../../reports/H3-sql.md)。同SHA发布实证已写入报告。
 
 ## 用户覆盖与恢复
 
