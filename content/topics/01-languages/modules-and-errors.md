@@ -126,6 +126,6 @@ createTrips("海边", 3)
 
 这个创建函数只校验天数，没有校验目的地，也没有生成唯一编号或保存数据。后续输入校验单元会补齐外部数据的完整契约。模块只是组织代码，不能凭拆文件就获得数据隔离、安全校验或持久化保证。
 
-源码与测试位于 [foundations 示例目录](https://github.com/patricklfdm/knowledge-base/tree/v5/examples/foundations)。下一项计划是 F05：Promise、await 与失败处理；它尚未完成，当前先用本篇练习验证自己是否能追踪同步执行路径。
+源码与测试位于 [foundations 示例目录](https://github.com/patricklfdm/knowledge-base/tree/v5/examples/foundations)。下一篇是[异步与 Promise](async-and-promises.md)，继续观察等待与拒绝；开始前先完成本篇同步执行路径练习。
 
 [返回全栈基础路线](../../roadmaps/fullstack-foundations.md)

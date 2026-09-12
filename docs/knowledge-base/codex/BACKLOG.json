@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-11",
-  "status_note": "H3-001A done; db02102 same-SHA checks/deployment and online smoke PASS; review-before-push restored",
+  "status_note": "H3-001B locally accepted; review-before-push; next H3-001C",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -191,7 +191,7 @@
       "id": "H3-001B",
       "phase": "H3",
       "title": "F05/F06 异步及 TypeScript 与运行时校验",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H3-001A"
       ],
@@ -199,6 +199,23 @@
         "1–2篇连续笔记，明确 Promise/await/rejection 和类型擦除边界",
         "成功、拒绝与非法外部输入有隔离实测",
         "来源、迁移练习与桌面/窄屏阅读核验"
+      ],
+      "evidence": [
+        "reports/H3-async-types.md"
+      ]
+    },
+    {
+      "id": "H3-001C",
+      "phase": "H3",
+      "title": "F07 HTML/CSS/DOM与表单桥接",
+      "status": "todo",
+      "depends_on": [
+        "H3-001B"
+      ],
+      "acceptance": [
+        "先说明页面结构/标签/样式/DOM/事件，再接输入规则",
+        "合成行程表单的成功、非法输入与键盘反馈可验证",
+        "每批1–3篇及可独立复现的示例、阅读验收"
       ],
       "evidence": []
     },
