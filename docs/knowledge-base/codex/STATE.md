@@ -1,17 +1,19 @@
 # 当前检查点
 
-2026-09-12，patricklfdm/knowledge-base，v5。当前批基线4ea13cde8291b7cf935b8cf201c4b12599bf7d70是F11提交，已普通推送；运行34680606083同SHA CI/Pages及HTTP文本冒烟成功。H3-003三篇测试/扩展/运行课程与适用门禁完成，待本批提交/普通push/部署跟踪。
+2026-09-12，patricklfdm/knowledge-base，v5。本回合连续交付两批五篇教材：F11集成4ea13cde8291b7cf935b8cf201c4b12599bf7d70、F12/F13测试/迁移/运行7e76fca18cfde49422ec2a406aeafbc459cd4f5a，均普通推送、同SHA CI/Pages与HTTP文本冒烟成功。最新内容运行34681267525，部署2026-09-12T07:40:05Z。当前工程批在7e76fca基线上新增H4恢复夹具、门禁与手册，按持续授权提交推送并跟踪同SHA。
 
-H3-GATE原十目标映射及非浏览器业务闭环PASS，v1.0未完成。最新报告：[H3-003](../../../reports/H3-tests-delivery.md)、[路线验收](../../../reports/H3-route-gate.md)；计划[测试与运行](plans/H3-003-tests-release.md)。BACKLOG为唯一台账。下一步H4可独立做的发布范围/恢复准备与集中UI清单；按用户要求在当前回合连续推进，不逐项停回合。
+H3-GATE非浏览器验收PASS，H4-001A准备完成，v1.0未完成。BACKLOG是唯一台账。报告：[路线验收](../../../reports/H3-route-gate.md)、[测试与运行](../../../reports/H3-tests-delivery.md)、[H4恢复准备](../../../reports/H4-release-readiness.md)；当前计划[H4-001A](plans/H4-001A-release-readiness.md)。
 
-## 持续授权
+## 持续授权与下一项
 
-内容优先，每批适用验证后自动普通push origin/v5，跟踪同SHA部署/HTTP文本；无需逐批询问。不创建PR/tag/强推，不改仓库/框架/部署。浏览器暂停：不连接/截图/安装，G7及真实应用DOM/键盘/辅助技术NOT_RUN，用户批准集中验收，引用H4-UI-SITE/H4-UI-APP。H3后给最多3个候选目标，明确允许才恢复；网站表现层仍冻结。
+用户要求当前回合自动往后推进，不逐项停下来。每批适用验证后自动普通push origin/v5并跟踪同SHA，无需再询问发布；不授权PR/tag/强推/其他仓库/平台迁移。网站表现层仍冻结。浏览器仍暂停，不连接/安装/截图，G7与真实应用DOM/键盘/辅助技术NOT_RUN。已准备[三项目标](../UI_ACCEPTANCE.md)并询问是否恢复，未收到明确允许前不执行。
+
+下一项引用H4-UI-SITE/H4-UI-APP及H4-001剩余验收；H5依H4-001，不把未测UI标完成。先检查本工程提交同SHA Actions及工作区；如果已成功不要重复构建/提交。用户允许恢复后按清单有限执行；否则保存本检查点，不承诺回合结束后离线继续。
 
 ## 验证与恢复
 
-Node24.21.0/npm11.19.0命令级PATH，默认Node20；SQLite3.53.4、既有TS5.9.3。无依赖新增，复用会话干净安装隔离副本，受控同步、源码比对、kb:verify/npm test通过。27 notes、34检查器、13+4+5+8+10+8+13示例组、259 tests/45 suites、52 HTML/155产物与禁发负面PASS。原锁不变。
+Node24.21.0/npm11.19.0命令级PATH，默认Node20；SQLite3.53.4、既有TS5.9.3。未新增依赖，复用本会话干净安装隔离副本，受控同步后kb:verify/npm test通过：27 notes、34检查器、259 tests/45 suites、52 HTML/155产物、禁发负面PASS；原锁不变。新增kb:recovery-test已纳入kb:verify，临时Git夹具“通过→故意失败→普通revert→恢复通过”实跑，清理且无remote；不是本项目或生产回退。
 
-独立含空格副本安装/test/demo/exercise与成功/失败CLI冒烟通过。备注120边界、旧表迁移回滚、真实HTTP/新进程保留；另60前后端拒绝与原值保持、换文件0/原文件1对照、故意放宽备注API检出失败均实跑并恢复。所有本轮临时服务关闭，合成数据清理；无用户或其他项目数据库访问。
+F11与备注练习含空格路径独立安装/test/demo/exercise、真实HTTP与新进程数据保留、边界拒绝/SQL约束/事务回滚、故意破坏检出均有报告。真实DOM、生产迁移与恢复、并发、磁盘故障仍未验证。全部本轮服务关闭，只使用合成数据。历史搜索/字体/Excalidraw/上游格式问题保留。
 
-恢复先核对Git/远端与本批同SHA工作流，pending先完成记录再继续H4。不要把控制器或生成页面语法当真实DOM；没有生产、断电/磁盘、备份恢复、并发冲突或幂等保证。历史搜索/字体/Excalidraw/上游格式问题保留。隔离指针/tmp/kb-h3b-path.txt、/tmp/kb-evolution-path.txt，日志/tmp/h3h-verify.log、/tmp/h3h-tests.log、/tmp/kb-note-mutant.log；失效从受控源和锁重建。不承诺回合结束后离线执行。
+隔离指针/tmp/kb-h3b-path.txt与/tmp/kb-evolution-path.txt；最新日志/tmp/h4a-verify.log、/tmp/h4a-tests.log。临时材料失效按锁和仓库维护命令重建，勿访问用户或其他项目数据库。

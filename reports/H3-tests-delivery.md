@@ -37,4 +37,6 @@ H3-003内容与非浏览器验收完成。继续H3-GATE实际路线映射审计�
 
 ## 发布实证
 
-待本批普通push后同SHA CI/Pages和HTTP文本证据。
+已普通推送7e76fca18cfde49422ec2a406aeafbc459cd4f5a（feat(content): teach regression migration and runtime checks）。[Publish Knowledge Base运行34681267525](https://github.com/patricklfdm/knowledge-base/actions/runs/34681267525)同SHA成功：quality 103520217813、build 103520300571、deploy 103520347677，部署完成2026-09-12T07:40:05Z。
+
+部署后HTTP文本冒烟PASS：首页20篇入口、路线F12B、F11B下一篇、F12A/F12B/F13正文共6页与标记、页面实际30个CSS/JS、搜索索引四个相关页面、不存在路径404。脚本/tmp/kb-h3h-online-smoke.py；不是浏览器或应用UI验证。当前内容已发布，继续H4非浏览器准备。

@@ -25,8 +25,9 @@
     "kb:build": "npm run quartz -- build",
     "kb:output": "node scripts/knowledge-base/check-output.mjs",
     "kb:publish-test": "node scripts/knowledge-base/verify-publish.mjs",
-    "kb:verify": "npm run kb:check && npm run kb:test && npm run kb:examples && tsc --noEmit && npm run kb:build && npm run kb:output && npm run kb:publish-test",
-    "kb:examples": "npm test --prefix examples/foundations && npm test --prefix examples/typed-trips && npm test --prefix examples/web-forms && npm test --prefix examples/http-trips && npm test --prefix examples/trip-api && npm test --prefix examples/sql-trips && npm test --prefix examples/trip-app"
+    "kb:verify": "npm run kb:check && npm run kb:test && npm run kb:examples && npm run kb:recovery-test && tsc --noEmit && npm run kb:build && npm run kb:output && npm run kb:publish-test",
+    "kb:examples": "npm test --prefix examples/foundations && npm test --prefix examples/typed-trips && npm test --prefix examples/web-forms && npm test --prefix examples/http-trips && npm test --prefix examples/trip-api && npm test --prefix examples/sql-trips && npm test --prefix examples/trip-app",
+    "kb:recovery-test": "node scripts/knowledge-base/rehearse-revert.mjs"
   },
   "engines": {
     "npm": ">=10.9.2",

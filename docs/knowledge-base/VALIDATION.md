@@ -10,7 +10,8 @@
 | npm run kb:build        | `npm run quartz -- build`，现有 Quartz CLI，默认 content/public                          |
 | npm run kb:output       | 对 public 的实际 HTML DOM 检查本站 base path、链接、资源与锚点                           |
 | npm run kb:publish-test | 临时正文与产物，真实构建正面对照和 3 种禁发 marker，扫描全部产物，再注入泄漏证明检测有效 |
-| npm run kb:verify       | 顺序执行 check/test/examples/tsc/build/output/publish-test；任何非零即停止               |
+| npm run kb:recovery-test | 临时无remote Git夹具，正常断言/故意坏提交/普通revert恢复与清理 |
+| npm run kb:verify       | 顺序执行 check/test/examples/recovery-test/tsc/build/output/publish-test；任何非零即停止               |
 
 `npm test` 保留为上游及自有回归测试，在 CI 必需运行。`npm run check` 包含全仓 Prettier，H0 存在 8 个既有格式差异；本站门禁单独保留 tsc，不把既有格式噪声伪装成通过，也不整体格式化上游。自有改动在提交前做针对性格式检查。
 
@@ -45,3 +46,5 @@ sql-trips使用Node内置SQLite，无npm依赖；8组测试覆盖参数绑定、
 trip-app提供同源教学页面、HTTP创建/查询/PUT和SQLite；13组测试覆盖持久化、非法修改、500故障、静态白名单与Host/Origin、客户端与控制器。真实DOM仍NOT_RUN。
 
 F12/F13在trip-app内增加备注临时副本、迁移/回滚及只读smoke，基础应用接口保持；npm run exercise与npm run smoke须在该示例目录运行。根测试自动包含evolution.test.mjs，浏览器仍不运行。
+
+H4回退夹具已加入kb:verify，因此现有同SHA质量门禁也必须通过；不执行本项目或线上回退。UI与kb:e2e仍按原授权延期。发布恢复流程见RELEASE_RECOVERY.md，集中候选见UI_ACCEPTANCE.md。

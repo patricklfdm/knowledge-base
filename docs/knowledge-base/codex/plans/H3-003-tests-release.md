@@ -15,7 +15,7 @@
 - [x] 连续推进方向/先修/来源初核。
 - [x] 扩展练习、迁移回滚与冒烟实测。
 - [x] 三篇教材、隔离门禁与审阅。
-- [ ] 发布与H3-GATE/H4衔接。
+- [x] 发布与H3-GATE/H4衔接。
 
 ## 边界与恢复
 
@@ -25,4 +25,4 @@
 
 ## Outcome
 
-27 notes、259 tests、52 HTML/155产物与独立扩展/迁移/回滚/冒烟通过，见reports/H3-tests-delivery.md；H3-GATE映射完成，见reports/H3-route-gate.md。待本批发布后继续H4非浏览器工作，不恢复浏览器。
+27 notes、259 tests、52 HTML/155产物与独立扩展/迁移/回滚/冒烟通过，见reports/H3-tests-delivery.md；H3-GATE映射完成，见reports/H3-route-gate.md。7e76fca18cfde49422ec2a406aeafbc459cd4f5a已普通推送，同SHA运行34681267525 CI/Pages成功、HTTP文本通过。已接续H4-001A非浏览器工作，不恢复浏览器。

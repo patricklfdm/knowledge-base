@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-12",
-  "status_note": "H3 route non-browser gate passed; H3-003 push pending; continuous H4 preparation; UI deferred",
+  "status_note": "H3 route published; H4 release/recovery readiness done; browser acceptance awaits explicit permission",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -351,7 +351,7 @@
       "id": "H4-001",
       "phase": "H4",
       "title": "完善发布、附件、UI 和恢复门禁",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H3-GATE"
       ],
@@ -362,6 +362,23 @@
         "复核中文搜索摘要的实体显示与命中片段截取（H2 阅读发现）"
       ],
       "evidence": []
+    },
+    {
+      "id": "H4-001A",
+      "phase": "H4",
+      "title": "发布范围审计、普通回退夹具与集中UI准备",
+      "status": "done",
+      "depends_on": [
+        "H3-GATE"
+      ],
+      "acceptance": [
+        "核对当前附件未准入策略与公开产物/索引负面证据，不无验证地开放附件",
+        "隔离合成Git夹具证明错误提交测试失败、普通revert恢复通过，形成发布恢复手册",
+        "最多3个具体UI验收目标与现存问题，未获得明确允许前不运行浏览器，不冒称H4整体完成"
+      ],
+      "evidence": [
+        "reports/H4-release-readiness.md"
+      ]
     },
     {
       "id": "H4-UI-SITE",
