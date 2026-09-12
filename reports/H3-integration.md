@@ -37,4 +37,6 @@ H3-002C内容与非浏览器整合验收完成；H3-002由F09/F10/F11报告共�
 
 ## 发布实证
 
-待普通推送后跟踪同SHA CI/Pages与HTTP文本冒烟。
+内容提交4ea13cde8291b7cf935b8cf201c4b12599bf7d70已普通快进推送origin/v5；[运行34680606083](https://github.com/patricklfdm/knowledge-base/actions/runs/34680606083)同SHA结果success，quality103518440272、build103518529695、deploy103518595221均success，部署完成2026-09-12 07:24:59 UTC。暂存30个文件人工复核、有限常见凭证模式无匹配且无数据库文件，不声称穷尽秘密扫描；无PR/tag/强推。
+
+发布后HTTP文本冒烟通过：主页/路线/F10B入口/F11两页200且预期内容存在，实际30个本站CSS/JS均200，索引包含F10B/F11A/F11B，不存在路径404。无浏览器执行。脚本/tmp/kb-h3g-online-smoke.py。补记并入下一批H3-003的自动推送，避免反复把文档自身SHA写回自身。

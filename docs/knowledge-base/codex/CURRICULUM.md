@@ -43,9 +43,9 @@ L0：能写、运行和调试小程序。L1：能打通页面/API/数据。L2：
 
 最小能力：创建、列表、修改行程条目；名称和天数校验；持久化；可理解的错误反馈；测试；可重启部署和冒烟验证。不要求登录、多人协作或复杂行程优化，认证授权留到下一条路线。
 
-教学实现推荐 JS/TS + 最小 Node 后端 + PostgreSQL。初始浏览器层用 HTML/CSS/DOM 降低隐式门槛，React 放到下一步重构专题；具体轻量库由 Codex 在验证兼容性后记录选择，不套用 Wayvia 的架构。
+首条路线实际采用JS/TS + 最小Node后端 + SQLite；原PostgreSQL推荐留后续数据库服务/并发专题，当前不冒称PostgreSQL验收。初始浏览器层用 HTML/CSS/DOM 降低隐式门槛，React 放到下一步重构专题；具体轻量库由 Codex 在验证兼容性后记录选择，不套用 Wayvia 的架构。
 
-示例代码放在 `examples/trip-ledger/`，不在 `content/` 部署服务器源码。配置、依赖和测试与 Quartz 隔离，不把 root npm scripts 或 tsconfig 随意扩展成多个项目混合构建。
+整合示例代码实际位于 `examples/trip-app/`（早期trip-ledger为规划名，未创建重复项目），不在 `content/` 部署服务器源码。配置、依赖和测试与 Quartz 隔离，不把 root npm scripts 或 tsconfig 随意扩展成多个项目混合构建。
 
 GitHub Pages 是静态托管平台，参见 [官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)。在本项目中它只负责知识网站和可选静态演示，不能运行 Node API 或 PostgreSQL。教程的服务端部署先用本机隔离容器/进程验证；公网后端、付费云资源另行授权。不得声称“部署到 Pages 后数据库就能运行”。
 
@@ -72,7 +72,8 @@ GitHub Pages 是静态托管平台，参见 [官方说明](https://docs.github.c
 | F10B | 参数绑定和约束分别保护什么？ | F10A | 值与结构、STRICT转换、约束失败、旧表不自动迁移 |
 | F11A | 接口怎样连接SQLite？ | F10B | 创建/列表/修改、非法无副作用、服务器进程重启 |
 | F11B | 页面怎样反馈保存结果？ | F11A | 同源、busy/编辑状态、保存成功但刷新失败 |
-| F12 | 如何证明修改没破坏旧功能？ | F02、F09–11 | 单元/集成/端到端区别与回归用例 |
+| F12A | 如何证明修改没破坏旧功能？ | F11B | 单元/集成/进程与浏览器边界、回归断言 |
+| F12B | 添加字段要改哪些层？ | F12A | 备注全链路、旧表迁移、事务回滚 |
 | F13 | 怎样部署并确认服务健康？ | F11–12 | 配置、启动/停止、日志、重启和冒烟 |
 
 F12 是系统归纳测试，不是第一次写测试；前面的例子从一开始就有断言或测试。

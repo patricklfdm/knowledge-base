@@ -7,8 +7,10 @@
     "node": ">=24 <25"
   },
   "scripts": {
-    "test": "node --check web/app.js && node --test app.test.mjs",
+    "test": "node --check web/app.js && node --test *.test.mjs",
     "demo": "node demo.mjs",
-    "start": "node serve.mjs"
+    "start": "node serve.mjs",
+    "exercise": "node exercises/note-demo.mjs",
+    "smoke": "node smoke.mjs"
   }
 }

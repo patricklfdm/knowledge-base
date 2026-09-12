@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-12",
-  "status_note": "H3-002C verified locally; continuous next H3-003; auto push; UI deferred",
+  "status_note": "H3 route non-browser gate passed; H3-003 push pending; continuous H4 preparation; UI deferred",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -316,7 +316,7 @@
       "id": "H3-003",
       "phase": "H3",
       "title": "测试、部署教程与综合练习",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H3-002"
       ],
@@ -325,13 +325,15 @@
         "扩展字段同时修改 UI/校验/数据/测试",
         "Pages 与动态后端部署明确区分"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H3-tests-delivery.md"
+      ]
     },
     {
       "id": "H3-GATE",
       "phase": "H3",
       "title": "首条路线完整验收",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H3-003"
       ],
@@ -340,7 +342,10 @@
         "不存在计划项冒充完成",
         "端到端业务练习有非浏览器证据；真实应用交互由 H4-UI-APP 验收"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H3-route-gate.md",
+        "reports/H3-tests-delivery.md"
+      ]
     },
     {
       "id": "H4-001",
