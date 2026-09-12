@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-11",
-  "status_note": "H3-001C content/non-browser accepted; auto-push authorized; next H3-001D; UI deferred",
+  "status_note": "H3-001D and H3-001 content/non-browser accepted; next H3-002A; automatic push; UI deferred",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -159,7 +159,7 @@
       "id": "H3-001",
       "phase": "H3",
       "title": "补齐 JS/TS/表单/HTTP 先修与前半路线",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H2-GATE"
       ],
@@ -167,7 +167,12 @@
         "渐进解释、无隐式前置缺口",
         "每批1–3篇，例子与正文匹配"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H3-objects-modules.md",
+        "reports/H3-async-types.md",
+        "reports/H3-web-forms.md",
+        "reports/H3-http.md"
+      ]
     },
     {
       "id": "H3-001A",
@@ -225,7 +230,7 @@
       "id": "H3-001D",
       "phase": "H3",
       "title": "F08 HTTP请求响应与失败边界",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H3-001C"
       ],
@@ -234,7 +239,9 @@
         "隔离合成请求的成功、HTTP错误与网络失败实测，不把静态Pages当动态后端",
         "内容/来源/命令/导航及非浏览器门禁完成；浏览器继续延期"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H3-http.md"
+      ]
     },
     {
       "id": "H3-002",
@@ -247,6 +254,21 @@
       "acceptance": [
         "独立 examples 环境",
         "创建/查询/修改、参数化查询、约束、重启持久化测试"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H3-002A",
+      "phase": "H3",
+      "title": "F09创建接口与请求校验",
+      "status": "todo",
+      "depends_on": [
+        "H3-001"
+      ],
+      "acceptance": [
+        "1–2篇解释路由、请求正文解析、运行时业务校验与响应契约",
+        "独立合成示例实测成功创建、非法JSON/类型/范围、正文超限及错误状态；区分内存与持久化",
+        "来源/例子/导航/非浏览器门禁完成；真实页面整合与浏览器验收不冒充已完成"
       ],
       "evidence": []
     },

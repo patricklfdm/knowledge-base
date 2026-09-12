@@ -18,7 +18,7 @@ tags:
 
 ## 已有样板单元
 
-先完成这九个连续问题，再继续下面的应用目标。文章的核验状态表示教材已复核，不表示读者已经掌握。
+先完成这十一个连续问题，再继续下面的应用目标。文章的核验状态表示教材已复核，不表示读者已经掌握。
 
 | 顺序 | 正文                                                                        | 完成后的自测                         |
 | ---- | --------------------------------------------------------------------------- | ------------------------------------ |
@@ -31,23 +31,25 @@ tags:
 | F06  | [类型与输入校验](../topics/01-languages/types-and-input-validation.md)      | 区分类型错误与非法运行时输入         |
 | F07A | [页面结构与 DOM](../topics/04-frontend/html-css-dom.md)                     | 解释选择器缺失，区分结构、样式与事件 |
 | F07B | [表单与输入转换](../topics/04-frontend/form-input-boundary.md)              | 拒绝非法文字，修改天数限制并测试     |
+| F08A | [HTTP请求与响应](../topics/03-web/http-request-response.md)                 | 区分路径、查询、片段、消息头与正文   |
+| F08B | [fetch状态与JSON错误](../topics/03-web/fetch-status-and-json.md)            | 分清HTTP错误、断连、坏JSON及业务非法 |
 
-完整例子位于仓库 `examples/foundations/`，可从根目录执行 `npm test --prefix examples/foundations`。F06 的独立类型示例位于 `examples/typed-trips/`，先在该目录 `npm ci` 再 `npm test`。F07 的独立示例位于 `examples/web-forms/`，无需 npm 依赖，运行 `npm test --prefix examples/web-forms`。页面与表单的内容和非浏览器规则已核验，真实交互待集中验收；当前没有接口或持久化。
+完整例子位于仓库 `examples/foundations/`，可从根目录执行 `npm test --prefix examples/foundations`。F06 的独立类型示例位于 `examples/typed-trips/`，先在该目录 `npm ci` 再 `npm test`。F07 的独立示例位于 `examples/web-forms/`，无需 npm 依赖，运行 `npm test --prefix examples/web-forms`。页面与表单的内容和非浏览器规则已核验，真实交互待集中验收；F08 的 `examples/http-trips/` 可执行真实本机HTTP实验，运行 `npm test --prefix examples/http-trips`；当前没有业务创建接口或持久化。
 
 ## 应用目标与后续文章
 
-| 顺序 | 文章问题                                                                                       | 预期练习                   | 状态                      |
-| ---- | ---------------------------------------------------------------------------------------------- | -------------------------- | ------------------------- |
-| 01   | [变量、值和类型分别是什么？](../topics/01-languages/values-variables-types.md)                 | 预测几个表达式的结果并验证 | 样板已核验                |
-| 02   | [对象和数组怎样表达一个行程？](../topics/01-languages/objects-and-arrays.md)                   | 创建、查找和修改行程数据   | 已核验                    |
-| 03   | [为什么异步任务不能按同步代码理解？](../topics/01-languages/async-and-promises.md)             | 观察执行顺序并处理失败     | 已核验                    |
-| 04   | [有 TypeScript 类型为什么还要校验输入？](../topics/01-languages/types-and-input-validation.md) | 拒绝不符合约束的数据       | 已核验                    |
-| 05   | [表单怎样把文字输入变成合法行程？](../topics/04-frontend/form-input-boundary.md)               | 完成输入转换和错误反馈     | 内容/规则已核验，交互待验 |
-| 06   | 一次 HTTP 请求经历了什么？                                                                     | 查看请求、响应和状态码     | 待编写                    |
-| 07   | 如何设计并校验一个创建接口？                                                                   | 实现成功路径与失败路径     | 待编写                    |
-| 08   | 怎样用 SQL 保存和查询行程？                                                                    | 建表、写入、查询与约束验证 | 待编写                    |
-| 09   | 如何证明一个功能没有悄悄变坏？                                                                 | 增加单元测试与集成测试     | 待编写                    |
-| 10   | 怎样部署并检查一个完整功能？                                                                   | 完成部署、配置与冒烟检查   | 待编写                    |
+| 顺序 | 文章问题                                                                                       | 预期练习                       | 状态                      |
+| ---- | ---------------------------------------------------------------------------------------------- | ------------------------------ | ------------------------- |
+| 01   | [变量、值和类型分别是什么？](../topics/01-languages/values-variables-types.md)                 | 预测几个表达式的结果并验证     | 样板已核验                |
+| 02   | [对象和数组怎样表达一个行程？](../topics/01-languages/objects-and-arrays.md)                   | 创建、查找和修改行程数据       | 已核验                    |
+| 03   | [为什么异步任务不能按同步代码理解？](../topics/01-languages/async-and-promises.md)             | 观察执行顺序并处理失败         | 已核验                    |
+| 04   | [有 TypeScript 类型为什么还要校验输入？](../topics/01-languages/types-and-input-validation.md) | 拒绝不符合约束的数据           | 已核验                    |
+| 05   | [表单怎样把文字输入变成合法行程？](../topics/04-frontend/form-input-boundary.md)               | 完成输入转换和错误反馈         | 内容/规则已核验，交互待验 |
+| 06   | [一次HTTP请求里传了什么？](../topics/03-web/http-request-response.md)                          | 查看请求、响应、状态和失败层次 | 内容/HTTP实测已核验       |
+| 07   | 如何设计并校验一个创建接口？                                                                   | 实现成功路径与失败路径         | 待编写                    |
+| 08   | 怎样用 SQL 保存和查询行程？                                                                    | 建表、写入、查询与约束验证     | 待编写                    |
+| 09   | 如何证明一个功能没有悄悄变坏？                                                                 | 增加单元测试与集成测试         | 待编写                    |
+| 10   | 怎样部署并检查一个完整功能？                                                                   | 完成部署、配置与冒烟检查       | 待编写                    |
 
 ## 编写与学习规则
 
