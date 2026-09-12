@@ -19,7 +19,13 @@
     "test": "tsx --test",
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1",
     "install-plugins": "npx tsx ./quartz/plugins/loader/install-plugins.ts",
-    "prebuild": "npm run install-plugins"
+    "prebuild": "npm run install-plugins",
+    "kb:check": "node scripts/knowledge-base/check.mjs",
+    "kb:test": "node --test tests/knowledge-base/*.test.mjs",
+    "kb:build": "npm run quartz -- build",
+    "kb:output": "node scripts/knowledge-base/check-output.mjs",
+    "kb:publish-test": "node scripts/knowledge-base/verify-publish.mjs",
+    "kb:verify": "npm run kb:check && npm run kb:test && tsc --noEmit && npm run kb:build && npm run kb:output && npm run kb:publish-test"
   },
   "engines": {
     "npm": ">=10.9.2",

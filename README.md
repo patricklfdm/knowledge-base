@@ -1,3 +1,19 @@
+# Patrick 的全栈开发知识库
+
+中文工程教材，采用 Markdown + Obsidian + Quartz 5。公开正文在 `content/`；路线从 [全栈基础](content/roadmaps/fullstack-foundations.md) 开始。私密材料须存放于整个仓库之外。
+
+开发与验收见 [检查命令](docs/knowledge-base/VALIDATION.md)，接手从 [AGENTS.md](AGENTS.md) 与 [STATE](docs/knowledge-base/codex/STATE.md) 开始。使用 `.nvmrc` 对应 Node 后运行：
+
+```sh
+npm ci
+npm run quartz -- plugin install --from-config
+npm run kb:verify
+```
+
+本地预览：`npm run quartz -- build --serve`。默认 `review-before-push`，本地检查通过不代表已发布。
+
+---
+
 # Quartz v5
 
 > “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming

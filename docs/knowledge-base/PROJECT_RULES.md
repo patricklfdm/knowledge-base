@@ -1,4 +1,4 @@
-# 知识库项目规则 v0.1
+# 知识库项目规则 v0.2
 
 ## 定位
 
@@ -6,7 +6,7 @@
 
 ## 目录边界
 
-`content/` 仅容纳准备公开的内容与经过检查的附件。`docs/knowledge-base/` 容纳可以公开的项目规则与模板，不作为 Quartz 正文发布，但将来若仓库公开，这些文件仍可被读取。
+`content/` 仅容纳准备公开的内容与经过检查的附件。`docs/knowledge-base/` 容纳可以公开的项目规则与模板，不作为 Quartz 正文发布，；本仓库已公开，这些文件也可被读取。
 
 个人掌握进度、私密草稿、原始项目资料与凭证保存在整个 Git 仓库之外，例如 `~/Notes/knowledge-base-private/`。不把文件名为 private 的子目录当作安全边界。
 
@@ -26,7 +26,7 @@
 
 `status` 可取 seed、draft、reviewed、needs-update。seed 只表示起步导航，不是完成了课程内容。
 
-编辑状态与发布控制分开。默认 RemoveDrafts 生效时，`draft: true` 排除 Markdown 页面。`publish: true/false` 只有在启用相应 ExplicitPublish 过滤插件时才作为发布开关，本轮不假设其已启用。上线前需要核验实际过滤配置。
+编辑状态与发布控制分开。当前配置已启用 RemoveDrafts 和 ExplicitPublish；只有 `publish: true` 且 `draft: false` 才进入站点。本项目检查器还要求 reviewed 或 navigation+seed。详见 [元数据契约](codex/METADATA_CONTRACT.md) 与 [实际检查范围](VALIDATION.md)。网页过滤不保护公开 Git 源码。
 
 ## 质量要求
 
@@ -38,17 +38,11 @@
 
 确定问题和先修知识 → 提纲 → 正文与例子 → 核对来源 → 运行示例 → 阅读审查 → 发布。
 
-## 分阶段建设
+## 建设与接手
 
-阶段 1：本地站点、Obsidian 写作入口、导航骨架与模板。
+旧阶段 1/2 已形成上线基线；后续 H0–H7 以 [路线图](codex/ROADMAP.md)、[BACKLOG](codex/BACKLOG.json) 为准。[STATE](codex/STATE.md) 是恢复点，不另建状态表。普通本地开发已授权，远端发布默认 review-before-push。
 
-阶段 2：自己的远程仓库、发布检查、GitHub Pages 与线上验收。
-
-阶段 3：10 篇左右的样板学习单元，至少包含概念、教程、故障分析和速查。
-
-阶段 4：链接、必要元数据、代码示例和构建的自动检查。
-
-阶段 5：逐步扩展系统、生产、分布式和数据工程路线。
+新文章使用 [当前模板](codex/templates/ARTICLE_TEMPLATE.md)，遵循 [内容标准](codex/CONTENT_STANDARD.md)。检查命令与失败分类见 [VALIDATION](VALIDATION.md)。
 
 ## 官方参考（核对日期：2026-09-10）
 

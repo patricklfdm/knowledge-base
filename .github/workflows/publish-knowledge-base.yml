@@ -14,8 +14,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  quality:
+    uses: ./.github/workflows/knowledge-base-checks.yml
+
   build:
     name: Build website
+    needs: quality
+    if: github.repository == 'patricklfdm/knowledge-base' && github.ref == 'refs/heads/v5'
     runs-on: ubuntu-latest
 
     steps:
@@ -34,10 +39,13 @@ jobs:
         run: npm ci
 
       - name: Install configured Quartz plugins
-        run: npx quartz plugin install --from-config
+        run: npm run quartz -- plugin install --from-config
 
       - name: Build knowledge base
-        run: npx quartz build
+        run: npm run kb:build
+
+      - name: Check deployed artifact links
+        run: npm run kb:output
 
       - name: Upload website artifact
         uses: actions/upload-pages-artifact@v4
