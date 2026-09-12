@@ -1,0 +1,14 @@
+{
+  "name": "kb-trip-api-example",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "test": "node --test api.test.mjs",
+    "demo": "node demo.mjs",
+    "fail": "node failure.mjs"
+  }
+}

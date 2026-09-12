@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-11",
-  "status_note": "H3-001D and H3-001 content/non-browser accepted; next H3-002A; automatic push; UI deferred",
+  "status_note": "H3-002A verified locally; automatic push pending; next H3-002B; UI deferred",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -247,7 +247,7 @@
       "id": "H3-002",
       "phase": "H3",
       "title": "教学 API、SQL 与持久化闭环",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H3-001"
       ],
@@ -261,7 +261,7 @@
       "id": "H3-002A",
       "phase": "H3",
       "title": "F09创建接口与请求校验",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H3-001"
       ],
@@ -269,6 +269,23 @@
         "1–2篇解释路由、请求正文解析、运行时业务校验与响应契约",
         "独立合成示例实测成功创建、非法JSON/类型/范围、正文超限及错误状态；区分内存与持久化",
         "来源/例子/导航/非浏览器门禁完成；真实页面整合与浏览器验收不冒充已完成"
+      ],
+      "evidence": [
+        "reports/H3-create-api.md"
+      ]
+    },
+    {
+      "id": "H3-002B",
+      "phase": "H3",
+      "title": "F10 SQL表、参数化查询与持久化基础",
+      "status": "todo",
+      "depends_on": [
+        "H3-002A"
+      ],
+      "acceptance": [
+        "1–2篇从内存数组过渡到SQL表、行、查询和约束，明确参数与SQL结构的区别",
+        "独立隔离合成数据库，实测创建/查询、非法约束失败无写入、参数化输入及关闭重开仍可读取",
+        "来源、练习、导航和非浏览器门禁完成；不连接生产或其他项目数据，不冒称完整应用已整合"
       ],
       "evidence": []
     },
