@@ -22,7 +22,7 @@
 - [x] 交接资料协调和独立提交。
 - [x] 两篇与示例实现、来源核验。
 - [x] 干净环境与浏览器验收。
-- [ ] 本批推送、同 SHA 发布核验、维护台账。
+- [x] 本批推送、同 SHA 发布核验、维护台账。
 
 ## Decisions and discoveries
 
@@ -38,4 +38,4 @@ F03 使用已学 function 声明作为 find 回调，避免同时引入箭头函
 
 ## Outcome
 
-进行中；报告目标 reports/H3-objects-modules.md 与 reports/RELEASE-2026-09-11.md，当前远端验证 NOT_RUN。
+H3-001A 完成；本地208 tests与kb:verify PASS。发布 db02102 的同 SHA run 34670174007 全部success，线上中文/英文搜索与导航通过。证据见 reports/H3-objects-modules.md 与 reports/RELEASE-2026-09-11.md。H3父任务仍进行中，下一项H3-001B。预览进程已停止、测试标签关闭、视口恢复；最终事后文档本地提交，默认review-before-push恢复。

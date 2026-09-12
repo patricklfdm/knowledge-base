@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-11",
-  "status_note": "H3-001A accepted; initial deployment succeeded, search cache repair pending release",
+  "status_note": "H3-001A done; db02102 same-SHA checks/deployment and online smoke PASS; review-before-push restored",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -183,8 +183,24 @@
         "干净构建与390/1440阅读验证"
       ],
       "evidence": [
-        "reports/H3-objects-modules.md"
+        "reports/H3-objects-modules.md",
+        "reports/RELEASE-2026-09-11.md"
       ]
+    },
+    {
+      "id": "H3-001B",
+      "phase": "H3",
+      "title": "F05/F06 异步及 TypeScript 与运行时校验",
+      "status": "todo",
+      "depends_on": [
+        "H3-001A"
+      ],
+      "acceptance": [
+        "1–2篇连续笔记，明确 Promise/await/rejection 和类型擦除边界",
+        "成功、拒绝与非法外部输入有隔离实测",
+        "来源、迁移练习与桌面/窄屏阅读核验"
+      ],
+      "evidence": []
     },
     {
       "id": "H3-002",
