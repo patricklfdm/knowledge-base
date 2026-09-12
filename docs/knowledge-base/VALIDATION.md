@@ -1,12 +1,12 @@
 # 本地验证与部署门禁
 
-使用 `.nvmrc` / `.node-version` 指定的 Node 24.21.0，npm >=10.9.2。本次实际测试 npm 11.19.0。先 `npm ci`，再 `npm run quartz -- plugin install --from-config`。没有新增依赖；脚本复用已有 yaml、unified/remark、GFM、github-slugger 与 Quartz utils。
+使用 `.nvmrc` / `.node-version` 指定的 Node 24.21.0，npm >=10.9.2。本次实际测试 npm 11.19.0。先 `npm ci`，再 `npm run quartz -- plugin install --from-config`。根依赖未增加；检查脚本复用已有 yaml、unified/remark、GFM、github-slugger 与 Quartz utils。
 
 | 命令                    | 实际工作                                                                                 |
 | ----------------------- | ---------------------------------------------------------------------------------------- |
 | npm run kb:check        | content 元数据、唯一 ID/URL/别名、先修 DAG、Markdown 内部链接/标题锚点、发布状态         |
 | npm run kb:test         | 临时正常/失败 fixtures；CLI 返回码；产物检测器；CI 依赖保护                              |
-| npm run kb:examples     | 明确运行 examples/foundations 的 5 组示例测试                                            |
+| npm run kb:examples     | 明确运行 foundations 的13组与 typed-trips 的4组示例测试                                  |
 | npm run kb:build        | `npm run quartz -- build`，现有 Quartz CLI，默认 content/public                          |
 | npm run kb:output       | 对 public 的实际 HTML DOM 检查本站 base path、链接、资源与锚点                           |
 | npm run kb:publish-test | 临时正文与产物，真实构建正面对照和 3 种禁发 marker，扫描全部产物，再注入泄漏证明检测有效 |
@@ -29,3 +29,7 @@ H1 尚不支持 Obsidian wiki/block、脚注、原始 HTML、内部 query、绝�
 `knowledge-base-checks.yml` 对 PR v5、其他分支 push 和手动检查运行，并提供 workflow_call。v5 push 的现有 publish 工作流调用同提交 quality；build needs quality，deploy needs build。build 限定本仓库 v5，再检查实际上传产物。内容、测试、类型、真实过滤测试或原有回归失败都会阻止 deploy。锁文件漂移检查也必须通过。
 
 本地测试证明配置依赖与失败返回码；真实远端执行在当前批次未授权时为 NOT_RUN。只有明确授权发布本批次后，才普通 push origin/v5 并跟踪同 SHA 部署。五份继承 workflow 的上游限制保持不变。
+
+## H3-001B TypeScript 示例
+
+首次运行根门禁前，另执行 `npm ci --prefix examples/typed-trips`。`kb:examples` 显式运行 foundations 与 typed-trips 两个包；后者测试真实调用固定 TypeScript 5.9.3 检查器，并用 Node24 执行类型擦除后的程序。根 `npm ci` 不会安装独立包依赖。CI 已登记独立安装及全部示例 manifest/lock 的漂移检查，遗漏安装步骤的负面用例会失败。

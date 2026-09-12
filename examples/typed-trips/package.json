@@ -1,0 +1,17 @@
+{
+  "name": "kb-typed-trips-examples",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "demo": "node demo.ts",
+    "test": "node --test examples.test.mjs"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}

@@ -24,8 +24,24 @@ function assertProtected(publish, checks) {
       }
     }
   const commands = checks.jobs.verify.steps.map((s) => s.run)
-  for (const command of ["npm ci", "npm run kb:verify", "npm test"])
+  for (const command of [
+    "npm ci",
+    "npm ci --prefix examples/typed-trips",
+    "npm run kb:verify",
+    "npm test",
+  ])
     assert.ok(commands.includes(command))
+  assert.ok(
+    commands.indexOf("npm ci --prefix examples/typed-trips") <
+      commands.indexOf("npm run kb:verify"),
+  )
+  assert.ok(
+    commands.some(
+      (command) =>
+        command?.startsWith("git diff --exit-code") &&
+        command.includes("examples/typed-trips/package-lock.json"),
+    ),
+  )
   assert.ok(publish.jobs.build.steps.some((s) => s.run === "npm run kb:output"))
 }
 
@@ -39,6 +55,11 @@ test("部署显式依赖同提交可复用门禁，且破坏依赖会被检测",
   const skipped = structuredClone(checks)
   skipped.jobs.verify.steps.find((s) => s.run === "npm run kb:verify")["continue-on-error"] = true
   assert.throws(() => assertProtected(publish, skipped))
+  const missingInstall = structuredClone(checks)
+  missingInstall.jobs.verify.steps = missingInstall.jobs.verify.steps.filter(
+    (step) => step.run !== "npm ci --prefix examples/typed-trips",
+  )
+  assert.throws(() => assertProtected(publish, missingInstall))
 })
 test("校验器假设与配置保持一致，过滤与主题保护不变", () => {
   const config = read("quartz.config.yaml")
@@ -65,7 +86,10 @@ test("校验器假设与配置保持一致，过滤与主题保护不变", () =>
 
 test("教学示例单独登记，Quartz 类型范围不包含示例", () => {
   const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"))
-  assert.equal(pkg.scripts["kb:examples"], "npm test --prefix examples/foundations")
+  assert.equal(
+    pkg.scripts["kb:examples"],
+    "npm test --prefix examples/foundations && npm test --prefix examples/typed-trips",
+  )
   assert.ok(pkg.scripts["kb:verify"].includes("npm run kb:examples"))
   const tsconfig = JSON.parse(fs.readFileSync("tsconfig.json", "utf8"))
   assert.deepEqual(tsconfig.include, [

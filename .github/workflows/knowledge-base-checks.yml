@@ -24,6 +24,8 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
+      - name: Install locked TypeScript example dependencies
+        run: npm ci --prefix examples/typed-trips
       - name: Install configured plugins
         run: npm run quartz -- plugin install --from-config
       - name: Verify content, negative fixtures, types, build and publication filters
@@ -31,4 +33,4 @@ jobs:
       - name: Run inherited regression tests
         run: npm test
       - name: Ensure installation did not change the npm lock
-        run: git diff --exit-code -- package.json package-lock.json
+        run: git diff --exit-code -- package.json package-lock.json examples/foundations/package.json examples/foundations/package-lock.json examples/typed-trips/package.json examples/typed-trips/package-lock.json

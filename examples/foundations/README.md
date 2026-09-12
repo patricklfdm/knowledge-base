@@ -1,4 +1,4 @@
-# F00–F04 基础例子
+# F00–F05 基础例子
 
 独立于 Quartz 的无依赖教学程序。实测 Node 24.21.0/npm 11.19.0，合成目的地与天数，不联网、不启动服务器、不写数据库。
 
@@ -14,6 +14,7 @@ node values.mjs
 node rules-demo.mjs
 node trips-demo.mjs
 node modules-demo.mjs
+node async-demo.mjs
 ```
 
 - `hello.mjs`：按顺序打印；`failures/typo.mjs` 故意拼错方法并以非零退出。
@@ -27,3 +28,5 @@ node modules-demo.mjs
 `npm test` 明确运行 foundations.test.mjs：验证 stdout、非零错误类型、行号和边界，失败样例被测试捕获，不是未处理的失败。新增例子必须显式登记到测试，不遍历执行任意 Markdown 或 shell。
 
 停止/清理：这些程序执行完即退出；无后台进程，无 reset 数据操作。可以删除自己复制的临时练习文件，勿覆盖仓库受测文件。完整教材位于 content/topics/01-languages 与 content/topics/02-foundations-tools；请按文章对应提交使用示例。
+
+F05：`async-trips.mjs` 为无网络的确定性异步教学函数，`async-demo.mjs` 观察 await 让出与拒绝；`failures/no-await.mjs` 错把 Promise 当成结果，`failures/unhandled-rejection.mjs` 漏接拒绝，测试用 `--unhandled-rejections=strict` 验证非零退出。

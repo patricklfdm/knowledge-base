@@ -104,3 +104,34 @@ test("F04 捕获、未捕获和导入失败是不同执行路径", () => {
   assert.equal(wrong.stdout, "")
   assert.match(wrong.stderr, /does not provide an export named 'createTrips'/)
 })
+
+import { loadTrip } from "./async-trips.mjs"
+test("F05 async 返回Promise，成功值与拒绝原因分别处理", async () => {
+  const pending = loadTrip("t1")
+  assert.ok(pending instanceof Promise)
+  assert.equal(pending.destination, undefined)
+  assert.deepEqual(await pending, { id: "t1", destination: "山城", days: 3 })
+  for (const id of ["missing", "", null, 1, undefined])
+    await assert.rejects(loadTrip(id), { name: "Error", message: "找不到行程" })
+})
+test("F05 await 让出当前函数，入口继续，然后恢复与捕获拒绝", () => {
+  const result = run("async-demo.mjs")
+  assert.equal(result.status, 0)
+  assert.equal(result.stdout, "开始读取\n入口继续\n山城 3\n读取失败：找不到行程\n读取结束\n")
+  const noAwait = run("failures/no-await.mjs")
+  assert.equal(noAwait.status, 0)
+  assert.equal(noAwait.stdout, "undefined\n山城\n")
+})
+test("F05 同步try不能捕获未等待的拒绝，严格模式非零退出", () => {
+  const result = spawnSync(
+    process.execPath,
+    [
+      "--unhandled-rejections=strict",
+      fileURLToPath(new URL("failures/unhandled-rejection.mjs", import.meta.url)),
+    ],
+    { encoding: "utf8" },
+  )
+  assert.notEqual(result.status, 0)
+  assert.equal(result.stdout, "入口已离开 try\n")
+  assert.match(result.stderr, /Error: 找不到行程/)
+})

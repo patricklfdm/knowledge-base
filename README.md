@@ -6,6 +6,7 @@
 
 ```sh
 npm ci
+npm ci --prefix examples/typed-trips
 npm run quartz -- plugin install --from-config
 npm run kb:verify
 ```
