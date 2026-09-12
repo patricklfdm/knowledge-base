@@ -27,3 +27,7 @@ H4-001A完成，BACKLOG关联本报告；H4-001/H4-GATE和v1.0未完成。G7、�
 本批范围为恢复脚本/命令和工程文档；教材页面自7e76fca未改。该SHA同提交CI/Pages和HTTP已成功，见[H3-003报告](H3-tests-delivery.md)。本批按持续授权普通push origin/v5并跟踪新SHA；报告以基线加本批差异定位，最终提交及运行结果由Git/Actions确认，不把本文所在提交SHA反复写入自身。
 
 下一项H4-UI-SITE/H4-UI-APP依具体清单与用户明确许可恢复；H5依H4-001，保留依赖，不将未测UI改done以解锁。计划与STATE提供恢复入口；本回合结束后不宣称离线执行。
+
+## 发布补记
+
+25e73408143c12079c8f809af454c405ce762928已普通推送。[同SHA运行34681756899](https://github.com/patricklfdm/knowledge-base/actions/runs/34681756899)成功：quality 103521541563、build 103521620500、deploy 103521670925，部署完成2026-09-12T07:51:47Z。HTTP文本冒烟重新实跑PASS：主页/路线/相关四篇正文6页、实际30个CSS/JS、四篇搜索索引、缺失路径404；无浏览器操作。本补记只更新工程证据，教材、运行脚本与依赖不变。

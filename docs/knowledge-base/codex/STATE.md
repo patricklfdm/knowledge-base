@@ -1,6 +1,6 @@
 # 当前检查点
 
-2026-09-12，patricklfdm/knowledge-base，v5。本回合连续交付两批五篇教材：F11集成4ea13cde8291b7cf935b8cf201c4b12599bf7d70、F12/F13测试/迁移/运行7e76fca18cfde49422ec2a406aeafbc459cd4f5a，均普通推送、同SHA CI/Pages与HTTP文本冒烟成功。最新内容运行34681267525，部署2026-09-12T07:40:05Z。当前工程批在7e76fca基线上新增H4恢复夹具、门禁与手册，按持续授权提交推送并跟踪同SHA。
+2026-09-12，patricklfdm/knowledge-base，v5。本回合连续交付两批五篇教材：F11集成4ea13cde8291b7cf935b8cf201c4b12599bf7d70、F12/F13测试/迁移/运行7e76fca18cfde49422ec2a406aeafbc459cd4f5a，均普通推送、同SHA CI/Pages与HTTP文本冒烟成功。最新内容运行34681267525，部署2026-09-12T07:40:05Z。工程批25e73408143c12079c8f809af454c405ce762928新增H4恢复夹具、门禁与手册，已普通推送；同SHA运行34681756899 CI/Pages成功，部署2026-09-12T07:51:47Z，HTTP文本冒烟PASS。本次补记仅工程证据，按持续授权普通推送。
 
 H3-GATE非浏览器验收PASS，H4-001A准备完成，v1.0未完成。BACKLOG是唯一台账。报告：[路线验收](../../../reports/H3-route-gate.md)、[测试与运行](../../../reports/H3-tests-delivery.md)、[H4恢复准备](../../../reports/H4-release-readiness.md)；当前计划[H4-001A](plans/H4-001A-release-readiness.md)。
 

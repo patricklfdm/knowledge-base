@@ -14,7 +14,7 @@
 - [x] H3门禁与前两批证据核对。
 - [x] 发布范围复核与临时revert演练，维护脚本加入kb:verify。
 - [x] 操作手册、UI候选清单、报告；隔离完整门禁通过。
-- [ ] 推送/部署（本提交后按同SHA跟踪），检查点已保存。
+- [x] 25e7340普通推送，同SHA运行34681756899 CI/Pages成功，HTTP文本通过；检查点已保存。
 
 ## 边界
 
@@ -22,4 +22,4 @@
 
 ## Outcome与恢复
 
-见[验收报告](../../../../reports/H4-release-readiness.md)：259 tests、52 HTML/155产物、负面用例与真实普通revert夹具通过，锁无变化。新增命令在持续集成中随kb:verify执行。教材第二批7e76fca的部署/HTTP已确认；当前工程批先完成普通push和同SHA CI/Pages跟踪，再按UI清单等待此前暂停边界改变。未许可不连接浏览器，H4父项未完成。中断时先查Git/Actions，成功后核对报告；不要为填自身SHA反复改写提交。
+见[验收报告](../../../../reports/H4-release-readiness.md)：259 tests、52 HTML/155产物、负面用例与真实普通revert夹具通过，锁无变化。新增命令在持续集成中随kb:verify执行。教材第二批7e76fca的部署/HTTP已确认；工程批25e7340已完成普通push、同SHA CI/Pages与HTTP文本；按UI清单等待此前暂停边界改变。未许可不连接浏览器，H4父项未完成。中断时先查Git/Actions，成功后核对报告；不要为填自身SHA反复改写提交。
