@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-11",
-  "status_note": "H3-001B locally accepted; review-before-push; next H3-001C",
+  "status_note": "H3-001C content/non-browser accepted; auto-push authorized; next H3-001D; UI deferred",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -208,14 +208,31 @@
       "id": "H3-001C",
       "phase": "H3",
       "title": "F07 HTML/CSS/DOM与表单桥接",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H3-001B"
       ],
       "acceptance": [
-        "先说明页面结构/标签/样式/DOM/事件，再接输入规则",
-        "合成行程表单的成功、非法输入与键盘反馈可验证",
-        "每批1–3篇及可独立复现的示例、阅读验收"
+        "两篇渐进桥接 HTML/CSS/DOM/事件，再接表单输入转换",
+        "合成行程规则成功、非法输入和边界有非浏览器实测",
+        "正文、来源、导航复核；真实表单/键盘反馈留 H4-UI-APP，站点 G7 留 H4-UI-SITE"
+      ],
+      "evidence": [
+        "reports/H3-web-forms.md"
+      ]
+    },
+    {
+      "id": "H3-001D",
+      "phase": "H3",
+      "title": "F08 HTTP请求响应与失败边界",
+      "status": "todo",
+      "depends_on": [
+        "H3-001C"
+      ],
+      "acceptance": [
+        "1–2篇解释方法、URL、headers、JSON和状态码，先修 F05/F07 明确",
+        "隔离合成请求的成功、HTTP错误与网络失败实测，不把静态Pages当动态后端",
+        "内容/来源/命令/导航及非浏览器门禁完成；浏览器继续延期"
       ],
       "evidence": []
     },
@@ -259,7 +276,7 @@
       "acceptance": [
         "原始10项目标与补充先修覆盖",
         "不存在计划项冒充完成",
-        "端到端练习有证据"
+        "端到端业务练习有非浏览器证据；真实应用交互由 H4-UI-APP 验收"
       ],
       "evidence": []
     },
@@ -280,16 +297,48 @@
       "evidence": []
     },
     {
+      "id": "H4-UI-SITE",
+      "phase": "H4",
+      "title": "首条路线完成后集中验收知识库浏览器体验",
+      "status": "todo",
+      "depends_on": [
+        "H3-GATE"
+      ],
+      "acceptance": [
+        "先给候选页面和最多3个目标，用户明确允许后恢复浏览器",
+        "桌面/窄屏导航、阅读、复制、搜索与键盘；保留既有搜索实体/摘要问题",
+        "本阶段 NOT_RUN：用户批准移至集中验收阶段；完成前不宣称 v1.0 通过"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H4-UI-APP",
+      "phase": "H4",
+      "title": "首条路线完成后集中验收教学应用交互",
+      "status": "todo",
+      "depends_on": [
+        "H3-GATE"
+      ],
+      "acceptance": [
+        "用户明确允许后验证真实表单提交、非法输入、键盘与反馈",
+        "不得以 Node 业务测试或静态 HTML 检查冒充真实交互",
+        "本阶段 NOT_RUN：用户批准移至集中验收阶段"
+      ],
+      "evidence": []
+    },
+    {
       "id": "H4-GATE",
       "phase": "H4",
       "title": "v1.0 本地验收与授权后发布验收",
       "status": "todo",
       "depends_on": [
-        "H4-001"
+        "H4-001",
+        "H4-UI-SITE",
+        "H4-UI-APP"
       ],
       "acceptance": [
         "所有必需本地 gate PASS",
-        "获得本批次授权后验证同 SHA 部署与线上冒烟",
+        "依据当前用户发布授权验证同 SHA 部署与线上冒烟",
         "未授权发布时保持此gate未完成但不阻塞独立后续本地任务"
       ],
       "evidence": []

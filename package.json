@@ -26,7 +26,7 @@
     "kb:output": "node scripts/knowledge-base/check-output.mjs",
     "kb:publish-test": "node scripts/knowledge-base/verify-publish.mjs",
     "kb:verify": "npm run kb:check && npm run kb:test && npm run kb:examples && tsc --noEmit && npm run kb:build && npm run kb:output && npm run kb:publish-test",
-    "kb:examples": "npm test --prefix examples/foundations && npm test --prefix examples/typed-trips"
+    "kb:examples": "npm test --prefix examples/foundations && npm test --prefix examples/typed-trips && npm test --prefix examples/web-forms"
   },
   "engines": {
     "npm": ">=10.9.2",

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>行程表单预览</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./form.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>行程表单预览</h1>
+      <p>仅使用合成数据。本页只生成预览，不发送或保存行程。</p>
+      <form id="trip-form" novalidate>
+        <label for="destination">目的地</label>
+        <input id="destination" name="destination" type="text" required />
+        <label for="days">天数（1–30）</label>
+        <input
+          id="days"
+          name="days"
+          type="text"
+          inputmode="numeric"
+          required
+          aria-describedby="days-help"
+        />
+        <p id="days-help">填写十进制整数，如3；不接受小数、符号或科学计数法。</p>
+        <button id="submit" type="submit" disabled>生成预览</button>
+      </form>
+      <p id="summary" role="status">等待填写</p>
+      <p id="feedback" tabindex="-1"></p>
+      <noscript>本示例需要 JavaScript；按钮保持禁用，不提交表单。</noscript>
+      <p><a href="./dom.html">返回页面与DOM示例</a></p>
+    </main>
+  </body>
+</html>

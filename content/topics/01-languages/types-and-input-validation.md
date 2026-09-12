@@ -132,7 +132,7 @@ if (error instanceof Error) {
 }
 ```
 
-这段是catch内部摘录，不是独立程序。严格模式下catch参数按unknown处理；instanceof在此检查是否为Error实例，通过后才能读取message。无法识别的值重新抛出，不假装成功。完整入口见 [typed-trips示例目录](https://github.com/patricklfdm/knowledge-base/tree/v5/examples/typed-trips)，本批未推送时新文件以本地仓库为准。
+这段是catch内部摘录，不是独立程序。严格模式下catch参数按unknown处理；instanceof在此检查是否为Error实例，通过后才能读取message。无法识别的值重新抛出，不假装成功。完整入口见 [typed-trips示例目录](https://github.com/patricklfdm/knowledge-base/tree/v5/examples/typed-trips)。
 
 ## 练习：把目的地也变成空白
 
@@ -140,6 +140,6 @@ if (error instanceof Error) {
 
 参考结果：空白目的地在trim后被拒绝；30通过，31和2.5违反整数/范围规则，字符串 `"30"` 违反数字类型要求。测试还覆盖缺失属性、null、数组、NaN/Infinity、额外字段与输入不变。每个要求都需要对应实际条件，类型和条件各自承担一部分责任。
 
-下一项计划是HTML/CSS/DOM与表单桥接，再把这些已验证的输入规则接到页面。本篇没有完成表单或API。
+下一篇：[一段HTML怎样变成可以操作的页面？](../04-frontend/html-css-dom.md)，先补齐HTML/CSS/DOM，再解释表单的文字转换边界。API仍待后续路线实现。
 
 [返回全栈基础路线](../../roadmaps/fullstack-foundations.md)
