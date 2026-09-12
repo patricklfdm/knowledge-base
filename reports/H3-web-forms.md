@@ -28,7 +28,7 @@ examples/web-forms 是独立无 npm 依赖的公开合成示例，含页面/脚�
 | 静态HTTP | PASS：两个HTML、三个JS、CSS均200/MIME正确；ID唯一、label关联；不存在文件404；最终反馈结构复查；临时服务已停止 |
 | G7 站点浏览器 | NOT_RUN：用户批准移至集中验收阶段，H4-UI-SITE |
 | 教学应用交互 | NOT_RUN：用户批准移至集中验收阶段，H4-UI-APP；没有点击/Enter/焦点/屏幕阅读器实测 |
-| G8 发布 | pending：按当前持续授权推送后补记同 SHA CI、部署与HTTP文本冒烟 |
+| G8 发布 | PASS：a290209 同 SHA 必需CI、Pages和HTTP文本冒烟通过；见下方记录 |
 
 完整最终非浏览器命令为 `npm run kb:verify` 和 `npm test`。日志位于 /tmp/kb-h3b-path.txt 指向的隔离目录 h3c-final-verify.log、h3c-final-tests.log；独立示例指针 /tmp/kb-form-path.txt。临时日志不是永久唯一证据，受维护测试与本报告可恢复；远端 CI 将重新从锁安装精确提交。
 
@@ -52,3 +52,13 @@ examples/web-forms 是独立无 npm 依赖的公开合成示例，含页面/脚�
 H3-001C 内容与非浏览器示例 done；首条路线 H3-001/H3-GATE、集中UI和v1.0仍未完成。历史搜索实体/摘要定位问题留 H4-001，已有历史证据保留。
 
 下一项 H3-001D/F08：HTTP请求、响应、headers/JSON/状态码与失败路径，依赖 F05/F07，继续内容优先和每批自动push。不要恢复浏览器或重新初始化。
+
+## 发布实证
+
+已按持续授权普通快进推送 origin/v5：db02102 → a2902097bf18a023db81f7620dec750bab580134，包含本轮901f17e/a290209及此前已验收的3个本地提交。提交前检查路径/暂存差异、公开合成资料范围和常见凭证模式（无匹配；不声称扫描覆盖全部秘密类型）。没有强推、PR或tag。
+
+[Publish Knowledge Base 34673645597](https://github.com/patricklfdm/knowledge-base/actions/runs/34673645597) 对同一SHA success：quality / verify job103499521014、build103499609485、deploy103499655123全部success；部署完成2026-09-12 04:42:20 UTC（本地9月11日21:42:20）。真实CI从锁重新安装，未改变既有必需检查。
+
+发布后HTTP文本冒烟：主页、路线、F05/F06/F07A/F07B六页200且含预期正文；从返回HTML解析的30个本站CSS/JS实际URL均200；搜索索引包含四篇ID对应路径；不存在地址404。源码中的浏览器预期/NOT_RUN声明在线保留。这是G8发布证据，不是G7或应用交互PASS。
+
+本次事后证据仅更新报告、计划与STATE，将随普通文档提交再次自动推送；不为让文件写入自己的SHA而反复改写。后续读取实际HEAD对应工作流即可确认该文档提交的部署，内容证据仍锚定上述源码SHA。

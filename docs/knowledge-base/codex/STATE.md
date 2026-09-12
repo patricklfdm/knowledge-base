@@ -1,10 +1,10 @@
 # 当前检查点
 
-2026-09-11 America/Los_Angeles。目标 patricklfdm/knowledge-base，工作分支 v5。本批基线 HEAD 54a6619，接手工作区干净；此前线上 db0210259713b87b48368c1b47b2d18279e81726，本地3个积压提交将与本批一并普通推送。实际 HEAD/远端以 Git 核对为准。
+2026-09-11 America/Los_Angeles。目标 patricklfdm/knowledge-base，工作分支 v5。本批基线 HEAD 54a6619，接手工作区干净。已将之前3个积压提交与本轮变更普通推送，内容源码 a2902097bf18a023db81f7620dec750bab580134 的必需CI、Pages与HTTP文本冒烟已通过（运行34673645597）。本检查点为事后文档记录，也按持续授权自动推送；实际最新HEAD/远端及对应部署以Git/Actions核对，不反复把文件自身SHA写入自身。
 
-当前焦点：H3-001C内容与非浏览器验收完成，准备按持续授权发布；下一项 **H3-001D/F08 HTTP**。BACKLOG.json 是唯一任务台账，H3整条路线和v1.0尚未完成。
+当前焦点：H3-001C内容与非浏览器验收完成且已发布；下一项 **H3-001D/F08 HTTP**。BACKLOG.json 是唯一任务台账，H3整条路线和v1.0尚未完成。
 
-最新计划：[页面与表单](plans/H3-001C-content-forms.md)。最新报告：[H3-001C](../../../reports/H3-web-forms.md)。既有发布证据仍见历史 RELEASE-2026-09-11，不代表本批已部署。
+最新计划：[页面与表单](plans/H3-001C-content-forms.md)。最新报告：[H3-001C](../../../reports/H3-web-forms.md)。本批发布证据已写入H3-001C报告；旧报告保留历史用途。
 
 ## 当前用户覆盖
 
