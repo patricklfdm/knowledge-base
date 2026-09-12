@@ -1,0 +1,369 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-09-11",
+  "status_note": "H3-001A in progress; current batch publication authorized, remote validation pending",
+  "allowed_statuses": [
+    "todo",
+    "in_progress",
+    "blocked",
+    "done"
+  ],
+  "tasks": [
+    {
+      "id": "H0-001",
+      "phase": "H0",
+      "title": "核对仓库、当前变更、版本和既有规则",
+      "status": "done",
+      "depends_on": [],
+      "acceptance": [
+        "确认目标 repo/branch/remote，保护用户变更",
+        "记录实际 HEAD 与包快照差异"
+      ],
+      "evidence": [
+        "reports/H0-baseline.md"
+      ]
+    },
+    {
+      "id": "H0-002",
+      "phase": "H0",
+      "title": "复现构建并审计发布与继承工作流",
+      "status": "done",
+      "depends_on": [
+        "H0-001"
+      ],
+      "acceptance": [
+        "隔离环境构建证据或真实阻塞",
+        "版本/锁文件行为和工作流限制明确"
+      ],
+      "evidence": [
+        "reports/H0-baseline.md"
+      ]
+    },
+    {
+      "id": "H0-GATE",
+      "phase": "H0",
+      "title": "接手基线验收",
+      "status": "done",
+      "depends_on": [
+        "H0-002"
+      ],
+      "acceptance": [
+        "H0 报告存在且诚实分类所有未知",
+        "基线可继续使用，没有无关回归"
+      ],
+      "evidence": [
+        "reports/H0-baseline.md"
+      ]
+    },
+    {
+      "id": "H1-001",
+      "phase": "H1",
+      "title": "实现元数据、先修和链接验证",
+      "status": "done",
+      "depends_on": [
+        "H0-GATE"
+      ],
+      "acceptance": [
+        "兼容 seed navigation",
+        "正面/负面用例验证且错误非零退出"
+      ],
+      "evidence": [
+        "reports/H1-quality-foundation.md"
+      ]
+    },
+    {
+      "id": "H1-002",
+      "phase": "H1",
+      "title": "实现发布范围检查与项目专属 CI",
+      "status": "done",
+      "depends_on": [
+        "H1-001"
+      ],
+      "acceptance": [
+        "合成禁发标记不出现在页面/索引",
+        "部署显式依赖同提交必需检查",
+        "旧规范过期内容协调"
+      ],
+      "evidence": [
+        "reports/H1-quality-foundation.md"
+      ]
+    },
+    {
+      "id": "H1-GATE",
+      "phase": "H1",
+      "title": "最小质量底座验收",
+      "status": "done",
+      "depends_on": [
+        "H1-002"
+      ],
+      "acceptance": [
+        "当前真实正文通过",
+        "故意错误使验证路径非零退出，部署依赖通过配置/测试证明；尚未授权的真实远端验证单列 NOT_RUN，留待发布验收",
+        "未用空脚本或跳过伪装通过"
+      ],
+      "evidence": [
+        "reports/H1-quality-foundation.md"
+      ]
+    },
+    {
+      "id": "H2-001",
+      "phase": "H2",
+      "title": "完成 F00–F02 三篇连续样板与例子",
+      "status": "done",
+      "depends_on": [
+        "H1-GATE"
+      ],
+      "acceptance": [
+        "全部先修明确",
+        "实际运行成功/失败例子",
+        "每篇有来源与迁移练习"
+      ],
+      "evidence": [
+        "reports/H2-foundations.md"
+      ]
+    },
+    {
+      "id": "H2-002",
+      "phase": "H2",
+      "title": "校准文章阅读与路线入口",
+      "status": "done",
+      "depends_on": [
+        "H2-001"
+      ],
+      "acceptance": [
+        "桌面/窄屏真实阅读检查",
+        "标题/代码/链接/搜索/必要元数据可用"
+      ],
+      "evidence": [
+        "reports/H2-foundations.md"
+      ]
+    },
+    {
+      "id": "H2-GATE",
+      "phase": "H2",
+      "title": "样板单元验收",
+      "status": "done",
+      "depends_on": [
+        "H2-002"
+      ],
+      "acceptance": [
+        "编辑复核完成",
+        "例子/内容/构建门禁通过",
+        "没有把导航算教学文章"
+      ],
+      "evidence": [
+        "reports/H2-foundations.md"
+      ]
+    },
+    {
+      "id": "H3-001",
+      "phase": "H3",
+      "title": "补齐 JS/TS/表单/HTTP 先修与前半路线",
+      "status": "in_progress",
+      "depends_on": [
+        "H2-GATE"
+      ],
+      "acceptance": [
+        "渐进解释、无隐式前置缺口",
+        "每批1–3篇，例子与正文匹配"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H3-001A",
+      "phase": "H3",
+      "title": "F03/F04 对象数组与模块错误边界",
+      "status": "in_progress",
+      "depends_on": [
+        "H2-GATE"
+      ],
+      "acceptance": [
+        "两篇连续正文与来源核验",
+        "成功、缺失、共享引用、异常及导入失败实测",
+        "干净构建与390/1440阅读验证"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H3-002",
+      "phase": "H3",
+      "title": "教学 API、SQL 与持久化闭环",
+      "status": "todo",
+      "depends_on": [
+        "H3-001"
+      ],
+      "acceptance": [
+        "独立 examples 环境",
+        "创建/查询/修改、参数化查询、约束、重启持久化测试"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H3-003",
+      "phase": "H3",
+      "title": "测试、部署教程与综合练习",
+      "status": "todo",
+      "depends_on": [
+        "H3-002"
+      ],
+      "acceptance": [
+        "干净环境按 README 可运行",
+        "扩展字段同时修改 UI/校验/数据/测试",
+        "Pages 与动态后端部署明确区分"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H3-GATE",
+      "phase": "H3",
+      "title": "首条路线完整验收",
+      "status": "todo",
+      "depends_on": [
+        "H3-003"
+      ],
+      "acceptance": [
+        "原始10项目标与补充先修覆盖",
+        "不存在计划项冒充完成",
+        "端到端练习有证据"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H4-001",
+      "phase": "H4",
+      "title": "完善发布、附件、UI 和恢复门禁",
+      "status": "todo",
+      "depends_on": [
+        "H3-GATE"
+      ],
+      "acceptance": [
+        "公开产物/附件范围检查",
+        "浏览器与示例测试接入",
+        "部署/回滚维护说明可执行",
+        "复核中文搜索摘要的实体显示与命中片段截取（H2 阅读发现）"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H4-GATE",
+      "phase": "H4",
+      "title": "v1.0 本地验收与授权后发布验收",
+      "status": "todo",
+      "depends_on": [
+        "H4-001"
+      ],
+      "acceptance": [
+        "所有必需本地 gate PASS",
+        "获得本批次授权后验证同 SHA 部署与线上冒烟",
+        "未授权发布时保持此gate未完成但不阻塞独立后续本地任务"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H5-001",
+      "phase": "H5",
+      "title": "Java/系统与 SQL 深入单元",
+      "status": "todo",
+      "depends_on": [
+        "H4-001"
+      ],
+      "acceptance": [
+        "按单元拆分计划，不一次写完",
+        "有真实隔离例子和失败验证",
+        "未授权不读取GSE"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H5-002",
+      "phase": "H5",
+      "title": "Python 数据基础与工程化路线",
+      "status": "todo",
+      "depends_on": [
+        "H4-001"
+      ],
+      "acceptance": [
+        "语法/文件/类型/测试/数据处理渐进",
+        "版本和可运行例子匹配"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H5-003",
+      "phase": "H5",
+      "title": "前端进阶、后端工程与生产可靠性",
+      "status": "todo",
+      "depends_on": [
+        "H4-001"
+      ],
+      "acceptance": [
+        "React/可访问性/状态与性能有独立深度",
+        "认证授权/迁移/可观测性/恢复演练",
+        "无付费或生产资源自动创建"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H6-001",
+      "phase": "H6",
+      "title": "分布式基础与故障实验",
+      "status": "todo",
+      "depends_on": [
+        "H5-001",
+        "H5-003"
+      ],
+      "acceptance": [
+        "故障模型与保证条件明确",
+        "超时/重复/崩溃/重放实验可复现"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H6-002",
+      "phase": "H6",
+      "title": "批处理、流处理与数据质量",
+      "status": "todo",
+      "depends_on": [
+        "H5-002",
+        "H6-001"
+      ],
+      "acceptance": [
+        "小规模端到端数据流程",
+        "迟到/重复/重放/质量规则与资源约束"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H7-001",
+      "phase": "H7",
+      "title": "搜索与 AI 应用专题",
+      "status": "todo",
+      "depends_on": [
+        "H5-001",
+        "H5-002",
+        "H5-003"
+      ],
+      "acceptance": [
+        "公开/合成数据离线评估与规则基线",
+        "不虚构真实项目指标",
+        "付费模型调用另行授权"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H7-002",
+      "phase": "H7",
+      "title": "建立内容复核与维护机制",
+      "status": "todo",
+      "depends_on": [
+        "H4-001"
+      ],
+      "acceptance": [
+        "版本变动/链接衰退/过期内容复核流程",
+        "不会自动伪造verified_on",
+        "以用户反馈更新教材"
+      ],
+      "evidence": []
+    }
+  ]
+}
