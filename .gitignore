@@ -12,3 +12,13 @@ replit.nix
 .quartz/
 quartz/cli/tui/dist/
 .turbo/
+
+# Local-only files for this knowledge base
+/quartz.config.yaml.backup-*
+.obsidian/
+.trash/
+
+# Local environment files
+.env
+.env.*
+!.env.example

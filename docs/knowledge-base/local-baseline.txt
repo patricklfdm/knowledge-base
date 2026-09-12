@@ -1,0 +1,4 @@
+Node: v24.21.0
+npm: 11.19.0
+Quartz: 5.0.0
+Initial upstream commit: f1fba3fc55cbf60a60a5d09c95a49c042cdab63a
