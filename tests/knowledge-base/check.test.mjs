@@ -137,7 +137,9 @@ test("歧义 shortest 链接和 slug 冲突拒绝；普通别名链接通过", (
     "a/one.md": { meta: { ...base, aliases: ["redirect"] }, body: "[别名](redirect)" },
     "b/one.md": { meta: { ...base, id: "two" } },
   })
-  assert.ok(checkContent(root).errors.some((e) => e.includes("AMBIGUOUS_LINK")))
+  assert.ok(
+    checkContent(root, { strategy: "shortest" }).errors.some((e) => e.includes("AMBIGUOUS_LINK")),
+  )
   assert.equal(checkContent(root).errors.filter((e) => e.startsWith("a/one.md:")).length, 0)
   fs.writeFileSync(path.join(root, "index.md"), `---\n${stringify({ ...base, id: "home" })}---\n`)
   // Folder-note collisions are reproducible on macOS and Linux.
@@ -151,4 +153,18 @@ test("歧义 shortest 链接和 slug 冲突拒绝；普通别名链接通过", (
     `---\n${stringify({ ...base, id: "five" })}---\n`,
   )
   assert.ok(checkContent(root).errors.some((e) => e.includes("SLUG_COLLISION")))
+})
+
+test("跨两层目录的普通 Markdown 链接在 relative 模式正确，旧 shortest 模式拒绝", (t) => {
+  const root = fixture(t, {
+    "topics/a/one.md": { body: "[跨目录](../b/two.md)\n[路线](../../roadmaps/route.md)" },
+    "topics/b/two.md": { meta: { ...base, id: "two" } },
+    "roadmaps/route.md": { meta: { ...base, id: "route" } },
+  })
+  assert.deepEqual(checkContent(root).errors, [])
+  assert.equal(
+    checkContent(root, { strategy: "shortest" }).errors.filter((e) => e.includes("MISSING_LINK"))
+      .length,
+    2,
+  )
 })

@@ -48,7 +48,7 @@ test("校验器假设与配置保持一致，过滤与主题保护不变", () =>
   assert.equal(
     config.plugins.find((p) => p.source === "@quartz-community/crawl-links").options
       .markdownLinkResolution,
-    "shortest",
+    "relative",
   )
   assert.deepEqual(config.configuration.ignorePatterns, [
     "private",

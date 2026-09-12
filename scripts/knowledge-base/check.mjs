@@ -27,7 +27,7 @@ export function filesIn(root) {
 
 export function checkContent(
   root,
-  { ignore = ["private", "templates", ".obsidian", ".trash"] } = {},
+  { ignore = ["private", "templates", ".obsidian", ".trash"], strategy = "relative" } = {},
 ) {
   const errors = []
   const fail = (file, code, message) => errors.push(`${file}: ${code}: ${message}`)
@@ -202,17 +202,15 @@ export function checkContent(
           fail(location, "CASE_MISMATCH", `${url} 与源文件大小写不一致`)
           continue
         }
-        // Match installed Quartz's `shortest` resolver, then map its browser-relative result.
+        // Match installed Quartz's configured resolver, then map its browser-relative result.
         const allSlugs = [...slugs.keys(), ...aliases.keys()]
         const basename = slugifyFilePath(targetPath).replace(/^(\.\.\/|\.\/)+/, "")
         const matches = allSlugs.filter((s) => s === basename || s.endsWith("/" + basename))
-        if (!targetPath.startsWith(".") && matches.length > 1) {
+        if (strategy === "shortest" && !targetPath.startsWith(".") && matches.length > 1) {
           fail(location, "AMBIGUOUS_LINK", url)
           continue
         }
-        const transformed = transformLink(n.slug, url, { strategy: "shortest", allSlugs }).split(
-          "#",
-        )[0]
+        const transformed = transformLink(n.slug, url, { strategy, allSlugs }).split("#")[0]
         const resolved = path.posix.normalize(
           path.posix.join(path.posix.dirname(n.slug), transformed),
         )
