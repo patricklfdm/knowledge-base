@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-11",
-  "status_note": "H3-002A delivered and deployed; next H3-002B; automatic push; UI deferred",
+  "status_note": "H3-002B verified locally; automatic push pending; next H3-002C; UI deferred",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -278,7 +278,7 @@
       "id": "H3-002B",
       "phase": "H3",
       "title": "F10 SQL表、参数化查询与持久化基础",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H3-002A"
       ],
@@ -286,6 +286,23 @@
         "1–2篇从内存数组过渡到SQL表、行、查询和约束，明确参数与SQL结构的区别",
         "独立隔离合成数据库，实测创建/查询、非法约束失败无写入、参数化输入及关闭重开仍可读取",
         "来源、练习、导航和非浏览器门禁完成；不连接生产或其他项目数据，不冒称完整应用已整合"
+      ],
+      "evidence": [
+        "reports/H3-sql.md"
+      ]
+    },
+    {
+      "id": "H3-002C",
+      "phase": "H3",
+      "title": "F11页面、API与数据库整合",
+      "status": "todo",
+      "depends_on": [
+        "H3-002B"
+      ],
+      "acceptance": [
+        "按1–3篇拆分实现完整独立教学应用，接通页面创建/列表/修改与持久化API",
+        "保留输入校验、参数化访问及数据库约束，真实HTTP测试创建/查询/修改/非法输入无副作用及新进程重启后读取",
+        "页面反馈和非浏览器逻辑测试完成，真实浏览器交互明确留H4-UI-APP；不部署未经授权的动态生产服务"
       ],
       "evidence": []
     },

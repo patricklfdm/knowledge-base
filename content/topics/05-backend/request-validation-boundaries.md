@@ -121,6 +121,6 @@ if (
 
 运行 `npm test`会验证正常/失败请求及失败后的状态；`npm run demo`展示结果；`npm run fail`故意提交31并以HTTP422非零退出。例子始终自行关闭本机服务。错误响应是第一份证据，随后读取列表确认没有额外记录，才证明本例拒绝路径没有写入。
 
-下一步将学习SQL表、约束与持久化。当前校验正确、API能创建和读取，但数据仍只在当前实例内存中，页面也尚未连接这个API。
+下一篇：[怎样用SQL保存行程？](../06-data/sql-tables-and-persistence.md)，学习表、约束与文件保存。当前校验正确、API能创建和读取，但数据仍只在当前实例内存中，页面也尚未连接这个API。
 
 [返回创建接口](create-trip-api.md) · [返回全栈基础路线](../../roadmaps/fullstack-foundations.md)

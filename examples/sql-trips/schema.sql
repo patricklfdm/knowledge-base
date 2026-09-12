@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS trips (
+  id INTEGER PRIMARY KEY,
+  destination TEXT NOT NULL CHECK (destination <> ''),
+  days INTEGER NOT NULL CHECK (days BETWEEN 1 AND 30)
+) STRICT;

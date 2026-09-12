@@ -18,7 +18,7 @@ tags:
 
 ## 已有样板单元
 
-先完成这十三个连续问题，再继续下面的应用目标。文章的核验状态表示教材已复核，不表示读者已经掌握。
+先完成这十五个连续问题，再继续下面的应用目标。文章的核验状态表示教材已复核，不表示读者已经掌握。
 
 | 顺序 | 正文                                                                        | 完成后的自测                                |
 | ---- | --------------------------------------------------------------------------- | ------------------------------------------- |
@@ -35,8 +35,10 @@ tags:
 | F08B | [fetch状态与JSON错误](../topics/03-web/fetch-status-and-json.md)            | 分清HTTP错误、断连、坏JSON及业务非法        |
 | F09A | [创建接口与资源地址](../topics/05-backend/create-trip-api.md)               | 从201和Location读回新行程，解释内存生命周期 |
 | F09B | [请求校验与字节边界](../topics/05-backend/request-validation-boundaries.md) | 验证错误无写入，区分字节上限与业务范围      |
+| F10A | [SQL表与持久化](../topics/06-data/sql-tables-and-persistence.md)            | 新进程读回文件记录，解释内存库区别          |
+| F10B | [参数绑定与约束](../topics/06-data/sql-parameters-and-constraints.md)       | 拒绝坏数据，说明旧表为何不会自动迁移        |
 
-完整例子位于仓库 `examples/foundations/`，可从根目录执行 `npm test --prefix examples/foundations`。F06 的独立类型示例位于 `examples/typed-trips/`，先在该目录 `npm ci` 再 `npm test`。F07 的独立示例位于 `examples/web-forms/`，无需 npm 依赖，运行 `npm test --prefix examples/web-forms`。页面与表单的内容和非浏览器规则已核验，真实交互待集中验收；F08 的 `examples/http-trips/` 可执行真实本机HTTP实验，运行 `npm test --prefix examples/http-trips`；F09 的 `examples/trip-api/` 可运行 `npm test --prefix examples/trip-api`，已实现内存创建/读取与请求校验；数据库持久化和页面整合仍未完成。
+完整例子位于仓库 `examples/foundations/`，可从根目录执行 `npm test --prefix examples/foundations`。F06 的独立类型示例位于 `examples/typed-trips/`，先在该目录 `npm ci` 再 `npm test`。F07 的独立示例位于 `examples/web-forms/`，无需 npm 依赖，运行 `npm test --prefix examples/web-forms`。页面与表单的内容和非浏览器规则已核验，真实交互待集中验收；F08 的 `examples/http-trips/` 可执行真实本机HTTP实验，运行 `npm test --prefix examples/http-trips`；F09 的 `examples/trip-api/` 可运行 `npm test --prefix examples/trip-api`，已实现内存创建/读取与请求校验；F10的 `examples/sql-trips/` 可运行 `npm test --prefix examples/sql-trips`，已验证独立数据库的写入/查询/新进程读取；页面/API/数据库整合尚未完成。
 
 ## 应用目标与后续文章
 
@@ -49,7 +51,7 @@ tags:
 | 05   | [表单怎样把文字输入变成合法行程？](../topics/04-frontend/form-input-boundary.md)               | 完成输入转换和错误反馈         | 内容/规则已核验，交互待验 |
 | 06   | [一次HTTP请求里传了什么？](../topics/03-web/http-request-response.md)                          | 查看请求、响应、状态和失败层次 | 内容/HTTP实测已核验       |
 | 07   | [怎样让POST真正创建行程？](../topics/05-backend/create-trip-api.md)                            | 创建/读取与非法请求无写入      | 内容/API实测已核验        |
-| 08   | 怎样用 SQL 保存和查询行程？                                                                    | 建表、写入、查询与约束验证     | 待编写                    |
+| 08   | [怎样用SQL保存行程？](../topics/06-data/sql-tables-and-persistence.md)                         | 建表、写入、查询与约束验证     | 内容/SQL实测已核验        |
 | 09   | 如何证明一个功能没有悄悄变坏？                                                                 | 增加单元测试与集成测试         | 待编写                    |
 | 10   | 怎样部署并检查一个完整功能？                                                                   | 完成部署、配置与冒烟检查       | 待编写                    |
 
