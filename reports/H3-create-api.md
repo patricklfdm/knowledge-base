@@ -27,7 +27,7 @@ Node24.21.0/npm11.19.0/macOS arm64；既有TypeScript5.9.3不变。复用本会�
 | 教材练习 | PASS：重复相同POST生成t1/t2、列表2；上限改14后，14→201，15和字符串14→422、列表1 |
 | 检出校验退化 | PASS：副本把天数上限放宽到300，npm test退出1、2组失败；故意修改已恢复并与正式源逐字节匹配 |
 | G7/应用UI | NOT_RUN：用户批准集中验收；无浏览器连接或交互测试 |
-| G8发布 | 待本批提交后跟踪同SHA CI/Pages及HTTP文本冒烟 |
+| G8发布 | PASS：a02b7d7同SHA CI/Pages与HTTP文本冒烟成功，见下方 |
 
 整批命令为 `npm run kb:verify` 和 `npm test`，均退出0。日志为/tmp/h3e-verify.log、/tmp/h3e-tests.log，故意失败实验/tmp/kb-api-mutant.log；副本指针/tmp/kb-h3b-path.txt与/tmp/kb-api-path.txt。临时路径失效时按仓库README和锁重建；报告及维护的测试是可读验收依据。最终教材、代码、命令、CI与验证副本逐字节匹配。
 
@@ -58,4 +58,10 @@ H3-002A内容和非浏览器门禁完成；H3-002父阶段仍in_progress，API/S
 
 ## 发布实证
 
-待提交与普通推送后记录；不能把本地门禁PASS称为已部署。
+按持续授权普通快进推送origin/v5：83d2aac → a02b7d76c04e7a1a216c916096549c2e229038ca。22个本批文件的暂存范围/公开合成数据人工复核，有限常见凭证模式扫描无匹配，不声称覆盖所有秘密形式；没有PR/tag/强推。
+
+[Publish Knowledge Base运行34676923567](https://github.com/patricklfdm/knowledge-base/actions/runs/34676923567) 的head_sha为上述内容提交，结果success：quality / verify任务103508307726、Build website任务103508372731、Deploy website任务103508416541均success；部署完成2026-09-12 05:59:37 UTC（本地2026-09-11 22:59:37 PDT）。继承的预览/Build and Test/Docker工作流按原限定条件skipped，不作为质量门禁通过证据。
+
+部署后仅用HTTP文本请求检查：主页包含十三篇教材，路线含F09B，F08B下一篇可达，两篇F09正文含预期内容，五个页面均200；解析这些页面实际引用的30个本站CSS/JS URL均200；contentIndex.json含F08B/F09A/F09B；不存在路径404。脚本/tmp/kb-h3e-online-smoke.py退出0，没有浏览器或UI执行。此冒烟检查可达性/内容/资源，不把搜索索引存在说成搜索交互验收。
+
+此节与计划/状态属于部署后的文档补记，也按持续授权自动推送并跟踪最新SHA工作流；不反复将文档自身提交SHA写回自身。恢复时以实际HEAD、origin/v5和对应Actions结果为准。

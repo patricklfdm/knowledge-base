@@ -1,10 +1,10 @@
 # 当前检查点
 
-2026-09-11 America/Los_Angeles。目标patricklfdm/knowledge-base，工作分支v5；本批基线83d2aacf292d27b461b17f5dfed94eee6c8416c5，接手时origin/v5相同、工作区干净。本批F09已完成本地门禁，待提交、普通推送与同SHA CI/Pages跟踪，尚不称已发布。
+2026-09-11 America/Los_Angeles。目标patricklfdm/knowledge-base，工作分支v5；本批基线83d2aacf292d27b461b17f5dfed94eee6c8416c5，接手时origin/v5相同、工作区干净。内容提交a02b7d76c04e7a1a216c916096549c2e229038ca已普通推送，运行34676923567的必需CI、Pages与发布后HTTP文本冒烟成功。本批内容已发布；发布补记也按授权自动推送，实际最新HEAD/远端及同SHA工作流以Git/Actions核对，不把文件自身SHA反复写回自身。
 
 H3-002A/F09两篇内容与非浏览器验收已完成；下一内容任务 **H3-002B/F10 SQL表、参数化查询与持久化基础**。状态唯一台账BACKLOG.json；H3-002父阶段仍in_progress，完整应用、H3-GATE和v1.0未完成。
 
-最新计划：[创建接口](plans/H3-002A-create-api.md)。最新报告：[H3-002A](../../../reports/H3-create-api.md)。发布证据待同SHA运行完成后补记。
+最新计划：[创建接口](plans/H3-002A-create-api.md)。最新报告：[H3-002A](../../../reports/H3-create-api.md)。本批同SHA发布证据已写入报告。
 
 ## 用户覆盖与恢复
 
