@@ -23,3 +23,5 @@
 ## Outcome与恢复
 
 见[验收报告](../../../../reports/H4-release-readiness.md)：259 tests、52 HTML/155产物、负面用例与真实普通revert夹具通过，锁无变化。新增命令在持续集成中随kb:verify执行。教材第二批7e76fca的部署/HTTP已确认；工程批25e7340已完成普通push、同SHA CI/Pages与HTTP文本；按UI清单等待此前暂停边界改变。未许可不连接浏览器，H4父项未完成。中断时先查Git/Actions，成功后核对报告；不要为填自身SHA反复改写提交。
+
+2026-09-12恢复检查：50e2465补记同SHA运行34681850068及HTTP通过。继续H4 UI时打开浏览器被自动审批拒绝（通用“继续”未明确解除此前暂停），未执行/未重试；见reports/H4-ui-authorization.md。H4-001A仍完成，剩余UI任务blocked；下一次只在明确恢复浏览器授权后执行三目标，不重做本计划已完成工作。

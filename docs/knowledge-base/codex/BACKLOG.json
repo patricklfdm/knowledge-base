@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-12",
-  "status_note": "H3 route published; H4 release/recovery readiness done; browser acceptance awaits explicit permission",
+  "status_note": "H4 UI blocked by automatic approval review: explicit browser resumption required; non-browser readiness complete",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -384,7 +384,7 @@
       "id": "H4-UI-SITE",
       "phase": "H4",
       "title": "首条路线完成后集中验收知识库浏览器体验",
-      "status": "todo",
+      "status": "blocked",
       "depends_on": [
         "H3-GATE"
       ],
@@ -393,13 +393,15 @@
         "桌面/窄屏导航、阅读、复制、搜索与键盘；保留既有搜索实体/摘要问题",
         "本阶段 NOT_RUN：用户批准移至集中验收阶段；完成前不宣称 v1.0 通过"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H4-ui-authorization.md"
+      ]
     },
     {
       "id": "H4-UI-APP",
       "phase": "H4",
       "title": "首条路线完成后集中验收教学应用交互",
-      "status": "todo",
+      "status": "blocked",
       "depends_on": [
         "H3-GATE"
       ],
@@ -408,7 +410,9 @@
         "不得以 Node 业务测试或静态 HTML 检查冒充真实交互",
         "本阶段 NOT_RUN：用户批准移至集中验收阶段"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H4-ui-authorization.md"
+      ]
     },
     {
       "id": "H4-GATE",
