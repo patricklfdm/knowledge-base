@@ -1,0 +1,14 @@
+{
+  "name": "kb-trip-app-example",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "test": "node --check web/app.js && node --test app.test.mjs",
+    "demo": "node demo.mjs",
+    "start": "node serve.mjs"
+  }
+}

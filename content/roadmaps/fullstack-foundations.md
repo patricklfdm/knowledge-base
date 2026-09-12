@@ -18,7 +18,7 @@ tags:
 
 ## 已有样板单元
 
-先完成这十五个连续问题，再继续下面的应用目标。文章的核验状态表示教材已复核，不表示读者已经掌握。
+先完成这十七个连续问题，再继续下面的应用目标。文章的核验状态表示教材已复核，不表示读者已经掌握。
 
 | 顺序 | 正文                                                                        | 完成后的自测                                |
 | ---- | --------------------------------------------------------------------------- | ------------------------------------------- |
@@ -37,8 +37,10 @@ tags:
 | F09B | [请求校验与字节边界](../topics/05-backend/request-validation-boundaries.md) | 验证错误无写入，区分字节上限与业务范围      |
 | F10A | [SQL表与持久化](../topics/06-data/sql-tables-and-persistence.md)            | 新进程读回文件记录，解释内存库区别          |
 | F10B | [参数绑定与约束](../topics/06-data/sql-parameters-and-constraints.md)       | 拒绝坏数据，说明旧表为何不会自动迁移        |
+| F11A | [持久化创建与修改接口](../topics/05-backend/persistent-trip-api.md)         | 修改失败保持原记录，重启服务器进程读回      |
+| F11B | [页面请求与结果反馈](../topics/04-frontend/page-api-feedback.md)            | 区分保存失败与刷新失败，不盲目重复创建      |
 
-完整例子位于仓库 `examples/foundations/`，可从根目录执行 `npm test --prefix examples/foundations`。F06 的独立类型示例位于 `examples/typed-trips/`，先在该目录 `npm ci` 再 `npm test`。F07 的独立示例位于 `examples/web-forms/`，无需 npm 依赖，运行 `npm test --prefix examples/web-forms`。页面与表单的内容和非浏览器规则已核验，真实交互待集中验收；F08 的 `examples/http-trips/` 可执行真实本机HTTP实验，运行 `npm test --prefix examples/http-trips`；F09 的 `examples/trip-api/` 可运行 `npm test --prefix examples/trip-api`，已实现内存创建/读取与请求校验；F10的 `examples/sql-trips/` 可运行 `npm test --prefix examples/sql-trips`，已验证独立数据库的写入/查询/新进程读取；页面/API/数据库整合尚未完成。
+完整例子位于仓库 `examples/foundations/`，可从根目录执行 `npm test --prefix examples/foundations`。F06 的独立类型示例位于 `examples/typed-trips/`，先在该目录 `npm ci` 再 `npm test`。F07 的独立示例位于 `examples/web-forms/`，无需 npm 依赖，运行 `npm test --prefix examples/web-forms`。页面与表单的内容和非浏览器规则已核验，真实交互待集中验收；F08 的 `examples/http-trips/` 可执行真实本机HTTP实验，运行 `npm test --prefix examples/http-trips`；F09 的 `examples/trip-api/` 可运行 `npm test --prefix examples/trip-api`，已实现内存创建/读取与请求校验；F10的 `examples/sql-trips/` 可运行 `npm test --prefix examples/sql-trips`，已验证独立数据库的写入/查询/新进程读取；F11的 `examples/trip-app/` 用 `npm test --prefix examples/trip-app` 验证整合的HTTP/数据库/控制器；真实页面交互仍待集中验收。
 
 ## 应用目标与后续文章
 

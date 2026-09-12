@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>行程教学应用</title>
+  <main>
+    <h1>行程教学应用</h1>
+    <p>仅使用本机合成数据。新增或选择一条行程修改，数据保存到启动时指定的SQLite文件。</p>
+    <p id="mode">新增行程</p>
+    <form id="trip-form" novalidate>
+      <label for="destination">目的地</label
+      ><input id="destination" name="destination" required maxlength="80" />
+      <label for="days">天数（1–30）</label
+      ><input id="days" name="days" inputmode="numeric" required />
+      <button id="save" disabled>保存</button>
+      <button id="cancel" type="button">取消修改</button>
+    </form>
+    <p id="feedback" role="status" aria-live="polite" tabindex="-1"></p>
+    <button id="refresh" type="button" disabled>刷新列表</button>
+    <ul id="trips"></ul>
+    <noscript>需要JavaScript才能提交；当前不会发送表单。</noscript>
+  </main>
+  <script type="module" src="/app.js"></script>
+</html>

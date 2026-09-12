@@ -1,23 +1,19 @@
 # 当前检查点
 
-2026-09-11 America/Los_Angeles。目标patricklfdm/knowledge-base，分支v5；本批基线e4b667066e06c29f309c02e2b38e230978bbed96，接手时origin/v5相同、工作区干净。F10内容提交f7d00798403925eb38fd71cbb456f1f3a21fec4e已普通推送，同SHA运行34677904313的必需CI/Pages与HTTP文本冒烟成功。本批已发布；事后文档也按授权自动推送，以实际最新Git/Actions核对，不将文件自身SHA反复写回自身。
+2026-09-12。patricklfdm/knowledge-base，v5；基线a900048f9a4bf702a0cd17501677f90a2c1bac57与origin相同，接手工作区干净。F11整合两篇、trip-app和适用本地门禁完成，待本批普通push及同SHA CI/Pages。最新计划[H3-002C](plans/H3-002C-integration.md)，报告[整合验收](../../../reports/H3-integration.md)。BACKLOG是唯一台账。
 
-下一内容任务 **H3-002C/F11页面、API与数据库整合**。BACKLOG.json为唯一台账；H3-002父阶段仍in_progress，完整应用、H3-GATE和v1.0未完成。
+下一项H3-003：测试分层、字段扩展、运行/部署教程；本回合按用户2026-09-12要求连续推进，不逐项结束回合。H3-002非浏览器API/SQL整合完成，H3-GATE和v1.0未完成。
 
-最新计划：[SQL](plans/H3-002B-sql.md)。最新报告：[H3-002B](../../../reports/H3-sql.md)。同SHA发布实证已写入报告。
+## 持续授权与边界
 
-## 用户覆盖与恢复
+内容优先；每批适用验证后自动普通push origin/v5，跟踪同SHA部署与HTTP文本检查；无需逐批询问。不创建PR/tag/强推、不改仓库/框架/部署。暂不做浏览器测试，不连接/截图/安装；G7和真实应用UI均NOT_RUN：用户批准集中验收，引用H4-UI-SITE/H4-UI-APP。H3后给最小候选清单，用户明确允许才恢复。网站表现层冻结，必要教材导航允许。
 
-持续执行：内容优先，暂不做浏览器测试；每轮完成适用验证后自动普通push origin/v5，直到用户另行说明，无需逐批询问。不创建PR/tag/强推，不改仓库/部署或放松CI。
+## 验证与恢复
 
-G7与应用真实交互NOT_RUN：用户批准移至集中验收阶段，引用H4-UI-SITE/H4-UI-APP。H3路线内容完成后提出最小清单，用户明确允许才恢复浏览器。当前不连接/截图/安装浏览器，冻结知识库表现层。
+Node24.21.0/npm11.19.0命令级PATH（默认Node20）、SQLite3.53.4，既有TS5.9.3保持。复用会话干净安装隔离副本，无依赖新增，源码受控同步；kb:verify与npm test通过，第二次文字微调后内容/构建/产物/过滤复验通过。
 
-恢复先核对Git、远端和本批同SHA工作流；若发布pending，完成跟踪和证据。下一项H3-002C结合F07/F09/F10建立独立合成教学应用，接通创建/查询/修改、持久化与错误反馈；验证真实HTTP和重启，浏览器仍延期。每批1–3篇，不重跑初始化，不连接用户或其他项目数据库，不自动部署动态生产API。
+24 notes、34检查器、13+4+5+8+10+8+10示例组、256 tests/45 suites、46 HTML/143产物，适用G0–G6 PASS。独立含空格路径安装/测试/demo，7天修改重启读取与故意绑定错UPDATE检出4组失败，修改已恢复；旧锁不变，新锁见报告。首次Host测试构造问题已改原生HTTP验证，保留403断言。
 
-## 最近验证与环境
+恢复先核对Git/远端及本批部署，若pending完成发布记录再衔接H3-003。示例只用自建临时库和127.0.0.1随机端口，已关闭本轮服务。页面源码已整合但真实DOM未测，Node控制器不冒充浏览器；无生产、备份/磁盘/断电、并发冲突或幂等承诺，不访问其他项目。历史搜索/字体/未用Excalidraw/上游格式问题保留。
 
-Node24.21.0/npm11.19.0（命令级PATH，默认shell仍Node20）；内置SQLite实际3.53.4，既有TypeScript5.9.3不变。无新依赖，复用本会话干净安装隔离副本，受控同步后kb:verify和npm test通过。二次文字复核后再运行内容/构建/产物/禁发检查通过。
-
-22 notes、34检查器测试、13+4+5+8+10+8示例组、246 tests/45 suites、类型检查、44 HTML/139产物与禁发负面PASS。含空格目录独立sql-trips安装/测试/demo通过；阈值4查询、14天新旧表练习及故意放宽CHECK导致4组失败均实跑，修改已恢复。最终教材/代码/CI匹配验证副本，旧锁不变，新锁见报告。
-
-SQL仅用自建临时文件或内存库并清理；新进程读取成功不等于断电/磁盘/并发/备份验收。这些及生产迁移NOT_RUN；数据库规则不是完整API校验，页面/API/数据库尚未整合。历史搜索/字体/未用Excalidraw/上游格式问题保留。隔离指针/tmp/kb-h3b-path.txt、/tmp/kb-sql-path.txt；日志/tmp/h3f-verify.log、/tmp/h3f-tests.log、/tmp/h3f-final-content.log，失效从受控源码重建，不读取私密目录。不承诺离线持续执行。
+隔离指针/tmp/kb-h3b-path.txt、/tmp/kb-app-path.txt；日志/tmp/h3g-verify.log、/tmp/h3g-tests.log、/tmp/h3g-final.log；失效按受控源和README重建。不承诺回合结束后离线执行。

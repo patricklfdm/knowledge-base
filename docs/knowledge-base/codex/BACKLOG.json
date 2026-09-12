@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-09-11",
-  "status_note": "H3-002B delivered and deployed; next H3-002C; automatic push; UI deferred",
+  "updated_on": "2026-09-12",
+  "status_note": "H3-002C verified locally; continuous next H3-003; auto push; UI deferred",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -247,7 +247,7 @@
       "id": "H3-002",
       "phase": "H3",
       "title": "教学 API、SQL 与持久化闭环",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H3-001"
       ],
@@ -255,7 +255,11 @@
         "独立 examples 环境",
         "创建/查询/修改、参数化查询、约束、重启持久化测试"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H3-create-api.md",
+        "reports/H3-sql.md",
+        "reports/H3-integration.md"
+      ]
     },
     {
       "id": "H3-002A",
@@ -295,7 +299,7 @@
       "id": "H3-002C",
       "phase": "H3",
       "title": "F11页面、API与数据库整合",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H3-002B"
       ],
@@ -304,7 +308,9 @@
         "保留输入校验、参数化访问及数据库约束，真实HTTP测试创建/查询/修改/非法输入无副作用及新进程重启后读取",
         "页面反馈和非浏览器逻辑测试完成，真实浏览器交互明确留H4-UI-APP；不部署未经授权的动态生产服务"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H3-integration.md"
+      ]
     },
     {
       "id": "H3-003",
