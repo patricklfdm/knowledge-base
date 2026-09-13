@@ -25,3 +25,17 @@ KB_JAVA_HOME="/path/to/jdk21" npm run demo --prefix examples/java-basics -- "海
 故障注入仅在独立副本：把 `int days = 3;` 改为4，测试必须失败；恢复源码后再跑。不要以“命令退出0”替代对实际摘要的断言。
 
 正文与手工命令见 [Java 编译运行](../../content/topics/01-languages/java-compile-and-run.md)。浏览器延期；没有 JAR、包、多文件构建、对象建模或输入合法性结论。
+
+## J01/J02：值、类型与输入
+
+新增NumericValues.java演示拼接/整数除法/运算前后提升，DaysInput.java分离纯parse与CLI错误边界。使用同一JDK21.0.11，仓库根目录命令：
+
+```sh
+KB_JAVA_HOME="/path/to/jdk21" npm run values --prefix examples/java-basics
+KB_JAVA_HOME="/path/to/jdk21" npm run input --prefix examples/java-basics -- 3
+KB_JAVA_HOME="/path/to/jdk21" npm run input --prefix examples/java-basics -- 31
+```
+
+路径为需替换的占位值。最后一条故意退出2，stderr业务错误且无成功摘要；两条新入口只编译允许清单中的维护源码，不能从任意Markdown运行代码。npm test现在显式覆盖全部*.test.mjs：J00七组加本单元八组，合计15组。输入只接受ASCII数字串、允许前导零、不trim，表示范围及1–30业务范围分开；null由Java直接调用测试覆盖。无数据库/文件业务写入，不以纯解析实验声称生产事务保障。
+
+在独立副本删除DaysInput的`|| days > 30`，原边界测试应失败，再恢复。两篇正文：[值与运算](../../content/topics/01-languages/java-values-and-operations.md)、[输入校验](../../content/topics/01-languages/java-input-validation.md)。

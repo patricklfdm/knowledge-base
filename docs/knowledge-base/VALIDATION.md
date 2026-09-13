@@ -6,7 +6,7 @@
 | ----------------------- | ---------------------------------------------------------------------------------------- |
 | npm run kb:check        | content 元数据、唯一 ID/URL/别名、先修 DAG、Markdown 内部链接/标题锚点、发布状态         |
 | npm run kb:test         | 临时正常/失败 fixtures；CLI 返回码；产物检测器；CI 依赖保护                              |
-| npm run kb:examples     | 明确运行 foundations 的13组、typed-trips 的4组、web-forms 的5组、http-trips 的8组、trip-api 的10组、sql-trips 的25组、trip-app 的13组与 java-basics 的7组示例测试                                  |
+| npm run kb:examples     | 明确运行 foundations 的13组、typed-trips 的4组、web-forms 的5组、http-trips 的8组、trip-api 的10组、sql-trips 的25组、trip-app 的13组与 java-basics 的15组示例测试                                  |
 | npm run kb:build        | `npm run quartz -- build`，现有 Quartz CLI，默认 content/public                          |
 | npm run kb:output       | 对 public 的实际 HTML DOM 检查本站 base path、链接、资源与锚点                           |
 | npm run kb:publish-test | 临时正文与产物，真实构建正面对照和 3 种禁发 marker，扫描全部产物，再注入泄漏证明检测有效 |
@@ -58,3 +58,5 @@ S04/S05在同一sql-trips包新增7组双连接/锁/读快照/错误码/清理�
 J00新增独立java-basics包，无npm/Java库依赖，但必须准备.java-version固定的JDK21.0.11。本机实际Microsoft OpenJDK21.0.11+10；用命令级KB_JAVA_HOME，或已有JAVA_HOME指向安装目录。根kb:verify/npm test都会真实运行Java，不因缺运行时跳过。CI在门禁前使用actions/setup-java@v6、distribution=microsoft和java-version-file；版本文件及新包manifest/lock纳入漂移检查。工作流负面对照覆盖遗漏Java、安装晚于验证和版本覆盖。独立包说明见[Java README](../../examples/java-basics/README.md)。
 
 运行时选择经远端实证修正：Microsoft21.0.12本机可运行，但setup-java发现目录未列出；固定21.0.11并在临时官方归档实测后复核。新增版本不匹配会失败的真实子进程负面对照，不静默改用默认JDK。
+
+J01/J02追加八组真实Java测试，包内共15组；脚本覆盖全部*.test.mjs，既有CI和根门禁直接执行。编译夹具可接收明确源码文件数组，以验证实际Java方法调用；演示入口仅允许两份维护源码。无新依赖或运行时变更。

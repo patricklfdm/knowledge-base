@@ -7,7 +7,9 @@
     "node": ">=24 <25"
   },
   "scripts": {
-    "test": "node --test java.test.mjs",
-    "demo": "node demo.mjs"
+    "test": "node --test *.test.mjs",
+    "demo": "node demo.mjs",
+    "values": "node values-demo.mjs",
+    "input": "node input-demo.mjs"
   }
 }

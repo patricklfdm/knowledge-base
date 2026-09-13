@@ -47,7 +47,16 @@ export function javaFixture() {
     compile(file = source) {
       return execute(
         javac,
-        ["-J-Duser.language=en", "-encoding", "UTF-8", "--release", "21", "-d", out, file],
+        [
+          "-J-Duser.language=en",
+          "-encoding",
+          "UTF-8",
+          "--release",
+          "21",
+          "-d",
+          out,
+          ...(Array.isArray(file) ? file : [file]),
+        ],
         dir,
       )
     },

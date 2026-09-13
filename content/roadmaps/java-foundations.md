@@ -14,8 +14,10 @@ tags: [languages]
 | 顺序 | 正文 | 自测 |
 | --- | --- | --- |
 | J00 | [Java 源码如何变成正在运行的程序？](../topics/01-languages/java-compile-and-run.md) | 区分源码、class 与 JVM；预测未重新编译和编译失败后的输出 |
+| J01 | [类型与运算结果](../topics/01-languages/java-values-and-operations.md) | 解释拼接、整数除法及先运算后转long的反例 |
+| J02 | [文本转换与输入校验](../topics/01-languages/java-input-validation.md) | 区分字符、表示范围和业务规则，验证失败没有成功输出 |
 
-值与输入校验、对象与集合、错误处理以及进程/内存专题仍在规划。一个编译例子不代表完整 Java 或系统路线已经完成；没有为未完成正文创建空链接。
+对象与集合、错误处理以及进程/内存专题仍在规划。一个编译例子不代表完整 Java 或系统路线已经完成；没有为未完成正文创建空链接。
 
 维护例子在仓库 `examples/java-basics/`，使用固定 JDK 的真实编译与启动，产物仅在临时目录。正文记录核验环境和未测边界，学习掌握情况不写入公开站点。
 

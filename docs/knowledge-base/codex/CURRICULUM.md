@@ -95,3 +95,5 @@ S04/S05在H5-001C继续双连接与读快照，显式DELETE/WAL、BUSY/BUSY_SNAP
 ## H5当前Java支线
 
 J00通过独立java-basics介绍源码、class、JDK与JVM、真实javac/java、编译与启动错误、旧产物练习。路线content/roadmaps/java-foundations.md，先修为F04已有语言基础。当前只覆盖编译运行；值与输入、对象/集合和系统专题继续拆分。未读取GSE，H5父项保持在建。
+
+H5-001E补J01值/运算与J02输入校验：ASCII格式、int表示范围、业务范围及错误出口分别实证，接在J00后；对象与集合继续下一有界单元，Java/系统父项未完成。
