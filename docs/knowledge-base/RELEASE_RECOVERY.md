@@ -10,7 +10,7 @@ content是公开Markdown源，docs/knowledge-base是可公开工程文档，exam
 
 ## 隔离验证
 
-使用.nvmrc/.node-version指定的Node24.21.0；复制受控源码到新隔离目录，或按QUALITY_GATES复用本会话已干净安装且锁一致的副本。不要清空用户工作区来获得“干净”。依赖变化必须重新安装。
+使用.nvmrc/.node-version指定的Node24.21.0；复制受控源码到新隔离目录，或按QUALITY_GATES复用本会话已干净安装且锁一致的副本。不要清空用户工作区来获得“干净”。依赖变化必须重新安装。完整门禁还需要[Java示例规定的JDK21.0.12](../../examples/java-basics/README.md)，以KB_JAVA_HOME或已有JAVA_HOME指定；不要依赖系统默认版本，也不要把未安装JDK当作可跳过检查。
 
 在隔离根目录运行真实命令：
 

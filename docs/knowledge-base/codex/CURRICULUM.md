@@ -91,3 +91,7 @@ Wayvia/GSE 案例只在另获读取授权后补充。每篇记录 repo/commit/�
 沿F10基础新增S01一对多/外键/JOIN/NULL/COUNT与S02多步写入/半写入反例/事务回滚，独立使用sql-trips中的ledger模块。导航content/roadmaps/sql-foundations.md。S03索引与查询计划在H5-001B实作：2000条合成费用的四种计划、结果等价和边界验证；Java/系统与其他内容仍在规划，H5父阶段未完成。
 
 S04/S05在H5-001C继续双连接与读快照，显式DELETE/WAL、BUSY/BUSY_SNAPSHOT、提交失败与事务重启范围；只有真实隔离交错证据，不冒称生产并发性能。
+
+## H5当前Java支线
+
+J00通过独立java-basics介绍源码、class、JDK与JVM、真实javac/java、编译与启动错误、旧产物练习。路线content/roadmaps/java-foundations.md，先修为F04已有语言基础。当前只覆盖编译运行；值与输入、对象/集合和系统专题继续拆分。未读取GSE，H5父项保持在建。

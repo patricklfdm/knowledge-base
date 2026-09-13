@@ -2,7 +2,7 @@
 
 中文工程教材，采用 Markdown + Obsidian + Quartz 5。公开正文在 `content/`；路线从 [全栈基础](content/roadmaps/fullstack-foundations.md) 开始。私密材料须存放于整个仓库之外。
 
-开发与验收见 [检查命令](docs/knowledge-base/VALIDATION.md)，接手从 [AGENTS.md](AGENTS.md) 与 [STATE](docs/knowledge-base/codex/STATE.md) 开始。使用 `.nvmrc` 对应 Node 后运行：
+开发与验收见 [检查命令](docs/knowledge-base/VALIDATION.md)，接手从 [AGENTS.md](AGENTS.md) 与 [STATE](docs/knowledge-base/codex/STATE.md) 开始。使用 `.nvmrc` 对应 Node，并准备 [Java 示例要求的 JDK 21.0.12](examples/java-basics/README.md)。已有 `JAVA_HOME` 须指向该 JDK；也可给门禁命令单独设置 `KB_JAVA_HOME`，不改全局默认版本。然后运行：
 
 ```sh
 npm ci

@@ -18,7 +18,6 @@ tags: [data]
 | S01 | [一对多查询与NULL](../topics/06-data/joins-and-null.md) | 保留零费用行程，解释COUNT星号与ON/WHERE区别 |
 | S02 | [事务与失败回滚](../topics/06-data/transactions-and-rollback.md) | 改变错误位置，证明失败没有留下半份数据 |
 | S03 | [索引与查询计划](../topics/06-data/indexes-and-query-plans.md) | 比较复合列顺序，验证边界与结果等价，不虚构性能收益 |
-
 | S04 | [双连接与写竞争](../topics/06-data/sqlite-writer-contention.md) | 比较提交/回滚释放后的重新读取，解释BUSY |
 | S05 | [读事务与快照](../topics/06-data/sqlite-read-snapshots.md) | 区分COMMIT受阻与旧快照写失败，验证事务恢复范围 |
 

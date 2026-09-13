@@ -24,6 +24,13 @@ function assertProtected(publish, checks) {
       }
     }
   const commands = checks.jobs.verify.steps.map((s) => s.run)
+  const javaIndex = checks.jobs.verify.steps.findIndex((s) => s.uses === "actions/setup-java@v6")
+  assert.ok(javaIndex >= 0, "Java 示例必须安装固定 JDK，不能依赖 runner 偶然预装")
+  assert.ok(javaIndex < commands.indexOf("npm run kb:verify"))
+  const javaOptions = checks.jobs.verify.steps[javaIndex].with
+  assert.equal(javaOptions.distribution, "microsoft")
+  assert.equal(javaOptions["java-version-file"], "examples/java-basics/.java-version")
+  assert.ok(!Object.hasOwn(javaOptions, "java-version"), "不能用额外版本参数覆盖版本文件")
   for (const command of [
     "npm ci",
     "npm ci --prefix examples/typed-trips",
@@ -43,6 +50,14 @@ function assertProtected(publish, checks) {
     ),
   )
   assert.ok(publish.jobs.build.steps.some((s) => s.run === "npm run kb:output"))
+  assert.ok(
+    commands.some(
+      (c) =>
+        c?.startsWith("git diff --exit-code") &&
+        c.includes("examples/java-basics/package-lock.json") &&
+        c.includes("examples/java-basics/.java-version"),
+    ),
+  )
 }
 
 test("部署显式依赖同提交可复用门禁，且破坏依赖会被检测", () => {
@@ -60,6 +75,22 @@ test("部署显式依赖同提交可复用门禁，且破坏依赖会被检测",
     (step) => step.run !== "npm ci --prefix examples/typed-trips",
   )
   assert.throws(() => assertProtected(publish, missingInstall))
+  const missingJava = structuredClone(checks)
+  missingJava.jobs.verify.steps = missingJava.jobs.verify.steps.filter(
+    (s) => !s.uses?.startsWith("actions/setup-java"),
+  )
+  assert.throws(() => assertProtected(publish, missingJava))
+  const lateJava = structuredClone(checks)
+  const javaIndex = lateJava.jobs.verify.steps.findIndex((s) =>
+    s.uses?.startsWith("actions/setup-java"),
+  )
+  lateJava.jobs.verify.steps.push(...lateJava.jobs.verify.steps.splice(javaIndex, 1))
+  assert.throws(() => assertProtected(publish, lateJava))
+  const overrideJava = structuredClone(checks)
+  overrideJava.jobs.verify.steps.find((s) => s.uses?.startsWith("actions/setup-java")).with[
+    "java-version"
+  ] = "22"
+  assert.throws(() => assertProtected(publish, overrideJava))
 })
 test("校验器假设与配置保持一致，过滤与主题保护不变", () => {
   const config = read("quartz.config.yaml")
@@ -88,7 +119,7 @@ test("教学示例单独登记，Quartz 类型范围不包含示例", () => {
   const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"))
   assert.equal(
     pkg.scripts["kb:examples"],
-    "npm test --prefix examples/foundations && npm test --prefix examples/typed-trips && npm test --prefix examples/web-forms && npm test --prefix examples/http-trips && npm test --prefix examples/trip-api && npm test --prefix examples/sql-trips && npm test --prefix examples/trip-app",
+    "npm test --prefix examples/foundations && npm test --prefix examples/typed-trips && npm test --prefix examples/web-forms && npm test --prefix examples/http-trips && npm test --prefix examples/trip-api && npm test --prefix examples/sql-trips && npm test --prefix examples/trip-app && npm test --prefix examples/java-basics",
   )
   assert.ok(pkg.scripts["kb:verify"].includes("npm run kb:examples"))
   const tsconfig = JSON.parse(fs.readFileSync("tsconfig.json", "utf8"))

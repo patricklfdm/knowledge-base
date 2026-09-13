@@ -28,10 +28,12 @@ tags:
 
 ## 主线与支线
 
-第一条应用主线采用 JavaScript/TypeScript 与 SQL。Java 与 GSE 的系统案例建立连接；Python 用于后续数据与 AI 实验。
+第一条应用主线采用 JavaScript/TypeScript 与 SQL。Java 支线使用独立教学例子；Python 用于后续数据与 AI 实验。
 
 前端、生产工程、系统与数据方向可以逐步形成独立的进阶路线，不把大数据设为所有领域唯一的终点。
 
 已开始的存储支线：[SQL建模与查询深入路线](roadmaps/sql-foundations.md)，从关联查询和事务失败验证继续。
+
+已开始的第二语言支线：[Java 基础与系统路线](roadmaps/java-foundations.md)，从真实编译和错误定位开始。
 
 [选择全栈基础路线](roadmaps/fullstack-foundations.md) · [返回首页](index.md)

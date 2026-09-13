@@ -23,3 +23,7 @@ Node24.21.0/npm11.19.0/macOS arm64，SQLite3.53.4。独立含空格副本npm ci/
 ## 发布与下一项
 
 本批适用验收完成，按持续授权普通push并跟踪同SHA CI/Pages/HTTP。H5-001C完成，H5父项仍在建。下一项H5-001D：Java编译与运行的有限入门单元；只读运行时盘点确认本机Microsoft OpenJDK21.0.12+8可用，不安装或修改全局Java配置。后续仍需真实例子和门禁，不以“已安装JDK”冒称内容完成。
+
+发布补记：内容提交ae13eb6a477af98ed350d1b1c519b73acb4eeb99已普通push origin/v5。[Actions 34784670773](https://github.com/patricklfdm/knowledge-base/actions/runs/34784670773)同SHA quality/verify、Build website、Deploy website均success，部署2026-09-13T21:44:54Z完成。HTTP文本冒烟首页、SQL路线、S04/S05均200且含预期正文，contentIndex收录新正文（57条含派生页），不存在路径404；浏览器仍NOT_RUN。
+
+资源补验：实际解析页面引用的站内CSS/JS，首次请求遇到一次HTTP503；一次有限重试全部200，正文/索引/404复核通过。日志/tmp/h5c-http.log。该暂态HTTP错误不改写为首次全通过，也不启动浏览器。

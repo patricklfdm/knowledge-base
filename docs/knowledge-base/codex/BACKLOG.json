@@ -518,7 +518,7 @@
       "id": "H5-001D",
       "phase": "H5",
       "title": "Java源码、编译与运行入门",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H5-001C"
       ],
@@ -526,6 +526,23 @@
         "有限1–2篇，解释JDK/javac/java/main和编译与运行错误",
         "独立固定Java21示例正常/编译失败/运行失败/参数与路径验证，CI实际覆盖",
         "不读取GSE，不修改全局运行时；非浏览器门禁与发布证据完整"
+      ],
+      "evidence": [
+        "reports/H5-java-compile.md"
+      ]
+    },
+    {
+      "id": "H5-001E",
+      "phase": "H5",
+      "title": "Java 值、类型与输入校验",
+      "status": "todo",
+      "depends_on": [
+        "H5-001D"
+      ],
+      "acceptance": [
+        "1–2篇渐进正文解释整数/文本、转换失败和天数业务边界",
+        "固定JDK独立例子实际验证正常、边界、非法输入与无副作用；故意错误可被检出",
+        "维护路线、来源、门禁、计划与发布证据；不提前完成H5父项"
       ],
       "evidence": []
     },
