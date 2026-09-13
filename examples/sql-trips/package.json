@@ -11,6 +11,7 @@
     "demo": "node demo.mjs",
     "fail": "node failure.mjs",
     "ledger": "node ledger-demo.mjs",
-    "indexes": "node index-demo.mjs"
+    "indexes": "node index-demo.mjs",
+    "connections": "node connections-demo.mjs"
   }
 }

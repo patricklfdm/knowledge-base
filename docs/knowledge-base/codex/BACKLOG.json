@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-13",
-  "status_note": "SQL S01–S03 content verified; UI deferred until planned content complete; next H5-001C",
+  "status_note": "SQLite dual connections and snapshots verified; next bounded Java compile/run unit; UI deferred",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -501,7 +501,7 @@
       "id": "H5-001C",
       "phase": "H5",
       "title": "SQLite双连接与写竞争实验",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H5-001B"
       ],
@@ -509,6 +509,23 @@
         "有限1–2篇，区分单连接事务与多个连接竞争，不承诺生产并发性能",
         "临时库实测写锁拒绝/释放后成功、数据可见性及明确故障边界",
         "来源、独立示例、非浏览器门禁与发布证据"
+      ],
+      "evidence": [
+        "reports/H5-sql-connections.md"
+      ]
+    },
+    {
+      "id": "H5-001D",
+      "phase": "H5",
+      "title": "Java源码、编译与运行入门",
+      "status": "todo",
+      "depends_on": [
+        "H5-001C"
+      ],
+      "acceptance": [
+        "有限1–2篇，解释JDK/javac/java/main和编译与运行错误",
+        "独立固定Java21示例正常/编译失败/运行失败/参数与路径验证，CI实际覆盖",
+        "不读取GSE，不修改全局运行时；非浏览器门禁与发布证据完整"
       ],
       "evidence": []
     },

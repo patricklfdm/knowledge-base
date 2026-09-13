@@ -28,7 +28,7 @@ get缺失返回undefined，list/atLeast返回数组。Node查询行可为无原�
 
 ## S01/S02：关系查询与多步事务
 
-保持F10的schema/store/demo不变；新增ledger-schema.sql/ledger.mjs使用自己的journeys/expenses两表，ledger-demo.mjs是受维护演示。`npm run ledger`自动创建并清理临时文件，`npm test`包含原8组及S01/S02新增7组；加上后述S03共18组。
+保持F10的schema/store/demo不变；新增ledger-schema.sql/ledger.mjs使用自己的journeys/expenses两表，ledger-demo.mjs是受维护演示。`npm run ledger`自动创建并清理临时文件，`npm test`包含原8组及S01/S02新增7组；加上后述S03–S05共25组。
 
 显式连接级foreign_keys=ON；孤儿/删除父行被拒绝；JOIN明细、LEFT JOIN汇总、COUNT星号与ON/WHERE反例。整数分只为合成数据，不是完整货币模型。无显式事务的失败保留部分写入；createWithTransaction同步BEGIN IMMEDIATE/COMMIT/ROLLBACK，约束失败撤销整个新增业务动作、保留既有记录。
 
@@ -36,6 +36,14 @@ get缺失返回undefined，list/atLeast返回数组。Node查询行可为无原�
 
 ## S03：索引访问计划
 
-`npm run indexes`在新内存库生成100行程×20费用，共2000条；比较无索引、(journey_id,amount_cents)、反向列顺序及移除索引的同一查询。index-plans.test.mjs新增3组，包内共18组；全部通过既有根测试/示例门禁执行。金额1000边界、2000/2001/缺失行程及索引后增改删另有结果断言。
+`npm run indexes`在新内存库生成100行程×20费用，共2000条；比较无索引、(journey_id,amount_cents)、反向列顺序及移除索引的同一查询。index-plans.test.mjs新增3组，S03完成时包内18组；全部通过既有根测试/示例门禁执行。金额1000边界、2000/2001/缺失行程及索引后增改删另有结果断言。
 
 EQP观察仅针对实测SQLite3.53.4，不由应用逻辑解析，不承诺格式稳定；升级后应重核计划与结果。索引只在自建内存库创建/删除，不接用户路径，无依赖、端口、浏览器或性能数字。源码与DDL由维护入口执行，不从Markdown抽取执行。
+
+## S04/S05：双连接写竞争与读快照
+
+`npm run connections`运行connections.mjs中的受控交错：DELETE/WAL第二写者BUSY(5)、回滚释放对照、DELETE读事务阻止COMMIT、WAL旧快照升级写入BUSY_SNAPSHOT(517)。重试步骤按实际事务状态分别处理，不提供通用无限重试函数。
+
+connections.test.mjs新增7组，包内合计25组。withPair只建自身临时文件、显式设置日志模式与两个连接busy_timeout=0；连接全部打开后才开始实验。无sleep/并行线程/HTTP/浏览器操作；是真实锁和快照的同步交错，不是并发吞吐基准。Node24.21.0/SQLite3.53.4错误对象实测errcode用于区别5与517，不依赖同为database is locked的文字。预期错误助手只接受准确代码，其他错误重新抛出。
+
+夹具仅接同步教学回调，禁止在其中await；异常后关闭两个连接并清理自身目录，包括日志/WAL/SHM，不处理用户库。没有证明生产等待上限、跨进程容量、断电/磁盘恢复或WAL备份正确性。

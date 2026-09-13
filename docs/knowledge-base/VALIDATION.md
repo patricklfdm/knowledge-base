@@ -6,7 +6,7 @@
 | ----------------------- | ---------------------------------------------------------------------------------------- |
 | npm run kb:check        | content 元数据、唯一 ID/URL/别名、先修 DAG、Markdown 内部链接/标题锚点、发布状态         |
 | npm run kb:test         | 临时正常/失败 fixtures；CLI 返回码；产物检测器；CI 依赖保护                              |
-| npm run kb:examples     | 明确运行 foundations 的13组、typed-trips 的4组、web-forms 的5组、http-trips 的8组、trip-api 的10组、sql-trips 的18组与 trip-app 的13组示例测试                                  |
+| npm run kb:examples     | 明确运行 foundations 的13组、typed-trips 的4组、web-forms 的5组、http-trips 的8组、trip-api 的10组、sql-trips 的25组与 trip-app 的13组示例测试                                  |
 | npm run kb:build        | `npm run quartz -- build`，现有 Quartz CLI，默认 content/public                          |
 | npm run kb:output       | 对 public 的实际 HTML DOM 检查本站 base path、链接、资源与锚点                           |
 | npm run kb:publish-test | 临时正文与产物，真实构建正面对照和 3 种禁发 marker，扫描全部产物，再注入泄漏证明检测有效 |
@@ -52,3 +52,5 @@ H4回退夹具已加入kb:verify，因此现有同SHA质量门禁也必须通过
 S01/S02复用sql-trips新增7组关系/事务测试，原F10八组保留，合计15组；测试脚本覆盖该包维护的全部*.test.mjs，仍通过既有kb:examples与根npm test执行。未新增依赖或浏览器测试。
 
 S03新增3组索引/结果等价/边界与增改删检查，sql-trips合计18组；EQP计划断言是固定版本教学观测，不是业务应用解析契约。
+
+S04/S05在同一sql-trips包新增7组双连接/锁/读快照/错误码/清理测试，合计25组，既有kb:examples/root npm test执行；固定操作交错，busy_timeout=0，不计时、不启动线程或浏览器。
