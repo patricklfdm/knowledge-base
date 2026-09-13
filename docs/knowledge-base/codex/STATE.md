@@ -1,17 +1,13 @@
 # 当前检查点
 
-2026-09-13，patricklfdm/knowledge-base v5，基线52640bb139bbcb0450ffecc208c87b9b67e27b96。H5-001E两篇Java值/输入正文及示例已发布：内容提交4c1bb2960858a1efc587be4e6831ac7b76c3765e，同SHA Actions34787324993三必需job success，2026-09-13T22:39:00Z部署完成，HTTP正文/实际资源/索引/404通过。本补记不修改已验收内容或可执行源。BACKLOG是唯一台账。
+2026-09-13，patricklfdm/knowledge-base v5，基线f90a3395d809e9fef36b078be8876a8d141fd555。用户要求Java主线整完才停，按[连续计划](plans/H5-JAVA-completion.md)推进。本批H5-001F本地门禁完成，报告[本批验收](../../../reports/H5-java-h5f.md)，待同SHA发布记录；随后直接推进后续批次，不能在子项后结束请求。BACKLOG是唯一台账。
 
-## 授权与下一项
+## 验证与恢复
 
-当前[输入边界报告](../../../reports/H5-java-input.md)、[H5-001E计划](plans/H5-001E-java-input.md)。下一动作继续H5-001F Java对象、引用与集合，先写有界计划，保持每批1–3篇与真实故障对照，H5父项未完成。
+固定Node24.21.0/npm11.19.0、Microsoft21.0.11+10；JDK指针/tmp/kb-h5d-java-home.txt，使用命令级KB_JAVA_HOME，原有21.0.12/默认22未改。根隔离/tmp/kb-h3b-path.txt，独立副本/tmp/kb-h5f-example-path.txt。临时失效按维护README/官方归档重建。
 
-内容优先，浏览器留规划H5–H7内容完成后集中验收；当前不连接/安装/截图/重试。每批适用验证后自动普通push origin/v5，无需再问；不授权PR/tag/强推/其他项目/生产数据。H4/v1.0与历史UI/环境/上游格式遗留保持。
+40 notes、299 tests/45 suites、66 HTML/183产物、全门禁与禁发负面PASS；故意错误2项失败后恢复，所有锁未变。日志/tmp/h5f-verify.log与/tmp/h5f-tests.log等见报告。接续先核对Git/Actions，保护新改动，不重复push。
 
-## 环境与恢复
+## 授权边界
 
-Node24.21.0/npm11.19.0、Microsoft OpenJDK21.0.11+10/macOS arm64，命令级KB_JAVA_HOME取/tmp/kb-h5d-java-home.txt指针。原有21.0.12/默认22未改；先前21.0.12 CI发现失败历史保留，不改回未经远端验证的版本。
-
-隔离kb:verify/npm test：37 notes=9导航+28教材，34检查器、291 tests/45 suites、63 HTML/177产物、禁发负面PASS。Java15组；独立npm ci/test/CLI、移除上界检出3失败后恢复、上限14迁移实际验证。所有锁文件不变，测试源与提交源一致。编译/数据库运行产物仅自建目录并清理，浏览器NOT_RUN。
-
-日志/tmp/h5e-independent.log、/tmp/h5e-mutant.log、/tmp/h5e-verify.log、/tmp/h5e-tests.log、/tmp/h5e-http.log；独立副本/tmp/kb-h5e-example-path.txt，根隔离/tmp/kb-h3b-path.txt。临时环境失效按维护入口重建，先核对Git/Actions和新修改，不重复推送、不覆盖用户文件；不承诺回合结束后离线运行。
+每批1–3篇，适用验证后自动普通push既有origin/v5并跟踪同SHA部署；不强推、不改其他项目或全局运行时。浏览器仍留全部规划内容完成后集中测试，当前不连接/安装/截图/重试。Java主线完成不等于H4/v1.0、H5其他内容或用户已掌握。不得声称结束回合后离线运行。

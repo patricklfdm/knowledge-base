@@ -10,6 +10,9 @@
     "test": "node --test *.test.mjs",
     "demo": "node demo.mjs",
     "values": "node values-demo.mjs",
-    "input": "node input-demo.mjs"
+    "input": "node input-demo.mjs",
+    "objects": "node objects-demo.mjs",
+    "collections": "node collections-demo.mjs",
+    "contracts": "node contracts-demo.mjs"
   }
 }

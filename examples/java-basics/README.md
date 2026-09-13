@@ -39,3 +39,9 @@ KB_JAVA_HOME="/path/to/jdk21" npm run input --prefix examples/java-basics -- 31
 路径为需替换的占位值。最后一条故意退出2，stderr业务错误且无成功摘要；两条新入口只编译允许清单中的维护源码，不能从任意Markdown运行代码。npm test现在显式覆盖全部*.test.mjs：J00七组加本单元八组，合计15组。输入只接受ASCII数字串、允许前导零、不trim，表示范围及1–30业务范围分开；null由Java直接调用测试覆盖。无数据库/文件业务写入，不以纯解析实验声称生产事务保障。
 
 在独立副本删除DaysInput的`|| days > 30`，原边界测试应失败，再恢复。两篇正文：[值与运算](../../content/topics/01-languages/java-values-and-operations.md)、[输入校验](../../content/topics/01-languages/java-input-validation.md)。
+
+## J03–J05：对象、集合与调用契约
+
+新增`npm run objects`、`npm run collections`、`npm run contracts`（均在本包执行，或在根加`--prefix examples/java-basics`）。沿前述KB_JAVA_HOME环境运行；contracts默认成功，追加`-- missing`预期退出2。TripModel为共享模型，三个维护示例和objects.test.mjs新增7组，包内累计22组。测试实际比较别名/复制、修改失败原值保留、容器与元素共享、缺失/重复、接口实现，以及private/泛型/受检异常编译失败。
+
+不把List.copyOf叫作深复制；不把单线程Map先查再写叫作并发原子操作。独立副本把TripModel.copy改成返回this时原测试必须失败。
