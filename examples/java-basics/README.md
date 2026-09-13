@@ -4,9 +4,9 @@
 
 ## 环境与命令
 
-`.java-version` 固定 **21.0.12**；本机验收为 Microsoft OpenJDK 21.0.12+8/macOS arm64。必需 CI 使用 actions/setup-java 的 microsoft 发行版和同一版本文件。其他版本、Windows 与生产部署不在本例已验证范围内。
+`.java-version` 固定 **21.0.11**；本机验收为 Microsoft OpenJDK 21.0.11+10/macOS arm64。必需 CI 使用 actions/setup-java 的 microsoft 发行版和同一版本文件。其他版本、Windows 与生产部署不在本例已验证范围内。
 
-先选择自己已安装的对应 JDK 根目录，确认其中存在 `bin/java`、`bin/javac`，两条 `--version` 均为21.0.12。以下 `/path/to/jdk21` 是必须替换的占位路径。在仓库根目录运行：
+先选择自己已安装的对应 JDK 根目录，确认其中存在 `bin/java`、`bin/javac`，两条 `--version` 均为21.0.11。以下 `/path/to/jdk21` 是必须替换的占位路径。在仓库根目录运行：
 
 ```sh
 npm ci --prefix examples/java-basics
@@ -20,7 +20,7 @@ KB_JAVA_HOME="/path/to/jdk21" npm run demo --prefix examples/java-basics -- "海
 
 `TripSummary.java` 是维护源码。`tools.mjs` 将其复制到名称含空格的自建临时目录，固定 UTF-8、目标 release21 和子进程英文诊断；对子进程移除外部 CLASSPATH 与 Java 附加选项以便重现，不修改父 shell 配置。编译、启动都有超时；测试与演示结束时清理自身源码副本和 class，不接受用户数据库或产物目录。
 
-六组真实测试覆盖默认/中文参数、类型错误、错误类路径与类名、缺 main、公开类文件名、旧 class 与重新编译，以及 CLI、清理和缺 JDK 失败。演示在编译非零时停止，不运行旧产物。测试刻意保留旧产物以展示：改源码未编译，或者后续编译失败，都不意味着已有 class 随之更新或删除。
+七组真实测试覆盖默认/中文参数、类型错误、错误类路径与类名、缺 main、公开类文件名、旧 class 与重新编译，以及 CLI、清理和缺 JDK 失败。演示在编译非零时停止，不运行旧产物。测试刻意保留旧产物以展示：改源码未编译，或者后续编译失败，都不意味着已有 class 随之更新或删除。
 
 故障注入仅在独立副本：把 `int days = 3;` 改为4，测试必须失败；恢复源码后再跑。不要以“命令退出0”替代对实际摘要的断言。
 

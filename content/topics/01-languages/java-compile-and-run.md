@@ -11,7 +11,7 @@ prerequisites: [f04-modules-errors]
 topics: [java, compilation, debugging]
 tags: [languages]
 aliases: []
-tested_with: [Microsoft OpenJDK 21.0.12+8, Node.js 24.21.0, macOS arm64]
+tested_with: [Microsoft OpenJDK 21.0.11+10, Node.js 24.21.0, macOS arm64]
 verified_on: 2026-09-13
 ---
 
@@ -57,7 +57,7 @@ public class TripSummary {
 
 ## 编译到自己的临时目录
 
-需要已安装的 **JDK 21.0.12**。本批实际使用 Microsoft OpenJDK 21.0.12+8；其他版本未作为本例验收环境。`npm ci` 不会安装 JDK。下面在仓库根目录、macOS/Linux 的 sh 兼容终端执行；将第一行替换为你自己的 JDK 根目录，里面应有 `bin/java` 和 `bin/javac`。不要照抄占位路径。
+需要已安装的 **JDK 21.0.11**。本批实际使用 Microsoft OpenJDK 21.0.11+10；其他版本未作为本例验收环境。`npm ci` 不会安装 JDK。下面在仓库根目录、macOS/Linux 的 sh 兼容终端执行；将第一行替换为你自己的 JDK 根目录，里面应有 `bin/java` 和 `bin/javac`。不要照抄占位路径。
 
 ```sh
 KB_JAVA_HOME="/path/to/jdk21"
@@ -112,6 +112,6 @@ KB_JAVA_HOME="/path/to/jdk21" npm test --prefix examples/java-basics
 KB_JAVA_HOME="/path/to/jdk21" npm run demo --prefix examples/java-basics -- "海湾 城"
 ```
 
-Node 仅编排真实的 `javac`/`java` 子进程，未模拟 Java。六组测试覆盖正常、边界、故障和清理；每次编译使用自建临时目录，结束后删除，仓库不保存 class。缺 JDK 或版本不符会失败，不会悄悄跳过。详细环境约束见示例 README。
+Node 仅编排真实的 `javac`/`java` 子进程，未模拟 Java。七组测试覆盖正常、边界、故障和清理；每次编译使用自建临时目录，结束后删除，仓库不保存 class。缺 JDK 或版本不符会失败，不会悄悄跳过。详细环境约束见示例 README。
 
 下一单元将继续值、类型与外部输入：字符串怎样成为受约束的天数。它仍在建设，当前可返回 [Java 基础路线](../../roadmaps/java-foundations.md)，或对照已经学过的变量与错误边界，写出“源码错误”和“启动错误”各一个例子。

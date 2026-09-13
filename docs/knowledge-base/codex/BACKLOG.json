@@ -518,7 +518,7 @@
       "id": "H5-001D",
       "phase": "H5",
       "title": "Java源码、编译与运行入门",
-      "status": "done",
+      "status": "in_progress",
       "depends_on": [
         "H5-001C"
       ],

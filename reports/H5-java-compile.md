@@ -23,3 +23,11 @@
 ## 发布与下一项
 
 本地适用验收已完成；按持续授权普通push既有origin/v5并跟踪同SHA必需CI、Pages及HTTP。推送前云端Java验收仍pending，不能用本机成功替代；发布结果随后补记。下一项H5-001E：Java值、类型与输入校验的有界单元，复用当前独立例子，不引入框架。
+
+## 远端版本发现失败与修复
+
+8c737ac6e64ab61b57acfaac7717c850cbc09046已普通push；[Actions34785309277](https://github.com/patricklfdm/knowledge-base/actions/runs/34785309277)在quality/verify的setup-java步骤FAIL：Microsoft发现目录没有21.0.12，可用21分支最高21.0.11。构建/部署被依赖正确阻止，不能把该SHA写成部署成功。官方归档虽然列出21.0.12，发现目录不一致仍需按实际处理；未凭版本存在推断CI可下载。Adoptium只读候选API返回403，未据此切发行版或绕过访问。
+
+最终固定版本调整为**Microsoft OpenJDK21.0.11+10**，仍采用setup-java@v6和microsoft发行版。按[Microsoft官方归档](https://learn.microsoft.com/en-us/java/openjdk/older-releases)下载macOS arm64归档到自建临时目录，官方SHA256核对为22eac07819b9fe6670cb026fd3fd7bddd31938ea3adad7b722ac0631d76d9667；解压后实际java/javac21.0.11，不安装到系统或替换已有JDK。当前正文/README/版本文件同步21.0.11，上述21.0.12结果是首次本地历史证据。
+
+增加真实版本不匹配负面对照：独立子目录版本文件写22.0.2，21.0.11启动器被明确拒绝，非零退出。修复后Java七组、独立npm ci/test/demo通过；days4再次检出4项失败后恢复。隔离完整kb:verify/npm test重跑PASS：283 tests/45 suites，35 notes，61 HTML/173产物，0 fail/skip；其余门禁与锁不漂移保持。日志/tmp/h5d-fix-verify.log、/tmp/h5d-fix-tests.log、/tmp/kb-h5d-fix-mutant.log；JDK临时路径指针/tmp/kb-h5d-java-home.txt，失效可从官方归档重新校验解压。修复提交待同SHA云端复核，H5-001D在发布完成前保持in_progress。

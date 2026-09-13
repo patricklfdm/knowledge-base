@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert/strict"
-import { existsSync, writeFileSync } from "node:fs"
+import { existsSync, writeFileSync, copyFileSync } from "node:fs"
 import { join } from "node:path"
 import { spawnSync } from "node:child_process"
 import { fileURLToPath } from "node:url"
@@ -87,4 +87,18 @@ test("独立演示确实编译/启动，夹具产物可清理；缺JDK不跳过"
   assert.ifError(missing.error)
   assert.notEqual(missing.status, 0)
   assert.match(missing.stderr, /Set KB_JAVA_HOME or JAVA_HOME/)
+})
+
+test("版本文件不匹配时明确失败，不能静默使用另一个JDK", (t) => {
+  const f = fixture(t)
+  for (const name of ["tools.mjs", "demo.mjs"])
+    copyFileSync(new URL(name, import.meta.url), join(f.dir, name))
+  writeFileSync(join(f.dir, ".java-version"), "22.0.2\n")
+  const r = spawnSync(process.execPath, [join(f.dir, "demo.mjs")], {
+    encoding: "utf8",
+    timeout: 5000,
+  })
+  assert.ifError(r.error)
+  assert.notEqual(r.status, 0)
+  assert.match(r.stderr, /Expected JDK 22\.0\.2/)
 })

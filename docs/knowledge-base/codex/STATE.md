@@ -1,6 +1,6 @@
 # 当前检查点
 
-2026-09-13，patricklfdm/knowledge-base v5，基线ae13eb6a477af98ed350d1b1c519b73acb4eeb99为已部署SQL双连接批次。当前H5-001D Java编译运行正文、路线、独立例子与CI环境已完成本地适用门禁，待提交普通push和同SHA发布跟踪。BACKLOG是唯一台账。
+2026-09-13，patricklfdm/knowledge-base v5，基线ae13eb6a477af98ed350d1b1c519b73acb4eeb99为已部署SQL双连接批次。H5-001D首次push 8c737ac在远端JDK发现阶段失败，已完成固定21.0.11修复的本地适用验证，待修复提交普通push与同SHA发布跟踪。BACKLOG是唯一台账。
 
 ## 授权与下一项
 
@@ -10,8 +10,10 @@
 
 ## 验证与恢复
 
-Node24.21.0/npm11.19.0、Microsoft OpenJDK21.0.12+8/macOS arm64；本机同时有默认22，必须命令级KB_JAVA_HOME指向实际21.0.12安装，不改全局设置。CI由setup-java@v6读取examples/java-basics/.java-version并安装microsoft发行版。
+Node24.21.0/npm11.19.0、Microsoft OpenJDK21.0.11+10/macOS arm64；本机原有21.0.12与默认22保留，必须命令级KB_JAVA_HOME指向官方校验后自建临时21.0.11目录（指针/tmp/kb-h5d-java-home.txt），不改全局设置。CI由setup-java@v6读取examples/java-basics/.java-version并安装microsoft发行版。
 
-隔离kb:verify/npm test通过：35 notes=9导航+26教材、34检查器、282 tests/45 suites、61 HTML/173产物、禁发负面PASS。Java独立npm ci/test/demo及手工命令通过；days4故障4项失败后恢复，原锁未变。所有编译和数据库产物只在自建临时目录清理；未启动浏览器。
+隔离kb:verify/npm test通过：35 notes=9导航+26教材、34检查器、283 tests/45 suites、61 HTML/173产物、禁发负面PASS。Java独立npm ci/test/demo及手工命令通过；days4故障4项失败后恢复，原锁未变。所有编译和数据库产物只在自建临时目录清理；未启动浏览器。
 
-日志/tmp/h5d-verify.log、/tmp/h5d-tests.log、/tmp/kb-h5d-mutant.log；指针/tmp/kb-h5d-example-path.txt和/tmp/kb-h3b-path.txt，失效按锁/源码重建。恢复先核对Git/Actions避免重复推送。H4/v1.0未通过，历史UI/环境/上游格式问题保留；不承诺结束回合后离线运行。
+日志/tmp/h5d-fix-verify.log、/tmp/h5d-fix-tests.log、/tmp/kb-h5d-fix-mutant.log；指针/tmp/kb-h5d-example-path.txt和/tmp/kb-h3b-path.txt，失效按锁/源码重建。恢复先核对Git/Actions避免重复推送。H4/v1.0未通过，历史UI/环境/上游格式问题保留；不承诺结束回合后离线运行。
+
+远端失败检查点：8c737ac已push，但Actions34785309277的setup-java找不到Microsoft21.0.12，后续构建/部署跳过；线上仍为SQL批次。H5-001D重开，按计划改用CI目录可解析的固定21.0.11，临时下载/校验/实跑后再发布。不准把已push写成已部署。
