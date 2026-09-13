@@ -27,3 +27,9 @@ G7/真实浏览器仍NOT_RUN：用户批准内容建设完成后集中验收。�
 ## 发布与下一项
 
 本地适用门禁完成，待本批普通push同SHA CI/Pages/HTTP；未把本地成功当已部署。下一项H5-001F：Java对象、引用与集合的有界单元，沿J02组织行程数据，保持独立合成例子与真实失败对照。
+
+## 发布证据
+
+内容提交4c1bb2960858a1efc587be4e6831ac7b76c3765e已普通push origin/v5。[Actions34787324993](https://github.com/patricklfdm/knowledge-base/actions/runs/34787324993)同SHA quality/verify、Build website、Deploy website全部success，2026-09-13T22:39:00Z部署完成。HTTP首页、知识地图、Java路线、J01/J02正文均200且含预期内容；实际引用的站内CSS/JS全部200且非空，contentIndex收录两篇（62条含派生页），不存在路径404。日志/tmp/h5e-http.log。
+
+H5-001E完成，下一项H5-001F对象/引用/集合。浏览器仍NOT_RUN，H5父项/H4/v1.0未完成。本补记仅同步工程证据与任务状态，不修改已经通过CI的内容或可执行源。

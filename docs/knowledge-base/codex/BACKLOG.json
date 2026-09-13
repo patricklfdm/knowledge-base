@@ -535,7 +535,7 @@
       "id": "H5-001E",
       "phase": "H5",
       "title": "Java 值、类型与输入校验",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H5-001D"
       ],
