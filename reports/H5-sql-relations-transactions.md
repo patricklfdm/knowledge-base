@@ -25,3 +25,7 @@ Node24.21.0/npm11.19.0，内置SQLite3.53.4，macOS arm64。独立含空格副�
 ## 发布与下一项
 
 本批适用门禁完成，按持续授权普通push并跟踪同SHA CI/Pages/HTTP；发布实证在下一批补记，不为自身SHA反复改写。本报告以基线加差异定位。下一项H5-001B：一个有限索引与查询计划单元，继续内容，不恢复浏览器；Java/系统等父项内容仍待逐批实现。
+
+## 发布补记
+
+39be2ef648cd5a765ad9e4f1d5393ee92e67f8f0已普通推送，[同SHA运行34779959819](https://github.com/patricklfdm/knowledge-base/actions/runs/34779959819)成功：quality 103785037439、build 103785139820、deploy 103785211031，部署完成2026-09-13T20:12:16Z。HTTP文本实跑：主页/SQL路线/S01/S02四页正文标记、页面实际30个CSS/JS、三项搜索索引及缺失路径404均PASS。无浏览器操作，脚本/tmp/kb-h5a-smoke.py。已在同回合接续H5-001B。

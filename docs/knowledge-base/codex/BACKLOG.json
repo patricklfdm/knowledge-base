@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-13",
-  "status_note": "H5 SQL relations/transactions verified; UI deferred until planned content complete; next H5-001B",
+  "status_note": "SQL S01–S03 content verified; UI deferred until planned content complete; next H5-001C",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -485,13 +485,30 @@
       "id": "H5-001B",
       "phase": "H5",
       "title": "SQL索引与查询计划的可重复实验",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H5-001A"
       ],
       "acceptance": [
         "解释访问路径、索引维护代价和复合列顺序，不虚构性能收益",
         "合成数据EXPLAIN对照、结果等价与负面断言真实运行"
+      ],
+      "evidence": [
+        "reports/H5-sql-indexes.md"
+      ]
+    },
+    {
+      "id": "H5-001C",
+      "phase": "H5",
+      "title": "SQLite双连接与写竞争实验",
+      "status": "todo",
+      "depends_on": [
+        "H5-001B"
+      ],
+      "acceptance": [
+        "有限1–2篇，区分单连接事务与多个连接竞争，不承诺生产并发性能",
+        "临时库实测写锁拒绝/释放后成功、数据可见性及明确故障边界",
+        "来源、独立示例、非浏览器门禁与发布证据"
       ],
       "evidence": []
     },

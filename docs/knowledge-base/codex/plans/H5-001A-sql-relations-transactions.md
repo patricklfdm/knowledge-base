@@ -12,7 +12,7 @@
 - [x] 实现新表/查询/事务与可执行对照；正常、FK/约束、LEFT JOIN计数、半写入/回滚、重开证据。
 - [x] 两篇正文与SQL路线导航，官方来源核验，作者自审和另一次读者任务复核。
 - [x] 独立含空格包安装/test/demo、故意破坏检出并恢复、隔离完整门禁/锁漂移检查。
-- [ ] 报告/BACKLOG/STATE、普通push、同SHA CI/Pages/HTTP，继续H5-001B。
+- [x] 报告/BACKLOG/STATE、普通push、同SHA CI/Pages/HTTP，继续H5-001B。
 
 ## 决策、恢复与边界
 
@@ -21,3 +21,5 @@ SQL是H3已有先修，可先于Java推进H5的一小单元；H5父项仍在建�
 中断从未勾选项恢复，先确认Git与临时副本；不触及已有用户修改。内容完成状态与UI状态分离；当前完全不调用浏览器工具。
 
 实际验收见reports/H5-sql-relations-transactions.md：30 notes、266 tests、55 HTML/161产物与独立故障练习通过，原锁无差异；发布后继续H5-001B，不暂停等待UI。
+
+39be2ef已推送，同SHA运行34779959819 CI/Pages与HTTP文本PASS，证据补记报告；H5-001B已实际执行。

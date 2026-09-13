@@ -28,8 +28,14 @@ get缺失返回undefined，list/atLeast返回数组。Node查询行可为无原�
 
 ## S01/S02：关系查询与多步事务
 
-保持F10的schema/store/demo不变；新增ledger-schema.sql/ledger.mjs使用自己的journeys/expenses两表，ledger-demo.mjs是受维护演示。`npm run ledger`自动创建并清理临时文件，`npm test`包含原8组及新增7组，共15组。
+保持F10的schema/store/demo不变；新增ledger-schema.sql/ledger.mjs使用自己的journeys/expenses两表，ledger-demo.mjs是受维护演示。`npm run ledger`自动创建并清理临时文件，`npm test`包含原8组及S01/S02新增7组；加上后述S03共18组。
 
 显式连接级foreign_keys=ON；孤儿/删除父行被拒绝；JOIN明细、LEFT JOIN汇总、COUNT星号与ON/WHERE反例。整数分只为合成数据，不是完整货币模型。无显式事务的失败保留部分写入；createWithTransaction同步BEGIN IMMEDIATE/COMMIT/ROLLBACK，约束失败撤销整个新增业务动作、保留既有记录。
 
 运行`npm run ledger`查看对照。所有本批CLI实验不接用户库路径；直接调用openLedger只适用于内存或自建空文件，不作为旧F10库迁移。事务函数不支持嵌套或await，未处理生产磁盘故障、重试/并发/外部副作用。当前重开证据是同进程新连接，F10既有新进程测试另行保留；不宣称本批验证崩溃恢复。
+
+## S03：索引访问计划
+
+`npm run indexes`在新内存库生成100行程×20费用，共2000条；比较无索引、(journey_id,amount_cents)、反向列顺序及移除索引的同一查询。index-plans.test.mjs新增3组，包内共18组；全部通过既有根测试/示例门禁执行。金额1000边界、2000/2001/缺失行程及索引后增改删另有结果断言。
+
+EQP观察仅针对实测SQLite3.53.4，不由应用逻辑解析，不承诺格式稳定；升级后应重核计划与结果。索引只在自建内存库创建/删除，不接用户路径，无依赖、端口、浏览器或性能数字。源码与DDL由维护入口执行，不从Markdown抽取执行。
