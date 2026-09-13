@@ -11,6 +11,9 @@ export function lessonSource(f, name) {
       "ObjectLesson",
       "CollectionLesson",
       "ContractLesson",
+      "FileLesson",
+      "ResourceLesson",
+      "ProcessLesson",
     ].includes(name)
   )
     throw new Error("Unknown maintained lesson")
@@ -24,6 +27,8 @@ export function runLesson(name, args) {
     const dependencies = ["ObjectLesson", "CollectionLesson", "ContractLesson"].includes(name)
       ? [lessonSource(f, "TripModel")]
       : []
+    if (name === "FileLesson")
+      dependencies.push(lessonSource(f, "TripModel"), lessonSource(f, "DaysInput"))
     const compiled = f.compile([...dependencies, lessonSource(f, name)])
     if (compiled.status !== 0) throw new Error(compiled.stderr)
     const result = f.run(name, args)

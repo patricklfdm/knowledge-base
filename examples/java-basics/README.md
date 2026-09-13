@@ -45,3 +45,9 @@ KB_JAVA_HOME="/path/to/jdk21" npm run input --prefix examples/java-basics -- 31
 新增`npm run objects`、`npm run collections`、`npm run contracts`（均在本包执行，或在根加`--prefix examples/java-basics`）。沿前述KB_JAVA_HOME环境运行；contracts默认成功，追加`-- missing`预期退出2。TripModel为共享模型，三个维护示例和objects.test.mjs新增7组，包内累计22组。测试实际比较别名/复制、修改失败原值保留、容器与元素共享、缺失/重复、接口实现，以及private/泛型/受检异常编译失败。
 
 不把List.copyOf叫作深复制；不把单线程Map先查再写叫作并发原子操作。独立副本把TripModel.copy改成返回this时原测试必须失败。
+
+## J06–J08：文件、打包和进程
+
+新增本包`npm run files`、`npm run package`、`npm run process`（在根添加`--prefix examples/java-basics`），沿相同KB_JAVA_HOME。runtime.test.mjs新增6组，Java包内累计28组。files只读写自行创建的UTF-8两列合成文件，失败不交付半份列表，关闭所有权在readAndClose，另对照主异常/suppressed/逆序关闭。package真实编译packaged下两包，用同JDK的jar命令打包并java -jar启动；测试移除源码与散装class，以及漏入口/依赖的负面情况。process仅在独立子进程设-Xmx32m，64 MiB数组预期OOM，禁用heap dump，所有子进程有超时；不是生产内存压力测试。
+
+故障注入：独立副本将FileLesson中第二行错误改成return staged，原测试必须失败。仅操作临时产物，不传入个人资料路径。完整根门禁仍通过既有显式包入口运行，无新库/新JDK依赖。

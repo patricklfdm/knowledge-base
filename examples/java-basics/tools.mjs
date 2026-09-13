@@ -28,7 +28,8 @@ export function javaFixture() {
   if (!home) throw new Error(`Set KB_JAVA_HOME or JAVA_HOME to JDK ${version}`)
   const java = join(home, "bin", "java")
   const javac = join(home, "bin", "javac")
-  for (const command of [java, javac]) {
+  const jar = join(home, "bin", "jar")
+  for (const command of [java, javac, jar]) {
     const r = execute(command, ["--version"])
     const firstLine = (r.stdout + r.stderr).split("\n")[0]
     if (r.status !== 0 || !firstLine.split(/\s+/).includes(version)) {
@@ -66,6 +67,12 @@ export function javaFixture() {
         ["-Duser.language=en", "-Dfile.encoding=UTF-8", "-cp", classpath, name, ...args],
         dir,
       )
+    },
+    jar(args) {
+      return execute(jar, args, dir)
+    },
+    launch(args) {
+      return execute(java, ["-Duser.language=en", "-Dfile.encoding=UTF-8", ...args], dir)
     },
     close() {
       rmSync(dir, { recursive: true, force: true })

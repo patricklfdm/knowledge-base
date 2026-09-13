@@ -13,6 +13,9 @@
     "input": "node input-demo.mjs",
     "objects": "node objects-demo.mjs",
     "collections": "node collections-demo.mjs",
-    "contracts": "node contracts-demo.mjs"
+    "contracts": "node contracts-demo.mjs",
+    "files": "node files-demo.mjs",
+    "package": "node package-demo.mjs",
+    "process": "node process-demo.mjs"
   }
 }

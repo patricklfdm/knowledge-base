@@ -552,7 +552,7 @@
       "id": "H5-001F",
       "phase": "H5",
       "title": "Java 对象、引用、集合与接口异常",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H5-001E"
       ],
@@ -576,8 +576,10 @@
         "自建临时数据/子进程实证，失败清理和非零退出，完整门禁与发布"
       ],
       "phase": "H5",
-      "status": "todo",
-      "evidence": []
+      "status": "in_progress",
+      "evidence": [
+        "reports/H5-java-h5g.md"
+      ]
     },
     {
       "id": "H5-001H",

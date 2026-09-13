@@ -19,8 +19,11 @@ tags: [languages]
 | J03 | [对象与引用](../topics/01-languages/java-objects-and-references.md) | 区分别名、复制与形参重绑 |
 | J04 | [集合与复制](../topics/01-languages/java-collections-and-copies.md) | 解释容器与元素的两层共享 |
 | J05 | [接口与异常](../topics/01-languages/java-interfaces-and-exceptions.md) | 替换实现，保留缺失错误 |
+| J06 | [文件与资源](../topics/01-languages/java-files-and-resources.md) | 错误不交付半份列表，关闭并保留异常 |
+| J07 | [包与JAR](../topics/01-languages/java-packages-and-jar.md) | 打包完整依赖，独立启动并定位失败 |
+| J08 | [JVM进程与内存](../topics/01-languages/java-process-and-memory.md) | 区分进程状态、class产物与堆上限 |
 
-文件资源、包/JAR、JVM进程、线程/任务取消与测量方法是本Java主线剩余单元，按工程计划连续实现。当前路线不是全部Java生态的目录。
+线程、任务取消与测量方法是本主线最后一批内容，随后集中检查12篇Java路线。
 
 维护例子在仓库 `examples/java-basics/`，使用固定 JDK 的真实编译与启动，产物仅在临时目录。正文记录核验环境和未测边界，学习掌握情况不写入公开站点。
 

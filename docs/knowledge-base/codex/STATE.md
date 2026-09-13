@@ -1,12 +1,12 @@
 # 当前检查点
 
-2026-09-13，patricklfdm/knowledge-base v5，基线f90a3395d809e9fef36b078be8876a8d141fd555。用户要求Java主线整完才停，按[连续计划](plans/H5-JAVA-completion.md)推进。本批H5-001F本地门禁完成，报告[本批验收](../../../reports/H5-java-h5f.md)，待同SHA发布记录；随后直接推进后续批次，不能在子项后结束请求。BACKLOG是唯一台账。
+2026-09-13，patricklfdm/knowledge-base v5，基线681bec6eebb68fa83c496d113004bacabf47720a。用户要求Java主线整完才停，按[连续计划](plans/H5-JAVA-completion.md)推进。本批H5-001G本地门禁完成，报告[本批验收](../../../reports/H5-java-h5g.md)，待同SHA发布记录；随后直接推进后续批次，不能在子项后结束请求。BACKLOG是唯一台账。
 
 ## 验证与恢复
 
-固定Node24.21.0/npm11.19.0、Microsoft21.0.11+10；JDK指针/tmp/kb-h5d-java-home.txt，使用命令级KB_JAVA_HOME，原有21.0.12/默认22未改。根隔离/tmp/kb-h3b-path.txt，独立副本/tmp/kb-h5f-example-path.txt。临时失效按维护README/官方归档重建。
+固定Node24.21.0/npm11.19.0、Microsoft21.0.11+10；JDK指针/tmp/kb-h5d-java-home.txt，使用命令级KB_JAVA_HOME，原有21.0.12/默认22未改。根隔离/tmp/kb-h3b-path.txt，独立副本/tmp/kb-h5g-example-path.txt。临时失效按维护README/官方归档重建。
 
-40 notes、299 tests/45 suites、66 HTML/183产物、全门禁与禁发负面PASS；故意错误2项失败后恢复，所有锁未变。日志/tmp/h5f-verify.log与/tmp/h5f-tests.log等见报告。接续先核对Git/Actions，保护新改动，不重复push。
+43 notes、305 tests/45 suites、69 HTML/189产物、全门禁与禁发负面PASS；故意错误2项失败后恢复，所有锁未变。日志/tmp/h5g-verify.log与/tmp/h5g-tests.log等见报告。接续先核对Git/Actions，保护新改动，不重复push。
 
 ## 授权边界
 
