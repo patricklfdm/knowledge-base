@@ -46,3 +46,9 @@ F的681bec6、G的43c9130已普通push并取得同SHA质量/构建/Pages成功�
 本总验收及文字收尾的最终kb:verify已经通过，源码与隔离副本逐文件相等、可执行文件与H回归提交一致；待本收尾提交普通推送和同SHA验证后封存GATE。BACKLOG是唯一台账。
 
 本主线的范围是核心语言到文件/打包、运行时、并发与测量。Spring、JDBC、JPMS和GC调优未包含；SQL/通用系统、Python、前后端进阶、H6/H7仍各有待办。H4/UI与v1.0不因Java完成而通过；浏览器按用户要求等全部规划内容完成后集中执行，未连接、安装、截图或重试。没有记录个人学习掌握情况，没有读取GSE/Wayvia。
+
+## 最终封存
+
+正文与导航收尾提交4b74f4180c38d62e1533c37d7b3521dfdc76ef61已普通推送origin/v5；Actions 34789668461同SHA quality、Build与Deploy全部success。quality / verify=2026-09-13T23:28:06Z、Build website=2026-09-13T23:28:37Z、Deploy website=2026-09-13T23:28:50Z。最终HTTP14个入口（首页、路线、12篇）200，30项资源200、索引71项含全路线、缺页404，日志/tmp/java-close-http.log；Actions读数/tmp/java-close-actions.json。
+
+H5-JAVA-GATE全部验收条件达成，BACKLOG标done。本文及STATE/计划/台账的封存提交只记录结果，不改content、示例、运行时、依赖或工作流；其自身发布继续按实际HEAD在Actions核对，不能用旧SHA代替新SHA。后续恢复先读Git与同SHA Actions，不重复推送或初始化。下一项引用H5-001剩余SQL/通用系统内容；本次用户要求的Java主线已经完成，可以结束本轮。

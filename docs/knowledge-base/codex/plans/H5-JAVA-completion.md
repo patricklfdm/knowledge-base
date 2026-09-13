@@ -16,7 +16,7 @@
 - [x] F：3篇/例子/独立故障/本地门禁/发布。
 - [x] G：3篇/例子/独立故障/本地门禁/发布。
 - [x] H：3篇/例子/独立故障/本地门禁/发布。
-- [ ] Java路线综合检查、报告、BACKLOG/STATE、最终推送部署。
+- [x] Java路线综合检查、报告、BACKLOG/STATE、最终推送部署。
 
 ## 实施与恢复
 
@@ -31,3 +31,5 @@ G实证：Java28组、根305 tests、43 notes/69 HTML/189产物，半导入故�
 总验收本地完成：12入口+2预期CLI失败及2迁移变体实跑，恢复后34组通过；24官方页面200，最终46 notes/72 HTML/195产物门禁PASS。报告reports/H5-java-completion.md；等待最后正文收尾提交同SHA发布，随后封存门禁。
 
 H实证：7e20ab3同SHA CI/Pages及全部Java HTTP通过。总验收仅待最终文字校正提交部署和状态封存，继续H5-JAVA-GATE，不在子批次结束。
+
+封存：4b74f41正文与导航收尾同SHA Actions34789668461全部通过；14入口/30资源/完整索引/404核验PASS。H5-JAVA-GATE完成，见reports/H5-java-completion.md最终段。后续封存提交只记录结果，仍按HEAD核验发布；本Java请求不再有未完成子项。

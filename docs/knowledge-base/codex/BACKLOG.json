@@ -614,7 +614,7 @@
         "明确Java主线边界，浏览器延期及其他H5/H6/H7任务状态不冒认完成"
       ],
       "phase": "H5",
-      "status": "in_progress",
+      "status": "done",
       "evidence": [
         "reports/H5-java-completion.md"
       ]
