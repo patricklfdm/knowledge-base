@@ -14,6 +14,9 @@ export function lessonSource(f, name) {
       "FileLesson",
       "ResourceLesson",
       "ProcessLesson",
+      "ThreadLesson",
+      "TaskLesson",
+      "MeasurementLesson",
     ].includes(name)
   )
     throw new Error("Unknown maintained lesson")

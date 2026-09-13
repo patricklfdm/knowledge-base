@@ -24,7 +24,7 @@ KB_JAVA_HOME="/path/to/jdk21" npm run demo --prefix examples/java-basics -- "海
 
 故障注入仅在独立副本：把 `int days = 3;` 改为4，测试必须失败；恢复源码后再跑。不要以“命令退出0”替代对实际摘要的断言。
 
-正文与手工命令见 [Java 编译运行](../../content/topics/01-languages/java-compile-and-run.md)。浏览器延期；没有 JAR、包、多文件构建、对象建模或输入合法性结论。
+正文与手工命令见 [Java 编译运行](../../content/topics/01-languages/java-compile-and-run.md)。该J00单元只讨论编译运行；后续单元覆盖对象、输入、包与JAR。浏览器仍延期。
 
 ## J01/J02：值、类型与输入
 
@@ -36,7 +36,7 @@ KB_JAVA_HOME="/path/to/jdk21" npm run input --prefix examples/java-basics -- 3
 KB_JAVA_HOME="/path/to/jdk21" npm run input --prefix examples/java-basics -- 31
 ```
 
-路径为需替换的占位值。最后一条故意退出2，stderr业务错误且无成功摘要；两条新入口只编译允许清单中的维护源码，不能从任意Markdown运行代码。npm test现在显式覆盖全部*.test.mjs：J00七组加本单元八组，合计15组。输入只接受ASCII数字串、允许前导零、不trim，表示范围及1–30业务范围分开；null由Java直接调用测试覆盖。无数据库/文件业务写入，不以纯解析实验声称生产事务保障。
+路径为需替换的占位值。最后一条故意退出2，stderr业务错误且无成功摘要；两条新入口只编译允许清单中的维护源码，不能从任意Markdown运行代码。npm test显式覆盖全部*.test.mjs：J00七组加本单元八组，当时累计15组；当前总数见末节。输入只接受ASCII数字串、允许前导零、不trim，表示范围及1–30业务范围分开；null由Java直接调用测试覆盖。无数据库/文件业务写入，不以纯解析实验声称生产事务保障。
 
 在独立副本删除DaysInput的`|| days > 30`，原边界测试应失败，再恢复。两篇正文：[值与运算](../../content/topics/01-languages/java-values-and-operations.md)、[输入校验](../../content/topics/01-languages/java-input-validation.md)。
 
@@ -51,3 +51,11 @@ KB_JAVA_HOME="/path/to/jdk21" npm run input --prefix examples/java-basics -- 31
 新增本包`npm run files`、`npm run package`、`npm run process`（在根添加`--prefix examples/java-basics`），沿相同KB_JAVA_HOME。runtime.test.mjs新增6组，Java包内累计28组。files只读写自行创建的UTF-8两列合成文件，失败不交付半份列表，关闭所有权在readAndClose，另对照主异常/suppressed/逆序关闭。package真实编译packaged下两包，用同JDK的jar命令打包并java -jar启动；测试移除源码与散装class，以及漏入口/依赖的负面情况。process仅在独立子进程设-Xmx32m，64 MiB数组预期OOM，禁用heap dump，所有子进程有超时；不是生产内存压力测试。
 
 故障注入：独立副本将FileLesson中第二行错误改成return staged，原测试必须失败。仅操作临时产物，不传入个人资料路径。完整根门禁仍通过既有显式包入口运行，无新库/新JDK依赖。
+
+## J09–J11：线程、任务与测量
+
+本包新增`npm run threads`、`npm run tasks`、`npm run measure`，沿前述KB_JAVA_HOME，根目录使用时加`--prefix examples/java-basics`。concurrent.test.mjs新增6组，当前Java全包显式34组。ThreadLesson用门闩固定两线程读零再各写一；同一Counter监视器则保留两千次增量。中断等待与线程结束有测试断言，维护代码还将工作线程失败传回主线程；不以偶然调度证明安全。独立故障副本把递增改成赋值一，累计断言必须失败。
+
+TaskLesson实测结果/任务异常、get超时后未完成、cancel(true)、工作收到中断及池终止。门闩控制进度，等待预算不作为精确耗时断言；不模拟外部副作用回滚。MeasurementLesson先断言空/混合符号/超int求和，再记录环境、20次预热与5个交替顺序的样本，每样本200次；校验值必须正确，不做速度排名，不声称运行了JMH。
+
+本包当前对应J00–J11的12篇Java主线。7+8+7+6+6=34组显式测试，所有维护入口由既有kb:examples与CI调用；根test自动发现另包含一个test-support加载项，不能把它当新增断言组。Java不安装额外库，锁文件不变。完整路线与综合练习见[Java路线](../../content/roadmaps/java-foundations.md)。

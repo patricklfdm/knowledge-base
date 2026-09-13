@@ -88,16 +88,19 @@ Wayvia/GSE 案例只在另获读取授权后补充。每篇记录 repo/commit/�
 
 ## H5当前SQL支线
 
-沿F10基础新增S01一对多/外键/JOIN/NULL/COUNT与S02多步写入/半写入反例/事务回滚，独立使用sql-trips中的ledger模块。导航content/roadmaps/sql-foundations.md。S03索引与查询计划在H5-001B实作：2000条合成费用的四种计划、结果等价和边界验证；Java/系统与其他内容仍在规划，H5父阶段未完成。
+沿F10基础新增S01一对多/外键/JOIN/NULL/COUNT与S02多步写入/半写入反例/事务回滚，独立使用sql-trips中的ledger模块。导航content/roadmaps/sql-foundations.md。S03索引与查询计划在H5-001B实作：2000条合成费用的四种计划、结果等价和边界验证；Java按下述主线实现，通用系统与其他内容仍在规划，H5父阶段未完成。
 
 S04/S05在H5-001C继续双连接与读快照，显式DELETE/WAL、BUSY/BUSY_SNAPSHOT、提交失败与事务重启范围；只有真实隔离交错证据，不冒称生产并发性能。
 
 ## H5当前Java支线
 
-J00通过独立java-basics介绍源码、class、JDK与JVM、真实javac/java、编译与启动错误、旧产物练习。路线content/roadmaps/java-foundations.md，先修为F04已有语言基础。当前只覆盖编译运行；值与输入、对象/集合和系统专题继续拆分。未读取GSE，H5父项保持在建。
+Java主线为J00–J11共12篇，先修为F04已有语言基础，正文与自测统一在content/roadmaps/java-foundations.md。范围按plans/H5-JAVA-completion.md；不是整个Java生态或通用系统课程全部完成。
 
-H5-001E补J01值/运算与J02输入校验：ASCII格式、int表示范围、业务范围及错误出口分别实证，接在J00后；对象与集合继续下一有界单元，Java/系统父项未完成。
+| 单元 | 已实现内容 | 维护证据 |
+| --- | --- | --- |
+| J00–J02 | 编译/启动、值与运算、输入边界 | H5-001D/E报告；真实javac/java及失败出口 |
+| J03–J05 | 对象/引用、集合/泛型/复制、接口/异常 | H5-001F报告；别名与编译失败对照 |
+| J06–J08 | UTF-8文件/资源、包/JAR、进程/堆 | H5-001G报告；部分导入、关闭、独立JAR、限定堆错误 |
+| J09–J11 | 共享状态/锁、任务/取消、正确性与测量 | H5-001H与Java综合门禁；确定交错、协作退出与原始样本 |
 
-Java连续主线依用户要求扩至J00–J11，完成范围与验收见plans/H5-JAVA-completion.md。H5-001F交付J03对象引用、J04集合泛型复制、J05接口异常三篇，后续G/H连续推进，不将H5父项提前标done。
-
-H5-001G交付J06文件资源、J07包/JAR、J08进程内存；实际UTF-8失败/资源关闭、多包独立JAR与限定堆错误证据。最后继续J09–J11并发和测量，不把JVM实验扩成通用系统全覆盖。
+以上使用examples/java-basics同一固定JDK与明确测试入口。主线状态以BACKLOG中H5-JAVA-GATE为准；H5父项、SQL/通用系统与后续路线保持各自未完成范围。未读取GSE；Spring、JDBC、JPMS、GC调优不包含于这条基础主线。

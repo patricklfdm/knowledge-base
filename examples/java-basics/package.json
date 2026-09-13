@@ -16,6 +16,9 @@
     "contracts": "node contracts-demo.mjs",
     "files": "node files-demo.mjs",
     "package": "node package-demo.mjs",
-    "process": "node process-demo.mjs"
+    "process": "node process-demo.mjs",
+    "threads": "node threads-demo.mjs",
+    "tasks": "node tasks-demo.mjs",
+    "measure": "node measure-demo.mjs"
   }
 }

@@ -21,3 +21,5 @@ G7/真实浏览器NOT_RUN：用户批准全部规划内容完成后集中验收�
 ## 发布与连续恢复
 
 本地适用门禁通过，待本批普通push同SHA CI/Pages/HTTP；不把已测试写成已部署。继续主计划下一批，直到H5-JAVA-GATE实际完成。
+
+发布实证：43c91305afc6aed4b6705b45bd50bdb967c945e4已普通push origin/v5；Actions 34788933797同SHA quality/Build/Deploy全部success，分别完成于2026-09-13T23:12:33Z、23:13:03Z、23:13:17Z。HTTP主页/路线/本批3篇200，30项资源200，索引68项含全部本批正文，缺页404；日志/tmp/h5g-http.log。浏览器仍NOT_RUN。
