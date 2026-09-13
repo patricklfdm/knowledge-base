@@ -10,7 +10,7 @@ tags:
   - knowledge-base
 ---
 
-> 这是一套正在建设中的个人全栈工程教材。当前已有从运行程序到测试、字段扩展与运行检查的二十篇连续教材；现已继续建设 SQL 存储与 Java 基础支线。
+> 这是一套正在建设中的个人全栈工程教材。当前已有从运行程序到测试、字段扩展与运行检查的二十篇连续教材；SQL 存储支线继续建设，Java 主线已形成12篇连续正文。
 
 ## 从哪里开始
 
@@ -18,7 +18,7 @@ tags:
 
 本轮学习入口是 [全栈基础路线](roadmaps/fullstack-foundations.md)。它以完成一个可保存数据的行程清单为目标。已有SQL基础后，可接着学习[SQL建模与查询深入路线](roadmaps/sql-foundations.md)。
 
-第二条语言主线从 [Java 基础与系统路线](roadmaps/java-foundations.md) 开始，先观察编译和运行。
+第二条语言主线从 [Java 基础与系统路线](roadmaps/java-foundations.md) 开始，12篇依次覆盖编译运行、输入、对象集合、文件打包、JVM、并发与测量。
 
 ## 按问题查阅
 

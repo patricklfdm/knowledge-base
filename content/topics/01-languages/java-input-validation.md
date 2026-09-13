@@ -82,8 +82,8 @@ KB_JAVA_HOME="/path/to/jdk21" npm run input --prefix examples/java-basics -- 31
 KB_JAVA_HOME="/path/to/jdk21" npm test --prefix examples/java-basics
 ```
 
-第二条输出成功摘要。第三条故意失败，stderr为“天数必须在1–30之间”，退出2，没有成功摘要；不要把这一步的预期非零当作安装失败。Node入口保留Java退出码并清理临时编译产物。测试入口包含J00和本单元共15组，均调用真实JDK。
+第二条输出成功摘要。第三条故意失败，stderr为“天数必须在1–30之间”，退出2，没有成功摘要；不要把这一步的预期非零当作安装失败。Node入口保留Java退出码并清理临时编译产物。测试入口运行全部Java单元，其中J00–J02占15组，当前完整清单见示例README，均调用真实JDK。
 
 练习：把业务上限改为14，先列出1、14、15、30的预期结果，再在独立副本同步修改实现、错误文字和测试。另做故障对照：只删除上界判断，保留原测试，31必须让测试失败；恢复后重跑。单测需要证明坏输入被拒绝，不能只证明3能通过。
 
-本例不是公网请求入口，没有输入字节上限、速率控制或并发压测，不声称可直接承担生产输入防护。下一篇[对象与引用](java-objects-and-references.md)继续组织行程数据，也可回到 [Java基础路线](../../roadmaps/java-foundations.md) 可查看已有内容。
+本例不是公网请求入口，没有输入字节上限、速率控制或并发压测，不声称可直接承担生产输入防护。下一篇[对象与引用](java-objects-and-references.md)继续组织行程数据，也可回到 [Java基础路线](../../roadmaps/java-foundations.md) 查看完整学习顺序。

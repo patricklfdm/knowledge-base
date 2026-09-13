@@ -1,13 +1,17 @@
 # 当前检查点
 
-2026-09-13，patricklfdm/knowledge-base v5，基线43c91305afc6aed4b6705b45bd50bdb967c945e4。用户要求Java主线整完才停，按[连续计划](plans/H5-JAVA-completion.md)推进。本批H5-001H本地门禁完成，报告[本批验收](../../../reports/H5-java-h5h.md)，待同SHA发布记录；随后直接推进后续批次，不能在子项后结束请求。BACKLOG是唯一台账。
+2026-09-13，patricklfdm/knowledge-base v5。Java J00–J11共12篇已交付；H5-001D至H5-001H均完成，最近正文发布7e20ab3ac512b071a6337f06a675214d4f0a3ca9，同SHA CI/Pages及全部Java HTTP通过。任务状态唯一见BACKLOG。
+
+当前H5-JAVA-GATE本地总验收通过；见[总报告](../../../reports/H5-java-completion.md)与[计划](plans/H5-JAVA-completion.md)。本次文字收尾修正旧测试数量与导航范围，等待普通push同SHA部署；完成后将GATE标done并保存最终检查点，才能结束用户本请求。
 
 ## 验证与恢复
 
-固定Node24.21.0/npm11.19.0、Microsoft21.0.11+10；JDK指针/tmp/kb-h5d-java-home.txt，使用命令级KB_JAVA_HOME，原有21.0.12/默认22未改。根隔离/tmp/kb-h3b-path.txt，独立副本/tmp/kb-h5h-example-path.txt。临时失效按维护README/官方归档重建。
+Node24.21.0/npm11.19.0、Microsoft21.0.11+10，命令级KB_JAVA_HOME；原默认22和已有21.0.12未改。根隔离/tmp/kb-h3b-path.txt，JDK/tmp/kb-h5d-java-home.txt；Java独立总验收/tmp/kb-java-final-example-path.txt。失效按维护README重建。
 
-46 notes、311 tests/45 suites、72 HTML/195产物、全门禁与禁发负面PASS；故意错误2项失败后恢复，所有锁未变。日志/tmp/h5h-verify.log与/tmp/h5h-tests.log等见报告。接续先核对Git/Actions，保护新改动，不重复push。
+46 notes（9导航、37教学）、Java34组、根311 tests/45 suites；72 HTML/195产物，所有本地适用门禁与负面过滤通过，锁无漂移。12维护入口、2预期CLI失败、2迁移变体实跑并恢复，24官方页面200。最新本地日志/tmp/java-final-verify.log；回归/tmp/h5h-tests.log，入口/tmp/java-final-entries.log，HTTP/tmp/java-content-http-corrected.log。
 
-## 授权边界
+接续先核对Git/Actions实际HEAD，保护新改动；不要重复初始化或重复推送。GATE收尾完成后下一项引用H5-001：继续其余SQL/通用系统单元拆分；Java生态扩展不是本次主线缺项。
 
-每批1–3篇，适用验证后自动普通push既有origin/v5并跟踪同SHA部署；不强推、不改其他项目或全局运行时。浏览器仍留全部规划内容完成后集中测试，当前不连接/安装/截图/重试。Java主线完成不等于H4/v1.0、H5其他内容或用户已掌握。不得声称结束回合后离线运行。
+## 授权与边界
+
+每批适用验证后自动普通push既有origin/v5，并核验同SHA部署。浏览器等全部规划内容完成后集中验收；当前不连接/安装/截图/重试。H4/v1.0及其他H5–H7仍未完成，Java内容通过不代表个人学会。未读GSE/Wayvia，不强推、不改全局运行时，不声称回合结束后离线继续。

@@ -112,6 +112,6 @@ KB_JAVA_HOME="/path/to/jdk21" npm test --prefix examples/java-basics
 KB_JAVA_HOME="/path/to/jdk21" npm run demo --prefix examples/java-basics -- "海湾 城"
 ```
 
-Node 仅编排真实的 `javac`/`java` 子进程，未模拟 Java。七组测试覆盖正常、边界、故障和清理；每次编译使用自建临时目录，结束后删除，仓库不保存 class。缺 JDK 或版本不符会失败，不会悄悄跳过。详细环境约束见示例 README。
+Node 仅编排真实的 `javac`/`java` 子进程，未模拟 Java。其中J00的七组测试覆盖正常、边界、故障和清理；整个包还运行后续单元，当前清单见示例README。每次编译使用自建临时目录，结束后删除，仓库不保存 class。缺 JDK 或版本不符会失败，不会悄悄跳过。详细环境约束见示例 README。
 
 下一篇：[Java 的类型怎样影响运算结果？](java-values-and-operations.md)，继续观察数字、文字与整数边界，再进入输入校验。也可返回 [Java 基础路线](../../roadmaps/java-foundations.md)。

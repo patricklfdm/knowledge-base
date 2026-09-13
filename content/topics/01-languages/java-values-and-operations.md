@@ -30,7 +30,7 @@ String label = "3";
 boolean withinLimit = days >= 1 && days <= 30;
 ```
 
-`int` 是32位有符号整数，`long` 是64位有符号整数；它们的可表示范围有限。`double` 是浮点数类型，可以表示本例的2.5，但不能据此推断所有十进制小数都精确。`boolean` 只有 `true` 和 `false`。这几种是基本类型（primitive type），`String` 则属于引用类型（reference type），这里用于文字。类型决定表达式能做哪些运算，见 [JLS 类型与变量](https://docs.oracle.com/javase/specs/jls/se21/html/jls-4.html)。对象引用的复制和比较留下一单元，本篇不将 String 当作“特殊的整数”。
+`int` 是32位有符号整数，`long` 是64位有符号整数；它们的可表示范围有限。`double` 是浮点数类型，可以表示本例的2.5，但不能据此推断所有十进制小数都精确。`boolean` 只有 `true` 和 `false`。这几种是基本类型（primitive type），`String` 则属于引用类型（reference type），这里用于文字。类型决定表达式能做哪些运算，见 [JLS 类型与变量](https://docs.oracle.com/javase/specs/jls/se21/html/jls-4.html)。对象引用的复制和比较留后续对象单元，本篇不将 String 当作“特殊的整数”。
 
 `days >= 1` 和 `days <= 30` 都产生布尔值，`&&` 表示两者都成立。Java 的条件需要布尔表达式，`if (3) {}` 不能像某些语言一样依赖数字的真假转换；维护测试确认它在编译时失败。这里的范围检查是我们选择的业务规则，Java 的 int 本身并没有30天的限制。
 
