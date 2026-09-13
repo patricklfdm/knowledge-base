@@ -7,8 +7,9 @@
     "node": ">=24 <25"
   },
   "scripts": {
-    "test": "node --test sql.test.mjs",
+    "test": "node --test *.test.mjs",
     "demo": "node demo.mjs",
-    "fail": "node failure.mjs"
+    "fail": "node failure.mjs",
+    "ledger": "node ledger-demo.mjs"
   }
 }

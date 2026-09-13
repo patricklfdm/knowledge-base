@@ -20,3 +20,5 @@ getBrowser初始化没有返回可用页面；getState报Sky Computer Use native
 ## Outcome
 
 三项目标NOT_RUN，H4-UI-SITE/H4-UI-APP保持blocked但原因改为工具环境；H4-GATE和后续依赖不变。报告[H4-ui-environment](../../../../reports/H4-ui-environment.md)。本批仅工程记录与授权状态，无运行代码/教材/依赖变化；执行内容检查、台账证据核对、diff检查，按持续授权普通推送并跟踪同SHA CI/Pages。
+
+2026-09-13用户将本计划后移到规划内容完成后，不再以环境恢复作为下一内容任务的前提。历史错误不改写，当前不重试；恢复顺序见BACKLOG。

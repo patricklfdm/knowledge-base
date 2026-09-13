@@ -25,3 +25,11 @@ get缺失返回undefined，list/atLeast返回数组。Node查询行可为无原�
 练习：把schema.sql中的30改14，在全新临时库测试14成功、15失败、条数1；对原已建表文件执行同样CREATE IF NOT EXISTS，15仍能成功。这两种情况由第7组测试实跑，不是迁移实现。恢复schema后再运行全套测试；不要删除用户旧库来“迁移”。
 
 文件持久化证据仅覆盖单机正常提交、关闭及新进程读取。断电、磁盘损坏、备份恢复、并发写入、完整事务专题和HTTP/UI整合NOT_RUN或留后续。DatabaseSync为同步接口，不适合直接据此推导高并发服务设计。浏览器NOT_RUN：用户批准集中验收。验收见reports/H3-sql.md。
+
+## S01/S02：关系查询与多步事务
+
+保持F10的schema/store/demo不变；新增ledger-schema.sql/ledger.mjs使用自己的journeys/expenses两表，ledger-demo.mjs是受维护演示。`npm run ledger`自动创建并清理临时文件，`npm test`包含原8组及新增7组，共15组。
+
+显式连接级foreign_keys=ON；孤儿/删除父行被拒绝；JOIN明细、LEFT JOIN汇总、COUNT星号与ON/WHERE反例。整数分只为合成数据，不是完整货币模型。无显式事务的失败保留部分写入；createWithTransaction同步BEGIN IMMEDIATE/COMMIT/ROLLBACK，约束失败撤销整个新增业务动作、保留既有记录。
+
+运行`npm run ledger`查看对照。所有本批CLI实验不接用户库路径；直接调用openLedger只适用于内存或自建空文件，不作为旧F10库迁移。事务函数不支持嵌套或await，未处理生产磁盘故障、重试/并发/外部副作用。当前重开证据是同进程新连接，F10既有新进程测试另行保留；不宣称本批验证崩溃恢复。

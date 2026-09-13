@@ -6,7 +6,7 @@
 | ----------------------- | ---------------------------------------------------------------------------------------- |
 | npm run kb:check        | content 元数据、唯一 ID/URL/别名、先修 DAG、Markdown 内部链接/标题锚点、发布状态         |
 | npm run kb:test         | 临时正常/失败 fixtures；CLI 返回码；产物检测器；CI 依赖保护                              |
-| npm run kb:examples     | 明确运行 foundations 的13组、typed-trips 的4组、web-forms 的5组、http-trips 的8组、trip-api 的10组、sql-trips 的8组与 trip-app 的13组示例测试                                  |
+| npm run kb:examples     | 明确运行 foundations 的13组、typed-trips 的4组、web-forms 的5组、http-trips 的8组、trip-api 的10组、sql-trips 的15组与 trip-app 的13组示例测试                                  |
 | npm run kb:build        | `npm run quartz -- build`，现有 Quartz CLI，默认 content/public                          |
 | npm run kb:output       | 对 public 的实际 HTML DOM 检查本站 base path、链接、资源与锚点                           |
 | npm run kb:publish-test | 临时正文与产物，真实构建正面对照和 3 种禁发 marker，扫描全部产物，再注入泄漏证明检测有效 |
@@ -48,3 +48,5 @@ trip-app提供同源教学页面、HTTP创建/查询/PUT和SQLite；13组测试�
 F12/F13在trip-app内增加备注临时副本、迁移/回滚及只读smoke，基础应用接口保持；npm run exercise与npm run smoke须在该示例目录运行。根测试自动包含evolution.test.mjs，浏览器仍不运行。
 
 H4回退夹具已加入kb:verify，因此现有同SHA质量门禁也必须通过；不执行本项目或线上回退。UI与kb:e2e仍按原授权延期。发布恢复流程见RELEASE_RECOVERY.md，集中候选见UI_ACCEPTANCE.md。
+
+S01/S02复用sql-trips新增7组关系/事务测试，原F10八组保留，合计15组；测试脚本覆盖该包维护的全部*.test.mjs，仍通过既有kb:examples与根npm test执行。未新增依赖或浏览器测试。

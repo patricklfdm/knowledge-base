@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-09-12",
-  "status_note": "Browser testing explicitly authorized; H4 UI blocked by CUA runtime startup/configuration failure after one reset retry",
+  "updated_on": "2026-09-13",
+  "status_note": "H5 SQL relations/transactions verified; UI deferred until planned content complete; next H5-001B",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -386,15 +386,23 @@
       "title": "首条路线完成后集中验收知识库浏览器体验",
       "status": "blocked",
       "depends_on": [
-        "H3-GATE"
+        "H3-GATE",
+        "H5-001",
+        "H5-002",
+        "H5-003",
+        "H6-001",
+        "H6-002",
+        "H7-001",
+        "H7-002"
       ],
       "acceptance": [
-        "先给候选页面和最多3个目标，用户明确允许后恢复浏览器",
+        "规划内容完成后统一验收，先刷新最多3个具体目标",
         "桌面/窄屏导航、阅读、复制、搜索与键盘；保留既有搜索实体/摘要问题",
         "本阶段 NOT_RUN：用户批准移至集中验收阶段；完成前不宣称 v1.0 通过"
       ],
       "evidence": [
-        "reports/H4-ui-environment.md"
+        "reports/H4-ui-environment.md",
+        "reports/H5-sql-relations-transactions.md"
       ]
     },
     {
@@ -403,7 +411,14 @@
       "title": "首条路线完成后集中验收教学应用交互",
       "status": "blocked",
       "depends_on": [
-        "H3-GATE"
+        "H3-GATE",
+        "H5-001",
+        "H5-002",
+        "H5-003",
+        "H6-001",
+        "H6-002",
+        "H7-001",
+        "H7-002"
       ],
       "acceptance": [
         "用户明确允许后验证真实表单提交、非法输入、键盘与反馈",
@@ -411,7 +426,8 @@
         "本阶段 NOT_RUN：用户批准移至集中验收阶段"
       ],
       "evidence": [
-        "reports/H4-ui-environment.md"
+        "reports/H4-ui-environment.md",
+        "reports/H5-sql-relations-transactions.md"
       ]
     },
     {
@@ -435,9 +451,10 @@
       "id": "H5-001",
       "phase": "H5",
       "title": "Java/系统与 SQL 深入单元",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
-        "H4-001"
+        "H3-GATE",
+        "H4-001A"
       ],
       "acceptance": [
         "按单元拆分计划，不一次写完",
@@ -447,12 +464,45 @@
       "evidence": []
     },
     {
+      "id": "H5-001A",
+      "phase": "H5",
+      "title": "SQL一对多查询与多步写入事务",
+      "status": "done",
+      "depends_on": [
+        "H3-GATE",
+        "H4-001A"
+      ],
+      "acceptance": [
+        "两篇渐进正文，解释外键、JOIN、NULL与COUNT及事务边界",
+        "独立合成SQLite实测约束失败、半写入反例、完整回滚和重开读取；故意破坏须被测试检出",
+        "来源/读者复核/非浏览器门禁及自动发布证据；不操作用户数据库"
+      ],
+      "evidence": [
+        "reports/H5-sql-relations-transactions.md"
+      ]
+    },
+    {
+      "id": "H5-001B",
+      "phase": "H5",
+      "title": "SQL索引与查询计划的可重复实验",
+      "status": "todo",
+      "depends_on": [
+        "H5-001A"
+      ],
+      "acceptance": [
+        "解释访问路径、索引维护代价和复合列顺序，不虚构性能收益",
+        "合成数据EXPLAIN对照、结果等价与负面断言真实运行"
+      ],
+      "evidence": []
+    },
+    {
       "id": "H5-002",
       "phase": "H5",
       "title": "Python 数据基础与工程化路线",
       "status": "todo",
       "depends_on": [
-        "H4-001"
+        "H3-GATE",
+        "H4-001A"
       ],
       "acceptance": [
         "语法/文件/类型/测试/数据处理渐进",
@@ -466,7 +516,8 @@
       "title": "前端进阶、后端工程与生产可靠性",
       "status": "todo",
       "depends_on": [
-        "H4-001"
+        "H3-GATE",
+        "H4-001A"
       ],
       "acceptance": [
         "React/可访问性/状态与性能有独立深度",
@@ -528,7 +579,7 @@
       "title": "建立内容复核与维护机制",
       "status": "todo",
       "depends_on": [
-        "H4-001"
+        "H4-001A"
       ],
       "acceptance": [
         "版本变动/链接衰退/过期内容复核流程",

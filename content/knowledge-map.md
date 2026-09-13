@@ -32,4 +32,6 @@ tags:
 
 前端、生产工程、系统与数据方向可以逐步形成独立的进阶路线，不把大数据设为所有领域唯一的终点。
 
+已开始的存储支线：[SQL建模与查询深入路线](roadmaps/sql-foundations.md)，从关联查询和事务失败验证继续。
+
 [选择全栈基础路线](roadmaps/fullstack-foundations.md) · [返回首页](index.md)

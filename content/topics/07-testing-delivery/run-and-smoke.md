@@ -87,4 +87,6 @@ npm run smoke -- http://127.0.0.1:实际端口
 
 基础路线现在把语言、表单、HTTP、SQL、测试与运行串了起来。后续验收仍要记录哪些路径是真实运行、哪些仅有源码、哪些受授权延期，不能用文章数代替学习成果。
 
+继续内容支线：[SQL建模与查询深入路线](../../roadmaps/sql-foundations.md)。
+
 [返回全栈路线](../../roadmaps/fullstack-foundations.md)
