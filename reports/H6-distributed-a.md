@@ -21,3 +21,5 @@ Node24.21.0/npm11.19.0、SQLite3.53.4、macOS arm64。既有Java21.0.11+10和Pyt
 ## 发布检查点
 
 本地门禁完成，待本批普通push后核对同SHA质量/Build/Deploy与HTTP，并将回执追加下一批记录。恢复先核对实际Git与HEAD，不把基线当发布SHA；继续计划，不逐篇等确认。
+
+发布回执：b5cec10abc61a259305695b241e46e5fe84687bb普通push；Actions34806163219同SHA quality/verify、Build、Deploy success，完成时间2026-09-14T04:30:56Z/04:31:38Z/04:31:51Z；HTTP5入口/30资源200、索引110、缺页404通过，日志/tmp/distributed-a-http.log。

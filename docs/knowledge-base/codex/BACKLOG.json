@@ -939,7 +939,7 @@
       "id": "H6-001A",
       "phase": "H6",
       "title": "超时、幂等与重试预算",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H5-001",
         "H5-003"
@@ -957,7 +957,7 @@
       "id": "H6-001B",
       "phase": "H6",
       "title": "消息重放、复制读取与写入隔离",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H6-001A"
       ],
@@ -966,13 +966,15 @@
         "独立正常/失败/故意错误验证，全套门禁与同SHA发布",
         "模型、进程、数据库及生产保证边界明确"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H6-distributed-b.md"
+      ]
     },
     {
       "id": "H6-DISTRIBUTED-GATE",
       "phase": "H6",
       "title": "分布式基础D00–D05综合验收",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H6-001A",
         "H6-001B"
