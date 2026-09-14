@@ -87,4 +87,4 @@ npm run connections --prefix examples/sql-trips
 
 所有连接关闭后，夹具才删除自己创建的临时目录，包括其日志/WAL/SHM等文件。不要单独删除正在使用的WAL文件，也不要把复制主数据库文件当作本篇已验证的备份方法。
 
-[返回SQL深入路线](../../roadmaps/sql-foundations.md)
+下一篇：[查询组织与稳定分页](sql-query-pages.md) · [返回SQL深入路线](../../roadmaps/sql-foundations.md)

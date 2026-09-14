@@ -34,8 +34,8 @@ tags:
 
 已开始的存储支线：[SQL建模与查询深入路线](roadmaps/sql-foundations.md)，从关联查询和事务失败验证继续。
 
-第二语言主线：[Java 基础与系统路线](roadmaps/java-foundations.md)，12篇从真实编译和错误定位走到并发、取消与测量，通用系统专题仍待扩展。
+第二语言主线：[Java 基础与系统路线](roadmaps/java-foundations.md)，12篇从真实编译和错误定位走到并发、取消与测量，通用系统基础另接下方系统路线。
 
 [选择全栈基础路线](roadmaps/fullstack-foundations.md) · [返回首页](index.md)
 
-[通用系统与存储路线](roadmaps/systems-foundations.md)继续操作成本、进程边界和流式I/O，后续连接文件/日志/缓存实验。
+[通用系统与存储路线](roadmaps/systems-foundations.md)继续操作成本、进程边界和流式I/O，并连接文件/日志/缓存实验，形成Y01–Y06主线。

@@ -733,7 +733,7 @@
       "id": "H5-001J",
       "phase": "H5",
       "title": "通用系统复杂度、进程与流式I/O",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H5-001I",
         "H5-JAVA-GATE"
@@ -751,7 +751,7 @@
       "id": "H5-001K",
       "phase": "H5",
       "title": "文件发布、日志快照与缓存一致性",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H5-001J"
       ],
@@ -760,7 +760,9 @@
         "真实隔离正常/边界/故障验证、故意错误能检出并恢复、全门禁及同SHA发布",
         "无生产/其他项目操作、浏览器延期及其他里程碑状态如实保留"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H5-k-acceptance.md"
+      ]
     },
     {
       "id": "H5-SQL-SYSTEMS-GATE",
