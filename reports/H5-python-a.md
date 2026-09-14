@@ -19,3 +19,7 @@ CPython3.13.0、Node24.21.0/npm11.19.0、macOS arm64，Java既有21.0.11+10。�
 ## 发布与恢复
 
 本地门禁通过，待本批普通push同SHA质量/Build/Pages与HTTP后记录；随后直接继续计划下一部分，不逐篇请求确认。仅合成数据、自建文件与venv，清理自有资源；无浏览器/生产/其他项目操作。Python任务完成不表示其他H5–H7或H4/v1.0完成。
+
+## 发布实证
+
+56aac6ffc2519250cd7a85dba08ccf06fb3723db已普通push，Actions34800047713同SHA quality/verify、Build、Deploy均success，完成于2026-09-14T02:43:23Z、02:43:55Z、02:44:09Z。首页/路线/三篇5入口200，30资源200，索引87含全选定正文，缺页404。日志/tmp/python-a-http.log；浏览器仍延期。

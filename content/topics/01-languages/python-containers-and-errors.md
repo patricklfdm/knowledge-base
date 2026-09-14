@@ -62,7 +62,7 @@ index_unique在内部新建结果，遇重复直接抛错，没有把半份结�
 
 先画source、shallow、内层字典与labels的引用关系，再运行别名对照。把行程增加一个嵌套字段，预测dict(row)修改哪些字段会影响原对象。最后输入同id两行，比较“后者覆盖”“保留第一条”“拒绝重复”三种策略，并为自己选择的契约写预期。
 
-下一部分将给行程增加明确类型模型和文件输入，当前学习顺序见[Python路线](../../roadmaps/python-foundations.md)。
+下一篇[类型注解与数据模型](python-types-and-models.md)将给行程增加明确边界，当前学习顺序见[Python路线](../../roadmaps/python-foundations.md)。
 
 ## 运行与核验
 

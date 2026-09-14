@@ -22,7 +22,11 @@ def main():
         from kb_python.basics import demo
         print(json.dumps(demo(), ensure_ascii=True, sort_keys=True))
         return 0
-    print("usage: run.py {test|basics}", file=sys.stderr)
+    if sys.argv[1:] == ["data"]:
+        from kb_python.data import demo
+        print(json.dumps(demo(), ensure_ascii=True, sort_keys=True))
+        return 0
+    print("usage: run.py {test|basics|data}", file=sys.stderr)
     return 2
 
 
