@@ -21,4 +21,12 @@ web/app.mjs提供真实createRoot/useReducer/useEffect/useMemo接线；read为�
 
 observe记录白名单五字段，保留最近100日志，计数独立累计；服务端finish≠客户端收到。withDeadline限制异步依赖等待，abort不能抢占CPU或撤销外部写入。HTTP头/体接收超时5000ms，正文保留最多1024字节并在读完后拒绝超限；只验证本机完整请求，不宣称公网资源防护。日志/指标内存态。
 
-E06–E08将补进程与恢复实验；生产认证、云部署与浏览器仍不在本轮验证范围。
+## 运行可靠性批次
+
+`npm run operations --prefix examples/reliable-app`先用自己的IPC子进程演练SIGTERM，再在自建临时目录备份WAL库、新进程恢复与写入，最后输出1000/1的确定性错误预算。正常关闭ready503/新任务503/既有请求200/退出0；故意挂起分支测试退出2且graceful=false。正常保护预算5秒、故障分支1秒、外层15秒，都是实验边界，非性能结论。只向自己fork的子进程发信号，finally回收，不操作用户进程。
+
+新增7项，总24项测试。恢复使用node:sqlite backup生成snapshot，再复制到restored；只读检查版本/完整性/两行全部业务字段，新连接验证owner和一次写入。故意删除bob行时integrity仍ok但清单检查失败；源库与snapshot不变，自建目录清理。restore-worker会修改传入副本，仅由维护operations传入自己新建路径，不对用户已有库运行。
+
+budget只计算本次进程中完成的便笺响应5xx比例；ready/未知路由不稀释分母，4xx不记bad；0流量unknown。1000是合成计数，不是线上负载。服务端finish不能证明客户端收到，内存计数重启清空；无滚动窗口或自动发布冻结。
+
+生产认证/容量/容器/云部署/真实灾备、前后端业务接线及浏览器均不在本轮验证范围；React真实UI统一NOT_RUN。

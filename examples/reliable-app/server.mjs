@@ -2,6 +2,7 @@ import { createServer } from "node:http"
 import { randomUUID } from "node:crypto"
 import { performance } from "node:perf_hooks"
 import { DeadlineError, withDeadline, createRecorder } from "./observe.mjs"
+import { createLifecycle } from "./lifecycle.mjs"
 class InputError extends Error { constructor(status) { super("input"); this.status = status } }
 async function titleFrom(req) {
   if (!/^application\/json(?:;\s*charset=utf-8)?$/i.test(req.headers["content-type"] ?? "")) throw new InputError(415)
@@ -14,6 +15,8 @@ async function titleFrom(req) {
   return data.title.trim()
 }
 export async function startService({ store, sessions, recorder = createRecorder(), readDependency = async () => {}, deadlineMs = 1000 }) {
+  const life = createLifecycle()
+  let closing
   const server = createServer(async (req, res) => {
     const started = performance.now(), requestId = randomUUID()
     const match = /^\/notes\/([1-9][0-9]{0,8})(?:\?.*)?$/.exec(req.url ?? "")
@@ -24,10 +27,13 @@ export async function startService({ store, sessions, recorder = createRecorder(
       res.writeHead(status, { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", "x-request-id": requestId, ...headers })
       res.end(JSON.stringify(data))
     }
+    let admitted = false
     try {
-      if (route === "/ready" && method === "GET") return send(200, { ready: true })
+      if (route === "/ready" && method === "GET") return send(life.draining ? 503 : 200, { ready: !life.draining })
       if (!match) return send(404, { error: "not found" })
       if (!["GET", "PUT"].includes(method)) return send(405, { error: "method" }, { allow: "GET, PUT" })
+      if (!life.enter()) return send(503, { error: "draining" })
+      admitted = true
       const owner = sessions.authenticate(req.headers.authorization)
       if (!owner) return send(401, { error: "unauthenticated" }, { "www-authenticate": 'Bearer realm="synthetic-notes"' })
       const id = Number(match[1])
@@ -47,10 +53,21 @@ export async function startService({ store, sessions, recorder = createRecorder(
       return send(200, row, { etag: `"${row.revision}"` })
     } catch (error) {
       send(error instanceof InputError ? error.status : error instanceof DeadlineError ? 504 : 500, { error: error instanceof InputError ? "invalid input" : "temporarily unavailable" })
-    }
+    } finally { if (admitted) life.leave() }
   })
   server.requestTimeout = 5000
   server.headersTimeout = 5000
   await new Promise((resolve, reject) => { server.once("error", reject); server.listen(0, "127.0.0.1", resolve) })
-  return { server, recorder, url: `http://127.0.0.1:${server.address().port}`, close: () => new Promise((resolve, reject) => { server.close((error) => error ? reject(error) : resolve()); server.closeIdleConnections() }) }
+  return {
+    server, recorder, life, url: `http://127.0.0.1:${server.address().port}`,
+    beginDrain() { life.drain() },
+    close() {
+      life.drain()
+      closing ??= life.idle().then(() => new Promise((resolve, reject) => {
+        server.close((error) => error ? reject(error) : resolve())
+        server.closeIdleConnections()
+      }))
+      return closing
+    },
+  }
 }

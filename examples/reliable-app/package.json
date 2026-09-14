@@ -10,7 +10,8 @@
     "test": "node --test *.test.mjs",
     "frontend": "node frontend-demo.mjs",
     "build": "node build.mjs",
-    "backend": "node backend-demo.mjs"
+    "backend": "node backend-demo.mjs",
+    "operations": "node operations-demo.mjs"
   },
   "dependencies": {
     "react": "19.3.0",

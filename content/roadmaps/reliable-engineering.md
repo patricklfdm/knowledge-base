@@ -19,7 +19,14 @@ tags: [engineering]
 | E03 | [会话与资源授权](../topics/05-backend/session-and-resource-authorization.md) | 已登录身份能否修改他人资源 |
 | E04 | [版本冲突与迁移](../topics/05-backend/conditional-update-and-migration.md) | 旧标签失败且旧数据不被覆盖 |
 | E05 | [日志与有界等待](../topics/05-backend/safe-observation-and-deadlines.md) | 区分请求结束、用户成功和任务停止 |
+| E06 | [就绪与关闭](../topics/08-production/readiness-and-shutdown.md) | 排空期间拒绝新工作，强制退出不能算成功 |
+| E07 | [恢复与发布证据](../topics/08-production/restore-and-release-evidence.md) | 检查所有权、版本、可写性与同SHA发布 |
+| E08 | [服务目标与错误预算](../topics/08-production/service-objectives-and-budget.md) | 明确分母、窗口、零流量与观察盲区 |
 
-后续批次：E06–E08启停、恢复与服务目标。尚未交付的部分不算完成。浏览器统一延期，静态输出与控制器测试不能代替UI验收。
+E00–E08有限教学主线已实现；不是整个React生态或生产平台。浏览器统一延期，静态输出与控制器测试不能代替UI验收。
 
 [知识地图](../knowledge-map.md)
+
+## 综合自测
+
+依次制造晚到请求、越权写、旧版本更新、依赖超时、关闭中新请求与缺行备份。说明每一项应由哪层拒绝，记录状态/退出码/数据副作用；再改变一个输入条件并预测结果。练习只在自己的临时副本做，个人掌握记录留仓库之外。分布式、数据工程与AI留后续课程。
