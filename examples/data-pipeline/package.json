@@ -1,0 +1,13 @@
+{
+  "name": "kb-data-pipeline-example",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test python.test.mjs",
+    "batch": "node python.mjs batch"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  }
+}

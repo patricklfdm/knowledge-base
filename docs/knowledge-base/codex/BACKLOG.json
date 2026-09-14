@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-13",
-  "status_note": "H5既定主线及H6-001分布式基础六篇已验收，下一项H6-002。H6剩余/H7和集中UI未完成，自动普通push持续。",
+  "status_note": "H6-002按两批推进Q00–Q05；自动普通push，浏览器留规划内容完成后。",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -682,7 +682,7 @@
       "id": "H6-002",
       "phase": "H6",
       "title": "批处理、流处理与数据质量",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H5-002",
         "H6-001"
@@ -990,6 +990,55 @@
       "evidence": [
         "reports/H6-distributed-completion.md"
       ]
+    },
+    {
+      "id": "H6-002A",
+      "phase": "H6",
+      "title": "事件质量、分析粒度与批次发布",
+      "status": "in_progress",
+      "depends_on": [
+        "H5-002",
+        "H6-001"
+      ],
+      "acceptance": [
+        "三篇以内一批，先修/来源/练习/正常边界失败例齐备",
+        "独立故意错误与恢复、全套非浏览器门禁",
+        "同SHA质量/构建/Pages与HTTP发布证据；资源与保证边界明确"
+      ],
+      "evidence": [
+        "reports/H6-data-a.md"
+      ]
+    },
+    {
+      "id": "H6-002B",
+      "phase": "H6",
+      "title": "事件时间、检查点与补数对账",
+      "status": "todo",
+      "depends_on": [
+        "H6-002A"
+      ],
+      "acceptance": [
+        "三篇以内一批，先修/来源/练习/正常边界失败例齐备",
+        "独立故意错误与恢复、全套非浏览器门禁",
+        "同SHA质量/构建/Pages与HTTP发布证据；资源与保证边界明确"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H6-DATA-GATE",
+      "phase": "H6",
+      "title": "数据工程Q00–Q05综合验收",
+      "status": "todo",
+      "depends_on": [
+        "H6-002A",
+        "H6-002B"
+      ],
+      "acceptance": [
+        "三篇以内一批，先修/来源/练习/正常边界失败例齐备",
+        "独立故意错误与恢复、全套非浏览器门禁",
+        "同SHA质量/构建/Pages与HTTP发布证据；资源与保证边界明确"
+      ],
+      "evidence": []
     }
   ]
 }

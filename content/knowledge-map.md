@@ -45,3 +45,5 @@ tags:
 [前后端工程与运行可靠性路线](roadmaps/reliable-engineering.md)：React、后端边界与恢复的递进实验。
 
 [分布式基础与故障实验](roadmaps/distributed-foundations.md)：按故障位置解释重试、重复与恢复。
+
+[批流处理与数据质量路线](roadmaps/data-engineering-foundations.md)：把质量、分析粒度与完整发布放进同一个可重跑实验。
