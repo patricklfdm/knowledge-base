@@ -3,8 +3,20 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "engines": {"node": ">=24 <25"},
-  "scripts": {"test": "node --test *.test.mjs", "frontend": "node frontend-demo.mjs", "build": "node build.mjs"},
-  "dependencies": {"react": "19.3.0", "react-dom": "19.3.0"},
-  "devDependencies": {"esbuild": "0.27.2"}
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "test": "node --test *.test.mjs",
+    "frontend": "node frontend-demo.mjs",
+    "build": "node build.mjs",
+    "backend": "node backend-demo.mjs"
+  },
+  "dependencies": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.27.2"
+  }
 }

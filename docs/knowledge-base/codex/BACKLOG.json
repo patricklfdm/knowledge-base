@@ -865,7 +865,7 @@
       "id": "H5-003A",
       "phase": "H5",
       "title": "React状态、异步与可访问性基础",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H3-GATE",
         "H4-001A"
@@ -883,7 +883,7 @@
       "id": "H5-003B",
       "phase": "H5",
       "title": "后端会话、授权与并发观测",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H5-003A"
       ],
@@ -892,7 +892,9 @@
         "真实独立正常/边界/故障验证、完整门禁及同SHA发布",
         "浏览器延期与生产边界明确，不创建付费或生产资源"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H5-engineering-b.md"
+      ]
     },
     {
       "id": "H5-003C",
