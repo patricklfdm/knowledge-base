@@ -80,3 +80,9 @@ examples/python-basics使用固定CPython3.13.0、无第三方依赖；run.py的
 H5-002B增加data入口与8项Python测试，当前18项。模型/JSON/CSV/Decimal实证见reports/H5-python-b.md，固定版本与原入口保持；静态类型检查器未运行，不以注解冒充输入验证。
 
 H5-002C完成Python P00–P08：29项Python unittest，333项根Node测试包含一个实际Python桥；新增iterators/pipeline和summarize CLI入口。故意去重错误由数据和CLI断言检出，恢复通过。临时资源和输入上限/输出协议详见examples/python-basics/README.md。全部九篇/24官方来源/四demo及预期失败已独立复核，综合验收后关闭H5-002。
+
+## 工程纵深维护入口（H5-003）
+
+examples/reliable-app独立锁React/ReactDOM19.3.0、esbuild0.27.2，Node24.21.0。npm ci/test、frontend/backend/operations/build均实际实现并在全新隔离副本验证；24项新增测试由根kb:examples及npm test执行，根357项Node测试含既有Python桥，桥另29项。CI明确新包安装与manifest/lock保护，故意缺安装/晚安装/缺manifest/缺lock被拒绝。
+
+前端9项SSR/控制器/bundle、后端8项真实HTTP/会话/授权/条件更新/迁移/日志/超时、运行7项真实子进程/排空/强制失败/备份恢复/预算。各批独立故意错误及总验收owner/分母错误实际检出、恢复通过。SSR不是UI验收，全部浏览器与Profiler仍NOT_RUN；后端仅合成数据、可信fixture会话和自建本机资源，不部署到Pages。见examples/reliable-app/README.md及reports/H5-engineering-completion.md。

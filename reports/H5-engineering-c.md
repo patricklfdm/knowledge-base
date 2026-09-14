@@ -21,3 +21,5 @@ Node24.21.0/npm11.19.0、React/ReactDOM19.3.0、esbuild0.27.2、SQLite3.53.4、m
 ## 发布检查点
 
 本地门禁完成，待本批普通push后核对同SHA质量/Build/Deploy与HTTP，并将回执追加下一批记录。恢复先核对实际Git与HEAD，不把基线当发布SHA；继续计划，不逐篇等确认。
+
+发布回执：6aa8fd9610d5a56badba17984322c5466b93aaea普通push，Actions34804707349同SHA质量/Build/Deploy均success；HTTP11入口/30资源200、索引104含九篇、缺页404通过。详细时间见综合验收，日志/tmp/engineering-c-http.log。

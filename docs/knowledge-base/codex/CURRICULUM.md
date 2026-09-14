@@ -88,7 +88,7 @@ Wayvia/GSE 案例只在另获读取授权后补充。每篇记录 repo/commit/�
 
 ## H5已实现主线与剩余课程
 
-Java、SQL与通用系统的H5-001范围已综合验收，唯一状态台账仍为BACKLOG。逐篇证据见reports/H5-java-completion.md及reports/H5-sql-systems-completion.md。Python H5-002也已完成（reports/H5-python-completion.md），下一领域为H5-003前后端与生产专题；H6/H7另有任务，H5阶段整体尚未完成。
+Java、SQL与通用系统的H5-001范围已综合验收，唯一状态台账仍为BACKLOG。逐篇证据见reports/H5-java-completion.md及reports/H5-sql-systems-completion.md。Python H5-002也已完成（reports/H5-python-completion.md），H5-003工程纵深E00–E08也已综合验收（reports/H5-engineering-completion.md）。H5既定三条主线完成，下一项H6-001；H6/H7与集中UI另有任务。
 
 | 路线 | 已实现单元 | 正文入口与证据 |
 | --- | --- | --- |
@@ -101,4 +101,6 @@ Java从F04基础衔接，系统的线程/共享内存/测量复用Java正文；S
 
 这是核心语言与系统存储实验主线，不是所有产品生态：Spring/JDBC/JPMS/GC调优、PostgreSQL服务、分布式共识、生产备份平台不在本次完成范围。未读取GSE/Wayvia。浏览器按用户安排等H5–H7全部规划内容完成后集中验收，H4/v1.0仍不能标完成。
 
-Python H5-002按plans/H5-PYTHON-completion.md连续三批完成P00–P08，提供完整先修、迁移练习和有界数据处理入口。第三方数值/分析库、分布式批流与AI留H6/H7；状态以BACKLOG为准。用户要求Python结束后先停等确认，不自动启动下一领域。
+Python H5-002按plans/H5-PYTHON-completion.md连续三批完成P00–P08，提供完整先修、迁移练习和有界数据处理入口。第三方数值/分析库、分布式批流与AI留H6/H7；状态以BACKLOG为准。用户已在Python完成后确认继续下一部分，H5-003也按三批完成；当前下一项H6-001。
+
+H5-003完成React状态/请求代次/语义与成本，合成会话/资源授权/条件更新/迁移/观测，进程排空/新进程恢复/服务目标九篇。入口content/roadmaps/reliable-engineering.md；examples/reliable-app含24项测试、frontend/backend/operations与build。真实登录和前后端认证接线不在此有限实验，React浏览器/Profiler与生产环境NOT_RUN，不能由SSR或本机进程测试推导。

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-13",
-  "status_note": "H5-001/H5-002已完成；用户确认继续H5-003，按工程纵深三批计划实施，自动普通push与浏览器后移有效。",
+  "status_note": "H5-001/002/003既定主线均已验收；工程纵深E00–E08连续三批完成，下一项H6-001。H6/H7与集中UI未完成，自动普通push持续。",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -645,17 +645,20 @@
       "id": "H5-003",
       "phase": "H5",
       "title": "前端进阶、后端工程与生产可靠性",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H3-GATE",
-        "H4-001A"
+        "H4-001A",
+        "H5-ENGINEERING-GATE"
       ],
       "acceptance": [
         "React/可访问性/状态与性能有独立深度",
         "认证授权/迁移/可观测性/恢复演练",
         "无付费或生产资源自动创建"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H5-engineering-completion.md"
+      ]
     },
     {
       "id": "H6-001",
@@ -900,7 +903,7 @@
       "id": "H5-003C",
       "phase": "H5",
       "title": "运行生命周期、恢复与服务目标",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H5-003B"
       ],
@@ -917,7 +920,7 @@
       "id": "H5-ENGINEERING-GATE",
       "phase": "H5",
       "title": "工程纵深E00–E08综合验收",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H5-003A",
         "H5-003B",
@@ -928,7 +931,9 @@
         "真实独立正常/边界/故障验证、完整门禁及同SHA发布",
         "浏览器延期与生产边界明确，不创建付费或生产资源"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H5-engineering-completion.md"
+      ]
     }
   ]
 }
