@@ -57,3 +57,5 @@ JSON Schema历史记录引用H7-001实际403及正文核验报告，日期仍是
 交接从STATE引用的任务继续；重新核对实际Git根目录、工作区、HEAD和origin，保护用户修改。发布恢复沿用[RELEASE_RECOVERY](RELEASE_RECOVERY.md)，不因维护提醒自动回退线上或强推。
 
 表单字段结构依据[GitHub官方issue forms语法](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)核对；本地检查配置与链接，未提交真实Issue或冒称浏览器表单已验收。
+
+现有依赖PR按[H7-M003逐项分诊报告](../../reports/H7-m003-dependencies.md)恢复：报告固定PR head、官方来源、实际锁差异和采用门禁。PR变更或关闭后重查当前替代项；分组更新、安装成功、上游skipped都不能替代本站同SHA验收。候选执行状态只存BACKLOG，报告中的暂缓理由保留。

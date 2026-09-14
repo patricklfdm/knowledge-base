@@ -1153,14 +1153,61 @@
       "id": "H7-M003",
       "phase": "H7",
       "title": "现有Dependabot PR依赖变更分诊",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H7-M001"
       ],
       "acceptance": [
-        "只读核对PR #2/#3实际差异与上游原始发布说明，区分主要版本和补丁风险",
+        "只读核对PR #2/#3及当前替代#4实际差异与上游原始发布说明，区分主要版本和补丁风险",
         "形成逐项采用/暂缓依据及受影响门禁，不整体升级、不自动merge已有PR",
         "必要修复分批验证普通push；无变更也提供可读分诊报告"
+      ],
+      "evidence": [
+        "reports/H7-m003-dependencies.md"
+      ]
+    },
+    {
+      "id": "H7-M004",
+      "phase": "H7",
+      "title": "修复优先的npm依赖小批验证",
+      "status": "todo",
+      "depends_on": [
+        "H7-M003"
+      ],
+      "acceptance": [
+        "优先isomorphic-git 1.42.0，核对实际调用边界并用合成输入验证修复；无真实外部服务写入",
+        "后续globby/minimatch及其他小补丁按1–3依赖每批；审查完整锁差异，不夹带TypeScript或原生插件主要版本",
+        "每批重新干净安装、正常/边界/失败及适用UI/构建/发布门禁，普通push并核对同SHA部署；不merge已有PR"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H7-M005",
+      "phase": "H7",
+      "title": "新版Action合约与本站CI分批迁移",
+      "status": "todo",
+      "depends_on": [
+        "H7-M003"
+      ],
+      "acceptance": [
+        "针对PR #4局部复现，审查setup-python v7并修订版本匹配合约，保留缺失/跳过/浮动版本/checksum失败守卫",
+        "checkout/setup-node/setup-python与Pages打包部署分批，保留同SHA依赖、runtime pins和最小权限；不启用继承的外部部署",
+        "实际新runner与同SHA本站部署/HTTP通过才采用，旧PR失败和未测范围不改写；不自动merge PR"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H7-M006",
+      "phase": "H7",
+      "title": "构建工具与原生插件主要版本迁移评估",
+      "status": "todo",
+      "depends_on": [
+        "H7-M003"
+      ],
+      "acceptance": [
+        "分别审查TypeScript 7和Node24类型匹配、esbuild/tsx、clack、Typst/simple-git；以H7-M003逐项证据恢复，不整体升级",
+        "解决已实证TS5108时保留类型门禁；原生插件核对peer与实际API，测试日期Git夹具/公式/平台包，不误称旧日期方法已移除",
+        "一次小范围依赖与迁移验证，未能满足门禁保持原版本和明确暂缓依据，不安装全局工具、不批量刷新正文核验日期"
       ],
       "evidence": []
     }

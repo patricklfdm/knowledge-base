@@ -1,9 +1,9 @@
 # 当前检查点
 
-2026-09-14，patricklfdm/knowledge-base既有v5，基线81ed3780d9a1a3622c351b7307051aa718a060fa。当前[H7-M002计划](plans/H7-M002-runtime.md)与[补丁回执](../../../reports/H7-m002-runtime.md)已验收并发布；BACKLOG是唯一状态台账。
+2026-09-14，patricklfdm/knowledge-base既有v5，基线23190172945fc7af462e1bdef66cbddb2e1a7e47，开始时干净。当前[H7-M003计划](plans/H7-M003-dependencies.md)与[分诊报告](../../../reports/H7-m003-dependencies.md)已完成只读核对、两个隔离复现及适用门禁，准备普通push和自身SHA发布验收；BACKLOG为唯一任务台账。
 
-已实测隔离CPython3.13.15（本机源码构建，SQLite3.47.1）和Microsoft OpenJDK21.0.12.1+1。新环境Python三包29/33/31、Java34组通过；修复Python venv/Java测量测试的硬编码版本、review四段Java漏报。两类独立错误检出及恢复通过。旧复现版本不改，新增kb:runtime-compat及必需CI子job；Microsoft安装清单未列新补丁，CI从官方指定Linux归档校验固定SHA后解包。
+PR #3已由机器人关闭未合并，当前#4增加setup-python v7；#2仍开放。#2当前13依赖更新涉及119锁条目差异，TS7实际拒绝现有node10解析配置。#4工作流局部复现2条@v6查找断言失败，恢复原工作流后通过；不能把PR失败当作全部新Action不兼容。原生日期API以正式迁移指南为准，本站调用的旧方法仍保留。没有更改任何依赖、工作流、测试、正文或核验日期，也未merge/评论PR。
 
-旧环境完整kb:verify/npm test通过：398 Node/45 suites、49检查器、98笔记（16导航/82教学）、133HTML/318产物。仅P00/J00增加补充说明，82篇verified_on和旧tested_with保持，锁无漂移。没有整体升级依赖或修改系统默认运行时。bb3d054fbbaef0d0f7a4b7886ab7d744b8ee86a7已普通push，Actions34892498528同SHA旧verify/新兼容性/Build/Deploy均success，HTTP7入口/31资源/索引132/404及两篇390窄屏阅读通过。最终工程记录提交需按Git最新HEAD自身SHA核对，不用历史成功替代。
+下一项H7-M004优先单独验证isomorphic-git修复及小补丁；后续H7-M005 Action合约/CI、H7-M006工具链及原生插件独立迁移。每次先复查实际PR head，保留逐项暂缓依据，不整体升级。
 
-下一项H7-M003分诊现有Dependabot PR #2/#3，不自动合并PR。补丁运行时目录保留以便复验：/tmp/kb-m002-runtime-root.txt，具体可执行路径/tmp/kb-m002-python.txt及/tmp/kb-m002-java.txt；原环境隔离根/tmp/kb-h3b-path.txt、原Java指针/tmp/kb-h5d-java-home.txt。新测试副本由命令finally清理，无常驻服务；日志/tmp/m002-*.log。恢复先检查Git/HEAD/origin/差异，保护用户修改，不改其他项目/全局设置/强推。不承诺会话结束后离线执行，自动普通push既有origin/v5授权持续。
+本轮隔离根沿用/tmp/kb-h3b-path.txt；探针根/tmp/kb-m003-probe-root.txt，TS7仅安装于其ts7子目录，日志/tmp/m003-*.log。原工作流已finally逐字恢复；kb:verify/npm test通过，49检查器/398 Node测试、133HTML/318产物与泄漏负例通过，锁及82篇verified_on无漂移；无常驻服务，候选快照保留供复验。后续复用原Python/Java指针见H7-M002报告。恢复先核对Git/HEAD/origin/差异，再从本计划继续；自动普通push既有origin/v5授权持续，不承诺会话外运行。
