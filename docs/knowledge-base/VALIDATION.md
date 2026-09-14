@@ -86,3 +86,9 @@ H5-002C完成Python P00–P08：29项Python unittest，333项根Node测试包含
 examples/reliable-app独立锁React/ReactDOM19.3.0、esbuild0.27.2，Node24.21.0。npm ci/test、frontend/backend/operations/build均实际实现并在全新隔离副本验证；24项新增测试由根kb:examples及npm test执行，根357项Node测试含既有Python桥，桥另29项。CI明确新包安装与manifest/lock保护，故意缺安装/晚安装/缺manifest/缺lock被拒绝。
 
 前端9项SSR/控制器/bundle、后端8项真实HTTP/会话/授权/条件更新/迁移/日志/超时、运行7项真实子进程/排空/强制失败/备份恢复/预算。各批独立故意错误及总验收owner/分母错误实际检出、恢复通过。SSR不是UI验收，全部浏览器与Profiler仍NOT_RUN；后端仅合成数据、可信fixture会话和自建本机资源，不部署到Pages。见examples/reliable-app/README.md及reports/H5-engineering-completion.md。
+
+## 分布式基础维护入口（H6-001）
+
+examples/distributed-lab无第三方依赖，Node24.21.0原生SQLite。npm ci/test、requests、delivery均已实现并在新隔离副本运行。18项新增测试由根kb:examples/npm test覆盖，根375 Node测试含Python桥，桥另29项；CI明确新包安装和manifest/lock保护，缺安装/晚安装/缺manifest/缺lock的负面夹具有效。
+
+请求遗漏/注入时钟/复制次序是模型；真实SQLite本地事务和进程退出31/32后两库重放分别验证。去重、最低版本、epoch、回滚故意错误实际失败，恢复后通过。保证不扩展到真实网络、共识、跨库原子提交、生产exactly-once或租约服务；浏览器仍NOT_RUN。参见例子README与reports/H6-distributed-completion.md。

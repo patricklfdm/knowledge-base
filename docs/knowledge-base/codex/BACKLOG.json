@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-13",
-  "status_note": "H5已完成，H6-001按分布式两批计划实施，自动普通push与浏览器后移有效。",
+  "status_note": "H5既定主线及H6-001分布式基础六篇已验收，下一项H6-002。H6剩余/H7和集中UI未完成，自动普通push持续。",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -664,16 +664,19 @@
       "id": "H6-001",
       "phase": "H6",
       "title": "分布式基础与故障实验",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H5-001",
-        "H5-003"
+        "H5-003",
+        "H6-DISTRIBUTED-GATE"
       ],
       "acceptance": [
         "故障模型与保证条件明确",
         "超时/重复/崩溃/重放实验可复现"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H6-distributed-completion.md"
+      ]
     },
     {
       "id": "H6-002",
@@ -957,7 +960,7 @@
       "id": "H6-001B",
       "phase": "H6",
       "title": "消息重放、复制读取与写入隔离",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H6-001A"
       ],
@@ -974,7 +977,7 @@
       "id": "H6-DISTRIBUTED-GATE",
       "phase": "H6",
       "title": "分布式基础D00–D05综合验收",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H6-001A",
         "H6-001B"
@@ -984,7 +987,9 @@
         "独立正常/失败/故意错误验证，全套门禁与同SHA发布",
         "模型、进程、数据库及生产保证边界明确"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H6-distributed-completion.md"
+      ]
     }
   ]
 }
