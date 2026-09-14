@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-09-13",
-  "status_note": "H0–H7既定任务已完成：内容维护与集中三目标UI、本地门禁、同SHA发布均有报告；进入常规复核与实际反馈维护，自动普通push授权持续。",
+  "updated_on": "2026-09-14",
+  "status_note": "H0–H7课程任务已完成；维护任务从H7-M001起独立登记，自动普通push授权持续。",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -1113,6 +1113,54 @@
       "evidence": [
         "reports/H7-search-completion.md"
       ]
+    },
+    {
+      "id": "H7-M001",
+      "phase": "H7",
+      "title": "首轮勘误与固定运行时版本复核",
+      "status": "in_progress",
+      "depends_on": [
+        "H7-002",
+        "H4-GATE"
+      ],
+      "acceptance": [
+        "核对全库维护候选、真实反馈及三种运行时官方来源，区分固定版本与上游版本",
+        "按实际发现修订至多三篇环境正文并保留原核验日期，记录来源异常与未实测升级范围",
+        "隔离门禁通过，维护计划/观测/STATE，普通push并核对同SHA部署"
+      ],
+      "evidence": [
+        "reports/H7-m001-review.md"
+      ]
+    },
+    {
+      "id": "H7-M002",
+      "phase": "H7",
+      "title": "Python与Microsoft OpenJDK后续补丁兼容性验证",
+      "status": "todo",
+      "depends_on": [
+        "H7-M001"
+      ],
+      "acceptance": [
+        "重新核对官方补丁版本/校验信息，只在自建隔离运行时验证，不改系统默认环境",
+        "先评估Python三包与Java版本守卫兼容性，执行正常/边界/失败；修订受影响内容，升级与旧证据分开",
+        "完成适用门禁与同SHA发布，无法验证保留具体原因"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H7-M003",
+      "phase": "H7",
+      "title": "现有Dependabot PR依赖变更分诊",
+      "status": "todo",
+      "depends_on": [
+        "H7-M001"
+      ],
+      "acceptance": [
+        "只读核对PR #2/#3实际差异与上游原始发布说明，区分主要版本和补丁风险",
+        "形成逐项采用/暂缓依据及受影响门禁，不整体升级、不自动merge已有PR",
+        "必要修复分批验证普通push；无变更也提供可读分诊报告"
+      ],
+      "evidence": []
     }
   ]
 }

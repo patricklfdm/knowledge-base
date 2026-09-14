@@ -70,6 +70,8 @@ KB_JAVA_OUT=$(mktemp -d)
 "$KB_JAVA_HOME/bin/java" -cp "$KB_JAVA_OUT" TripSummary "海湾 城"
 ```
 
+2026-09-14版本复核：[Microsoft发布说明](https://learn.microsoft.com/en-us/java/openjdk/release-notes)已列出21.0.12与21.0.12.1。这里的21.0.11是本课程的已测复现版本；[厂商支持政策](https://learn.microsoft.com/en-us/java/openjdk/support)按季度提供更新，21系列的支持期限不能理解为21.0.11这个补丁可一直不更新。课程升级应另行核对完整版本号和编译器、运行器、打包工具，再重跑测试；本轮未运行这些后续补丁。
+
 最后两条分别输出 `山城: 3天`、`海湾 城: 3天`。引号让“海湾 城”作为一个参数，而不是按空格分成两个；程序只使用第一个参数，多余参数在本例中被忽略。
 
 `-encoding UTF-8` 指定源码编码；`--release 21` 指定编译目标版本，它并不会替你安装 JDK；`-d` 指定生成文件的目录。`-cp` 是类路径（classpath）：启动器到哪里找类。这里传的是包含 `TripSummary.class` 的目录，后面传类名 `TripSummary`，不写 `.class` 后缀。相关选项可对照 [javac](https://docs.oracle.com/en/java/javase/21/docs/specs/man/javac.html) 和 [java](https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html) 手册。

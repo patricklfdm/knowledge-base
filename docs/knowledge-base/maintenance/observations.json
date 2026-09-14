@@ -5,11 +5,56 @@
       "id": "json-schema-object-http-403",
       "kind": "external-link",
       "observed_on": "2026-09-13",
-      "note_ids": ["r04-structured-output-evidence"],
+      "note_ids": [
+        "r04-structured-output-evidence"
+      ],
       "url": "https://json-schema.org/understanding-json-schema/reference/object",
       "summary": "H7-001来源核对时直接HTTP请求403；同批web工具已读取官方正文核对additionalProperties等解释。保留传输失败，不据此判定教材失效。本条是历史回执，不代表再次请求或今天的站点健康。",
-      "evidence": ["reports/H7-search-b.md", "reports/H7-search-completion.md"],
+      "evidence": [
+        "reports/H7-search-b.md",
+        "reports/H7-search-completion.md"
+      ],
       "backlog_id": "H7-001"
+    },
+    {
+      "id": "json-schema-object-recheck-20260914",
+      "kind": "external-link",
+      "observed_on": "2026-09-14",
+      "note_ids": [
+        "r04-structured-output-evidence"
+      ],
+      "url": "https://json-schema.org/understanding-json-schema/reference/object",
+      "summary": "本次独立GET返回200、无重定向，web工具读取正文确认additionalProperties解释。历史403仍保留；不代表243外链全量健康认证。",
+      "evidence": [
+        "reports/H7-m001-review.md"
+      ],
+      "backlog_id": "H7-M001"
+    },
+    {
+      "id": "python313-patch-review-20260914",
+      "kind": "version",
+      "observed_on": "2026-09-14",
+      "note_ids": [
+        "p00-python-runtime-and-modules"
+      ],
+      "summary": "官方3.13.0发布页指向后续3.13.15；补齐复现版本与持续更新文档的边界，后续补丁运行兼容性尚未验证。",
+      "evidence": [
+        "reports/H7-m001-review.md"
+      ],
+      "backlog_id": "H7-M002"
+    },
+    {
+      "id": "java21-patch-review-20260914",
+      "kind": "version",
+      "observed_on": "2026-09-14",
+      "note_ids": [
+        "j00-java-compile-and-run"
+      ],
+      "summary": "Microsoft发布说明列出21.0.12/21.0.12.1；已测21.0.11+10保持，后续版本及四段版本号对现有守卫的影响需独立验证。",
+      "evidence": [
+        "reports/H7-m001-review.md"
+      ],
+      "backlog_id": "H7-M002"
     }
   ]
 }

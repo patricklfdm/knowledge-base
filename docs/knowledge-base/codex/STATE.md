@@ -1,11 +1,11 @@
 # 当前检查点
 
-2026-09-13，patricklfdm/knowledge-base既有v5。H0–H7既定任务已完成，BACKLOG是唯一任务台账；后续进入[内容复核与维护](../MAINTENANCE.md)，由kb:review候选、真实反馈或明确新需求建立任务，不自行无限扩张课程。
+2026-09-14，patricklfdm/knowledge-base既有v5。H0–H7既定课程任务已完成；用户要求进入勘误、版本复核，当前[H7-M001计划](plans/H7-M001-review.md)与[回执](../../../reports/H7-m001-review.md)正在发布验收。BACKLOG为唯一任务状态台账。
 
-本轮先完成[H7-002维护](../../../reports/H7-maintenance.md)，再完成[集中UI与H4总验收](../../../reports/H4-ui-acceptance.md)。真实浏览器覆盖路线阅读/复制、搜索键盘、F11基础应用；修复实体/中文摘要、取消后旧提示与焦点。98笔记（16导航/82教学）、46检查器/395 Node测试（45 suites）、Python29+33+31、133HTML/318产物；全套隔离门禁和两类摘要故意错误/恢复通过，锁无漂移。82篇verified_on未改，只有两篇F11补充实际UI证据与运行环境。
+基线1f80ef5953bf5ffc32c0fb285987986f2e6adbc4。F00/P00/J00补充固定复现版本与上游补丁/支持政策的区别；JSON Schema本次GET200与正文核验另存观测，原403不覆盖。全库扫描没有到期/固定版本漂移候选，但人工已发现Python/Java后续补丁，不能把零候选解释为全部版本最新。
 
-UI修复6969287a246fe398f1008f4037171533a125fbd0普通push；Actions34815043925同SHA质量/Build/Pages全部success，HTTP6入口/31资源200、索引132/404通过，线上390搜索复验成功。维护提交934c8d4的独立发布回执见H7报告。工程收尾提交仍需按实际HEAD自身SHA核对；恢复时读取Git/Actions，不能用上述正文SHA替代最新HEAD。
+隔离kb:verify/npm test通过：98笔记（16导航/82教学）、395 Node/45 suites，Python29+33+31、133HTML/318产物、失败夹具/过滤/恢复通过。82篇verified_on保持，源码/运行时/锁/CI未改；尚未验收新补丁。本批提交与同SHA部署待核对，不能沿用旧SHA成功结果。
 
-v1.0验收限于既定范围：其他浏览器、真实屏幕阅读器、F07独立页面/F12备注变体/React实验等未纳入集中三目标，保留各自NOT_RUN；没有远端浏览器CI或不存在的kb:e2e。附件允许清单仍为空，生产/付费/真实LLM未授权且未运行。
+下一项引用H7-M002（Python/Java补丁兼容性）和H7-M003（现有Dependabot PR分诊）。当前open接口仅有PR #2/#3、无普通反馈Issue；没有发送评论、合并或关闭PR。
 
-持续授权：适用验证后自动普通push既有origin/v5。三个自建标签、临时站点/教学服务与数据库已清理，浏览器视口重置/显示恢复后台。固定Node24.21.0/npm11.19.0、Java21.0.11+10/Python3.13.0保持；隔离根/tmp/kb-h3b-path.txt，日志/tmp/maintenance-*.log和/tmp/ui-*.log。恢复先核对仓库/工作区/HEAD/origin，保护修改、不强推、不改全局配置、不碰其他项目；临时失效按VALIDATION重建，不承诺离线持续执行。
+持续授权：适用验证后自动普通push既有origin/v5。集中UI历史报告仍有效，范围外浏览器/真实屏幕阅读器/教学变体保持NOT_RUN。恢复先检查Git/HEAD/origin和当前差异，不强推、不覆盖用户修改、不改全局配置或其他项目。临时隔离根/tmp/kb-h3b-path.txt；本轮日志/tmp/m001-verify.log、/tmp/m001-tests.log，来源回执/tmp/kb-m001-source-http.json。不承诺会话结束后离线运行。
