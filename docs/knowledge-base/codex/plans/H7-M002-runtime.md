@@ -18,7 +18,7 @@
 - 已完成：两个官方归档SHA256校验，CPython自建目录编译，Microsoft JDK解包。
 - 已完成：新Python三包29/33/31与Java34组；修复Python venv与Java测量测试硬编码；review四段漏报测试先失败后通过。
 - 已完成：旧环境完整门禁398 Node/49检查器，两个独立故意错误检出与新环境恢复。
-- 进行中：普通push、同SHA两条quality门禁及站点部署/HTTP。
+- 已完成：bb3d054同SHA两条quality/Build/Deploy与HTTP、两篇390窄屏发布阅读抽查。
 
 ## Decisions / Recovery
 
@@ -26,4 +26,4 @@
 
 ## Outcome
 
-执行中；任务状态只查BACKLOG，尚未发布。
+H7-M002已验收，证据reports/H7-m002-runtime.md。保留历史复现基线，持续验证新补丁；下一项H7-M003。最终工程记录提交按实际HEAD另核对部署。新运行时保留备复验，测试副本自动清理，浏览器标签/视口已清理，无常驻服务。

@@ -1136,7 +1136,7 @@
       "id": "H7-M002",
       "phase": "H7",
       "title": "Python与Microsoft OpenJDK后续补丁兼容性验证",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H7-M001"
       ],

@@ -46,4 +46,8 @@ Python源码在该目录configure独立prefix、without-ensurepip、with-openssl
 
 独立副本删除Java第四段解析，新测试实际AssertionError/退出1（/tmp/m002-mutant-fourth.log）；独立副本将Python天数校验改为接受bool，新兼容性命令实际失败（/tmp/m002-mutant-compat.log）。恢复两处字节后新环境完整兼容性重新通过（/tmp/m002-restored-compat.log），最后逐字比较受控源码与锁/82篇verified_on无漂移。未把两个桥接计数与其承载的Python用例重复相加。
 
-CI/部署pending，仍需本批自身SHA通过两个quality子job、Build、Deploy及HTTP。运行时目录为后续验证保留，本轮无常驻服务；临时源码副本由命令清理。恢复从本计划、Git实际HEAD和Actions继续，不能用旧SHA成功替代当前批次。
+普通push提交bb3d054fbbaef0d0f7a4b7886ab7d744b8ee86a7，[Actions34892498528](https://github.com/patricklfdm/knowledge-base/actions/runs/34892498528)同SHA结果：旧verify success（20:24:56 UTC）、Patch runtime compatibility success（20:23:53）、Build success（20:25:41）、Deploy success（20:26:03）。新Linux x64归档实际下载/固定SHA校验、两种补丁运行时测试与原源码无修改检查均由必需job通过；未将该环境未读取的SQLite/编译器版本套用为本机数值。
+
+HTTP7入口/31 CSS-JS资源200、索引132包含修改页、缺失页404通过，日志/tmp/m002-http.log。真实In-app Browser读到两篇新增段落与完整npm run kb:runtime-compat，390视口两页documentWidth均390；P00上一轮修正的__name__依然完整。仅正文阅读抽查，不扩大到安装器/教学应用UI；标签关闭、视口reset，未保存截图文件。
+
+H7-M002验收完成，后续H7-M003分诊既有依赖PR。最终工程记录提交仍须按最新HEAD自身SHA核对部署，不能以本文功能提交替代未知后续SHA。运行时目录为后续验证保留，本轮无常驻服务；临时源码副本由命令清理。恢复从本计划、Git实际HEAD和Actions继续，不能用旧SHA成功替代当前批次。
