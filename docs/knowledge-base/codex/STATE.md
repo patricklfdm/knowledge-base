@@ -1,9 +1,7 @@
 # 当前检查点
 
-2026-09-13，patricklfdm/knowledge-base既有v5。Python H5-002/P00–P08已按三部分完整交付，见[综合验收](../../../reports/H5-python-completion.md)与[执行计划](plans/H5-PYTHON-completion.md)。BACKLOG为唯一状态台账。
+2026-09-13，patricklfdm/knowledge-base v5。当前H5-003A本地完成，见[报告](../../../reports/H5-engineering-a.md)与[连续计划](plans/H5-ENGINEERING-completion.md)。70 notes、342 Node测试/45 suites、98HTML/247产物；所有适用门禁PASS。待本批普通push同SHA质量/Build/Deploy和HTTP后继续下一部分。
 
-全站66 notes，333项Node测试/45 suites，Python桥内另执行29项；94 HTML/239产物，全部适用门禁通过。四demo与CLI、独立故意错误及源码恢复、24官方引用URL（19页）已核验。最终正文4f2d3df1a11b63597dd754060c4648942051b672普通push，Actions34801654666同SHA质量/Build/Pages成功；11入口/30资源200、索引93/缺页404通过。当前收尾仅工程文档，自身push后按实际HEAD核对Actions与HTTP；恢复不要把历史SHA当最新部署。
+BACKLOG唯一台账。用户已确认继续H5-003，连续A/B/C完成E00–E08后收尾，再保存下一项H6-001；不逐篇索取确认。自动普通push origin/v5有效；浏览器等H5–H7规划内容做完统一验收，H4/v1.0未完成。
 
-按用户本次要求，Python完成后停止等待确认，再启动下一领域。下一项参考H5-003前端进阶、后端工程与生产可靠性；尚未实施。本轮不继续H6/H7，不把H4 UI/v1.0或整个H5标完成。自动普通push origin/v5授权持续；浏览器等全部规划内容完成后统一验收。
-
-固定CPython3.13.0，命令级KB_PYTHON选择；Node24.21.0/npm11.19.0、既有MicrosoftJDK21.0.11+10保持。根隔离/tmp/kb-h3b-path.txt，独立总验收/tmp/kb-python-final-example.txt，日志/tmp/python-c-verify.log、/tmp/python-c-tests.log、/tmp/python-final-entries.log等见报告。临时失效按README重建；先查Git/HEAD/origin保护新修改，不改全局环境、不重初始化、不读其他项目、不强推，不承诺离线执行。
+Node24.21.0/npm11.19.0、固定Java21.0.11+10/Python3.13.0保持。新例子隔离/tmp/kb-engineering-a-example.txt，根/tmp/kb-h3b-path.txt；临时失效按README重建。恢复先查Git/HEAD/origin及同SHA Actions，保护已有修改，不重初始化、不改全局运行时、不读其他项目、不强推，不声称离线持续执行。
