@@ -70,7 +70,7 @@ KB_JAVA_OUT=$(mktemp -d)
 "$KB_JAVA_HOME/bin/java" -cp "$KB_JAVA_OUT" TripSummary "海湾 城"
 ```
 
-2026-09-14版本复核：[Microsoft发布说明](https://learn.microsoft.com/en-us/java/openjdk/release-notes)已列出21.0.12与21.0.12.1。这里的21.0.11是本课程的已测复现版本；[厂商支持政策](https://learn.microsoft.com/en-us/java/openjdk/support)按季度提供更新，21系列的支持期限不能理解为21.0.11这个补丁可一直不更新。课程升级应另行核对完整版本号和编译器、运行器、打包工具，再重跑测试；本轮未运行这些后续补丁。
+2026-09-14版本复核：[Microsoft发布说明](https://learn.microsoft.com/en-us/java/openjdk/release-notes)已列出21.0.12与21.0.12.1。这里的21.0.11是本课程的已测复现版本；[厂商支持政策](https://learn.microsoft.com/en-us/java/openjdk/support)按季度提供更新，21系列的支持期限不能理解为21.0.11这个补丁可一直不更新。课程升级应另行核对完整版本号和编译器、运行器、打包工具，再重跑测试；随后已实测Microsoft21.0.12.1+1，补验范围见文末；21.0.12仍未作为本轮独立运行环境。
 
 最后两条分别输出 `山城: 3天`、`海湾 城: 3天`。引号让“海湾 城”作为一个参数，而不是按空格分成两个；程序只使用第一个参数，多余参数在本例中被忽略。
 
@@ -117,3 +117,11 @@ KB_JAVA_HOME="/path/to/jdk21" npm run demo --prefix examples/java-basics -- "海
 Node 仅编排真实的 `javac`/`java` 子进程，未模拟 Java。其中J00的七组测试覆盖正常、边界、故障和清理；整个包还运行后续单元，当前清单见示例README。每次编译使用自建临时目录，结束后删除，仓库不保存 class。缺 JDK 或版本不符会失败，不会悄悄跳过。详细环境约束见示例 README。
 
 下一篇：[Java 的类型怎样影响运算结果？](java-values-and-operations.md)，继续观察数字、文字与整数边界，再进入输入校验。也可返回 [Java 基础路线](../../roadmaps/java-foundations.md)。
+
+## 四段补丁号与补充验证
+
+2026-09-14在Microsoft OpenJDK21.0.12.1+1-LTS上执行全部34组Java测试通过，包括编译失败、旧产物、资源关闭、JAR、线程、中断与测量输出。测量测试原来硬编码21.0.11，现读取副本版本文件核对实际输出；真实java/javac/jar的版本校验保留。
+
+Java版本可以有第四段PATCH，不能把21.0.12.1截成21.0.12。[Runtime.Version官方说明](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runtime.Version.html)还区分数字版本与加号后的构建信息。本库复核器新增三段/四段支持，不宣称实现所有厂商格式。
+
+原文命令保留已测复现环境。维护者按[补丁兼容性说明](https://github.com/patricklfdm/knowledge-base/blob/v5/docs/knowledge-base/maintenance/runtimes/README.md)准备指定新JDK和Python后运行`npm run kb:runtime-compat`，不手动改原`.java-version`来绕过校验。原核验日期不变，补验证据见[本轮回执](https://github.com/patricklfdm/knowledge-base/blob/v5/reports/H7-m002-runtime.md)。

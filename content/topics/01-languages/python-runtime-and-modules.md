@@ -19,7 +19,7 @@ verified_on: 2026-09-13
 
 你会[模块与错误](modules-and-errors.md)，现在把一段行程统计改用Python实现。编辑器里看到的.py文件只是源码；实际执行它的是某个Python解释器（interpreter）。终端里的python和python3是命令名称，不保证指向同一文件或版本。先运行`python3 --version`，再看维护目录的`.python-version`；本例实际使用CPython3.13.0，不把它称作最新版本。
 
-2026-09-14版本复核：[Python官方3.13.0发布页](https://www.python.org/downloads/release/python-3130/)已标明它被3.13.15取代。本课程的3.13.0是重现历史验收的固定环境，不能当作新项目应长期安装的补丁版本。`docs.python.org/3.13/`文档会随3.13系列更新，不能假定其中每项行为都在3.13.0存在。升级课程环境需要一起调整三个Python示例的版本文件并重跑各自测试，不能只改`tested_with`。本轮没有执行3.13.15。
+2026-09-14版本复核：[Python官方3.13.0发布页](https://www.python.org/downloads/release/python-3130/)已标明它被3.13.15取代。本课程的3.13.0是重现历史验收的固定环境，不能当作新项目应长期安装的补丁版本。`docs.python.org/3.13/`文档会随3.13系列更新，不能假定其中每项行为都在3.13.0存在。升级课程环境需要一起调整三个Python示例的版本文件并重跑各自测试，不能只改`tested_with`。随后已在隔离的CPython3.13.15上补验三包维护测试；原固定环境保留用于复现。新的兼容性入口与完整边界见下文。
 
 Python文件以缩进划定语句块。`if True:`后面的下一行必须缩进；漏缩进会在解析时得到IndentationError，程序尚未开始业务计算。语法合法却读取未定义名称，则是运行时NameError。维护测试分别触发这两种错误。排查时先看错误类型与文件位置，不要因为都显示红字便反复重装解释器。[Python错误说明](https://docs.python.org/3.13/tutorial/errors.html)
 
@@ -71,3 +71,9 @@ python3 -I -B examples/python-basics/run.py test
 ```
 
 标准库，无第三方依赖；只用合成数据、自建临时目录，自动清理。Node桥接入口为`npm test --prefix examples/python-basics`。版本不符先查README，不修改系统默认环境。正文来源与例子实际核对，浏览器 **NOT_RUN：用户批准全部规划内容完成后统一验收**。
+
+## 后续补丁兼容性复查
+
+2026-09-14补验CPython3.13.15：Python基础29项、数据工程33项、搜索31项测试通过。venv测试曾把预期版本写死为3.13.0，现改为与副本版本文件比较，仍要求真实子解释器处于venv；没有把版本校验删除。
+
+原命令继续使用`.python-version`的历史基线；维护者已准备新Python与Microsoft JDK时，可按[兼容性说明](https://github.com/patricklfdm/knowledge-base/blob/v5/docs/knowledge-base/maintenance/runtimes/README.md)运行`npm run kb:runtime-compat`。命令先证明旧版本校验会拒绝新运行时，再只修改自建副本的版本文件并重跑测试，最后清理副本。测试通过只覆盖这些受维护例子，不代表所有第三方库都兼容。整篇原核验日期保留，补验证据见[维护回执](https://github.com/patricklfdm/knowledge-base/blob/v5/reports/H7-m002-runtime.md)。

@@ -108,7 +108,7 @@ examples/search-lab固定CPython3.13.0标准库；31项Python unittest由1项Nod
 
 ## 内容维护入口（H7-002）
 
-kb:review已实现并进入kb:verify：默认离线只读，以UTC当天或显式--as-of计算180日提醒，比较固定Node/Python/Java三段版本，整理Markdown外链和有证据的观测。候选退出0；无效元数据/未来日期/非法观测/证据/运行时不一致退出1。--json输出完整清单，无任何自动回写。用法与人工分诊、更新核验日期的边界见[MAINTENANCE](MAINTENANCE.md)。
+kb:review已实现并进入kb:verify：默认离线只读，以UTC当天或显式--as-of计算180日提醒，比较固定Node/Python三段版本及Java三段/四段数字版本，整理Markdown外链和有证据的观测。候选退出0；无效元数据/未来日期/非法观测/证据/运行时不一致退出1。--json输出完整清单，无任何自动回写。用法与人工分诊、更新核验日期的边界见[MAINTENANCE](MAINTENANCE.md)。
 
 新增9项复核与2项入口/反馈表单测试；总46检查器、389 Node/45 suites。独立年龄边界和只读性故意错误被原断言检出，恢复通过；全套构建133HTML/317产物。98笔记（82教学日期未改），日志与发布见reports/H7-maintenance.md。242外链是离线清单，118条环境未比较，不冒充在线链接或全面兼容验收。
 
@@ -117,3 +117,7 @@ kb:review已实现并进入kb:verify：默认离线只读，以UTC当天或显�
 H5–H7既定内容完成后按UI_ACCEPTANCE三目标执行真实浏览器验收，证据reports/H4-ui-acceptance.md。quartz.ts通过自有transformer资源补安全文本摘要；仍用原搜索索引/排序/预览。新增6项纯函数回归进入根npm test，总395 Node/45 suites、46检查器；实体解码和命中位置的独立故意错误检出并恢复。第一轮浏览器发现异步结果容器，第二轮观察稳定父容器后含SPA复验通过；不能用纯函数测试冒充DOM测试。
 
 F11基础应用真实创建/编辑/非法输入/取消/纯文本/busy/进程重启读取已测；只修取消后提示和焦点。真实屏幕阅读器、其他浏览器和三目标外示例保留NOT_RUN。当前浏览器是按清单执行的维护步骤，不是远端CI job；未建立kb:e2e占位入口。完整构建133HTML/318产物，锁不变。
+
+## 补丁兼容性（H7-M002）
+
+`npm run kb:runtime-compat`已实现：需另外准备maintenance/runtimes版本文件指定的CPython和Microsoft JDK，仅在自建副本修改版本文件，先验证旧校验拒绝，再执行Python三包和Java全包。与原kb:verify的历史复现环境分开；缺失/不符/任一测试失败均非零，不跳过。具体操作、SHA与未测范围见[说明](maintenance/runtimes/README.md)和[回执](../../reports/H7-m002-runtime.md)。可复用CI的Patch runtime compatibility job为同SHA发布前置；官方安装目录未收录21.0.12.1时直接下载指定官方Linux归档，先比对仓库固定SHA256再解包，保留原verify job。

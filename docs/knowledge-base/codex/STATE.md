@@ -1,11 +1,9 @@
 # 当前检查点
 
-2026-09-14，patricklfdm/knowledge-base既有v5。H0–H7既定课程任务已完成；用户要求进入勘误、版本复核，当前[H7-M001计划](plans/H7-M001-review.md)与[回执](../../../reports/H7-m001-review.md)已完成首轮复核及修复验收。BACKLOG为唯一任务状态台账。
+2026-09-14，patricklfdm/knowledge-base既有v5，基线81ed3780d9a1a3622c351b7307051aa718a060fa。当前[H7-M002计划](plans/H7-M002-runtime.md)与[补丁回执](../../../reports/H7-m002-runtime.md)本地完成，准备自动普通push与自身SHA发布验收；BACKLOG是唯一状态台账。
 
-基线1f80ef5953bf5ffc32c0fb285987986f2e6adbc4。F00/P00/J00补充固定复现版本与上游补丁/支持政策的区别；JSON Schema本次GET200与正文核验另存观测，原403不覆盖。全库扫描没有到期/固定版本漂移候选，但人工已发现Python/Java后续补丁，不能把零候选解释为全部版本最新。
+已实测隔离CPython3.13.15（本机源码构建，SQLite3.47.1）和Microsoft OpenJDK21.0.12.1+1。新环境Python三包29/33/31、Java34组通过；修复Python venv/Java测量测试的硬编码版本、review四段Java漏报。两类独立错误检出及恢复通过。旧复现版本不改，新增kb:runtime-compat及必需CI子job；Microsoft安装清单未列新补丁，CI从官方指定Linux归档校验固定SHA后解包。
 
-隔离kb:verify/npm test通过：98笔记（16导航/82教学）、395 Node/45 suites，Python29+33+31、133HTML/318产物、失败夹具/过滤/恢复通过。82篇verified_on保持，示例源码/运行时/锁/CI未改；尚未验收新补丁。f394e7f同SHA Actions34888850153通过；390三页抽查发现P00命令/双下划线错误后，a074bb8e7e740fc69db476696ab677d25dfb8ce2修复、Actions34889452575同SHA质量/构建/部署与HTTP通过，线上reload后字面量正确。最终工程记录提交需按Git最新HEAD自身SHA核对，不用历史成功替代。
+旧环境完整kb:verify/npm test通过：398 Node/45 suites、49检查器、98笔记（16导航/82教学）、133HTML/318产物。仅P00/J00增加补充说明，82篇verified_on和旧tested_with保持，锁无漂移。没有整体升级依赖或修改系统默认运行时。CI与部署结果尚待本批SHA实证，不能用前轮成功替代。
 
-下一项引用H7-M002（Python/Java补丁兼容性）和H7-M003（现有Dependabot PR分诊）。当前open接口仅有PR #2/#3、无普通反馈Issue；没有发送评论、合并或关闭PR。
-
-持续授权：适用验证后自动普通push既有origin/v5。集中UI历史报告仍有效，范围外浏览器/真实屏幕阅读器/教学变体保持NOT_RUN。恢复先检查Git/HEAD/origin和当前差异，不强推、不覆盖用户修改、不改全局配置或其他项目。临时隔离根/tmp/kb-h3b-path.txt；本轮日志/tmp/m001-verify.log、/tmp/m001-tests.log，来源回执/tmp/kb-m001-source-http.json。不承诺会话结束后离线运行。
+下一项H7-M003分诊现有Dependabot PR #2/#3，不自动合并PR。补丁运行时目录保留以便复验：/tmp/kb-m002-runtime-root.txt，具体可执行路径/tmp/kb-m002-python.txt及/tmp/kb-m002-java.txt；原环境隔离根/tmp/kb-h3b-path.txt、原Java指针/tmp/kb-h5d-java-home.txt。新测试副本由命令finally清理，无常驻服务；日志/tmp/m002-*.log。恢复先检查Git/HEAD/origin/差异，保护用户修改，不改其他项目/全局设置/强推。不承诺会话结束后离线执行，自动普通push既有origin/v5授权持续。

@@ -1136,7 +1136,7 @@
       "id": "H7-M002",
       "phase": "H7",
       "title": "Python与Microsoft OpenJDK后续补丁兼容性验证",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H7-M001"
       ],
@@ -1145,7 +1145,9 @@
         "先评估Python三包与Java版本守卫兼容性，执行正常/边界/失败；修订受影响内容，升级与旧证据分开",
         "完成适用门禁与同SHA发布，无法验证保留具体原因"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H7-m002-runtime.md"
+      ]
     },
     {
       "id": "H7-M003",

@@ -29,7 +29,8 @@ class BasicsTests(unittest.TestCase):
             result = subprocess.run([str(executable), "-I", "-B", "-c",
                                      "import json,sys;print(json.dumps([sys.prefix != sys.base_prefix, list(sys.version_info[:3])]))"],
                                     capture_output=True, text=True, timeout=20, check=True)
-            self.assertEqual(json.loads(result.stdout), [True, [3, 13, 0]])
+            expected = list(map(int, (ROOT / ".python-version").read_text().strip().split(".")))
+            self.assertEqual(json.loads(result.stdout), [True, expected])
 
     def test_wrong_version_fails_before_loading_lessons(self):
         with tempfile.TemporaryDirectory(prefix="kb-python wrong-") as d:

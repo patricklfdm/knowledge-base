@@ -47,7 +47,7 @@ const runtimeFiles = {
 const runtimePatterns = [
   ["node", /^Node\.js (\d+\.\d+\.\d+)(?:$|\s)/],
   ["python", /^(?:CPython|Python) (\d+\.\d+\.\d+)(?:$|\s)/],
-  ["java", /^Microsoft OpenJDK (\d+\.\d+\.\d+)(?:\+\d+)?(?:$|\s)/],
+  ["java", /^Microsoft OpenJDK (\d+\.\d+\.\d+(?:\.\d+)?)(?:\+\d+)?(?:$|\s)/],
 ]
 
 export function reviewContent(
@@ -65,7 +65,8 @@ export function reviewContent(
   const pins = Object.fromEntries(
     Object.entries(runtimeFiles).map(([name, files]) => {
       const versions = files.map((f) => fs.readFileSync(localFile(root, f), "utf8").trim())
-      if (versions.some((v) => !/^\d+\.\d+\.\d+$/.test(v)) || new Set(versions).size !== 1)
+      const pattern = name === "java" ? /^\d+\.\d+\.\d+(?:\.\d+)?$/ : /^\d+\.\d+\.\d+$/
+      if (versions.some((v) => !pattern.test(v)) || new Set(versions).size !== 1)
         throw new Error(`REVIEW_RUNTIME: ${name}固定版本缺失、非法或不一致`)
       return [name, versions[0]]
     }),

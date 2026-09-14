@@ -243,3 +243,27 @@ test("合成反馈闭环：坏教材链接先失败，修复并关联报告后�
   assert.equal(f.review().candidates[0].verified_on, "2026-03-17")
   assert.ok(fs.readFileSync(path.join(f.root, "reports/test.md"), "utf8").includes("MISSING_LINK"))
 })
+
+test("Java四段补丁号参与比较，不截断或落入未比较清单", (t) => {
+  const f = fixture(t)
+  f.editNote("21.0.11+10", "21.0.12.1+1")
+  const mismatch = f.review()
+  assert.deepEqual(mismatch.candidates.filter((c) => c.kind === "runtime").map((c) => [c.tested, c.pinned]), [["21.0.12.1", "21.0.11"]])
+  assert.ok(!mismatch.unCompared.some((c) => c.tested_with.includes("Microsoft")))
+  f.write("examples/java-basics/.java-version", "21.0.12.1\n")
+  assert.equal(f.review().candidates.filter((c) => c.kind === "runtime").length, 0)
+  f.editNote("21.0.12.1+1", "21.0.12+8")
+  assert.equal(f.review().candidates.find((c) => c.kind === "runtime").tested, "21.0.12")
+})
+
+test("四段支持只给Java，错误固定版本仍然失败", (t) => {
+  const f = fixture(t)
+  for (const value of ["21.0.12.1.2", "21.0.12.1-ea", "21.0.12.1+1", "21.0.12."]) {
+    f.write("examples/java-basics/.java-version", value)
+    assert.throws(() => f.review(), /REVIEW_RUNTIME/)
+  }
+  f.write("examples/java-basics/.java-version", "21.0.12.1")
+  f.write(".nvmrc", "24.21.0.1")
+  f.write(".node-version", "24.21.0.1")
+  assert.throws(() => f.review(), /REVIEW_RUNTIME/)
+})

@@ -16,7 +16,7 @@ npm run kb:review -- --as-of 2026-09-13 --max-age-days 180 --json
 
 命令不访问网络、不写文件、不读取GitHub反馈。去重HTTP(S)外链保留笔记ID和位置；包括普通链接、引用式链接与外部图片，忽略代码块/行内代码。外链不天然等于权威来源。抓取成功、来源内容核对、可执行示例、UI验证必须分开记录。
 
-运行时比较仅覆盖`.nvmrc`/`.node-version`、三个Python示例的`.python-version`与Java的`.java-version`。已识别的Node.js、Python/CPython、Microsoft OpenJDK版本不同会提醒；不查询上游最新版、不自动升级，不证明相同版本就兼容。Java只比三段版本，构建号/供应商等仍需人工核对。库版本、OS和未识别写法列入`unCompared`，不能把零候选理解为完整依赖审计。
+运行时比较仅覆盖`.nvmrc`/`.node-version`、三个Python示例的`.python-version`与Java的`.java-version`。已识别的Node.js、Python/CPython、Microsoft OpenJDK版本不同会提醒；不查询上游最新版、不自动升级，不证明相同版本就兼容。Java比较三段或四段数字版本，构建号/供应商等仍需人工核对。库版本、OS和未识别写法列入`unCompared`，不能把零候选理解为完整依赖审计。
 
 ## 从信号到教材修正
 
@@ -47,6 +47,8 @@ npm run kb:review -- --as-of 2026-09-13 --max-age-days 180 --json
 external-link另需`url`，且必须出现在所关联每篇文章的实际外链中；观测摘要说明访问与内容核验分别是什么结果。索引不是无限历史库：替换/移除来源或笔记时同步修订/移除该索引项，完整原观测和处理证据留在报告及Git历史。不要为了让检查通过改造历史事实。合法回执文件只证明证据位置存在，不能由机器证明报告真实。
 
 JSON Schema历史记录引用H7-001实际403及正文核验报告，日期仍是当时日期。2026-09-14独立复查GET200及正文核验另存观测，见[首轮维护回执](../../reports/H7-m001-review.md)，不覆盖原记录。合成反馈演练只在测试临时目录，未登记为真实用户记录。
+
+补丁兼容性使用[独立固定版本与操作说明](maintenance/runtimes/README.md)。该检查在自建副本中验证新补丁，不改历史复现版本或批量刷新文章日期；独立CI job也是发布前置门禁。
 
 ## 检查与恢复
 

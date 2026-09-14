@@ -55,3 +55,30 @@ jobs:
         run: npm test
       - name: Ensure installation did not change the npm lock
         run: git diff --exit-code -- package.json package-lock.json examples/foundations/package.json examples/foundations/package-lock.json examples/typed-trips/package.json examples/typed-trips/package-lock.json examples/web-forms/package.json examples/web-forms/package-lock.json examples/http-trips/package.json examples/http-trips/package-lock.json examples/trip-api/package.json examples/trip-api/package-lock.json examples/sql-trips/package.json examples/sql-trips/package-lock.json examples/trip-app/package.json examples/trip-app/package-lock.json examples/java-basics/package.json examples/java-basics/package-lock.json examples/java-basics/.java-version examples/systems-basics/package.json examples/systems-basics/package-lock.json examples/python-basics/package.json examples/python-basics/package-lock.json examples/python-basics/.python-version examples/reliable-app/package.json examples/reliable-app/package-lock.json examples/distributed-lab/package.json examples/distributed-lab/package-lock.json examples/data-pipeline/package.json examples/data-pipeline/package-lock.json examples/data-pipeline/.python-version examples/search-lab/package.json examples/search-lab/package-lock.json examples/search-lab/.python-version
+
+  runtime-compatibility:
+    name: Patch runtime compatibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+      # setup-java's Microsoft manifest does not yet list this emergency patch.
+      - name: Install checksum-pinned Microsoft compatibility JDK
+        shell: bash
+        run: |
+          KB_JDK_VERSION=$(cat docs/knowledge-base/maintenance/runtimes/.java-version)
+          cd "$RUNNER_TEMP"
+          curl --fail --location --retry 2 --max-time 120 --output kb-compat-jdk.tar.gz "https://aka.ms/download-jdk/microsoft-jdk-${KB_JDK_VERSION}-linux-x64.tar.gz"
+          sha256sum --check "$GITHUB_WORKSPACE/docs/knowledge-base/maintenance/runtimes/microsoft-linux-x64.sha256"
+          mkdir kb-compat-jdk
+          tar -xzf kb-compat-jdk.tar.gz -C kb-compat-jdk --strip-components=1
+          echo "KB_JAVA_HOME=$RUNNER_TEMP/kb-compat-jdk" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@v6
+        with:
+          python-version-file: docs/knowledge-base/maintenance/runtimes/.python-version
+      - name: Test patch runtimes in owned example copies
+        run: npm run kb:runtime-compat
+      - name: Keep original sources and pins unchanged
+        run: git diff --exit-code

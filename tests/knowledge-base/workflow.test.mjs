@@ -275,3 +275,32 @@ test("所有Python教学包运行时一致，版本漂移必失败", () => {
   assertPythonVersionsMatch(basics, fs.readFileSync("examples/search-lab/.python-version", "utf8"))
   assert.throws(() => assertPythonVersionsMatch(basics, "3.14.0"))
 })
+
+test("补丁兼容性作为同SHA必需job，移除/跳过/浮动版本会被检出", () => {
+  const checks = read(".github/workflows/knowledge-base-checks.yml")
+  const validate = (workflow) => {
+    const job = workflow.jobs["runtime-compatibility"]
+    assert.ok(job && !job.if && !job["continue-on-error"])
+    for (const step of job.steps) assert.ok(!step.if && !step["continue-on-error"])
+    const java = job.steps.find((s) => s.name === "Install checksum-pinned Microsoft compatibility JDK")
+    const python = job.steps.find((s) => s.uses === "actions/setup-python@v6")
+    assert.ok(java?.run.includes("docs/knowledge-base/maintenance/runtimes/.java-version"))
+    assert.ok(java.run.includes("sha256sum --check"))
+    assert.ok(java.run.indexOf("sha256sum --check") < java.run.indexOf("tar -xzf"))
+    assert.ok(java.run.includes("https://aka.ms/download-jdk/microsoft-jdk-"))
+    assert.equal(python?.with["python-version-file"], "docs/knowledge-base/maintenance/runtimes/.python-version")
+    assert.ok(!python.with["python-version"])
+    assert.ok(job.steps.some((s) => s.run === "npm run kb:runtime-compat"))
+    assert.ok(job.steps.some((s) => s.run === "git diff --exit-code"))
+  }
+  validate(checks)
+  for (const change of ["missing", "skip", "command", "version", "checksum"]) {
+    const broken = structuredClone(checks), job = broken.jobs["runtime-compatibility"]
+    if (change === "missing") delete broken.jobs["runtime-compatibility"]
+    if (change === "skip") job["continue-on-error"] = true
+    if (change === "command") job.steps.find((s) => s.run === "npm run kb:runtime-compat").run += " || true"
+    if (change === "checksum") job.steps.find((s) => s.name === "Install checksum-pinned Microsoft compatibility JDK").run = "tar -xzf package.tar.gz"
+    if (change === "version") job.steps.find((s) => s.uses === "actions/setup-python@v6").with["python-version"] = "3.13"
+    assert.throws(() => validate(broken), change)
+  }
+})

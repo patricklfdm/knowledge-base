@@ -1,5 +1,6 @@
 import assert from "node:assert/strict"
 import test from "node:test"
+import { readFileSync } from "node:fs"
 import { compiled, probe, lines } from "./test-support.mjs"
 
 test("explicit interleaving loses an update; one shared monitor preserves both workers", (t) => {
@@ -69,7 +70,8 @@ test("measurement emits environment and five samples without speed thresholds", 
   const f = compiled(t, ["MeasurementLesson"])
   const output = lines(f, "MeasurementLesson")
   assert.equal(output.length, 10)
-  assert.match(output[0], /^java=21\.0\.11/)
+  const expected = readFileSync(new URL("./.java-version", import.meta.url), "utf8").trim()
+  assert.equal(output[0].split("+")[0], `java=${expected}`)
   assert.match(output[1], /^vm=.+/)
   assert.match(output[2], /^arch=.+/)
   assert.equal(output[3], "n=1000 rounds=200 warmups=20 samples=5 checksum=100100000")
