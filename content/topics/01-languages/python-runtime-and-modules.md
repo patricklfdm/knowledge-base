@@ -17,7 +17,7 @@ verified_on: 2026-09-13
 
 ## 从文件到正在执行的程序
 
-你会[模块与错误](modules-and-errors.md)，现在把一段行程统计改用Python实现。编辑器里看到的.py文件只是源码；实际执行它的是某个Python解释器（interpreter）。终端里的python和python3是命令名称，不保证指向同一文件或版本。先运行python3 --version，再看维护目录的.python-version；本例实际使用CPython3.13.0，不把它称作最新版本。
+你会[模块与错误](modules-and-errors.md)，现在把一段行程统计改用Python实现。编辑器里看到的.py文件只是源码；实际执行它的是某个Python解释器（interpreter）。终端里的python和python3是命令名称，不保证指向同一文件或版本。先运行`python3 --version`，再看维护目录的`.python-version`；本例实际使用CPython3.13.0，不把它称作最新版本。
 
 2026-09-14版本复核：[Python官方3.13.0发布页](https://www.python.org/downloads/release/python-3130/)已标明它被3.13.15取代。本课程的3.13.0是重现历史验收的固定环境，不能当作新项目应长期安装的补丁版本。`docs.python.org/3.13/`文档会随3.13系列更新，不能假定其中每项行为都在3.13.0存在。升级课程环境需要一起调整三个Python示例的版本文件并重跑各自测试，不能只改`tested_with`。本轮没有执行3.13.15。
 
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     raise SystemExit(main())
 ```
 
-直接执行该文件时，__name__为__main__；作为模块导入时不会因为这段保护自动调用main。但模块顶层的其他语句仍会执行，因此入口保护并不等于整个模块没有副作用。测试实际重载basics并确认stdout为空。[模块和入口说明](https://docs.python.org/3.13/tutorial/modules.html)
+直接执行该文件时，`__name__`为`__main__`；作为模块导入时不会因为这段保护自动调用main。但模块顶层的其他语句仍会执行，因此入口保护并不等于整个模块没有副作用。测试实际重载basics并确认stdout为空。[模块和入口说明](https://docs.python.org/3.13/tutorial/modules.html)
 
 ## 为什么命令带-I和-B？
 

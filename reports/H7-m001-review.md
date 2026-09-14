@@ -28,15 +28,21 @@
 
 ## 文案与读者任务复核
 
-作者自审之后另作一次读者视角检查，非外部专家背书：F00读者能区分运行hello.mjs与运行全库门禁；P00读者能区分当前解释器、.python-version和3.13系列在线文档；J00读者能区分JDK安装、--release21和厂商补丁支持。正文的源码/输入/正常和失败预期没有修改，补充文字指向已核对官方页面。仅修正版本边界表述，不假造业务缺陷。
+作者自审之后另作一次读者视角检查，非外部专家背书：F00读者能区分运行hello.mjs与运行全库门禁；P00读者能区分当前解释器、.python-version和3.13系列在线文档；J00读者能区分JDK安装、--release21和厂商补丁支持。正文的源码/输入/正常和失败预期没有修改，补充文字指向已核对官方页面。版本复核先修正边界表述。随后线上抽查实际发现下述符号渲染错误，追加可复现勘误。
 
 82篇verified_on均保持；本轮不是逐篇完整重新核验。tested_with保持真实旧运行环境，新版本未运行不得加入。路径、ID、先修不变，文章数仍为98（16导航/82教学）。
+
+## P00真实渲染勘误
+
+在f394e7f已部署页面读取实际DOM：未用行内代码的`python3 --version`被智能标点渲染为`python3 —version`；未保护的`__name__为__main__`被Markdown强调语法处理，文本成`name__为__main`。代码块原本正确，正文解释错误。修正P00两处为行内代码，并把版本文件路径标为代码；不改语法处理器或全局主题。
+
+先对旧隔离构建运行/tmp/kb-m001-render-check.py，要求三个完整字面量分别存在于生成HTML的code节点，实际AssertionError/退出1（/tmp/m001-render-before.log）。这是本次观察到的回归断言，不是只对Markdown正则比较；修复后隔离kb:check、kb:review、kb:build、kb:output和kb:publish-test均通过，同一HTML断言退出0，三个字面量均完整保留于code节点。日志/tmp/m001-fix-*.log；受控源、锁、verified_on再次核对不变。执行代码未改，已通过的395项根测试不为文案修复重复全跑。本次rg检索content中的__name__/__main__/python3 --version只命中P00，未将本处修复称作全库所有代码标记都已审计。
 
 ## 验证与发布
 
 隔离`npm run kb:verify`与`npm test`均退出0：98笔记、46检查器测试、395 Node测试/45 suites、Python三包29/33/31项分别通过，构建133 HTML/318产物；公开过滤正例、三种禁发marker排除及注入泄漏检出通过。已有示例正常/边界/故意失败、真实临时Git回退与恢复均通过。本批不改检查器/代码，因此不新增镜像文案测试或重复故障注入。日志/tmp/m001-verify.log与/tmp/m001-tests.log；验证脚本/tmp/kb-m001-verify.py逐字比较受控源、确认锁无漂移与82篇核验日期不变。复用先前干净安装且锁未变的隔离根（/tmp/kb-h3b-path.txt），受控同步当前源码；不在用户项目安装新依赖。命令级Node24.21.0/npm11.19.0，KB_PYTHON=/opt/homebrew/bin/python3（CPython3.13.0），KB_JAVA_HOME由/tmp/kb-h5d-java-home.txt读取（Microsoft21.0.11+10）。
 
-发布pending，尚未用旧SHA的部署替代本批验收。新版本、真实屏幕阅读器、其他浏览器/教学变体及生产操作NOT_RUN。恢复时先查Git/本计划与实际Actions，再核对自身SHA。
+第一批f394e7fb25d69d845a2bdd540d92d39fd5c6bc0d已普通push，[Actions34888850153](https://github.com/patricklfdm/knowledge-base/actions/runs/34888850153)同SHA quality/build/deploy均success（19:47:59/19:48:36/19:48:51 UTC）。HTTP7入口/31资源200、索引132含修改页、404通过，日志/tmp/m001-http.log。浏览器对三篇版本说明实读，390视口三页documentWidth均390；其中P00符号问题单独记为FAIL，不因部署通过而隐去。P00修复待后续自身SHA部署复验。新版本、真实屏幕阅读器、其他浏览器/教学变体及生产操作NOT_RUN。恢复时先查Git/本计划与实际Actions，再核对自身SHA。
 
 ## 后续
 
