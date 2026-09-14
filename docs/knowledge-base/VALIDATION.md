@@ -6,7 +6,7 @@
 | ----------------------- | ---------------------------------------------------------------------------------------- |
 | npm run kb:check        | content 元数据、唯一 ID/URL/别名、先修 DAG、Markdown 内部链接/标题锚点、发布状态         |
 | npm run kb:test         | 临时正常/失败 fixtures；CLI 返回码；产物检测器；CI 依赖保护                              |
-| npm run kb:examples     | 明确运行 foundations 的13组、typed-trips 的4组、web-forms 的5组、http-trips 的8组、trip-api 的10组、sql-trips 的30组、trip-app 的13组与 java-basics 的34组示例测试                                  |
+| npm run kb:examples     | 明确运行 foundations 的13组、typed-trips 的4组、web-forms 的5组、http-trips 的8组、trip-api 的10组、sql-trips 的30组、trip-app 的13组、java-basics 的34组和 systems-basics 的8组示例测试                                  |
 | npm run kb:build        | `npm run quartz -- build`，现有 Quartz CLI，默认 content/public                          |
 | npm run kb:output       | 对 public 的实际 HTML DOM 检查本站 base path、链接、资源与锚点                           |
 | npm run kb:publish-test | 临时正文与产物，真实构建正面对照和 3 种禁发 marker，扫描全部产物，再注入泄漏证明检测有效 |
@@ -33,7 +33,7 @@ H1 尚不支持 Obsidian wiki/block、脚注、原始 HTML、内部 query、绝�
 
 ## H3-001B TypeScript 示例
 
-首次运行根门禁前，另执行 `npm ci --prefix examples/typed-trips`。`kb:examples` 显式运行 foundations、typed-trips、无依赖 web-forms 、http-trips 、trip-api 、sql-trips 、trip-app 和 java-basics 八个包；typed-trips 测试真实调用固定 TypeScript 5.9.3 检查器，并用 Node24 执行类型擦除后的程序。根 `npm ci` 不会安装独立包依赖。CI 已登记独立安装及全部示例 manifest/lock 的漂移检查，遗漏安装步骤的负面用例会失败。
+首次运行根门禁前，另执行 `npm ci --prefix examples/typed-trips`。`kb:examples` 显式运行 foundations、typed-trips、无依赖 web-forms 、http-trips 、trip-api 、sql-trips 、trip-app 、java-basics 和 systems-basics 九个包；typed-trips 测试真实调用固定 TypeScript 5.9.3 检查器，并用 Node24 执行类型擦除后的程序。根 `npm ci` 不会安装独立包依赖。CI 已登记独立安装及全部示例 manifest/lock 的漂移检查，遗漏安装步骤的负面用例会失败。
 
 web-forms 的测试含浏览器脚本语法检查与纯输入转换，未执行 DOM/键盘/屏幕阅读器测试。H3 内容优先期间 G7 与应用交互按用户要求 NOT_RUN，见 codex/QUALITY_GATES.md；HTTP 文本请求不替代浏览器验收。
 
@@ -68,3 +68,5 @@ J06–J08新增6组实际文件/资源/JAR/子进程测试，Java显式包内28�
 J09–J11新增6组确定交错/锁、Future异常/超时/协作取消、测量正确性与样本结构测试，Java显式34组。没有依赖更新；不做速度阈值或浏览器判定。
 
 S06–S08追加5组查询/保存点/备份恢复测试，SQL包内30组；backup使用Node固定版本原生API，正式恢复另起进程读取，不拿结构ok代替业务结果。
+
+Y01–Y03新建无依赖systems-basics，8组真实测试；根kb:examples/回归与CI显式安装/新锁检查已实现。CI保护故障夹具包含遗漏系统包安装和锁保护，Java固定版本保护继续存在。

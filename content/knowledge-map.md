@@ -37,3 +37,5 @@ tags:
 第二语言主线：[Java 基础与系统路线](roadmaps/java-foundations.md)，12篇从真实编译和错误定位走到并发、取消与测量，通用系统专题仍待扩展。
 
 [选择全栈基础路线](roadmaps/fullstack-foundations.md) · [返回首页](index.md)
+
+[通用系统与存储路线](roadmaps/systems-foundations.md)继续操作成本、进程边界和流式I/O，后续连接文件/日志/缓存实验。

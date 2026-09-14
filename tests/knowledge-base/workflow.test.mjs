@@ -34,6 +34,7 @@ function assertProtected(publish, checks) {
   for (const command of [
     "npm ci",
     "npm ci --prefix examples/typed-trips",
+    "npm ci --prefix examples/systems-basics",
     "npm run kb:verify",
     "npm test",
   ])
@@ -49,6 +50,8 @@ function assertProtected(publish, checks) {
         command.includes("examples/typed-trips/package-lock.json"),
     ),
   )
+  assert.ok(commands.indexOf("npm ci --prefix examples/systems-basics") < commands.indexOf("npm run kb:verify"))
+  assert.ok(commands.some((c) => c?.startsWith("git diff --exit-code") && c.includes("examples/systems-basics/package-lock.json")))
   assert.ok(publish.jobs.build.steps.some((s) => s.run === "npm run kb:output"))
   assert.ok(
     commands.some(
@@ -75,6 +78,13 @@ test("部署显式依赖同提交可复用门禁，且破坏依赖会被检测",
     (step) => step.run !== "npm ci --prefix examples/typed-trips",
   )
   assert.throws(() => assertProtected(publish, missingInstall))
+  const missingSystems = structuredClone(checks)
+  missingSystems.jobs.verify.steps = missingSystems.jobs.verify.steps.filter((s) => s.run !== "npm ci --prefix examples/systems-basics")
+  assert.throws(() => assertProtected(publish, missingSystems))
+  const missingSystemsLock = structuredClone(checks)
+  const lockStep = missingSystemsLock.jobs.verify.steps.find((s) => s.run?.startsWith("git diff --exit-code"))
+  lockStep.run = lockStep.run.replace(" examples/systems-basics/package-lock.json", "")
+  assert.throws(() => assertProtected(publish, missingSystemsLock))
   const missingJava = structuredClone(checks)
   missingJava.jobs.verify.steps = missingJava.jobs.verify.steps.filter(
     (s) => !s.uses?.startsWith("actions/setup-java"),
@@ -119,7 +129,7 @@ test("教学示例单独登记，Quartz 类型范围不包含示例", () => {
   const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"))
   assert.equal(
     pkg.scripts["kb:examples"],
-    "npm test --prefix examples/foundations && npm test --prefix examples/typed-trips && npm test --prefix examples/web-forms && npm test --prefix examples/http-trips && npm test --prefix examples/trip-api && npm test --prefix examples/sql-trips && npm test --prefix examples/trip-app && npm test --prefix examples/java-basics",
+    "npm test --prefix examples/foundations && npm test --prefix examples/typed-trips && npm test --prefix examples/web-forms && npm test --prefix examples/http-trips && npm test --prefix examples/trip-api && npm test --prefix examples/sql-trips && npm test --prefix examples/trip-app && npm test --prefix examples/java-basics && npm test --prefix examples/systems-basics",
   )
   assert.ok(pkg.scripts["kb:verify"].includes("npm run kb:examples"))
   const tsconfig = JSON.parse(fs.readFileSync("tsconfig.json", "utf8"))

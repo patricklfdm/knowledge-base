@@ -1,0 +1,11 @@
+{
+  "name": "kb-systems-basics-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24 <25" },
+  "scripts": {
+    "test": "node --test *.test.mjs",
+    "basics": "node basics-demo.mjs"
+  }
+}

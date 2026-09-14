@@ -31,6 +31,8 @@ jobs:
         run: npm ci
       - name: Install locked TypeScript example dependencies
         run: npm ci --prefix examples/typed-trips
+      - name: Install locked systems example dependencies
+        run: npm ci --prefix examples/systems-basics
       - name: Install configured plugins
         run: npm run quartz -- plugin install --from-config
       - name: Verify content, negative fixtures, types, build and publication filters
@@ -38,4 +40,4 @@ jobs:
       - name: Run inherited regression tests
         run: npm test
       - name: Ensure installation did not change the npm lock
-        run: git diff --exit-code -- package.json package-lock.json examples/foundations/package.json examples/foundations/package-lock.json examples/typed-trips/package.json examples/typed-trips/package-lock.json examples/web-forms/package.json examples/web-forms/package-lock.json examples/http-trips/package.json examples/http-trips/package-lock.json examples/trip-api/package.json examples/trip-api/package-lock.json examples/sql-trips/package.json examples/sql-trips/package-lock.json examples/trip-app/package.json examples/trip-app/package-lock.json examples/java-basics/package.json examples/java-basics/package-lock.json examples/java-basics/.java-version
+        run: git diff --exit-code -- package.json package-lock.json examples/foundations/package.json examples/foundations/package-lock.json examples/typed-trips/package.json examples/typed-trips/package-lock.json examples/web-forms/package.json examples/web-forms/package-lock.json examples/http-trips/package.json examples/http-trips/package-lock.json examples/trip-api/package.json examples/trip-api/package-lock.json examples/sql-trips/package.json examples/sql-trips/package-lock.json examples/trip-app/package.json examples/trip-app/package-lock.json examples/java-basics/package.json examples/java-basics/package-lock.json examples/java-basics/.java-version examples/systems-basics/package.json examples/systems-basics/package-lock.json

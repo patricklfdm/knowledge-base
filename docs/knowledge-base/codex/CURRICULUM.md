@@ -106,3 +106,5 @@ Java主线为J00–J11共12篇，先修为F04已有语言基础，正文与自�
 以上使用examples/java-basics同一固定JDK与明确测试入口。主线状态以BACKLOG中H5-JAVA-GATE为准；H5父项、SQL/通用系统与后续路线保持各自未完成范围。未读取GSE；Spring、JDBC、JPMS、GC调优不包含于这条基础主线。
 
 SQL S06–S08在H5-001I补齐查询组织/分页、保存点、备份恢复；SQL主线沿F10加S01–S08，通用系统Y01–Y06继续H5-001J/K。收尾条件见plans/H5-SQL-SYSTEMS-completion.md，不把数据库结构ok等同业务恢复。
+
+通用系统路线content/roadmaps/systems-foundations.md在H5-001J交付Y01复杂度、Y02进程边界、Y03字节流/背压；复用Java线程/内存/测量正文，下一批Y04–Y06补文件、日志、缓存。
