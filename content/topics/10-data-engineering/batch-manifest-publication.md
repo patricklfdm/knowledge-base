@@ -58,6 +58,6 @@ npm run batch --prefix examples/data-pipeline
 
 如果设计清理策略，需说明哪些generation仍可能被读取。直接删除“不是CURRENT”的所有目录会与已读取旧指针的读者竞争。本练习仅在整个示例结束后清理自有临时目录，不提供危险的通用清理命令。
 
-真实写入、读取、注入异常与损坏检测已测试；断电、磁盘损坏恢复、并发发布、浏览器 **NOT_RUN**。后续进入事件时间、持久检查点和补数；当前可返回路线查看进度。
+真实写入、读取、注入异常与损坏检测已测试；断电、磁盘损坏恢复、并发发布、浏览器 **NOT_RUN**。下一篇：[事件时间与水位线](event-time-and-watermarks.md)。
 
 [返回数据工程路线](../../roadmaps/data-engineering-foundations.md)

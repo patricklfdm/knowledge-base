@@ -995,7 +995,7 @@
       "id": "H6-002A",
       "phase": "H6",
       "title": "事件质量、分析粒度与批次发布",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H5-002",
         "H6-001"
@@ -1013,7 +1013,7 @@
       "id": "H6-002B",
       "phase": "H6",
       "title": "事件时间、检查点与补数对账",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H6-002A"
       ],
@@ -1022,13 +1022,15 @@
         "独立故意错误与恢复、全套非浏览器门禁",
         "同SHA质量/构建/Pages与HTTP发布证据；资源与保证边界明确"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H6-data-b.md"
+      ]
     },
     {
       "id": "H6-DATA-GATE",
       "phase": "H6",
       "title": "数据工程Q00–Q05综合验收",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H6-002A",
         "H6-002B"

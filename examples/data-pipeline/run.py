@@ -22,7 +22,15 @@ def main():
         from pipeline import demo
         print(json.dumps(demo(), sort_keys=True))
         return 0
-    print("usage: run.py {test|batch}", file=sys.stderr)
+    if sys.argv[1:] == ["stream"]:
+        from stream import demo
+        print(json.dumps(demo(), sort_keys=True))
+        return 0
+    if sys.argv[1:] == ["reconcile"]:
+        from stream import reconcile_demo
+        print(json.dumps(reconcile_demo(), sort_keys=True))
+        return 0
+    print("usage: run.py {test|batch|stream|reconcile}", file=sys.stderr)
     return 2
 
 

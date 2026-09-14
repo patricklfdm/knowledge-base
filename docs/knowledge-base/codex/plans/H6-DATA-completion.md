@@ -20,7 +20,7 @@ examples/data-pipeline使用CPython3.13.0标准库、实测内置SQLite3.47.1；
 
 ## Progress
 
-- [ ] A实现、三篇、隔离门禁与发布。
+- [x] A实现、三篇、隔离门禁与发布。
 - [ ] B实现、三篇、隔离门禁与发布。
 - [ ] 综合复核、完成台账与最终发布。
 
@@ -29,3 +29,7 @@ examples/data-pipeline使用CPython3.13.0标准库、实测内置SQLite3.47.1；
 单机有界数据，JSONL事实粒度是事件，金额整数分，分钟整数用于可控模型；不声称无限流或生产吞吐。来源SHA仅标识输入字节，不提供真实性认证。中断后先核对Git/工作区/HEAD/origin和本计划最后证据，保护修改；临时失效按新例子README重建。不得读取其他项目或私密资料，不重初始化、不强推，不承诺离线运行。当前A进行中，其余NOT_RUN。
 
 A本地门禁完成：三篇、15 Python测试、87 notes、377 Node测试、120HTML/291产物；独立故意错误恢复通过，见reports/H6-data-a.md。准备普通push并核对同SHA，B设计暂存/tmp/kb-data-create-b.py。
+
+A已同SHA部署34808373187成功，HTTP通过；B三篇/33 Python测试本地初验完成，全套隔离验证进行中。源绑定明确禁止追加变更沿用检查点，最终窗口不因EOF自动封口，补数为小快照完整替换。
+
+B本地全套与六篇综合复核完成：90 notes/377 Node/33新Python（既有29另列）/123HTML；七来源、全部三入口、五类故意错误恢复通过，见reports/H6-data-b.md。待B普通push同SHA部署后关闭父项。
