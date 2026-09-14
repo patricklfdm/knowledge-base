@@ -21,8 +21,8 @@ examples/data-pipeline使用CPython3.13.0标准库、实测内置SQLite3.47.1；
 ## Progress
 
 - [x] A实现、三篇、隔离门禁与发布。
-- [ ] B实现、三篇、隔离门禁与发布。
-- [ ] 综合复核、完成台账与最终发布。
+- [x] B实现、三篇、隔离门禁与发布。
+- [x] 综合复核与完成台账；收尾文档push后核对自身最终SHA。
 
 ## Decisions / Recovery / Outcome
 
@@ -33,3 +33,5 @@ A本地门禁完成：三篇、15 Python测试、87 notes、377 Node测试、120
 A已同SHA部署34808373187成功，HTTP通过；B三篇/33 Python测试本地初验完成，全套隔离验证进行中。源绑定明确禁止追加变更沿用检查点，最终窗口不因EOF自动封口，补数为小快照完整替换。
 
 B本地全套与六篇综合复核完成：90 notes/377 Node/33新Python（既有29另列）/123HTML；七来源、全部三入口、五类故意错误恢复通过，见reports/H6-data-b.md。待B普通push同SHA部署后关闭父项。
+
+Outcome：六篇/33 Python/三入口/七官方来源及独立故意错误恢复完成；90 notes/377 Node/123HTML通过。两批同SHA部署与HTTP通过，见reports/H6-data-completion.md。关闭H6-002与GATE，下一项H7-001；收尾工程文档仍须普通push并核对自身SHA，不把正文SHA冒充最新HEAD。

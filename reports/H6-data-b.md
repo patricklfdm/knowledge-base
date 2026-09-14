@@ -23,3 +23,5 @@ CPython3.13.0/SQLite3.47.1、Node24.21.0/npm11.19.0、macOS arm64。Python固定
 ## 发布检查点
 
 本地全套与综合复核完成，待普通push本批并记录同完整SHA质量/Build/Pages、8个HTTP入口/资源/索引/404。父任务与GATE仍进行中，不能将待发布写成已部署。完成回执后关闭H6-002，下一项H7-001。
+
+发布回执：90bec42f2bca33266d16dc89d9c39233974cbfc8普通push；Actions34808837508同SHA quality / verify、Build website、Deploy website全success，完成时间2026-09-14T05:16:06Z/2026-09-14T05:16:40Z/2026-09-14T05:16:58Z；HTTP8入口/30资源200、索引122包含六篇、缺页404通过，日志/tmp/data-b-http.log。

@@ -92,3 +92,9 @@ examples/reliable-app独立锁React/ReactDOM19.3.0、esbuild0.27.2，Node24.21.0
 examples/distributed-lab无第三方依赖，Node24.21.0原生SQLite。npm ci/test、requests、delivery均已实现并在新隔离副本运行。18项新增测试由根kb:examples/npm test覆盖，根375 Node测试含Python桥，桥另29项；CI明确新包安装和manifest/lock保护，缺安装/晚安装/缺manifest/缺lock的负面夹具有效。
 
 请求遗漏/注入时钟/复制次序是模型；真实SQLite本地事务和进程退出31/32后两库重放分别验证。去重、最低版本、epoch、回滚故意错误实际失败，恢复后通过。保证不扩展到真实网络、共识、跨库原子提交、生产exactly-once或租约服务；浏览器仍NOT_RUN。参见例子README与reports/H6-distributed-completion.md。
+
+## 数据工程维护入口（H6-002）
+
+examples/data-pipeline固定CPython3.13.0标准库，Node桥1项承载33项Python unittest，既有Python基础29项另列；根377 Node测试/45 suites。npm ci/test及batch/stream/reconcile已实现，两个以上新隔离副本和无pip venv通过，CI安装/manifest/lock/版本一致性与故意失败夹具有效。Node只作桥，未引入新第三方依赖。
+
+质量守恒/身份冲突、维度唯一/金额粒度、CURRENT发布失败/摘要损坏、迟到边界/同库检查点/exit41与42、补数重复/0分事件计数/额外分组、源/策略漂移和资源超限有实际断言。独立五类故意错误检出后恢复字节并通过；日志、环境与同SHA发布见reports/H6-data-completion.md。浏览器/生产流处理器/断电/性能均NOT_RUN，不把本地事务称跨系统保证。
