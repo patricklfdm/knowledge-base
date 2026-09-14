@@ -64,4 +64,11 @@ API只读核对PR详情、文件列表、检查与#3事件/评论。按固定#2 
 
 H7-M004先单独验证isomorphic-git修复及globby/minimatch等小补丁，按1–3依赖/批，不夹带TypeScript或原生API迁移；H7-M005处理新版Action合约与本站CI/Pages分批升级；H7-M006另审TypeScript/Node类型、esbuild/tsx与原生插件迁移。其余低优先级候选留在本表对应验收边界；不自动重开/merge #3或merge #2/#4。
 
-本轮仅报告、计划、BACKLOG/STATE与维护入口；正文、82篇verified_on、示例和所有锁应无变化。H7-M003分诊本地验收完成，发布pending，仍需本轮自身SHA检查/部署与HTTP；自动普通push授权持续。临时TS7和下载快照保留复验，无常驻服务，原工作流已恢复；未来恢复先核对PR最新head，不假定本次快照永久有效。
+本轮仅报告、计划、BACKLOG/STATE与维护入口；正文、82篇verified_on、示例和所有锁应无变化。H7-M003分诊已验收发布；自动普通push授权持续。临时TS7和下载快照保留复验，无常驻服务，原工作流已恢复；未来恢复先核对PR最新head，不假定本次快照永久有效。
+
+
+## 发布回执
+
+普通push提交1a9c75c8a8ade75965b66006c30c91833c6b9fe0，[Actions34895344674](https://github.com/patricklfdm/knowledge-base/actions/runs/34895344674)同SHA：Patch runtime compatibility 20:51:42 UTC、verify 20:53:27、Build 20:54:04、Deploy 20:54:16全部success。HTTP复查7入口与31 CSS/JS资源200，索引132包含指定路线，缺失路径404（/tmp/m003-http.log）。没有执行新依赖部署，也不将此次旧版本CI成功覆盖PR #2/#4失败。
+
+最终工程记录提交按实际最新HEAD自身SHA另行核对，不以本文已知SHA代替后续提交；下一项H7-M004。仅更新工程记录的本轮无新增UI验收，浏览器NOT_APPLICABLE；未测候选仍按上表处理。

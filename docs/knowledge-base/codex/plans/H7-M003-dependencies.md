@@ -17,7 +17,7 @@
 - 已完成：固定PR快照与119锁条目差异、20种依赖/Action逐项官方资料和使用点判断；TS7配置失败与#4工作流合约2失败均已隔离复现，原工作流恢复7测试通过。
 - 已完成：报告、维护入口、H7-M004/M005/M006后续验收与STATE。
 - 已完成：原版本kb:verify/npm test、49检查器/398 Node测试、133HTML/318产物和泄漏负例；源码/锁/核验日期无漂移。
-- 进行中：普通push与自身SHA发布回执。
+- 已完成：1a9c75c同SHA两条quality/Build/Deploy及HTTP7入口/31资源/索引/404；回执已保存。
 
 ## Decisions / Recovery
 
@@ -25,4 +25,4 @@ PR #2 head 4e7c5d08fb23fdcca2ba7aa915bb8262c6cbf0cc；#3 head38205cd74f897094aff
 
 ## Outcome
 
-H7-M003分诊本地验收完成，报告见reports/H7-m003-dependencies.md；发布pending，后续任务H7-M004。浏览器NOT_APPLICABLE：当前计划只改工程记录，不改站点UI或正文；HTTP与CI仍须本轮实证。
+H7-M003分诊本地验收完成，报告见reports/H7-m003-dependencies.md；已按1a9c75c验收发布，后续任务H7-M004；最终工程记录提交按实际最新HEAD另核对部署。浏览器NOT_APPLICABLE：当前计划只改工程记录，不改站点UI或正文；HTTP与CI仍须本轮实证。
