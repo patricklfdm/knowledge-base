@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-13",
-  "status_note": "状态以tasks为准；Java及SQL/通用系统主线H5-001完成，下一项H5-002；其他H5–H7与集中UI未完成。自动普通push授权持续。",
+  "status_note": "H5-001与H5-002主线完成；Python分三批交付并验收，按用户要求停止等确认后再进入H5-003。其他H5–H7和集中UI未完成，自动普通push授权持续。",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -627,16 +627,19 @@
       "id": "H5-002",
       "phase": "H5",
       "title": "Python 数据基础与工程化路线",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H3-GATE",
-        "H4-001A"
+        "H4-001A",
+        "H5-PYTHON-GATE"
       ],
       "acceptance": [
         "语法/文件/类型/测试/数据处理渐进",
         "版本和可运行例子匹配"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H5-python-completion.md"
+      ]
     },
     {
       "id": "H5-003",
@@ -826,7 +829,7 @@
       "id": "H5-002C",
       "phase": "H5",
       "title": "Python测试、迭代与可重跑汇总",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H5-002B"
       ],
@@ -843,7 +846,7 @@
       "id": "H5-PYTHON-GATE",
       "phase": "H5",
       "title": "Python P00–P08主线综合验收",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H5-002A",
         "H5-002B",
@@ -854,7 +857,9 @@
         "固定Python独立正常/边界/失败实证，完整门禁与同SHA发布",
         "浏览器延期，不把其他H5–H7或个人掌握标完成"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H5-python-completion.md"
+      ]
     }
   ]
 }

@@ -88,16 +88,17 @@ Wayvia/GSE 案例只在另获读取授权后补充。每篇记录 repo/commit/�
 
 ## H5已实现主线与剩余课程
 
-Java、SQL与通用系统的H5-001范围已综合验收，唯一状态台账仍为BACKLOG。逐篇证据见reports/H5-java-completion.md及reports/H5-sql-systems-completion.md。后续Python为H5-002，前后端与生产专题为H5-003；H6/H7另有任务，H5阶段整体尚未完成。
+Java、SQL与通用系统的H5-001范围已综合验收，唯一状态台账仍为BACKLOG。逐篇证据见reports/H5-java-completion.md及reports/H5-sql-systems-completion.md。Python H5-002也已完成（reports/H5-python-completion.md），下一领域为H5-003前后端与生产专题；H6/H7另有任务，H5阶段整体尚未完成。
 
 | 路线 | 已实现单元 | 正文入口与证据 |
 | --- | --- | --- |
 | SQL | F10基础两篇；S01–S08关系/事务/索引、连接/快照、查询分页/保存点/备份 | content/roadmaps/sql-foundations.md；examples/sql-trips，30组及6个demo入口 |
 | Java | J00–J11编译/值/输入，对象/集合/接口，文件/打包/进程，并发/取消/测量 | content/roadmaps/java-foundations.md；examples/java-basics，34组及12个入口 |
 | 通用系统 | Y01–Y06查找成本、进程、字节流、文件发布、日志/快照、缓存竞争 | content/roadmaps/systems-foundations.md；examples/systems-basics，16组及2个demo入口 |
+| Python | P00–P08运行环境/语法/容器，类型/JSON/CSV，测试/迭代/综合汇总 | content/roadmaps/python-foundations.md；examples/python-basics，29项Python测试、四demo与CLI |
 
 Java从F04基础衔接，系统的线程/共享内存/测量复用Java正文；SQL由F10递进到S08，再支撑系统恢复单元。每个单元带先修、来源、维护命令、失败观察和改变条件练习；不重复另一套语言侧线程教材。
 
 这是核心语言与系统存储实验主线，不是所有产品生态：Spring/JDBC/JPMS/GC调优、PostgreSQL服务、分布式共识、生产备份平台不在本次完成范围。未读取GSE/Wayvia。浏览器按用户安排等H5–H7全部规划内容完成后集中验收，H4/v1.0仍不能标完成。
 
-Python H5-002按plans/H5-PYTHON-completion.md连续三批实现P00–P08；P00–P02运行环境/语法函数/容器错误已交付，后续类型、文件与数据处理继续同计划。状态以BACKLOG为准。
+Python H5-002按plans/H5-PYTHON-completion.md连续三批完成P00–P08，提供完整先修、迁移练习和有界数据处理入口。第三方数值/分析库、分布式批流与AI留H6/H7；状态以BACKLOG为准。用户要求Python结束后先停等确认，不自动启动下一领域。
