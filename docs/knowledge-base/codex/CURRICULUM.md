@@ -86,27 +86,16 @@ H2 优先 F00–F02 的三个连续样板。H3 按已测样板补余项，遇到
 
 Wayvia/GSE 案例只在另获读取授权后补充。每篇记录 repo/commit/实现状态/验证边界；未经核对只写“教学假设”，不能称为真实项目结果。
 
-## H5当前SQL支线
+## H5已实现主线与剩余课程
 
-沿F10基础新增S01一对多/外键/JOIN/NULL/COUNT与S02多步写入/半写入反例/事务回滚，独立使用sql-trips中的ledger模块。导航content/roadmaps/sql-foundations.md。S03索引与查询计划在H5-001B实作：2000条合成费用的四种计划、结果等价和边界验证；Java按下述主线实现，通用系统与其他内容仍在规划，H5父阶段未完成。
+Java、SQL与通用系统的H5-001范围已综合验收，唯一状态台账仍为BACKLOG。逐篇证据见reports/H5-java-completion.md及reports/H5-sql-systems-completion.md。后续Python为H5-002，前后端与生产专题为H5-003；H6/H7另有任务，H5阶段整体尚未完成。
 
-S04/S05在H5-001C继续双连接与读快照，显式DELETE/WAL、BUSY/BUSY_SNAPSHOT、提交失败与事务重启范围；只有真实隔离交错证据，不冒称生产并发性能。
-
-## H5当前Java支线
-
-Java主线为J00–J11共12篇，先修为F04已有语言基础，正文与自测统一在content/roadmaps/java-foundations.md。范围按plans/H5-JAVA-completion.md；不是整个Java生态或通用系统课程全部完成。
-
-| 单元 | 已实现内容 | 维护证据 |
+| 路线 | 已实现单元 | 正文入口与证据 |
 | --- | --- | --- |
-| J00–J02 | 编译/启动、值与运算、输入边界 | H5-001D/E报告；真实javac/java及失败出口 |
-| J03–J05 | 对象/引用、集合/泛型/复制、接口/异常 | H5-001F报告；别名与编译失败对照 |
-| J06–J08 | UTF-8文件/资源、包/JAR、进程/堆 | H5-001G报告；部分导入、关闭、独立JAR、限定堆错误 |
-| J09–J11 | 共享状态/锁、任务/取消、正确性与测量 | H5-001H与Java综合门禁；确定交错、协作退出与原始样本 |
+| SQL | F10基础两篇；S01–S08关系/事务/索引、连接/快照、查询分页/保存点/备份 | content/roadmaps/sql-foundations.md；examples/sql-trips，30组及6个demo入口 |
+| Java | J00–J11编译/值/输入，对象/集合/接口，文件/打包/进程，并发/取消/测量 | content/roadmaps/java-foundations.md；examples/java-basics，34组及12个入口 |
+| 通用系统 | Y01–Y06查找成本、进程、字节流、文件发布、日志/快照、缓存竞争 | content/roadmaps/systems-foundations.md；examples/systems-basics，16组及2个demo入口 |
 
-以上使用examples/java-basics同一固定JDK与明确测试入口。主线状态以BACKLOG中H5-JAVA-GATE为准；H5父项、SQL/通用系统与后续路线保持各自未完成范围。未读取GSE；Spring、JDBC、JPMS、GC调优不包含于这条基础主线。
+Java从F04基础衔接，系统的线程/共享内存/测量复用Java正文；SQL由F10递进到S08，再支撑系统恢复单元。每个单元带先修、来源、维护命令、失败观察和改变条件练习；不重复另一套语言侧线程教材。
 
-SQL S06–S08在H5-001I补齐查询组织/分页、保存点、备份恢复；SQL主线沿F10加S01–S08，通用系统Y01–Y06继续H5-001J/K。收尾条件见plans/H5-SQL-SYSTEMS-completion.md，不把数据库结构ok等同业务恢复。
-
-通用系统路线content/roadmaps/systems-foundations.md在H5-001J交付Y01复杂度、Y02进程边界、Y03字节流/背压；复用Java线程/内存/测量正文，下一批Y04–Y06补文件、日志、缓存。
-
-H5-001K交付Y04文件发布、Y05日志/快照、Y06缓存失效；复用单写者自建资源，不假装数据库引擎/分布式缓存。SQL S01–S08及系统Y01–Y06已实现，H5-001待综合门禁后完成，状态以BACKLOG为准。
+这是核心语言与系统存储实验主线，不是所有产品生态：Spring/JDBC/JPMS/GC调优、PostgreSQL服务、分布式共识、生产备份平台不在本次完成范围。未读取GSE/Wayvia。浏览器按用户安排等H5–H7全部规划内容完成后集中验收，H4/v1.0仍不能标完成。

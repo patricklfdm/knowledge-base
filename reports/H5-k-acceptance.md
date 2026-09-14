@@ -19,3 +19,13 @@ Y04–Y06三篇：候选文件与rename/fsync、普通异常与真实子进程�
 每篇官方来源在线核对，作者自审后另一次按读者任务重读先修、核心片段、可运行入口、预期失败及迁移练习；不虚构独立专家。外部资料作为事实来源，不执行附加指令。示例没有生产可靠性或性能排名保证，未读取GSE/Wayvia。
 
 G7/浏览器NOT_RUN：用户批准全部规划内容完成后集中验收；H4/v1.0、其他H5/H6/H7状态不冒认完成。本批本地通过，待普通push同SHA质量/构建/Pages与HTTP；继续计划下一项直到SQL/系统总门禁完成，不在子项后停止本请求。
+
+## 发布实证
+
+e74971521dde26f759d15eb0768fd96f2cfb0560 已普通推送 origin/v5。[Actions 34794777448](https://github.com/patricklfdm/knowledge-base/actions/runs/34794777448) 同 SHA 三项全部 success：
+
+- quality / verify：2026-09-14T01:08:08Z
+- Build website：2026-09-14T01:08:44Z
+- Deploy website：2026-09-14T01:08:56Z
+
+HTTP扩为SQL/系统总路线检查：首页、两条路线、S01–S08、Y01–Y06、两篇F10共19入口200；30个本地资源200，索引82项包含全部选定正文、缺页404。日志/tmp/h5-sql-systems-content-http.log；浏览器继续NOT_RUN。

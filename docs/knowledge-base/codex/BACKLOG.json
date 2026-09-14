@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-13",
-  "status_note": "SQLite dual connections and snapshots verified; next bounded Java compile/run unit; UI deferred",
+  "status_note": "状态以tasks为准；Java及SQL/通用系统主线H5-001完成，下一项H5-002；其他H5–H7与集中UI未完成。自动普通push授权持续。",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -451,17 +451,21 @@
       "id": "H5-001",
       "phase": "H5",
       "title": "Java/系统与 SQL 深入单元",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H3-GATE",
-        "H4-001A"
+        "H4-001A",
+        "H5-JAVA-GATE",
+        "H5-SQL-SYSTEMS-GATE"
       ],
       "acceptance": [
         "按单元拆分计划，不一次写完",
         "有真实隔离例子和失败验证",
         "未授权不读取GSE"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H5-sql-systems-completion.md"
+      ]
     },
     {
       "id": "H5-001A",
@@ -751,7 +755,7 @@
       "id": "H5-001K",
       "phase": "H5",
       "title": "文件发布、日志快照与缓存一致性",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H5-001J"
       ],
@@ -768,7 +772,7 @@
       "id": "H5-SQL-SYSTEMS-GATE",
       "phase": "H5",
       "title": "SQL／通用系统主线综合验收",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H5-001I",
         "H5-001J",
@@ -779,7 +783,9 @@
         "真实隔离正常/边界/故障验证、故意错误能检出并恢复、全门禁及同SHA发布",
         "无生产/其他项目操作、浏览器延期及其他里程碑状态如实保留"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H5-sql-systems-completion.md"
+      ]
     }
   ]
 }

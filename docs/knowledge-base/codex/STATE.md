@@ -1,9 +1,11 @@
 # 当前检查点
 
-2026-09-13，patricklfdm/knowledge-base v5，基线0efd5e83fbb6318b164172a79585e2316bc0ba33。当前H5-001K本地门禁完成，[批次报告](../../../reports/H5-k-acceptance.md)；待本批普通push同SHA部署，然后直接继续[SQL／系统连续计划](plans/H5-SQL-SYSTEMS-completion.md)。用户要求整个剩余主线完成后才停，BACKLOG为唯一台账。
+2026-09-13，patricklfdm/knowledge-base既有v5。Java及剩余SQL／通用系统主线H5-001全部完成；[综合报告](../../../reports/H5-sql-systems-completion.md)、[完成计划](plans/H5-SQL-SYSTEMS-completion.md)。唯一任务状态见BACKLOG。
 
-56 notes、332 tests/45 suites、83 HTML/217产物，全部适用本地门禁PASS，故意错误检出2失败后恢复。日志/tmp/h5k-verify.log与/tmp/h5k-tests.log等见报告。
+本轮新增9篇教学正文：S06–S08与Y01–Y06。全站56 notes、332 tests/45 suites、83 HTML/217产物；完整本地门禁PASS。SQL30组、系统16组、8演示入口独立通过，SQL fail预期退出1；33官方来源200。Java34组保持。故意回滚/二分/日志/缓存错误均被检出，恢复后通过。
 
-固定Node24.21.0/npm11.19.0、SQLite3.53.4、命令级Microsoft21.0.11+10；根隔离/tmp/kb-h3b-path.txt，JDK/tmp/kb-h5d-java-home.txt，独立/tmp/kb-h5k-example-path.txt。临时失效按维护入口重建，不修改全局环境。恢复先读Git/Actions保护新改动，不重复初始化或推送。
+最终正文e74971521dde26f759d15eb0768fd96f2cfb0560已普通push，Actions34794777448同SHA质量/Build/Pages成功，19线上入口和30资源200、索引82含全路线、缺页404。当前收尾仅工程文档，继续核对自身HEAD发布；恢复先实际查看Git、origin/v5和同SHA Actions，不把历史SHA当最新部署。报告允许以父SHA加文档差异定位，不递归补写自身SHA。
 
-自动普通push既有origin/v5授权有效；浏览器等全部规划内容完成后统一进行。Java已完成，不代表H4/v1.0或其他H5–H7完成；不读其他项目、不强推、不承诺回合结束后离线继续。
+下一项：H5-002 Python数据基础与工程化路线；先读CURRICULUM及CONTENT_STANDARD，拆有限执行计划，按实际先修编写1–3篇/批。H5-003、H6/H7及H4/UI/v1.0仍未完成；浏览器等全部规划内容完成后统一验收。用户持续自动普通push origin/v5授权有效，不强推/改部署目标，不读其他项目。
+
+固定Node24.21.0/npm11.19.0、SQLite3.53.4、命令级MicrosoftJDK21.0.11+10；根隔离/tmp/kb-h3b-path.txt，JDK/tmp/kb-h5d-java-home.txt，独立总验收/tmp/kb-sql-systems-gate-path.txt；日志/tmp/h5k-verify.log、/tmp/h5k-tests.log、/tmp/h5-sql-systems-entries.log等见报告。临时失效按README重建，不改全局环境、不重复初始化。结束时保存恢复点，不承诺离线运行。
