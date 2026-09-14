@@ -43,3 +43,5 @@ tags:
 [Python基础与数据处理](roadmaps/python-foundations.md)已补齐P00–P08，从解释器走到可重跑汇总与错误验证。
 
 [前后端工程与运行可靠性路线](roadmaps/reliable-engineering.md)：React、后端边界与恢复的递进实验。
+
+[分布式基础与故障实验](roadmaps/distributed-foundations.md)：按故障位置解释重试、重复与恢复。
