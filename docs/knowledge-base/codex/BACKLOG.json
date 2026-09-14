@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-13",
-  "status_note": "H7-001按两批推进搜索与AI应用六篇；不接付费模型，自动普通push，浏览器留规划内容完成后。",
+  "status_note": "H5/H6有限主线及H7-001搜索与AI六篇完成，下一项H7-002内容维护；集中浏览器仍未验收，自动普通push持续。",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -700,18 +700,21 @@
       "id": "H7-001",
       "phase": "H7",
       "title": "搜索与 AI 应用专题",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H5-001",
         "H5-002",
-        "H5-003"
+        "H5-003",
+        "H7-SEARCH-GATE"
       ],
       "acceptance": [
         "公开/合成数据离线评估与规则基线",
         "不虚构真实项目指标",
         "付费模型调用另行授权"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H7-search-completion.md"
+      ]
     },
     {
       "id": "H7-002",
@@ -1070,7 +1073,7 @@
       "id": "H7-001B",
       "phase": "H7",
       "title": "检索上下文、输出契约与受限工作流",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H7-001A"
       ],
@@ -1087,7 +1090,7 @@
       "id": "H7-SEARCH-GATE",
       "phase": "H7",
       "title": "搜索与AI应用六篇综合验收",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H7-001A",
         "H7-001B"
@@ -1097,7 +1100,9 @@
         "合成数据/规则基线/真实离线指标，不冒称真实LLM能力或生产保证",
         "隔离故意错误恢复、全套适用门禁、同SHA发布和HTTP回执"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H7-search-completion.md"
+      ]
     }
   ]
 }

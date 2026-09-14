@@ -98,3 +98,9 @@ examples/distributed-lab无第三方依赖，Node24.21.0原生SQLite。npm ci/te
 examples/data-pipeline固定CPython3.13.0标准库，Node桥1项承载33项Python unittest，既有Python基础29项另列；根377 Node测试/45 suites。npm ci/test及batch/stream/reconcile已实现，两个以上新隔离副本和无pip venv通过，CI安装/manifest/lock/版本一致性与故意失败夹具有效。Node只作桥，未引入新第三方依赖。
 
 质量守恒/身份冲突、维度唯一/金额粒度、CURRENT发布失败/摘要损坏、迟到边界/同库检查点/exit41与42、补数重复/0分事件计数/额外分组、源/策略漂移和资源超限有实际断言。独立五类故意错误检出后恢复字节并通过；日志、环境与同SHA发布见reports/H6-data-completion.md。浏览器/生产流处理器/断电/性能均NOT_RUN，不把本地事务称跨系统保证。
+
+## 搜索与AI维护入口（H7-001）
+
+examples/search-lab固定CPython3.13.0标准库；31项Python unittest由1项Node桥进入根378 Node/45 suites，既有29+33项另列。npm ci/test、search/evaluate/context/workflow均已实现并在新隔离含空格路径、无pip venv验证。CI新包安装/manifest/lock与三个Python包版本一致性有故意失败夹具。
+
+独立指标分母、quote、预算、可见性和重复查询五类错误检出后恢复字节通过；合成集保留同义失败和无答案，指标样本/分母明确。输出形状/证据/上下文身份与受限adapter只验证本地协议，不是LLM质量、模型注入防御、费用或网络取消。9官方正文web核对，JSON Schema直接HTTP403保留，详见reports/H7-search-completion.md。浏览器仍NOT_RUN。
