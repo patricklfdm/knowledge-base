@@ -1,0 +1,14 @@
+{
+  "name": "kb-search-lab-example",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test python.test.mjs",
+    "search": "node python.mjs search",
+    "evaluate": "node python.mjs evaluate"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  }
+}

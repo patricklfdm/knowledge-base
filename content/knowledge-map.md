@@ -47,3 +47,5 @@ tags:
 [分布式基础与故障实验](roadmaps/distributed-foundations.md)：按故障位置解释重试、重复与恢复。
 
 [批流处理与数据质量路线](roadmaps/data-engineering-foundations.md)：把质量、分析粒度与完整发布放进同一个可重跑实验。
+
+[搜索与AI应用工程路线](roadmaps/search-ai-foundations.md)：用确定性检索和合成数据建立可验证基线。

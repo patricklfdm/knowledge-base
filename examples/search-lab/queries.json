@@ -1,0 +1,9 @@
+[
+  {"id":"dev-index","split":"dev","query":"SQL索引","relevant":["sql-index"]},
+  {"id":"dev-json","split":"dev","query":"JSON校验","relevant":["python-json"]},
+  {"id":"dev-http","split":"dev","query":"HTTP超时","relevant":["http-timeout"]},
+  {"id":"eval-rollback","split":"eval","query":"失败 回滚","relevant":["sql-transaction"]},
+  {"id":"eval-late","split":"eval","query":"水位线 迟到","relevant":["stream-late"]},
+  {"id":"eval-paraphrase","split":"eval","query":"撤销未落盘变更","relevant":["sql-transaction"]},
+  {"id":"eval-none","split":"eval","query":"火星天气","relevant":[]}
+]

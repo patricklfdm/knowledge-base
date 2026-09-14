@@ -36,6 +36,10 @@ function assertProtected(publish, checks) {
   assert.ok(commands.indexOf("npm ci --prefix examples/data-pipeline") < commands.indexOf("npm run kb:verify"))
   for (const file of ["package.json", "package-lock.json", ".python-version"])
     assert.ok(commands.some((c) => c?.startsWith("git diff --exit-code") && c.includes("examples/data-pipeline/" + file)))
+  assert.ok(commands.includes("npm ci --prefix examples/search-lab"))
+  assert.ok(commands.indexOf("npm ci --prefix examples/search-lab") < commands.indexOf("npm run kb:verify"))
+  for (const file of ["package.json", "package-lock.json", ".python-version"])
+    assert.ok(commands.some((c) => c?.startsWith("git diff --exit-code") && c.includes("examples/search-lab/" + file)))
   const pythonIndex = checks.jobs.verify.steps.findIndex((s) => s.uses === "actions/setup-python@v6")
   assert.ok(pythonIndex >= 0 && pythonIndex < commands.indexOf("npm run kb:verify"))
   const pythonOptions = checks.jobs.verify.steps[pythonIndex].with
@@ -155,6 +159,18 @@ test("部署显式依赖同提交可复用门禁，且破坏依赖会被检测",
     }
     assert.throws(() => assertProtected(publish, changed), mutation)
   }
+  for (const mutation of ["install", "late", "manifest", "lock", "version"]) {
+    const changed = structuredClone(checks)
+    const steps = changed.jobs.verify.steps
+    const index = steps.findIndex((s) => s.run === "npm ci --prefix examples/search-lab")
+    if (mutation === "install") steps.splice(index, 1)
+    if (mutation === "late") steps.push(...steps.splice(index, 1))
+    if (["manifest", "lock", "version"].includes(mutation)) {
+      const lock = steps.find((s) => s.run?.startsWith("git diff --exit-code"))
+      lock.run = lock.run.replace(" examples/search-lab/" + (mutation === "version" ? ".python-version" : mutation === "lock" ? "package-lock.json" : "package.json"), "")
+    }
+    assert.throws(() => assertProtected(publish, changed), mutation)
+  }
   const missingJava = structuredClone(checks)
   missingJava.jobs.verify.steps = missingJava.jobs.verify.steps.filter(
     (s) => !s.uses?.startsWith("actions/setup-java"),
@@ -199,7 +215,7 @@ test("教学示例单独登记，Quartz 类型范围不包含示例", () => {
   const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"))
   assert.equal(
     pkg.scripts["kb:examples"],
-    "npm test --prefix examples/foundations && npm test --prefix examples/typed-trips && npm test --prefix examples/web-forms && npm test --prefix examples/http-trips && npm test --prefix examples/trip-api && npm test --prefix examples/sql-trips && npm test --prefix examples/trip-app && npm test --prefix examples/java-basics && npm test --prefix examples/systems-basics && npm test --prefix examples/python-basics && npm test --prefix examples/reliable-app && npm test --prefix examples/distributed-lab && npm test --prefix examples/data-pipeline",
+    "npm test --prefix examples/foundations && npm test --prefix examples/typed-trips && npm test --prefix examples/web-forms && npm test --prefix examples/http-trips && npm test --prefix examples/trip-api && npm test --prefix examples/sql-trips && npm test --prefix examples/trip-app && npm test --prefix examples/java-basics && npm test --prefix examples/systems-basics && npm test --prefix examples/python-basics && npm test --prefix examples/reliable-app && npm test --prefix examples/distributed-lab && npm test --prefix examples/data-pipeline && npm test --prefix examples/search-lab",
   )
   assert.ok(pkg.scripts["kb:verify"].includes("npm run kb:examples"))
   const tsconfig = JSON.parse(fs.readFileSync("tsconfig.json", "utf8"))
@@ -217,8 +233,9 @@ test("教学示例单独登记，Quartz 类型范围不包含示例", () => {
 function assertPythonVersionsMatch(basics, pipeline) {
   assert.equal(pipeline.trim(), basics.trim(), "one CI runtime must match both examples")
 }
-test("数据工程与Python基础运行时一致，版本漂移必失败", () => {
+test("所有Python教学包运行时一致，版本漂移必失败", () => {
   const basics = fs.readFileSync("examples/python-basics/.python-version", "utf8")
   assertPythonVersionsMatch(basics, fs.readFileSync("examples/data-pipeline/.python-version", "utf8"))
+  assertPythonVersionsMatch(basics, fs.readFileSync("examples/search-lab/.python-version", "utf8"))
   assert.throws(() => assertPythonVersionsMatch(basics, "3.14.0"))
 })

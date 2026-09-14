@@ -1,0 +1,8 @@
+[
+  {"id":"sql-index","title":"SQL索引","text":"SQL索引缩小查询候选集合。索引需要额外写入和存储成本。","visibility":"public"},
+  {"id":"sql-transaction","title":"SQL事务","text":"事务把同库修改放进共同提交边界。失败回滚后不保留本次修改。","visibility":"public"},
+  {"id":"python-json","title":"Python JSON校验","text":"JSON语法解析后仍需业务校验。Python的bool需要与整数输入区分。","visibility":"public"},
+  {"id":"http-timeout","title":"HTTP超时","text":"HTTP超时可能留下未知结果。使用幂等键处理重复请求。","visibility":"public"},
+  {"id":"stream-late","title":"迟到与水位线","text":"事件时间窗口以水位线判断迟到。迟到事件可以进入后续补数。","visibility":"public"},
+  {"id":"internal-fixture","title":"仅供权限测试的合成资料","text":"内部合成标记示例，不是真实秘密。SQL索引 HTTP超时。","visibility":"internal"}
+]

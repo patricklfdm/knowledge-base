@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-13",
-  "status_note": "H5与H6两条有限主线完成，下一项H7-001搜索与AI应用；H7维护和集中UI未完成，自动普通push持续。",
+  "status_note": "H7-001按两批推进搜索与AI应用六篇；不接付费模型，自动普通push，浏览器留规划内容完成后。",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -700,7 +700,7 @@
       "id": "H7-001",
       "phase": "H7",
       "title": "搜索与 AI 应用专题",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H5-001",
         "H5-002",
@@ -1046,6 +1046,56 @@
       "evidence": [
         "reports/H6-data-completion.md"
       ]
+    },
+    {
+      "id": "H7-001A",
+      "phase": "H7",
+      "title": "分词、倒排与离线排序评估",
+      "status": "in_progress",
+      "depends_on": [
+        "H5-001",
+        "H5-002",
+        "H5-003"
+      ],
+      "acceptance": [
+        "每批三篇以内，先修/来源/迁移练习和可执行正常失败路径",
+        "合成数据/规则基线/真实离线指标，不冒称真实LLM能力或生产保证",
+        "隔离故意错误恢复、全套适用门禁、同SHA发布和HTTP回执"
+      ],
+      "evidence": [
+        "reports/H7-search-a.md"
+      ]
+    },
+    {
+      "id": "H7-001B",
+      "phase": "H7",
+      "title": "检索上下文、输出契约与受限工作流",
+      "status": "todo",
+      "depends_on": [
+        "H7-001A"
+      ],
+      "acceptance": [
+        "每批三篇以内，先修/来源/迁移练习和可执行正常失败路径",
+        "合成数据/规则基线/真实离线指标，不冒称真实LLM能力或生产保证",
+        "隔离故意错误恢复、全套适用门禁、同SHA发布和HTTP回执"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H7-SEARCH-GATE",
+      "phase": "H7",
+      "title": "搜索与AI应用六篇综合验收",
+      "status": "todo",
+      "depends_on": [
+        "H7-001A",
+        "H7-001B"
+      ],
+      "acceptance": [
+        "每批三篇以内，先修/来源/迁移练习和可执行正常失败路径",
+        "合成数据/规则基线/真实离线指标，不冒称真实LLM能力或生产保证",
+        "隔离故意错误恢复、全套适用门禁、同SHA发布和HTTP回执"
+      ],
+      "evidence": []
     }
   ]
 }

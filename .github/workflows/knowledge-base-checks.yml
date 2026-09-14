@@ -45,6 +45,8 @@ jobs:
         run: npm ci --prefix examples/distributed-lab
       - name: Install locked data pipeline bridge
         run: npm ci --prefix examples/data-pipeline
+      - name: Install locked search lab bridge
+        run: npm ci --prefix examples/search-lab
       - name: Install configured plugins
         run: npm run quartz -- plugin install --from-config
       - name: Verify content, negative fixtures, types, build and publication filters
@@ -52,4 +54,4 @@ jobs:
       - name: Run inherited regression tests
         run: npm test
       - name: Ensure installation did not change the npm lock
-        run: git diff --exit-code -- package.json package-lock.json examples/foundations/package.json examples/foundations/package-lock.json examples/typed-trips/package.json examples/typed-trips/package-lock.json examples/web-forms/package.json examples/web-forms/package-lock.json examples/http-trips/package.json examples/http-trips/package-lock.json examples/trip-api/package.json examples/trip-api/package-lock.json examples/sql-trips/package.json examples/sql-trips/package-lock.json examples/trip-app/package.json examples/trip-app/package-lock.json examples/java-basics/package.json examples/java-basics/package-lock.json examples/java-basics/.java-version examples/systems-basics/package.json examples/systems-basics/package-lock.json examples/python-basics/package.json examples/python-basics/package-lock.json examples/python-basics/.python-version examples/reliable-app/package.json examples/reliable-app/package-lock.json examples/distributed-lab/package.json examples/distributed-lab/package-lock.json examples/data-pipeline/package.json examples/data-pipeline/package-lock.json examples/data-pipeline/.python-version
+        run: git diff --exit-code -- package.json package-lock.json examples/foundations/package.json examples/foundations/package-lock.json examples/typed-trips/package.json examples/typed-trips/package-lock.json examples/web-forms/package.json examples/web-forms/package-lock.json examples/http-trips/package.json examples/http-trips/package-lock.json examples/trip-api/package.json examples/trip-api/package-lock.json examples/sql-trips/package.json examples/sql-trips/package-lock.json examples/trip-app/package.json examples/trip-app/package-lock.json examples/java-basics/package.json examples/java-basics/package-lock.json examples/java-basics/.java-version examples/systems-basics/package.json examples/systems-basics/package-lock.json examples/python-basics/package.json examples/python-basics/package-lock.json examples/python-basics/.python-version examples/reliable-app/package.json examples/reliable-app/package-lock.json examples/distributed-lab/package.json examples/distributed-lab/package-lock.json examples/data-pipeline/package.json examples/data-pipeline/package-lock.json examples/data-pipeline/.python-version examples/search-lab/package.json examples/search-lab/package-lock.json examples/search-lab/.python-version
