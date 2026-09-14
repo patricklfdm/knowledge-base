@@ -52,6 +52,10 @@ form.addEventListener("submit", (event) => {
   event.preventDefault()
   void controller.save(editing, destination.value, days.value)
 })
-get("cancel").addEventListener("click", reset)
+get("cancel").addEventListener("click", () => {
+  reset()
+  feedback.textContent = "已清空表单，可新增行程"
+  destination.focus()
+})
 get("refresh").addEventListener("click", () => void controller.load())
 void controller.load()

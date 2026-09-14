@@ -11,19 +11,19 @@ prerequisites: [f11a-persistent-trip-api]
 topics: [forms, fetch, integration]
 tags: [frontend]
 aliases: []
-tested_with: [Node.js 24.21.0, macOS arm64]
+tested_with: [Node.js 24.21.0, macOS arm64, Codex In-app Browser]
 verified_on: 2026-09-12
 ---
 
 难度 **L0** · 先修：[持久化创建与修改接口](../05-backend/persistent-trip-api.md)，路线已含F07表单与F08HTTP · 目标：解释页面从输入到保存、刷新列表的完整流程，并区分失败发生在哪一步。
 
-核验：页面模块语法、控制器与真实HTTP组合、受控失败分支已通过。真实DOM、键盘、辅助技术与浏览器阅读 **NOT_RUN：用户批准移至集中验收阶段**；下面的页面行为是已实现、待浏览器集中验证的行为。
+核验：页面模块语法、控制器与真实HTTP组合、受控失败分支已通过。2026-09-13补充Codex内置浏览器实测：键盘提交、创建/编辑/非法输入、取消清空与焦点、纯文本显示、忙碌恢复和新进程读回通过，见[交互验收报告](https://github.com/patricklfdm/knowledge-base/blob/v5/reports/H4-ui-acceptance.md)。真实屏幕阅读器、其他浏览器，以及下文“保存成功但刷新失败”的浏览器故障分支仍NOT_RUN；后者已有受控非浏览器测试。此次局部补验不刷新整篇verified_on。
 
 ## 页面和接口要从同一个地址开始
 
 [trip-app完整示例](https://github.com/patricklfdm/knowledge-base/tree/v5/examples/trip-app) 的server提供 `/` 页面和 `/api/trips` 接口。浏览器模块使用相对路径；来源（origin）由协议、主机和端口共同决定。[MDN同源策略](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Same-origin_policy) 解释了为什么另一个端口也算不同源。
 
-启动方式见示例README：用mktemp创建自己的教学目录，再将其中的新数据库路径传给npm start。终端打印本次URL；不要直接用file方式打开HTML，也不要以为Pages教材地址会运行这个Node服务。本轮没有打开浏览器。
+启动方式见示例README：用mktemp创建自己的教学目录，再将其中的新数据库路径传给npm start。终端打印本次URL；不要直接用file方式打开HTML，也不要以为Pages教材地址会运行这个Node服务。集中验收使用自建临时数据库与真实本机页面，不运行在Pages上。
 
 服务仅监听127.0.0.1随机端口，接受当前Host和匹配的Origin，无Origin的本机CLI可用；固定静态白名单不提供数据库或服务源码。这是教学范围限制，不是登录认证、完整CSRF防护或公网部署方案。
 
@@ -37,7 +37,7 @@ verified_on: 2026-09-12
 | web/client.js      | fetch、HTTP状态、JSON编码解码     |
 | server/input/store | 服务端重新校验并落库              |
 
-DOM适配层在submit时preventDefault，避免默认整页表单跳转。新增时editing为null，修改按钮将某条行程填回表单并保存其id；提交分别调用POST或PUT。取消修改只退出编辑状态，不删除数据库行。
+DOM适配层在submit时preventDefault，避免默认整页表单跳转。新增时editing为null，修改按钮将某条行程填回表单并保存其id；提交分别调用POST或PUT。取消修改清空表单、更新提示并把焦点移回目的地，不删除数据库行。
 
 控制器接收api和view两个对象：api负责请求，view负责busy/message/rows/saved这些显示动作。测试可以记录view调用而不创建浏览器，这证明控制流程，不证明真实页面布局或焦点表现。
 
@@ -45,7 +45,7 @@ DOM适配层在submit时preventDefault，避免默认整页表单跳转。新增
 
 提交先设置busy；一次任务未结束时，第二次load或save直接返回false。DOM适配禁用输入和按钮，finally恢复。这避免同一控制器同时发两次创建，但无法阻止另一窗口或其他客户端重复POST。
 
-字段校验失败时不发送请求、不清空表单；保存请求成功后才调用view.saved清除编辑状态。列表展示用textContent，不把目的地拼入innerHTML；输入中像HTML的文字也应作为文字显示。[MDN textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) 描述了这种文本赋值。实际渲染仍待浏览器验收。
+字段校验失败时不发送请求、不清空表单；保存请求成功后才调用view.saved清除编辑状态。列表展示用textContent，不把目的地拼入innerHTML；输入中像HTML的文字也应作为文字显示。[MDN textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent) 描述了这种文本赋值。浏览器实测目的地`<b>海湾</b>`原样显示为文字，列表没有生成b元素。
 
 ## 保存和刷新是两次不同请求
 

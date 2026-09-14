@@ -32,3 +32,11 @@ article pre[data-language]::before {
     box-sizing: border-box;
   }
 }
+
+// Card excerpts use subdued text; keep matched text legible in both themes.
+.search .card-description .highlight {
+  color: var(--dark);
+  background-color: transparent;
+  font-weight: 700;
+  text-decoration: underline;
+}

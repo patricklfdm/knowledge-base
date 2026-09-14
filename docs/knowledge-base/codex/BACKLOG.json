@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-13",
-  "status_note": "H5–H7既定内容与维护机制完成，下一项集中H4 UI；历史工具故障/搜索问题保留，自动普通push持续。",
+  "status_note": "H5–H7既定内容完成，集中UI三目标已实测并修复摘要/取消反馈；H4-GATE等待本批同SHA部署，自动普通push持续。",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -351,7 +351,7 @@
       "id": "H4-001",
       "phase": "H4",
       "title": "完善发布、附件、UI 和恢复门禁",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H3-GATE"
       ],
@@ -361,7 +361,10 @@
         "部署/回滚维护说明可执行",
         "复核中文搜索摘要的实体显示与命中片段截取（H2 阅读发现）"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H4-release-readiness.md",
+        "reports/H4-ui-acceptance.md"
+      ]
     },
     {
       "id": "H4-001A",
@@ -384,7 +387,7 @@
       "id": "H4-UI-SITE",
       "phase": "H4",
       "title": "规划内容完成后集中验收知识库浏览器体验",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H3-GATE",
         "H5-001",
@@ -402,14 +405,15 @@
       ],
       "evidence": [
         "reports/H4-ui-environment.md",
-        "reports/H5-sql-relations-transactions.md"
+        "reports/H5-sql-relations-transactions.md",
+        "reports/H4-ui-acceptance.md"
       ]
     },
     {
       "id": "H4-UI-APP",
       "phase": "H4",
       "title": "规划内容完成后集中验收教学应用交互",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H3-GATE",
         "H5-001",
@@ -427,14 +431,15 @@
       ],
       "evidence": [
         "reports/H4-ui-environment.md",
-        "reports/H5-sql-relations-transactions.md"
+        "reports/H5-sql-relations-transactions.md",
+        "reports/H4-ui-acceptance.md"
       ]
     },
     {
       "id": "H4-GATE",
       "phase": "H4",
       "title": "v1.0 本地验收与授权后发布验收",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H4-001",
         "H4-UI-SITE",
@@ -445,7 +450,9 @@
         "依据当前用户发布授权验证同 SHA 部署与线上冒烟",
         "未授权发布时保持此gate未完成但不阻塞独立后续本地任务"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H4-ui-acceptance.md"
+      ]
     },
     {
       "id": "H5-001",

@@ -31,6 +31,6 @@
 
 年龄只提醒，无法推断内容失效；同运行时版本也不证明兼容，Java不比构建号。观测证据路径存在不证明报告真实，需维护者核对正文。观测索引没有任务状态，旧链接替换时更新索引并把完整历史留报告/Git。无自动抓取、定时器、真实Issue、浏览器、模型或生产资源操作；现有82篇verified_on未改动。
 
-H7-002适用本地验收完成。当前内容提交尚待普通push及同SHA quality/build/deploy与HTTP回执，不能把基线SHA作为本批部署。自动普通push授权持续。H5–H7既定内容已完成，H4集中UI的内容依赖解除；UI仍未验收，历史工具失败和搜索实体/摘要问题保留，下一动作按刷新后的三目标计划继续。
+H7-002适用本地验收完成。内容提交934c8d4dfebaa34a52c5616692b0cc3d821d3dd1已普通push；Actions34812504440同SHA quality / verify、Build website、Deploy website分别于2026-09-14T06:15:30Z、06:16:13Z、06:16:27Z成功。HTTP6入口/30资源200、索引132含目标与缺页404通过，日志/tmp/maintenance-http.log。自动普通push授权持续。H5–H7既定内容已完成，H4集中UI的内容依赖解除；UI仍未验收，历史工具失败和搜索实体/摘要问题保留，下一动作按刷新后的三目标计划继续。
 
 恢复：核对实际Git/HEAD/origin/工作区，保护用户修改。隔离根/tmp/kb-h3b-path.txt、Java/tmp/kb-h5d-java-home.txt；临时失效按VALIDATION重建。先核对本次最终实际HEAD同SHA部署，不承诺离线持续执行。

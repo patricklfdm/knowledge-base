@@ -11,13 +11,13 @@ prerequisites: [f10b-sql-parameters-and-constraints]
 topics: [api, sqlite, integration]
 tags: [backend]
 aliases: []
-tested_with: [Node.js 24.21.0, SQLite 3.53.4, macOS arm64]
+tested_with: [Node.js 24.21.0, SQLite 3.53.4, macOS arm64, Codex In-app Browser]
 verified_on: 2026-09-12
 ---
 
 难度 **L0** · 先修：[参数绑定与约束](../06-data/sql-parameters-and-constraints.md) · 目标：接通创建、读取、修改与文件保存，用实际HTTP和新进程证明结果。
 
-核验：真实本机HTTP、SQLite、服务器进程重启通过；浏览器 **NOT_RUN：用户批准移至集中验收阶段**。教学应用源码已整合，真实页面交互尚未验收。
+核验：真实本机HTTP、SQLite、服务器进程重启通过。2026-09-13补充Codex内置浏览器集中验收：创建、编辑、非法输入、取消、忙碌恢复与新进程读回通过，见[交互验收报告](https://github.com/patricklfdm/knowledge-base/blob/v5/reports/H4-ui-acceptance.md)。这是F11基础应用的实测，其他浏览器、真实屏幕阅读器和生产环境未测；此次局部补验不刷新整篇verified_on。
 
 ## 把两个已经验证的边界连起来
 
