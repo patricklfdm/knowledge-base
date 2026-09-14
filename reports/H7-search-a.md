@@ -21,3 +21,5 @@ CPython3.13.0、Node24.21.0/npm11.19.0/macOS arm64。新包15项Python测试经1
 ## 发布检查点
 
 本地验收完成，待普通push本批后记录完整SHA quality / verify、Build website、Deploy website及HTTP入口/资源/索引/404；不把本地构建称部署。继续第二批R03–R05，父项保持进行中。
+
+发布回执：f28e94b94fa26eed7de52fbbad393e7fba189f48普通push，Actions34810326492同SHA quality / verify、Build website、Deploy website成功，2026-09-14T05:39:48Z/05:40:25Z/05:40:37Z完成；HTTP5入口/30资源200、索引128含三篇、404通过，日志/tmp/search-a-http.log。

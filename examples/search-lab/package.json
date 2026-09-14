@@ -6,7 +6,9 @@
   "scripts": {
     "test": "node --test python.test.mjs",
     "search": "node python.mjs search",
-    "evaluate": "node python.mjs evaluate"
+    "evaluate": "node python.mjs evaluate",
+    "context": "node python.mjs context",
+    "workflow": "node python.mjs workflow"
   },
   "engines": {
     "node": ">=24 <25"

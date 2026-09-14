@@ -1051,7 +1051,7 @@
       "id": "H7-001A",
       "phase": "H7",
       "title": "分词、倒排与离线排序评估",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H5-001",
         "H5-002",
@@ -1070,7 +1070,7 @@
       "id": "H7-001B",
       "phase": "H7",
       "title": "检索上下文、输出契约与受限工作流",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H7-001A"
       ],
@@ -1079,13 +1079,15 @@
         "合成数据/规则基线/真实离线指标，不冒称真实LLM能力或生产保证",
         "隔离故意错误恢复、全套适用门禁、同SHA发布和HTTP回执"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H7-search-b.md"
+      ]
     },
     {
       "id": "H7-SEARCH-GATE",
       "phase": "H7",
       "title": "搜索与AI应用六篇综合验收",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H7-001A",
         "H7-001B"

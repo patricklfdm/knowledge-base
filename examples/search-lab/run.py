@@ -26,7 +26,15 @@ def main():
         from evaluation import demo
         print(json.dumps(demo(), ensure_ascii=False, sort_keys=True))
         return 0
-    print("usage: run.py {test|search|evaluate}", file=sys.stderr)
+    if sys.argv[1:] == ["context"]:
+        from answers import demo
+        print(json.dumps(demo(), ensure_ascii=False, sort_keys=True))
+        return 0
+    if sys.argv[1:] == ["workflow"]:
+        from workflow import demo
+        print(json.dumps(demo(), ensure_ascii=False, sort_keys=True))
+        return 0
+    print("usage: run.py {test|search|evaluate|context|workflow}", file=sys.stderr)
     return 2
 
 

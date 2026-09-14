@@ -18,7 +18,7 @@ GATE：六篇第二遍读者任务阅读、全部官方来源在线核对、全�
 
 ## Progress
 
-- [ ] A实现、三篇与全套隔离门禁、普通push回执。
+- [x] A实现、三篇与全套隔离门禁、普通push回执。
 - [ ] B实现、三篇与全套隔离门禁、普通push回执。
 - [ ] 六篇综合复核、BACKLOG/STATE/报告与最终收尾发布。
 
@@ -29,3 +29,7 @@ GATE：六篇第二遍读者任务阅读、全部官方来源在线核对、全�
 恢复先核对实际Git/HEAD/origin和工作区保护修改；本计划及每批报告记实际证据，不重复初始化、不改全局环境、不强推、不承诺离线运行。当前A进行中，其余NOT_RUN。
 
 A本地完成：三篇/15 Python/94 notes/378 Node/129HTML，5有效来源和独立错误分母恢复通过，见reports/H7-search-a.md。待普通push同SHA；B实现草稿暂存/tmp/kb-search-create-b.py与-tests-b.py。
+
+A同SHA部署34810326492与HTTP通过；B三篇及31 Python测试初验完成，全套验证进行中。综合来源直连出现403，改为逐URL记录错误，不覆盖本轮web工具已实际读取的官方正文核对；独立例子复核继续。
+
+B本地完成：六篇总复核/31 Python/四入口/97 notes/378 Node/132HTML；五类独立故意错误恢复成功。9官方正文web核对，直接HTTP8个200/JSON Schema403保留，见reports/H7-search-b.md。待普通push B同SHA发布后关闭父项，下一项H7-002。
