@@ -12,6 +12,7 @@
     "fail": "node failure.mjs",
     "ledger": "node ledger-demo.mjs",
     "indexes": "node index-demo.mjs",
-    "connections": "node connections-demo.mjs"
+    "connections": "node connections-demo.mjs",
+    "advanced": "node advanced-demo.mjs"
   }
 }

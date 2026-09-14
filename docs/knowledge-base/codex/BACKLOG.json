@@ -711,6 +711,71 @@
         "以用户反馈更新教材"
       ],
       "evidence": []
+    },
+    {
+      "id": "H5-001I",
+      "phase": "H5",
+      "title": "SQL查询组织、保存点与备份恢复",
+      "status": "in_progress",
+      "depends_on": [
+        "H5-001C"
+      ],
+      "acceptance": [
+        "按H5-SQL-SYSTEMS-completion计划逐篇提供渐进解释、先修、官方来源及迁移练习",
+        "真实隔离正常/边界/故障验证、故意错误能检出并恢复、全门禁及同SHA发布",
+        "无生产/其他项目操作、浏览器延期及其他里程碑状态如实保留"
+      ],
+      "evidence": [
+        "reports/H5-i-acceptance.md"
+      ]
+    },
+    {
+      "id": "H5-001J",
+      "phase": "H5",
+      "title": "通用系统复杂度、进程与流式I/O",
+      "status": "todo",
+      "depends_on": [
+        "H5-001I",
+        "H5-JAVA-GATE"
+      ],
+      "acceptance": [
+        "按H5-SQL-SYSTEMS-completion计划逐篇提供渐进解释、先修、官方来源及迁移练习",
+        "真实隔离正常/边界/故障验证、故意错误能检出并恢复、全门禁及同SHA发布",
+        "无生产/其他项目操作、浏览器延期及其他里程碑状态如实保留"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H5-001K",
+      "phase": "H5",
+      "title": "文件发布、日志快照与缓存一致性",
+      "status": "todo",
+      "depends_on": [
+        "H5-001J"
+      ],
+      "acceptance": [
+        "按H5-SQL-SYSTEMS-completion计划逐篇提供渐进解释、先修、官方来源及迁移练习",
+        "真实隔离正常/边界/故障验证、故意错误能检出并恢复、全门禁及同SHA发布",
+        "无生产/其他项目操作、浏览器延期及其他里程碑状态如实保留"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H5-SQL-SYSTEMS-GATE",
+      "phase": "H5",
+      "title": "SQL／通用系统主线综合验收",
+      "status": "todo",
+      "depends_on": [
+        "H5-001I",
+        "H5-001J",
+        "H5-001K"
+      ],
+      "acceptance": [
+        "按H5-SQL-SYSTEMS-completion计划逐篇提供渐进解释、先修、官方来源及迁移练习",
+        "真实隔离正常/边界/故障验证、故意错误能检出并恢复、全门禁及同SHA发布",
+        "无生产/其他项目操作、浏览器延期及其他里程碑状态如实保留"
+      ],
+      "evidence": []
     }
   ]
 }

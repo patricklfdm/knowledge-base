@@ -6,7 +6,7 @@
 | ----------------------- | ---------------------------------------------------------------------------------------- |
 | npm run kb:check        | content 元数据、唯一 ID/URL/别名、先修 DAG、Markdown 内部链接/标题锚点、发布状态         |
 | npm run kb:test         | 临时正常/失败 fixtures；CLI 返回码；产物检测器；CI 依赖保护                              |
-| npm run kb:examples     | 明确运行 foundations 的13组、typed-trips 的4组、web-forms 的5组、http-trips 的8组、trip-api 的10组、sql-trips 的25组、trip-app 的13组与 java-basics 的34组示例测试                                  |
+| npm run kb:examples     | 明确运行 foundations 的13组、typed-trips 的4组、web-forms 的5组、http-trips 的8组、trip-api 的10组、sql-trips 的30组、trip-app 的13组与 java-basics 的34组示例测试                                  |
 | npm run kb:build        | `npm run quartz -- build`，现有 Quartz CLI，默认 content/public                          |
 | npm run kb:output       | 对 public 的实际 HTML DOM 检查本站 base path、链接、资源与锚点                           |
 | npm run kb:publish-test | 临时正文与产物，真实构建正面对照和 3 种禁发 marker，扫描全部产物，再注入泄漏证明检测有效 |
@@ -66,3 +66,5 @@ J03–J05追加7组对象/集合/接口异常测试，java-basics共22组，全�
 J06–J08新增6组实际文件/资源/JAR/子进程测试，Java显式包内28组。夹具核对同JDK的jar版本；受控32 MiB堆实验关闭dump，不对宿主进程施压。
 
 J09–J11新增6组确定交错/锁、Future异常/超时/协作取消、测量正确性与样本结构测试，Java显式34组。没有依赖更新；不做速度阈值或浏览器判定。
+
+S06–S08追加5组查询/保存点/备份恢复测试，SQL包内30组；backup使用Node固定版本原生API，正式恢复另起进程读取，不拿结构ok代替业务结果。

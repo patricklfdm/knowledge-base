@@ -47,3 +47,9 @@ EQP观察仅针对实测SQLite3.53.4，不由应用逻辑解析，不承诺格�
 connections.test.mjs新增7组，包内合计25组。withPair只建自身临时文件、显式设置日志模式与两个连接busy_timeout=0；连接全部打开后才开始实验。无sleep/并行线程/HTTP/浏览器操作；是真实锁和快照的同步交错，不是并发吞吐基准。Node24.21.0/SQLite3.53.4错误对象实测errcode用于区别5与517，不依赖同为database is locked的文字。预期错误助手只接受准确代码，其他错误重新抛出。
 
 夹具仅接同步教学回调，禁止在其中await；异常后关闭两个连接并清理自身目录，包括日志/WAL/SHM，不处理用户库。没有证明生产等待上限、跨进程容量、断电/磁盘恢复或WAL备份正确性。
+
+## S06–S08 查询、保存点与备份
+
+固定Node24.21.0/内置SQLite3.53.4，在本目录运行`npm ci`、`npm run advanced`、`npm test`；根目录可添加`--prefix examples/sql-trips`。advanced.test.mjs新增5组，包内合计30组，既有根/CI入口自动覆盖。真实CTE/窗口、同值游标与插入后OFFSET重复、保存点局部回滚/外层撤销、在线backup与新进程恢复均有断言。活跃WAL仅复制主文件即使integrity_check为ok仍缺数据，只有维护的临时副本用于反例。备份目标不接收用户路径。
+
+故意失败只在独立副本：删去ROLLBACK TO expense_batch，原测试须检出多出的200；恢复源码重跑。所有数据库/目标位于新目录，连接关闭后清理。未测机器断电、持续写入备份时限或其他数据库产品。
