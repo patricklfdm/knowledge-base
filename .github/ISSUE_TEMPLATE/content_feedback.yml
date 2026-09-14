@@ -1,0 +1,44 @@
+name: 教材内容反馈
+description: 报告例子无法复现、解释不清、来源变化或路线问题。
+title: "[内容反馈] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢提供可核对的问题。提交内容会公开；请只提供脱敏的最小例子，不粘贴凭证、个人资料、生产数据或完整私有日志。
+        不确定是不是错误也可以反馈。维护者会先复现，再决定修正、补充解释或建立后续任务。
+  - type: input
+    id: article
+    attributes:
+      label: 文章网址或稳定 ID
+      description: 指出具体文章和段落；路线问题可填路线网址。
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 问题类型
+      options:
+        - 示例或命令无法复现
+        - 解释、先修或练习不清楚
+        - 来源失效或版本变化
+        - 事实错误或其他内容问题
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: 实际观察与预期
+      description: 写出做了什么、实际发生什么、依据哪一段期待什么；保留最小错误信息。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 最小复现与环境（如适用）
+      description: 命令、最小输入、运行时版本、系统；无法执行时直接写明。解释问题不必编造代码。
+  - type: textarea
+    id: references
+    attributes:
+      label: 补充依据或建议（可选）
+      description: 官方文档、相关段落或你希望补充的说明。无需先给出解决方案。

@@ -27,6 +27,7 @@
 | [FIRST_TASK](FIRST_TASK.md) | 首次接手的实作清单 |
 | [DECISIONS](DECISIONS.md) | 已接受决策与待实证决策 |
 | [SOURCES](SOURCES.md) | 基线和外部依据 |
+| [MAINTENANCE](../MAINTENANCE.md) | 到期、版本、来源与读者反馈的复核流程及只读命令 |
 
 ## 冲突与事实来源
 

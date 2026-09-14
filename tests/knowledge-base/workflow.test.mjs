@@ -4,6 +4,42 @@ import fs from "node:fs"
 import { parse } from "yaml"
 
 const read = (file) => parse(fs.readFileSync(file, "utf8"))
+
+test("只读内容复核是部署门禁必经命令，遗漏或绕过会失败", () => {
+  const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"))
+  const verify = (scripts) => {
+    const commands = scripts["kb:verify"].split(" && ")
+    assert.equal(scripts["kb:review"], "node scripts/knowledge-base/review.mjs")
+    assert.equal(commands.filter((c) => c === "npm run kb:review").length, 1)
+    assert.ok(commands.indexOf("npm run kb:review") > commands.indexOf("npm run kb:check"))
+    assert.ok(commands.indexOf("npm run kb:review") < commands.indexOf("npm run kb:build"))
+  }
+  verify(pkg.scripts)
+  for (const replacement of ["", "npm run kb:review || true && "]) {
+    const changed = structuredClone(pkg.scripts)
+    changed["kb:verify"] = changed["kb:verify"].replace("npm run kb:review && ", replacement)
+    assert.throws(() => verify(changed))
+  }
+})
+
+test("教材反馈表单包含可定位、可复现的必填项，删除观察字段会被检出", () => {
+  const form = read(".github/ISSUE_TEMPLATE/content_feedback.yml")
+  const validate = (value) => {
+    assert.ok(value.name && value.description && Array.isArray(value.body))
+    const fields = value.body.filter((f) => f.type !== "markdown")
+    assert.equal(new Set(fields.map((f) => f.id)).size, fields.length)
+    for (const id of ["article", "category", "observation"]) {
+      const field = fields.find((f) => f.id === id)
+      assert.equal(field?.validations?.required, true)
+      assert.ok(field.attributes.label)
+    }
+    assert.ok(fields.some((f) => f.id === "reproduction"))
+  }
+  validate(form)
+  const broken = structuredClone(form)
+  broken.body = broken.body.filter((f) => f.id !== "observation")
+  assert.throws(() => validate(broken))
+})
 function assertProtected(publish, checks) {
   assert.equal(publish.jobs.quality.uses, "./.github/workflows/knowledge-base-checks.yml")
   assert.equal(publish.jobs.build.needs, "quality")

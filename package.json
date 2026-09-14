@@ -25,9 +25,10 @@
     "kb:build": "npm run quartz -- build",
     "kb:output": "node scripts/knowledge-base/check-output.mjs",
     "kb:publish-test": "node scripts/knowledge-base/verify-publish.mjs",
-    "kb:verify": "npm run kb:check && npm run kb:test && npm run kb:examples && npm run kb:recovery-test && tsc --noEmit && npm run kb:build && npm run kb:output && npm run kb:publish-test",
+    "kb:verify": "npm run kb:check && npm run kb:review && npm run kb:test && npm run kb:examples && npm run kb:recovery-test && tsc --noEmit && npm run kb:build && npm run kb:output && npm run kb:publish-test",
     "kb:examples": "npm test --prefix examples/foundations && npm test --prefix examples/typed-trips && npm test --prefix examples/web-forms && npm test --prefix examples/http-trips && npm test --prefix examples/trip-api && npm test --prefix examples/sql-trips && npm test --prefix examples/trip-app && npm test --prefix examples/java-basics && npm test --prefix examples/systems-basics && npm test --prefix examples/python-basics && npm test --prefix examples/reliable-app && npm test --prefix examples/distributed-lab && npm test --prefix examples/data-pipeline && npm test --prefix examples/search-lab",
-    "kb:recovery-test": "node scripts/knowledge-base/rehearse-revert.mjs"
+    "kb:recovery-test": "node scripts/knowledge-base/rehearse-revert.mjs",
+    "kb:review": "node scripts/knowledge-base/review.mjs"
   },
   "engines": {
     "npm": ">=10.9.2",

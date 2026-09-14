@@ -5,6 +5,7 @@
 | 命令                    | 实际工作                                                                                 |
 | ----------------------- | ---------------------------------------------------------------------------------------- |
 | npm run kb:check        | content 元数据、唯一 ID/URL/别名、先修 DAG、Markdown 内部链接/标题锚点、发布状态         |
+| npm run kb:review       | 只读离线年龄/固定运行时提醒、Markdown外链清单、观测证据与BACKLOG引用；不刷新核验日期      |
 | npm run kb:test         | 临时正常/失败 fixtures；CLI 返回码；产物检测器；CI 依赖保护                              |
 | npm run kb:examples     | 明确运行 foundations 的13组、typed-trips 的4组、web-forms 的5组、http-trips 的8组、trip-api 的10组、sql-trips 的30组、trip-app 的13组、java-basics 的34组和 systems-basics 的16组示例测试                                  |
 | npm run kb:build        | `npm run quartz -- build`，现有 Quartz CLI，默认 content/public                          |
@@ -104,3 +105,9 @@ examples/data-pipeline固定CPython3.13.0标准库，Node桥1项承载33项Pytho
 examples/search-lab固定CPython3.13.0标准库；31项Python unittest由1项Node桥进入根378 Node/45 suites，既有29+33项另列。npm ci/test、search/evaluate/context/workflow均已实现并在新隔离含空格路径、无pip venv验证。CI新包安装/manifest/lock与三个Python包版本一致性有故意失败夹具。
 
 独立指标分母、quote、预算、可见性和重复查询五类错误检出后恢复字节通过；合成集保留同义失败和无答案，指标样本/分母明确。输出形状/证据/上下文身份与受限adapter只验证本地协议，不是LLM质量、模型注入防御、费用或网络取消。9官方正文web核对，JSON Schema直接HTTP403保留，详见reports/H7-search-completion.md。浏览器仍NOT_RUN。
+
+## 内容维护入口（H7-002）
+
+kb:review已实现并进入kb:verify：默认离线只读，以UTC当天或显式--as-of计算180日提醒，比较固定Node/Python/Java三段版本，整理Markdown外链和有证据的观测。候选退出0；无效元数据/未来日期/非法观测/证据/运行时不一致退出1。--json输出完整清单，无任何自动回写。用法与人工分诊、更新核验日期的边界见[MAINTENANCE](MAINTENANCE.md)。
+
+新增9项复核与2项入口/反馈表单测试；总46检查器、389 Node/45 suites。独立年龄边界和只读性故意错误被原断言检出，恢复通过；全套构建133HTML/317产物。98笔记（82教学日期未改），日志与发布见reports/H7-maintenance.md。242外链是离线清单，118条环境未比较，不冒充在线链接或全面兼容验收。

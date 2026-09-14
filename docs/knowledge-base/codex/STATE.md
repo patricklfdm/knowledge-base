@@ -1,9 +1,9 @@
 # 当前检查点
 
-2026-09-13，patricklfdm/knowledge-base既有v5。H7-001搜索与AI应用R00–R05两批完成，见[综合报告](../../../reports/H7-search-completion.md)、[执行计划](plans/H7-SEARCH-completion.md)。BACKLOG唯一台账；下一项H7-002内容复核与维护机制，先修H4-001A已完成。
+2026-09-13，patricklfdm/knowledge-base既有v5。H7-002内容复核与维护已完成本地验收，见[报告](../../../reports/H7-maintenance.md)、[执行计划](plans/H7-MAINTENANCE.md)。BACKLOG唯一任务台账；H5–H7既定内容全部完成，下一项H4-UI-SITE/H4-UI-APP集中三目标验收，历史工具故障和搜索实体/摘要问题保留。
 
-97 notes（15导航/82教学）、378 Node/45 suites、新Python31项及既有29+33项，132HTML/315产物；四入口/五类独立故意错误恢复通过。9官方正文web核对，JSON Schema直接HTTP403保留为单独失败，不影响已读取的内容核验。正文最终ff6d0c099a93ff1c99108c043466cb0badcda170普通push，Actions34810734369同SHA质量/Build/Pages成功；8入口/30资源200、索引131/404通过。收尾只工程文档，push后检查最终实际HEAD自身SHA，不能把正文SHA当最新部署。
+98 notes（16导航/82教学）、46检查器/389 Node测试、Python29+33+31、133HTML/317产物；全套隔离kb:verify/npm test、年龄边界与只读性独立故意错误及恢复通过。kb:review只读离线：242外链、1历史观测、0候选、118条环境未比较；不刷新verified_on、不假造用户反馈。现有82篇核验日期未改。
 
-自动普通push origin/v5持续，浏览器等H5–H7规划内容完成后集中验收；H7-002/H4 UI/v1.0未完成。真实LLM/付费/生产搜索未运行，不把合成检索、抽取引用和受控adapter测试称模型能力。本轮按两批连续完成有限主线，没有逐篇暂停。
+本批内容尚待普通push及其自身SHA质量/Build/Pages和HTTP，不能引用基线66eb047的部署替代。本批验收后继续自动普通push；按用户“内容全部完成后统一浏览器测试”进入集中阶段，UI/v1.0未通过，不扩张目标或重复初始化。
 
-固定Node24.21.0/npm11.19.0、Java21.0.11+10/Python3.13.0命令级选择保持。隔离根/tmp/kb-h3b-path.txt，新例子/tmp/kb-search-final-example.txt；日志/tmp/search-b-verify.log/-tests.log及/tmp/search-final-audit.json等见报告。临时失效按README重建，恢复核对Git/工作区/HEAD/origin及同SHA Actions，保护修改、不初始化、不改全局设置、不读其他项目、不强推，不承诺离线运行。
+固定Node24.21.0/npm11.19.0、Java21.0.11+10/Python3.13.0命令级选择保持。隔离根/tmp/kb-h3b-path.txt；日志/tmp/maintenance-*.log、/tmp/maintenance-inventory.json。恢复先核对Git/HEAD/origin/工作区与同SHA Actions，保护修改、不强推、不改全局配置、不碰其他项目；临时失效按VALIDATION重建。浏览器见UI_ACCEPTANCE与plans/H4-UI-concentrated.md，不承诺离线持续执行。

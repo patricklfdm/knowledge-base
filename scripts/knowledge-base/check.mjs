@@ -27,7 +27,7 @@ export function filesIn(root) {
 
 export function checkContent(
   root,
-  { ignore = ["private", "templates", ".obsidian", ".trash"], strategy = "relative" } = {},
+  { ignore = ["private", "templates", ".obsidian", ".trash"], strategy = "relative", inventory = false } = {},
 ) {
   const errors = []
   const fail = (file, code, message) => errors.push(`${file}: ${code}: ${message}`)
@@ -246,7 +246,7 @@ export function checkContent(
     done.add(n)
   }
   notes.forEach(walk)
-  return { errors, count: notes.length }
+  return { errors, count: notes.length, ...(inventory ? { notes } : {}) }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {

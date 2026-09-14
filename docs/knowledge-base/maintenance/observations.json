@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "observations": [
+    {
+      "id": "json-schema-object-http-403",
+      "kind": "external-link",
+      "observed_on": "2026-09-13",
+      "note_ids": ["r04-structured-output-evidence"],
+      "url": "https://json-schema.org/understanding-json-schema/reference/object",
+      "summary": "H7-001来源核对时直接HTTP请求403；同批web工具已读取官方正文核对additionalProperties等解释。保留传输失败，不据此判定教材失效。本条是历史回执，不代表再次请求或今天的站点健康。",
+      "evidence": ["reports/H7-search-b.md", "reports/H7-search-completion.md"],
+      "backlog_id": "H7-001"
+    }
+  ]
+}

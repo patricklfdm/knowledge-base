@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_on": "2026-09-13",
-  "status_note": "H5/H6有限主线及H7-001搜索与AI六篇完成，下一项H7-002内容维护；集中浏览器仍未验收，自动普通push持续。",
+  "status_note": "H5–H7既定内容与维护机制完成，下一项集中H4 UI；历史工具故障/搜索问题保留，自动普通push持续。",
   "allowed_statuses": [
     "todo",
     "in_progress",
@@ -384,7 +384,7 @@
       "id": "H4-UI-SITE",
       "phase": "H4",
       "title": "规划内容完成后集中验收知识库浏览器体验",
-      "status": "blocked",
+      "status": "todo",
       "depends_on": [
         "H3-GATE",
         "H5-001",
@@ -398,7 +398,7 @@
       "acceptance": [
         "规划内容完成后统一验收，先刷新最多3个具体目标",
         "桌面/窄屏导航、阅读、复制、搜索与键盘；保留既有搜索实体/摘要问题",
-        "本阶段 NOT_RUN：用户批准移至集中验收阶段；完成前不宣称 v1.0 通过"
+        "内容依赖已满足，按集中阶段执行；未完成前不宣称 v1.0 通过"
       ],
       "evidence": [
         "reports/H4-ui-environment.md",
@@ -409,7 +409,7 @@
       "id": "H4-UI-APP",
       "phase": "H4",
       "title": "规划内容完成后集中验收教学应用交互",
-      "status": "blocked",
+      "status": "todo",
       "depends_on": [
         "H3-GATE",
         "H5-001",
@@ -423,7 +423,7 @@
       "acceptance": [
         "规划内容完成后按集中清单验证真实表单提交、非法输入、键盘与反馈",
         "不得以 Node 业务测试或静态 HTML 检查冒充真实交互",
-        "本阶段 NOT_RUN：用户批准移至集中验收阶段"
+        "内容依赖已满足；实际UI证据不足时仍保留NOT_RUN"
       ],
       "evidence": [
         "reports/H4-ui-environment.md",
@@ -720,7 +720,7 @@
       "id": "H7-002",
       "phase": "H7",
       "title": "建立内容复核与维护机制",
-      "status": "todo",
+      "status": "done",
       "depends_on": [
         "H4-001A"
       ],
@@ -729,7 +729,9 @@
         "不会自动伪造verified_on",
         "以用户反馈更新教材"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H7-maintenance.md"
+      ]
     },
     {
       "id": "H5-001I",
