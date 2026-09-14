@@ -1118,7 +1118,7 @@
       "id": "H7-M001",
       "phase": "H7",
       "title": "首轮勘误与固定运行时版本复核",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H7-002",
         "H4-GATE"

@@ -1,10 +1,10 @@
 # 当前检查点
 
-2026-09-14，patricklfdm/knowledge-base既有v5。H0–H7既定课程任务已完成；用户要求进入勘误、版本复核，当前[H7-M001计划](plans/H7-M001-review.md)与[回执](../../../reports/H7-m001-review.md)正在发布验收。BACKLOG为唯一任务状态台账。
+2026-09-14，patricklfdm/knowledge-base既有v5。H0–H7既定课程任务已完成；用户要求进入勘误、版本复核，当前[H7-M001计划](plans/H7-M001-review.md)与[回执](../../../reports/H7-m001-review.md)已完成首轮复核及修复验收。BACKLOG为唯一任务状态台账。
 
 基线1f80ef5953bf5ffc32c0fb285987986f2e6adbc4。F00/P00/J00补充固定复现版本与上游补丁/支持政策的区别；JSON Schema本次GET200与正文核验另存观测，原403不覆盖。全库扫描没有到期/固定版本漂移候选，但人工已发现Python/Java后续补丁，不能把零候选解释为全部版本最新。
 
-隔离kb:verify/npm test通过：98笔记（16导航/82教学）、395 Node/45 suites，Python29+33+31、133HTML/318产物、失败夹具/过滤/恢复通过。82篇verified_on保持，源码/运行时/锁/CI未改；尚未验收新补丁。f394e7f同SHA Actions34888850153质量/构建/部署与HTTP已通过；390三页抽查发现P00命令/双下划线显示错误，已追加行内代码修正，仍需修复SHA的发布复验。
+隔离kb:verify/npm test通过：98笔记（16导航/82教学）、395 Node/45 suites，Python29+33+31、133HTML/318产物、失败夹具/过滤/恢复通过。82篇verified_on保持，示例源码/运行时/锁/CI未改；尚未验收新补丁。f394e7f同SHA Actions34888850153通过；390三页抽查发现P00命令/双下划线错误后，a074bb8e7e740fc69db476696ab677d25dfb8ce2修复、Actions34889452575同SHA质量/构建/部署与HTTP通过，线上reload后字面量正确。最终工程记录提交需按Git最新HEAD自身SHA核对，不用历史成功替代。
 
 下一项引用H7-M002（Python/Java补丁兼容性）和H7-M003（现有Dependabot PR分诊）。当前open接口仅有PR #2/#3、无普通反馈Issue；没有发送评论、合并或关闭PR。
 

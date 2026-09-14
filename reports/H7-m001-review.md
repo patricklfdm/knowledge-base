@@ -18,7 +18,7 @@
 | P00 `p00-python-runtime-and-modules` | [3.13.0发布页](https://www.python.org/downloads/release/python-3130/)标明被3.13.15取代；[3.13.15](https://www.python.org/downloads/release/python-31315/)日期2026-08-05；[3.13 venv文档](https://docs.python.org/3.13/library/venv.html)页头已是3.13.15 | 补充固定复现环境与持续更新的系列文档区别。旧补丁存在并不使本例语法/模块解释自动失效，但不能成为长期安装建议。新补丁兼容性列H7-M002。 |
 | J00 `j00-java-compile-and-run` | [Microsoft发布说明](https://learn.microsoft.com/en-us/java/openjdk/release-notes)列21.0.12与21.0.12.1；[支持政策](https://learn.microsoft.com/en-us/java/openjdk/support)说明季度更新 | 补充21系列支持不能代替具体补丁更新；实际21.0.11+10证据保留。后续四段版本号须检查现有三段解析和java/javac/jar守卫，H7-M002负责实际验证。 |
 
-不把“有新补丁”直接断言为已确认的应用漏洞；本轮没有进行完整CVE/依赖安全审计、安装新解释器/JDK或修改用户全局设置。运行时版本、锁文件、CI配置和源码均保持。
+不把“有新补丁”直接断言为已确认的应用漏洞；本轮没有进行完整CVE/依赖安全审计、安装新解释器/JDK或修改用户全局设置。运行时版本、锁文件、CI配置和示例源码均保持。
 
 ## JSON Schema历史异常复查
 
@@ -42,7 +42,11 @@
 
 隔离`npm run kb:verify`与`npm test`均退出0：98笔记、46检查器测试、395 Node测试/45 suites、Python三包29/33/31项分别通过，构建133 HTML/318产物；公开过滤正例、三种禁发marker排除及注入泄漏检出通过。已有示例正常/边界/故意失败、真实临时Git回退与恢复均通过。本批不改检查器/代码，因此不新增镜像文案测试或重复故障注入。日志/tmp/m001-verify.log与/tmp/m001-tests.log；验证脚本/tmp/kb-m001-verify.py逐字比较受控源、确认锁无漂移与82篇核验日期不变。复用先前干净安装且锁未变的隔离根（/tmp/kb-h3b-path.txt），受控同步当前源码；不在用户项目安装新依赖。命令级Node24.21.0/npm11.19.0，KB_PYTHON=/opt/homebrew/bin/python3（CPython3.13.0），KB_JAVA_HOME由/tmp/kb-h5d-java-home.txt读取（Microsoft21.0.11+10）。
 
-第一批f394e7fb25d69d845a2bdd540d92d39fd5c6bc0d已普通push，[Actions34888850153](https://github.com/patricklfdm/knowledge-base/actions/runs/34888850153)同SHA quality/build/deploy均success（19:47:59/19:48:36/19:48:51 UTC）。HTTP7入口/31资源200、索引132含修改页、404通过，日志/tmp/m001-http.log。浏览器对三篇版本说明实读，390视口三页documentWidth均390；其中P00符号问题单独记为FAIL，不因部署通过而隐去。P00修复待后续自身SHA部署复验。新版本、真实屏幕阅读器、其他浏览器/教学变体及生产操作NOT_RUN。恢复时先查Git/本计划与实际Actions，再核对自身SHA。
+第一批f394e7fb25d69d845a2bdd540d92d39fd5c6bc0d已普通push，[Actions34888850153](https://github.com/patricklfdm/knowledge-base/actions/runs/34888850153)同SHA quality/build/deploy均success（19:47:59/19:48:36/19:48:51 UTC）。HTTP7入口/31资源200、索引132含修改页、404通过，日志/tmp/m001-http.log。浏览器对三篇版本说明实读，390视口三页documentWidth均390；其中P00符号问题单独记为FAIL，不因部署通过而隐去。修复a074bb8e7e740fc69db476696ab677d25dfb8ce2已普通push，[Actions34889452575](https://github.com/patricklfdm/knowledge-base/actions/runs/34889452575)同SHA quality/build/deploy均success（19:54:32/19:55:12/19:55:26 UTC）。HTTP7入口/31资源/索引132/404再次通过，日志/tmp/m001-fix-http.log。
+
+线上浏览器首次返回P00仍显示旧内容；显式reload后，三个字面量均完整存在于正文code节点，实际段落文本正确，390视口/documentWidth均390。记录这一旧页面状态，不把首次旧显示算成通过，也不据此扩展为浏览器缓存机制调查。浏览器仅做这三篇内容发布抽查，未操作Python/Java安装界面；P00原UI延期说明作为历史验收范围保留，不能把本次静态阅读等同安装步骤已测。自身标签已关闭，临时视口已reset；未生成持久截图文件。
+
+修复后review结果为98笔记、82教学、248唯一外链、120未比较条目、0自动候选。新增来源与版本/作者勘误观测均关联真实报告或待办；0自动候选与H7-M002/M003尚待执行并不矛盾。最终工程记录提交只改变维护回执/台账，恢复时仍需按Git最新HEAD自身Actions核对；上述两个SHA的成功不替代未知HEAD。新版本、真实屏幕阅读器、其他浏览器/教学变体及生产操作NOT_RUN。恢复时先查Git/本计划与实际Actions，再核对自身SHA。
 
 ## 后续
 

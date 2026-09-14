@@ -55,6 +55,19 @@
         "reports/H7-m001-review.md"
       ],
       "backlog_id": "H7-M002"
+    },
+    {
+      "id": "python-inline-literals-20260914",
+      "kind": "feedback",
+      "observed_on": "2026-09-14",
+      "note_ids": [
+        "p00-python-runtime-and-modules"
+      ],
+      "summary": "作者线上抽查发现未保护的--version及__name__/__main__被智能标点/强调语法改变显示；非读者Issue。改为行内代码，旧构建断言失败、修复构建与线上reload后字面量正确。",
+      "evidence": [
+        "reports/H7-m001-review.md"
+      ],
+      "backlog_id": "H7-M001"
     }
   ]
 }
