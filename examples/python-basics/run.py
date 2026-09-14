@@ -26,7 +26,18 @@ def main():
         from kb_python.data import demo
         print(json.dumps(demo(), ensure_ascii=True, sort_keys=True))
         return 0
-    print("usage: run.py {test|basics|data}", file=sys.stderr)
+    if sys.argv[1:] == ["iterators"]:
+        from kb_python.iteration import demo
+        print(json.dumps(demo(), ensure_ascii=True, sort_keys=True))
+        return 0
+    if sys.argv[1:] == ["pipeline"]:
+        from kb_python.pipeline import demo
+        print(json.dumps(demo(), ensure_ascii=True, sort_keys=True))
+        return 0
+    if sys.argv[1:2] == ["summarize"]:
+        from kb_python.cli import main as summarize
+        return summarize(sys.argv[2:])
+    print("usage: run.py {test|basics|data|iterators|pipeline|summarize}", file=sys.stderr)
     return 2
 
 

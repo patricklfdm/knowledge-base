@@ -78,3 +78,5 @@ Y04–Y06追加8组文件发布/真实子进程退出、日志重放与缓存竞
 examples/python-basics使用固定CPython3.13.0、无第三方依赖；run.py的test与basics入口已实现。根kb:examples与npm test通过Node桥执行同一Python unittest套件，桥不是Python测试数量。命令级KB_PYTHON可指定解释器；CI显式actions/setup-python@v6读取.python-version并保护版本/包锁。第一部分10项Python断言测试，版本错误与bool输入等有真实失败对照；标准库venv只在自建临时目录中创建和清理。参见README与reports/H5-python-a.md。
 
 H5-002B增加data入口与8项Python测试，当前18项。模型/JSON/CSV/Decimal实证见reports/H5-python-b.md，固定版本与原入口保持；静态类型检查器未运行，不以注解冒充输入验证。
+
+H5-002C完成Python P00–P08：29项Python unittest，333项根Node测试包含一个实际Python桥；新增iterators/pipeline和summarize CLI入口。故意去重错误由数据和CLI断言检出，恢复通过。临时资源和输入上限/输出协议详见examples/python-basics/README.md。全部九篇/24官方来源/四demo及预期失败已独立复核，综合验收后关闭H5-002。

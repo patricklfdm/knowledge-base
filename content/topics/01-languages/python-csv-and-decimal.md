@@ -56,7 +56,7 @@ with localcontext() as context:
 
 先给备注加入逗号、引号与换行，预测标准CSV解析和手写split的不同结果。再把金额换成1.001、1e2与0.29，分别说明失败、失败、29的原因；不要把拒绝指数误称为Python不能处理指数。
 
-独立故障对照把Decimal转换改成float后，金额断言应检出114与115的差异，恢复后重跑整套测试。下一部分把这些规则接到测试、迭代器和可重跑汇总中，见[Python路线](../../roadmaps/python-foundations.md)。
+独立故障对照把Decimal转换改成float后，金额断言应检出114与115的差异，恢复后重跑整套测试。下一篇[测试与CLI协议](python-tests-and-cli.md)把这些规则接到可验证工具中，见[Python路线](../../roadmaps/python-foundations.md)。
 
 ## 运行与核验
 

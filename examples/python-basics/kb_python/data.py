@@ -33,7 +33,13 @@ def reject_constant(value):
 
 
 def load_trips(path: Path) -> tuple[Trip, ...]:
-    rows = json.loads(read_utf8(path), object_pairs_hook=unique_object, parse_constant=reject_constant)
+    return decode_trips(read_utf8(path))
+
+
+def decode_trips(text: str) -> tuple[Trip, ...]:
+    if len(text.encode("utf-8")) > 8192:
+        raise InvalidData("JSON byte limit exceeded")
+    rows = json.loads(text, object_pairs_hook=unique_object, parse_constant=reject_constant)
     if not isinstance(rows, list) or len(rows) > 100:
         raise InvalidData("expected list of at most 100 trips")
     result = []

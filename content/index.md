@@ -39,3 +39,5 @@ tags:
 个人学习进度、未公开项目资料、凭证和原始敏感日志不放入这个公开内容目录。
 
 [通用系统与存储路线](roadmaps/systems-foundations.md)连接成本、进程、字节流、文件发布、日志恢复与缓存一致性。
+
+[Python基础与数据处理](roadmaps/python-foundations.md)已补齐P00–P08，从解释器走到可重跑汇总与错误验证。

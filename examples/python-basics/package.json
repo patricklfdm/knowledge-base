@@ -6,7 +6,9 @@
   "scripts": {
     "test": "node --test python.test.mjs",
     "basics": "node python.mjs basics",
-    "data": "node python.mjs data"
+    "data": "node python.mjs data",
+    "iterators": "node python.mjs iterators",
+    "pipeline": "node python.mjs pipeline"
   },
   "engines": {
     "node": ">=24 <25"

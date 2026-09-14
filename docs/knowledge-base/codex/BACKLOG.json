@@ -809,7 +809,7 @@
       "id": "H5-002B",
       "phase": "H5",
       "title": "Python类型模型与文件数据",
-      "status": "in_progress",
+      "status": "done",
       "depends_on": [
         "H5-002A"
       ],
@@ -826,7 +826,7 @@
       "id": "H5-002C",
       "phase": "H5",
       "title": "Python测试、迭代与可重跑汇总",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H5-002B"
       ],
@@ -835,7 +835,9 @@
         "固定Python独立正常/边界/失败实证，完整门禁与同SHA发布",
         "浏览器延期，不把其他H5–H7或个人掌握标完成"
       ],
-      "evidence": []
+      "evidence": [
+        "reports/H5-python-c.md"
+      ]
     },
     {
       "id": "H5-PYTHON-GATE",

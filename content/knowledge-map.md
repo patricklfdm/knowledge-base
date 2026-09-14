@@ -40,4 +40,4 @@ tags:
 
 [通用系统与存储路线](roadmaps/systems-foundations.md)继续操作成本、进程边界和流式I/O，并连接文件/日志/缓存实验，形成Y01–Y06主线。
 
-[Python基础与数据处理路线](roadmaps/python-foundations.md)从运行环境与语言规则开始，逐步连接文件数据和工程验证。
+[Python基础与数据处理路线](roadmaps/python-foundations.md)覆盖P00–P08：运行环境、语言、类型、文件数据、测试、迭代和可重跑汇总。
