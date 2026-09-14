@@ -627,7 +627,7 @@
       "id": "H5-002",
       "phase": "H5",
       "title": "Python 数据基础与工程化路线",
-      "status": "todo",
+      "status": "in_progress",
       "depends_on": [
         "H3-GATE",
         "H4-001A"
@@ -786,6 +786,71 @@
       "evidence": [
         "reports/H5-sql-systems-completion.md"
       ]
+    },
+    {
+      "id": "H5-002A",
+      "phase": "H5",
+      "title": "Python运行环境与语言基础",
+      "status": "in_progress",
+      "depends_on": [
+        "H3-GATE",
+        "H4-001A"
+      ],
+      "acceptance": [
+        "按H5-PYTHON-completion计划交付正文/先修/来源/改变条件练习",
+        "固定Python独立正常/边界/失败实证，完整门禁与同SHA发布",
+        "浏览器延期，不把其他H5–H7或个人掌握标完成"
+      ],
+      "evidence": [
+        "reports/H5-python-a.md"
+      ]
+    },
+    {
+      "id": "H5-002B",
+      "phase": "H5",
+      "title": "Python类型模型与文件数据",
+      "status": "todo",
+      "depends_on": [
+        "H5-002A"
+      ],
+      "acceptance": [
+        "按H5-PYTHON-completion计划交付正文/先修/来源/改变条件练习",
+        "固定Python独立正常/边界/失败实证，完整门禁与同SHA发布",
+        "浏览器延期，不把其他H5–H7或个人掌握标完成"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H5-002C",
+      "phase": "H5",
+      "title": "Python测试、迭代与可重跑汇总",
+      "status": "todo",
+      "depends_on": [
+        "H5-002B"
+      ],
+      "acceptance": [
+        "按H5-PYTHON-completion计划交付正文/先修/来源/改变条件练习",
+        "固定Python独立正常/边界/失败实证，完整门禁与同SHA发布",
+        "浏览器延期，不把其他H5–H7或个人掌握标完成"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "H5-PYTHON-GATE",
+      "phase": "H5",
+      "title": "Python P00–P08主线综合验收",
+      "status": "todo",
+      "depends_on": [
+        "H5-002A",
+        "H5-002B",
+        "H5-002C"
+      ],
+      "acceptance": [
+        "按H5-PYTHON-completion计划交付正文/先修/来源/改变条件练习",
+        "固定Python独立正常/边界/失败实证，完整门禁与同SHA发布",
+        "浏览器延期，不把其他H5–H7或个人掌握标完成"
+      ],
+      "evidence": []
     }
   ]
 }

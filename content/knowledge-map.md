@@ -39,3 +39,5 @@ tags:
 [选择全栈基础路线](roadmaps/fullstack-foundations.md) · [返回首页](index.md)
 
 [通用系统与存储路线](roadmaps/systems-foundations.md)继续操作成本、进程边界和流式I/O，并连接文件/日志/缓存实验，形成Y01–Y06主线。
+
+[Python基础与数据处理路线](roadmaps/python-foundations.md)从运行环境与语言规则开始，逐步连接文件数据和工程验证。

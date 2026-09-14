@@ -1,11 +1,7 @@
 # 当前检查点
 
-2026-09-13，patricklfdm/knowledge-base既有v5。Java及剩余SQL／通用系统主线H5-001全部完成；[综合报告](../../../reports/H5-sql-systems-completion.md)、[完成计划](plans/H5-SQL-SYSTEMS-completion.md)。唯一任务状态见BACKLOG。
+2026-09-13，patricklfdm/knowledge-base v5，基线1249794eea7c659d248370ff7a46b8337a188e03。当前H5-002A本地完成，见[报告](../../../reports/H5-python-a.md)与[Python连续计划](plans/H5-PYTHON-completion.md)。60 notes、333 Node测试，桥内10 Python测试；完整适用门禁PASS。待本批普通push同SHA检查后直接继续三部分计划，完成Python后停止等待用户确认下一领域。
 
-本轮新增9篇教学正文：S06–S08与Y01–Y06。全站56 notes、332 tests/45 suites、83 HTML/217产物；完整本地门禁PASS。SQL30组、系统16组、8演示入口独立通过，SQL fail预期退出1；33官方来源200。Java34组保持。故意回滚/二分/日志/缓存错误均被检出，恢复后通过。
+固定CPython3.13.0（KB_PYTHON命令级）、Node24.21.0/npm11.19.0、既有MicrosoftJDK21.0.11+10。独立/tmp/kb-python-a-example.txt、根隔离/tmp/kb-h3b-path.txt；临时失效按维护README重建。恢复先检查Git/HEAD/origin/v5及同SHAActions，保护新修改，不重复初始化。
 
-最终正文e74971521dde26f759d15eb0768fd96f2cfb0560已普通push，Actions34794777448同SHA质量/Build/Pages成功，19线上入口和30资源200、索引82含全路线、缺页404。当前收尾仅工程文档，继续核对自身HEAD发布；恢复先实际查看Git、origin/v5和同SHA Actions，不把历史SHA当最新部署。报告允许以父SHA加文档差异定位，不递归补写自身SHA。
-
-下一项：H5-002 Python数据基础与工程化路线；先读CURRICULUM及CONTENT_STANDARD，拆有限执行计划，按实际先修编写1–3篇/批。H5-003、H6/H7及H4/UI/v1.0仍未完成；浏览器等全部规划内容完成后统一验收。用户持续自动普通push origin/v5授权有效，不强推/改部署目标，不读其他项目。
-
-固定Node24.21.0/npm11.19.0、SQLite3.53.4、命令级MicrosoftJDK21.0.11+10；根隔离/tmp/kb-h3b-path.txt，JDK/tmp/kb-h5d-java-home.txt，独立总验收/tmp/kb-sql-systems-gate-path.txt；日志/tmp/h5k-verify.log、/tmp/h5k-tests.log、/tmp/h5-sql-systems-entries.log等见报告。临时失效按README重建，不改全局环境、不重复初始化。结束时保存恢复点，不承诺离线运行。
+BACKLOG为唯一台账；自动普通push与浏览器等全部规划内容完成后集中验收有效。H5-001已完成，其他H5–H7/H4 UI仍未完成，不读GSE/Wayvia，不强推或声称离线继续。

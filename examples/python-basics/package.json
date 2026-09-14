@@ -1,0 +1,8 @@
+{
+  "name": "kb-python-basics-example",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": { "test": "node --test python.test.mjs", "basics": "node python.mjs basics" },
+  "engines": { "node": ">=24 <25" }
+}

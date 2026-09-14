@@ -72,3 +72,7 @@ S06–S08追加5组查询/保存点/备份恢复测试，SQL包内30组；backup
 Y01–Y03新建无依赖systems-basics，8组真实测试；根kb:examples/回归与CI显式安装/新锁检查已实现。CI保护故障夹具包含遗漏系统包安装和锁保护，Java固定版本保护继续存在。
 
 Y04–Y06追加8组文件发布/真实子进程退出、日志重放与缓存竞争，系统包16组，仍由既有显式入口执行；不将进程中止称为机器断电。
+
+## Python维护入口（H5-002）
+
+examples/python-basics使用固定CPython3.13.0、无第三方依赖；run.py的test与basics入口已实现。根kb:examples与npm test通过Node桥执行同一Python unittest套件，桥不是Python测试数量。命令级KB_PYTHON可指定解释器；CI显式actions/setup-python@v6读取.python-version并保护版本/包锁。第一部分10项Python断言测试，版本错误与bool输入等有真实失败对照；标准库venv只在自建临时目录中创建和清理。参见README与reports/H5-python-a.md。

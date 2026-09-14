@@ -24,6 +24,14 @@ function assertProtected(publish, checks) {
       }
     }
   const commands = checks.jobs.verify.steps.map((s) => s.run)
+  const pythonIndex = checks.jobs.verify.steps.findIndex((s) => s.uses === "actions/setup-python@v6")
+  assert.ok(pythonIndex >= 0 && pythonIndex < commands.indexOf("npm run kb:verify"))
+  const pythonOptions = checks.jobs.verify.steps[pythonIndex].with
+  assert.equal(pythonOptions["python-version-file"], "examples/python-basics/.python-version")
+  assert.ok(!Object.hasOwn(pythonOptions, "python-version"))
+  assert.ok(commands.includes("npm ci --prefix examples/python-basics"))
+  assert.ok(commands.indexOf("npm ci --prefix examples/python-basics") < commands.indexOf("npm run kb:verify"))
+  assert.ok(commands.some((c) => c?.startsWith("git diff --exit-code") && c.includes("examples/python-basics/package-lock.json") && c.includes("examples/python-basics/.python-version")))
   const javaIndex = checks.jobs.verify.steps.findIndex((s) => s.uses === "actions/setup-java@v6")
   assert.ok(javaIndex >= 0, "Java 示例必须安装固定 JDK，不能依赖 runner 偶然预装")
   assert.ok(javaIndex < commands.indexOf("npm run kb:verify"))
@@ -85,6 +93,20 @@ test("部署显式依赖同提交可复用门禁，且破坏依赖会被检测",
   const lockStep = missingSystemsLock.jobs.verify.steps.find((s) => s.run?.startsWith("git diff --exit-code"))
   lockStep.run = lockStep.run.replace(" examples/systems-basics/package-lock.json", "")
   assert.throws(() => assertProtected(publish, missingSystemsLock))
+  for (const mutation of ["runtime", "late", "override", "install", "version-lock"]) {
+    const changed = structuredClone(checks)
+    const steps = changed.jobs.verify.steps
+    const index = steps.findIndex((s) => s.uses === "actions/setup-python@v6")
+    if (mutation === "runtime") steps.splice(index, 1)
+    if (mutation === "late") steps.push(...steps.splice(index, 1))
+    if (mutation === "override") steps[index].with["python-version"] = "3.14"
+    if (mutation === "install") steps.splice(steps.findIndex((s) => s.run === "npm ci --prefix examples/python-basics"), 1)
+    if (mutation === "version-lock") {
+      const lock = steps.find((s) => s.run?.startsWith("git diff --exit-code"))
+      lock.run = lock.run.replace(" examples/python-basics/.python-version", "")
+    }
+    assert.throws(() => assertProtected(publish, changed), mutation)
+  }
   const missingJava = structuredClone(checks)
   missingJava.jobs.verify.steps = missingJava.jobs.verify.steps.filter(
     (s) => !s.uses?.startsWith("actions/setup-java"),
@@ -129,7 +151,7 @@ test("教学示例单独登记，Quartz 类型范围不包含示例", () => {
   const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"))
   assert.equal(
     pkg.scripts["kb:examples"],
-    "npm test --prefix examples/foundations && npm test --prefix examples/typed-trips && npm test --prefix examples/web-forms && npm test --prefix examples/http-trips && npm test --prefix examples/trip-api && npm test --prefix examples/sql-trips && npm test --prefix examples/trip-app && npm test --prefix examples/java-basics && npm test --prefix examples/systems-basics",
+    "npm test --prefix examples/foundations && npm test --prefix examples/typed-trips && npm test --prefix examples/web-forms && npm test --prefix examples/http-trips && npm test --prefix examples/trip-api && npm test --prefix examples/sql-trips && npm test --prefix examples/trip-app && npm test --prefix examples/java-basics && npm test --prefix examples/systems-basics && npm test --prefix examples/python-basics",
   )
   assert.ok(pkg.scripts["kb:verify"].includes("npm run kb:examples"))
   const tsconfig = JSON.parse(fs.readFileSync("tsconfig.json", "utf8"))
