@@ -15,10 +15,10 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -28,7 +28,7 @@ jobs:
           distribution: microsoft
           java-version-file: examples/java-basics/.java-version
       - name: Set up locked Python example runtime
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version-file: examples/python-basics/.python-version
       - name: Install locked dependencies
@@ -60,8 +60,8 @@ jobs:
     name: Patch runtime compatibility
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
       # setup-java's Microsoft manifest does not yet list this emergency patch.
@@ -75,7 +75,7 @@ jobs:
           mkdir kb-compat-jdk
           tar -xzf kb-compat-jdk.tar.gz -C kb-compat-jdk --strip-components=1
           echo "KB_JAVA_HOME=$RUNNER_TEMP/kb-compat-jdk" >> "$GITHUB_ENV"
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version-file: docs/knowledge-base/maintenance/runtimes/.python-version
       - name: Test patch runtimes in owned example copies
